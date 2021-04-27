@@ -1,6 +1,4 @@
-
-
-
+import javax.persistence.*;
 
 @Entity
 @Table(name="account")
@@ -9,7 +7,6 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-
 
 
     @Email(message = "Invalid email address! Please provide a valid email address")
