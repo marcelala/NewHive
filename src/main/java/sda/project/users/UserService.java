@@ -1,6 +1,7 @@
 package sda.project.users;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service()
@@ -12,7 +13,7 @@ public class UserService {
     private BCryptPasswordEncoder passwordEncoder;
 
 
-    public SecurityProperties.User findUserByEmail(String email) {
+    public User findUserByEmail(String email) {
         return userRepository.findByEmail(email);
     }
 

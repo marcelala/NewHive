@@ -1,4 +1,14 @@
+package sda.project.users;
+
+
+import org.hibernate.validator.constraints.Length;
+import sda.project.comments.Comment;
+import sda.project.posts.Post;
+
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import java.util.List;
 
 @Entity
 @Table(name="account")
