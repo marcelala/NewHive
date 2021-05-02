@@ -2,7 +2,7 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 // Project files
-import { Header } from "../src/components/Header";
+import Header from "../src/components/Header";
 import { Home } from "../src/pages/Home";
 import "./styles/style.css";
 

@@ -1,1 +1,11 @@
-export const Header = () => <div className="main-header">Header</div>
+import { Link } from "react-router-dom";
+
+export default function Header () {
+    return (
+    <div className="main-header">
+        <Link to="/">
+            <h3>Home</h3>
+        </Link>
+    </div>
+    )
+}
