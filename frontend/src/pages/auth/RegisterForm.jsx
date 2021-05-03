@@ -1,0 +1,1 @@
+export const RegisterForm = () => <div>Register Form</div>
