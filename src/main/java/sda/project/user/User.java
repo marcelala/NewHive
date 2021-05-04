@@ -34,9 +34,6 @@ public class User {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
-    private List<Post> postList;
-
     // Hibernate needs a default constructor to function
     public User() {}
 
