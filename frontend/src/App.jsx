@@ -13,8 +13,6 @@ import AuthApi from "./api/AuthApi";
 import { Header } from "../src/components/Header";
 import { Home } from "../src/pages/Home";
 import  Feed from "../src/pages/Feed";
-
-
 import { AuthPage } from "./pages/auth/AuthPage";
 import { OrganizationsPage } from "./pages/OrganizationsPage";
 import "./styles/style.css";
@@ -37,12 +35,10 @@ function App() {
         <Header />
         <Switch>
           <Route component={Home} path="/" exact />
+          <Route component={Feed} path="/feed" />
           <Route component={OrganizationsPage} path="/organizations" />
         </Switch>
-        <Switch>
-        <Route component={Feed} path="/feed"/>
-        </Switch>
-       </BrowserRouter>
+      </BrowserRouter>
     </div>
   );
 
