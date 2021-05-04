@@ -10,37 +10,35 @@ export const LoginForm = ({onSubmit}) => {
       <h2>Log In</h2>
       <div className="form">
         <div className="form-group">
-          <label for="email">Email:</label>
+          <label htmlFor="email">Email:</label>
           <input
             id="email"
             type="email"
             className="form-control"
-            placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
 
         <div className="form-group">
-          <label for="password">Password:</label>
+          <label htmlFor="password">Password:</label>
           <input
             id="password"
             type="password"
             className="form-control"
-            placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
 
-        <div className="form-group">
-            <button
-              className="btn btn-login"
-              onClick={() => onSubmit({ email, password })}
-            >
-              Login
-            </button>
-            </div>
+        <div className="form-group btn-group">
+          <button
+            className="btn btn-login"
+            onClick={() => onSubmit({ email, password })}
+          >
+            Login
+          </button>
+        </div>
       </div>
     </div>
   );

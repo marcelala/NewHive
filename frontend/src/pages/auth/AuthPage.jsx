@@ -1,24 +1,16 @@
+// NPM packages
+import { useState } from "react";
+
 // Project files
 import { RegisterForm } from "./RegisterForm";
 import { LoginForm } from "./LoginForm";
+//import formBg from "../../assets/auth/formBg.jpg";
 
 export const AuthPage = () => {
-  //temporary
-  const userHasAccount = true;
-
-  //Methods
-  async function login(loginData) {
-    //const loginSuccess = await Auth.login(loginData);
-    
-    //temporary
-    const loginSuccess = true;
-    if (!loginSuccess) {
-      alert("Invalid credentials");
-    }
-  }
+  const [signIn, setSignIn] = useState(true);
 
   return (
-    <div className="auth-page">
+    <section className="auth-page page-with-bg">
       <h1 className="main-header">Community Name</h1>
       <p className="description">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
@@ -26,8 +18,42 @@ export const AuthPage = () => {
         explicabo minus nam saepe voluptatem amet iure voluptates a. Animi,
         suscipit laborum!
       </p>
+      <div className="form-layout">
+        <div className="form-background"></div>
+        <div className="form">
+          {signIn && (
+            <div className="form-wrapper">
+              <LoginForm />
+              <div className="link signup-link">
+                <p>Not a member yet?</p>
 
-      {userHasAccount ? <LoginForm onSubmit={login} /> : <RegisterForm />}
-    </div>
+                <button
+                  className="form-switcher"
+                  type="button"
+                  onClick={() => (signIn ? setSignIn(false) : setSignIn(true))}
+                >
+                  Sign up here
+                </button>
+              </div>
+            </div>
+          )}
+          {!signIn && (
+            <div className="form-wrapper">
+              <RegisterForm />
+              <div className="link login-link">
+                <p>Already a user?</p>
+                <button
+                  type="button"
+                  className="form-switcher"
+                  onClick={() => (signIn ? setSignIn(false) : setSignIn(true))}
+                >
+                  Login here
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
   );
 };
