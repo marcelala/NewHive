@@ -12,7 +12,7 @@ import Auth from "./services/Auth";
 import AuthApi from "./api/AuthApi";
 import { Header } from "../src/components/Header";
 import { Home } from "../src/pages/Home";
-import  { Feed } from "../src/pages/Feed";
+import  Feed  from "../src/pages/Feed";
 
 
 import { AuthPage } from "./pages/auth/AuthPage";
@@ -36,9 +36,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Switch>
-          <Route component={Home} path="/" exact />
-        </Switch>
-        <Switch>
+        <Route component={Home} path="/" exact />
         <Route component={Feed} path="/feed"/>
         </Switch>
        </BrowserRouter>
