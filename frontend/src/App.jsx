@@ -8,8 +8,8 @@ import AuthApi from "./api/AuthApi";
 import { Header } from "../src/components/Header";
 import { Home } from "../src/pages/Home";
 import { AuthPage } from "./pages/auth/AuthPage";
+import { OrganizationsPage } from "./pages/OrganizationsPage";
 import "./styles/style.css";
-import React from "react";
 
 function App() {
   // State
@@ -29,12 +29,14 @@ function App() {
         <Header />
         <Switch>
           <Route component={Home} path="/" exact />
+          <Route component={OrganizationsPage} path="/organizations" />
         </Switch>
       </BrowserRouter>
     </div>
   );
-  
-  return loggedIn ? loggedInRouter : <AuthPage />;
+
+  // return loggedIn ? loggedInRouter : <AuthPage />;
+  return loggedInRouter;
 }
 
 export default App;

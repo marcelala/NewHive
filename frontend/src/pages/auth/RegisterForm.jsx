@@ -3,17 +3,10 @@ import { useState } from "react";
 
 import Auth from "../../services/Auth";
 
-export const RegisterForm = () => {
+export const RegisterForm = ({onSubmit}) => {
    const [name, setName] = useState("");
    const [email, setEmail] = useState("");
    const [password, setPassword] = useState("");
-
-    async function register(registrationData) {
-      const registerSuccess = await Auth.register(registrationData);
-      if (!registerSuccess) {
-        alert("Couldn't register check credentials and try again");
-      }
-    }
 
 
   return (
@@ -22,7 +15,7 @@ export const RegisterForm = () => {
       <div className="form">
         <div className="form-group">
           <label htmlFor="name">Name:</label>
-          <input
+          <input 
             id="name"
             type="text"
             className="form-control"
@@ -60,7 +53,7 @@ export const RegisterForm = () => {
           <button
             className="btn btn-login"
             type="submit"
-            onClick={(e) => register({ name, email, password })}
+            onClick={(e) => onSubmit({ name, email, password })}
           >
             Register
           </button>
