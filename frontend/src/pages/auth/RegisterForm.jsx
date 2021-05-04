@@ -1,13 +1,10 @@
 // NPM Packages
 import { useState } from "react";
 
-import Auth from "../../services/Auth";
-
-export const RegisterForm = ({onSubmit}) => {
-   const [name, setName] = useState("");
-   const [email, setEmail] = useState("");
-   const [password, setPassword] = useState("");
-
+export const RegisterForm = ({ onSubmit }) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   return (
     <div className="auth-form register-form">
@@ -15,7 +12,7 @@ export const RegisterForm = ({onSubmit}) => {
       <div className="form">
         <div className="form-group">
           <label htmlFor="name">Name:</label>
-          <input 
+          <input
             id="name"
             type="text"
             className="form-control"
@@ -44,7 +41,7 @@ export const RegisterForm = ({onSubmit}) => {
             type="password"
             className="form-control"
             value={password}
-            placeholder="Password"
+            placeholder="Password (must contain at least 8 characters)"
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>

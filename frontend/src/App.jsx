@@ -22,6 +22,7 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(Auth.isLoggedIn());
   const [userInSession, setUserInSession] = useState("");
   Auth.bindLoggedInStateSetter(setLoggedIn);
+
   useEffect(() => {
     AuthApi.getUserInSession()
       .then(({ data }) => setUserInSession(data))
@@ -42,8 +43,7 @@ function App() {
     </div>
   );
 
-  // return loggedIn ? loggedInRouter : <AuthPage />;
-  return loggedInRouter;
+   return loggedIn ? loggedInRouter : <AuthPage />;
 }
 
 export default App;
