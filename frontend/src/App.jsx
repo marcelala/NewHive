@@ -37,9 +37,7 @@ function App() {
         <Header />
         <Switch>
           <Route component={Home} path="/" exact />
-        </Switch>
-        <Switch>
-        <Route component={Feed} path="/feed"/>
+          <Route component={Feed} path="/feed"/>
         </Switch>
        </BrowserRouter>
     </div>
