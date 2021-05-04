@@ -2,7 +2,7 @@ package sda.project.user;
 
 import org.hibernate.validator.constraints.Length;
 import org.springframework.validation.annotation.Validated;
-import sda.project.posts.Post;
+
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -34,11 +34,9 @@ public class User {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
-    private List<Post> postList;
-
     // Hibernate needs a default constructor to function
     public User() {}
+
 
     public User(@Email(message = "Invalid email address! Please provide a valid email address")
                 @NotEmpty(message = "Please provide an email address") String email,
