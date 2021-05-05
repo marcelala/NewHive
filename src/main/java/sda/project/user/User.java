@@ -2,6 +2,7 @@ package sda.project.user;
 
 import org.hibernate.validator.constraints.Length;
 import org.springframework.validation.annotation.Validated;
+import sda.project.posts.Post;
 
 
 import javax.persistence.*;
@@ -33,6 +34,9 @@ public class User {
     @Length(min = 3, max=100, message = "Name must be between 3-100 characters")
     @Column(name = "name")
     private String name;
+
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
+    private List<Post> postList;
 
     // Hibernate needs a default constructor to function
     public User() {}
