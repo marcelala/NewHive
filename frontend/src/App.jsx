@@ -10,9 +10,9 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 // Project files
 import Auth from "./services/Auth";
 import AuthApi from "./api/AuthApi";
-import { Header } from "../src/components/Header";
+import { NavBar } from "./components/NavBar";
 import { Home } from "../src/pages/Home";
-import  Feed from "../src/pages/Feed";
+import { Feed }from "../src/pages/Feed";
 import { AuthPage } from "./pages/auth/AuthPage";
 import { OrganizationsPage } from "./pages/OrganizationsPage";
 import "./styles/style.css";
@@ -33,7 +33,7 @@ function App() {
   const loggedInRouter = (
     <div className="App">
       <BrowserRouter>
-        <Header onLogout={() => Auth.logout()}/>
+        <NavBar onLogout={() => Auth.logout()}/>
         <Switch>
           <Route component={Home} path="/" exact />
           <Route component={Feed} path="/feed" />

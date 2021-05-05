@@ -1,4 +1,4 @@
-.header {
+.nav-bar {
     width: 100%;
     height: 55px;
     position: relative;
@@ -9,17 +9,17 @@
     color: #FAF3E9;
 }
 
-.header .logo {
+.nav-bar .logo {
     padding: 15px 0;
 }
 
-.header ul {
+.nav-bar ul {
     list-style: none;
     display: flex;
     flex-flow: row nowrap;
 }
 
-.header li {
+.nav-bar li {
     padding: 18px 10px;
 }
 
@@ -37,6 +37,6 @@
     padding: 10px;
 }
 
-.header .link {
+.nav-bar .link {
     color: #FAF3E9;
 }

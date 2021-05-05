@@ -13,6 +13,7 @@ export default function PostCard({ post, onDeleteClick }) {
   // Local state
   const [comments, setComments] = useState([]);
   const [toggleComments, setToggleComments] = useState(false);
+  const [toggleBody, setToggleBody] = useState(false);
   const [toggleEdit, setToggleEdit] = useState(false);
   const [user, setUser] = useState({});
 
@@ -120,6 +121,11 @@ export default function PostCard({ post, onDeleteClick }) {
                 toggleComments
                   ? setToggleComments(false)
                   : setToggleComments(true)
+              }
+              onClick={() =>
+                toggleBody
+                  ? setToggleBody(false)
+                  : setToggleBody(true)
               }
             />
           </div>
