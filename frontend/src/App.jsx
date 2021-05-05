@@ -12,7 +12,7 @@ import Auth from "./services/Auth";
 import AuthApi from "./api/AuthApi";
 import { Header } from "../src/components/Header";
 import { Home } from "../src/pages/Home";
-import  Feed from "../src/pages/Feed";
+import { Feed }from "../src/pages/Feed";
 import { AuthPage } from "./pages/auth/AuthPage";
 import { OrganizationsPage } from "./pages/OrganizationsPage";
 import "./styles/style.css";

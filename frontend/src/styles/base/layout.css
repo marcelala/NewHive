@@ -1,14 +1,68 @@
-* {
+*,
+*::after,
+*::after {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit;
+  font-family: "Montserrat", sans-serif;
+}
+
+html,body {
+  height: 100vh;
+  width: 100vw;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--color-beige);
 }
 
 body {
+  box-sizing: border-box;
+  position: relative;
+  padding: 0rem;
+}
+
+@media (min-width: 34.375em) {
+  body {
+    padding: 1rem;
+  }
+}
+
+section {
+  padding: 1rem;
+  text-align: center;
+  padding-bottom: 3rem;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+@media (min-width: 34.375em) {
+  section {
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 46.875em) {
+  section {
+    margin-left: 4rem;
+    margin-right: 4rem;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
   height: 100vh;
-  width: 100vw;
-  font-family: "Montserrat", sans-serif;
-  background-color: var(--color-beige);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .page-with-bg {
@@ -22,4 +76,28 @@ body {
   background-position: top right, center right, bottom right -6%, top left,
     top 56% left, bottom left -3%;
   background-size: 14vw, 10vw, 15vw, 14vw, 10vw, 17vw;
+}
+
+@media (min-width: 34.375em) {
+  html {
+    font-size: 62.5%;
+  }
+}
+
+@media (min-width: 40.625em) {
+  html {
+    font-size: 80%;
+  }
+}
+
+@media (min-width: 46.875em) {
+  html {
+    font-size: 90%;
+  }
+}
+
+@media (min-width: 100em) {
+  html {
+    font-size: 110%;
+  }
 }

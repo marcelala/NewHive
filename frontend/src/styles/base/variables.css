@@ -1,6 +1,7 @@
 :root {
   /* Colors */
-  --color-dark-brown: #4E2910;
+  --color-dark-brown: #rgba(71, 51, 12, 1);
+  --color-warm-brown: rgba(117, 66, 31, 1);
   --color-brown: #7a5f48;
   --color-beige: #e5ded7;
   --color-light-beige: #eeece6;
