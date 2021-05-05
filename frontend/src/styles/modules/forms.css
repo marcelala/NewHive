@@ -57,9 +57,89 @@ input[type="password"] {
   margin-bottom: 2rem;
   margin-left: auto;
   margin-right: auto;
+  box-shadow: 0 1.5rem 2rem rgba(107, 122, 133, 0.2);
 }
 
 .editComment {
   background-color: var(--color-beige);
   color: var(--color-brown);
+}
+
+.contact-form .input {
+  display: block;
+  background-color: transparent;
+  border-color: transparent;
+  color: white;
+  font-weight: normal;
+  border-bottom: 2px solid white;
+  padding-left: 0;
+  background: transparent;
+}
+
+.input-group{
+    margin-bottom: 1rem;
+}
+.contact-content{
+  justify-content: space-between;
+}
+.contact-image-wrap{
+  display: block;
+  flex: 0 0 65%;
+}
+.contact-image-wrap img{
+  width: 100%;
+}
+
+.contact.form{
+  flex: 0 0 50%;
+  align-self: flex-start;
+}
+
+.input-group-wrap{
+  display: flex;
+}
+.input-group-wrap .input-group{
+  width: 50%;
+  margin-right: 2rem;
+}
+
+
+
+textarea{
+  border-color: transparent;
+  background-color: transparent;
+  background: transparent;
+  font-weight: normal;
+  color: white;
+}
+
+select{
+  border-color: transparent;
+  background-color: transparent;
+  background: transparent;
+  font-weight: normal;
+  color: white;
+  border-color: white;
+}
+
+.bar {
+  display: block;
+  position: relative;
+}
+
+.bar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--cyan-transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s;
+}
+
+.contact-form .input:focus + bar::after {
+  transform: scaleX(1);
 }
