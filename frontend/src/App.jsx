@@ -33,7 +33,7 @@ function App() {
   const loggedInRouter = (
     <div className="App">
       <BrowserRouter>
-        <Header />
+        <Header onLogout={() => Auth.logout()}/>
         <Switch>
           <Route component={Home} path="/" exact />
           <Route component={Feed} path="/feed" />
