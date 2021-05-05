@@ -1,35 +1,50 @@
 .feed--banner{
-    display:block;
+    display: block;
     width: 20rem;
     height: 20rem;
     object-fit: cover;
     min-height: 100%;
     min-width: 100%;
     opacity: 50%;
+    top:0;
+    left:0;
+    bottom:100%;
+    right: 100%;
 }
 
 .feed--banner-text{
-    position: relative;
+    position: absolute;
     font-family: Montserrat, sans-serif;
     font-style: normal;
     font-weight: bold;
-    align-items: flex-start;
-    display: flex;
+    left: 8rem;
+    bottom:100%;
+    right: 100%;
+    
 }
 .feed--banner-text h3{
+    position: absolute;
     font-size: 1.5rem;
     color: var(--color-dark-brown);
     font-weight: bold;
+    width: 18rem;
+    top:15rem;
 }
 .feed--banner-text h2{
-    font-size: 2rem;
+    position: absolute;
+    font-size: 1.8rem;
     color: var(--color-warm-brown);
     font-weight: bold;
-
+    width: 50rem;
+    top: 16rem;
+    left:-9.8rem;
 }
 .feed--banner-text p{
+    position: absolute;
     font-size: 1rem;
     color: var(--color-dark-brown);
     font-weight: regular;
-
+    width: 50rem;
+    top: 20rem;
+    left:-4rem;
 }
