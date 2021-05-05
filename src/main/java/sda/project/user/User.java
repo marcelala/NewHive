@@ -2,10 +2,12 @@ package sda.project.user;
 
 import org.hibernate.validator.constraints.Length;
 import org.springframework.validation.annotation.Validated;
+import sda.project.profile.Profile;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import java.util.Objects;
 
 @Validated
 @Entity
@@ -30,6 +32,9 @@ public class User {
     @Length(min = 3, max=100, message = "Name must be between 3-100 characters")
     @Column(name = "name")
     private String name;
+
+    @OneToOne(mappedBy = "owner",cascade = CascadeType.ALL)
+    private Profile profile;
 
     // Hibernate needs a default constructor to function
     public User() {}
@@ -71,5 +76,26 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+        User user = (User) o;
+        return Objects.equals(getId(), user.getId()) && Objects.equals(getEmail(), user.getEmail()) && Objects.equals(getPassword(), user.getPassword()) && Objects.equals(getName(), user.getName()) && Objects.equals(getProfile(), user.getProfile());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getEmail(), getPassword(), getName(), getProfile());
     }
 }

@@ -1,6 +1,10 @@
 package sda.project.profile;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.springframework.validation.annotation.Validated;
+import sda.project.user.User;
 
 import javax.persistence.*;
 
@@ -35,6 +39,11 @@ public class Profile {
 
     @Column(name = "mentorArea")
     private String mentorArea;
+
+    @OneToOne
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "email")
+    @JsonIdentityReference(alwaysAsId = true)
+    private User owner;
 
     public Profile(){
 
@@ -112,5 +121,21 @@ public class Profile {
 
     public void setMentorArea(String mentorArea) {
         this.mentorArea = mentorArea;
+    }
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Profile profile = (Profile) o;
+        return owner.equals(profile.owner);
     }
 }
