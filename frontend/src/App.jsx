@@ -36,16 +36,10 @@ function App() {
         <Header onLogout={() => Auth.logout()}/>
         <Switch>
           <Route component={Home} path="/" exact />
-<<<<<<< HEAD
-          <Route component={Feed} path="/feed"/>
-        </Switch>
-       </BrowserRouter>
-=======
           <Route component={Feed} path="/feed" />
           <Route component={OrganizationsPage} path="/organizations" />
         </Switch>
       </BrowserRouter>
->>>>>>> d983047ee41ec799956a7627c9cd584bb1b41ed1
     </div>
   );
 
