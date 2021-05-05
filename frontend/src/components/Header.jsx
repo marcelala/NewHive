@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 export const Header = ({ onLogout }) => 
-    <div className="main-header">
+    <div className="header">
         <div className="logo">
             Logotype
         </div>
