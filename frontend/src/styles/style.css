@@ -1,4 +1,5 @@
 /* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Thasadith:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 /* Base */
 @import url("./base/variables.css");
@@ -6,6 +7,7 @@
 
 /* Pages */
 @import url("./pages/home.css");
+@import url("./pages/auth-page.css");
 
 /* Modules */
 @import url("./modules/header.css");
