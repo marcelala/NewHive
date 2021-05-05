@@ -21,8 +21,8 @@ public class Profile {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "surName")
-    private String surName;
+    @Column(name = "surname")
+    private String surname;
 
     @Column(name = "countryFrom")
     private String countryFrom;
@@ -49,9 +49,9 @@ public class Profile {
 
     }
 
-    public Profile( String name, String surName, String countryFrom, String liveIn, String bio, boolean isMentor, String mentorArea) {
+    public Profile( String name, String surname, String countryFrom, String liveIn, String bio, boolean isMentor, String mentorArea) {
         this.name = name;
-        this.surName = surName;
+        this.surname = surname;
         this.countryFrom = countryFrom;
         this.liveIn = liveIn;
         this.bio = bio;
@@ -75,12 +75,12 @@ public class Profile {
         this.name = name;
     }
 
-    public String getSurName() {
-        return surName;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setSurName(String surName) {
-        this.surName = surName;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public String getCountryFrom() {
