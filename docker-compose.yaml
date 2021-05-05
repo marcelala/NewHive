@@ -1,7 +1,7 @@
 version: "3"
 services:
   database:
-    image: "postgres:13-alpine"
+    image: postgres:13-alpine
     environment:
       - POSTGRES_DB=debugzilla
       - POSTGRES_USER=debugzilla_user
