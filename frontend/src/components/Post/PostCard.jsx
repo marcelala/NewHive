@@ -82,15 +82,15 @@ export default function PostCard({ post, onDeleteClick }) {
     }
   }
 
-  function date() {
-    if (dateCreatedOrUpdatedCheck()) {
-      const createDate = post.created.substring(0, 10);
-      return `Created: ${createDate}`;
-    } else {
-      const updateDate = post.updated.substring(0, 10);
-      return `Updated: ${updateDate}`;
-    }
-  }
+  // function date() {
+  //   if (dateCreatedOrUpdatedCheck()) {
+  //     const createDate = post.created.substring(0, 10);
+  //     return `Created: ${createDate}`;
+  //   } else {
+  //     const updateDate = post.updated.substring(0, 10);
+  //     return `Updated: ${updateDate}`;
+  //   }
+  // }
 
   // Components;
 
@@ -103,13 +103,16 @@ export default function PostCard({ post, onDeleteClick }) {
     />
   ));
   return (
+    <section className="postCard-section"  onClick={() =>
+      toggleBody
+        ? setToggleBody(false)
+        : setToggleBody(true)
+    }>
     <div className="postCard">
       <div className="postCard__content">
-        <div className="postCard__topic-picture">
           <img src={Cactus} className="topic-picture" alt="cactus" />
-        </div>
         <h2 className="postCard__content-heading">{post.title}</h2>
-        <p>{post.body}</p>
+        <p className="postCard__content-body">{post.body}</p>
       </div>
       <div className="postCard__comments">
         <div className="postCard__comments-btn">
@@ -121,11 +124,6 @@ export default function PostCard({ post, onDeleteClick }) {
                 toggleComments
                   ? setToggleComments(false)
                   : setToggleComments(true)
-              }
-              onClick={() =>
-                toggleBody
-                  ? setToggleBody(false)
-                  : setToggleBody(true)
               }
             />
           </div>
@@ -143,15 +141,13 @@ export default function PostCard({ post, onDeleteClick }) {
                 onClick={onDeleteClick}
               />
             </div>
-            <button
-              className="btn"
-              type="button"
+            <FontAwesomeIcon
+              className="edit"
+              icon={["fa", "edit"]}
               onClick={() =>
                 toggleEdit ? setToggleEdit(false) : setToggleEdit(true)
               }
-            >
-              Edit
-            </button>
+            />
           </div>
           {toggleEdit && (
             <EditPost
@@ -162,7 +158,7 @@ export default function PostCard({ post, onDeleteClick }) {
         </div>
       )}
 
-      <div className="postCard--date">{date()}</div>
+      {/* <div className="postCard--date">{date()}</div> */}
 
       {toggleComments && (
         <div className="commentCard-container">
@@ -175,5 +171,6 @@ export default function PostCard({ post, onDeleteClick }) {
         </div>
       )}
     </div>
+    </section>
   );
 }

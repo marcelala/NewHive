@@ -31,8 +31,8 @@ public class Post {
     @NotEmpty(message = "Please provide a valid post body")
     private String body;
 
-    @Column(nullable = false)
-    @NotEmpty(message = "Please provide a valid post topic")
+    // @Column(nullable = false)
+    // @NotEmpty(message = "Please provide a valid post topic")
     private String topic;
 
     @ManyToOne

@@ -74,6 +74,8 @@ input[type="password"] {
   border-bottom: 2px solid white;
   padding-left: 0;
   background: transparent;
+  position: absolute;
+  left: ;
 }
 
 .input-group{
@@ -105,22 +107,26 @@ input[type="password"] {
 
 
 
-textarea{
+.comment-form textarea{
   border-color: transparent;
   background-color: transparent;
   background: transparent;
   font-weight: normal;
-  color: white;
+  color: var(--color-dark-brown);
+  /* position: absolute; */
+  left: 10rem;
+  max-width: 70%;
+  max-height: 50%;
 }
 
-select{
+/* select{
   border-color: transparent;
   background-color: transparent;
   background: transparent;
   font-weight: normal;
   color: white;
   border-color: white;
-}
+} */
 
 .bar {
   display: block;
