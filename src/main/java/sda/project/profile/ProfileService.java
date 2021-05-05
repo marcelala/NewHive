@@ -20,7 +20,7 @@ public class ProfileService {
 
     public Profile update(Profile profile,Profile updatedProfile)
     {
-        profile.setSurName(updatedProfile.getSurName());
+        profile.setSurname(updatedProfile.getSurname());
         profile.setBio(updatedProfile.getBio());
         profile.setCountryFrom(updatedProfile.getCountryFrom());
         profile.setLiveIn(updatedProfile.getLiveIn());
