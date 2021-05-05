@@ -12,7 +12,7 @@ export const OrganizationsPage = () => {
       <div className="organizations">
         <div className="filters">
           <select name="topics" id="topics">
-            <option value="" disabled selected>
+            <option value="" disabled defaultValue>
               Topic
             </option>
 
@@ -31,8 +31,7 @@ export const OrganizationsPage = () => {
         </div>
         <p>Showing {18} organizations</p>
         <div className="organizations-group">
-            <h3>Legal help</h3>
-            
+          <h3>Legal help</h3>
         </div>
       </div>
     </section>
