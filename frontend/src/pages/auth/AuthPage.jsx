@@ -4,10 +4,25 @@ import { useState } from "react";
 // Project files
 import { RegisterForm } from "./RegisterForm";
 import { LoginForm } from "./LoginForm";
-//import formBg from "../../assets/auth/formBg.jpg";
+import Auth from "../../services/Auth";
 
 export const AuthPage = () => {
   const [signIn, setSignIn] = useState(true);
+
+  // Methods
+  async function login(loginData) {
+    const loginSuccess = await Auth.login(loginData);
+    if (!loginSuccess) {
+      alert("Invalid credentials");
+    }
+  }
+
+  async function register(registrationData) {
+    const registerSuccess = await Auth.register(registrationData);
+    if (!registerSuccess) {
+      alert("Couldn't register check credentials and try again");
+    }
+  }
 
   return (
     <section className="auth-page page-with-bg">
@@ -23,7 +38,7 @@ export const AuthPage = () => {
         <div className="form">
           {signIn && (
             <div className="form-wrapper">
-              <LoginForm />
+              <LoginForm onSubmit={login} />
               <div className="link signup-link">
                 <p>Not a member yet?</p>
 
@@ -39,7 +54,7 @@ export const AuthPage = () => {
           )}
           {!signIn && (
             <div className="form-wrapper">
-              <RegisterForm />
+              <RegisterForm onSubmit={register} />
               <div className="link login-link">
                 <p>Already a user?</p>
                 <button

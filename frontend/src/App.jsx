@@ -14,6 +14,7 @@ import { Header } from "../src/components/Header";
 import { Home } from "../src/pages/Home";
 import  Feed from "../src/pages/Feed";
 import { AuthPage } from "./pages/auth/AuthPage";
+import { OrganizationsPage } from "./pages/OrganizationsPage";
 import "./styles/style.css";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(Auth.isLoggedIn());
   const [userInSession, setUserInSession] = useState("");
   Auth.bindLoggedInStateSetter(setLoggedIn);
+
   useEffect(() => {
     AuthApi.getUserInSession()
       .then(({ data }) => setUserInSession(data))
@@ -31,16 +33,23 @@ function App() {
   const loggedInRouter = (
     <div className="App">
       <BrowserRouter>
-        <Header />
+        <Header onLogout={() => Auth.logout()}/>
         <Switch>
           <Route component={Home} path="/" exact />
+<<<<<<< HEAD
           <Route component={Feed} path="/feed"/>
         </Switch>
        </BrowserRouter>
+=======
+          <Route component={Feed} path="/feed" />
+          <Route component={OrganizationsPage} path="/organizations" />
+        </Switch>
+      </BrowserRouter>
+>>>>>>> d983047ee41ec799956a7627c9cd584bb1b41ed1
     </div>
   );
-  
-  return loggedIn ? loggedInRouter : <AuthPage />;
+
+   return loggedIn ? loggedInRouter : <AuthPage />;
 }
 
 export default App;

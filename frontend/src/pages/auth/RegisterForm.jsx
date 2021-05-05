@@ -1,20 +1,10 @@
 // NPM Packages
 import { useState } from "react";
 
-import Auth from "../../services/Auth";
-
-export const RegisterForm = () => {
-   const [name, setName] = useState("");
-   const [email, setEmail] = useState("");
-   const [password, setPassword] = useState("");
-
-    async function register(registrationData) {
-      const registerSuccess = await Auth.register(registrationData);
-      if (!registerSuccess) {
-        alert("Couldn't register check credentials and try again");
-      }
-    }
-
+export const RegisterForm = ({ onSubmit }) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   return (
     <div className="auth-form register-form">
@@ -51,7 +41,7 @@ export const RegisterForm = () => {
             type="password"
             className="form-control"
             value={password}
-            placeholder="Password"
+            placeholder="Password (must contain at least 8 characters)"
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
@@ -60,7 +50,7 @@ export const RegisterForm = () => {
           <button
             className="btn btn-login"
             type="submit"
-            onClick={(e) => register({ name, email, password })}
+            onClick={(e) => onSubmit({ name, email, password })}
           >
             Register
           </button>

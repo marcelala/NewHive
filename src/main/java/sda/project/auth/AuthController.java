@@ -44,5 +44,4 @@ public class AuthController {
         User userInSession = userService.findUserByEmail(authService.getLoggedInUserEmail());
         return userInSession.getEmail();
     }
-
 }
