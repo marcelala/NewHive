@@ -5,7 +5,7 @@ import PostApi from "../api/PostApi";
 import PostCard from "../components/Post/PostCard";
 import PostForm from "../components/Post/PostForm";
 
-export default function Feed() {
+export const Feed = () => {
     // Local state
   const [posts, setPosts] = useState([]);
 
