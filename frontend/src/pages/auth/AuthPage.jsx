@@ -26,7 +26,7 @@ export const AuthPage = () => {
 
   return (
     <section className="auth-page page-with-bg">
-      <h1 className="main-header">Community Name</h1>
+      <h1 className="auth-heading">Community Name</h1>
       <p className="description">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
         natus nostrum accusamus eos fuga deleniti! Rerum, ipsa voluptatibus
