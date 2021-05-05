@@ -4,11 +4,9 @@ function Banner(){
 
 
     return (
-    <section>
+    <section className="feed-welcome">
     <div className="feed--welcome-banner">
-        <div className="feed--welcome-banner-container">
             <img src={ WelcomeBanner } className="feed--banner" alt="Three women"/>
-        </div>
         <div className="feed--banner-text">
         <h3>Connecting women to  </h3>
         <h2>their new empowering networks</h2>

@@ -1,6 +1,6 @@
 input[type="text"],
 textarea {
-  background-color: var(--color-beige);
+  background-color: var(--color-white);
   border: none;
   padding: 1rem;
   width: 100%;
@@ -8,13 +8,15 @@ textarea {
   border-radius: 4px;
   font-family: "Montserrat", sans-serif;
   font-size: 1.6rem;
-  max-width: 600px;
+  max-width: 50rem;
   border-radius: 5px;
   color: var(--color-brown);
 }
 
 .postForm__input[type="text"] {
-  background-color: var(--color-beige);
+  background-color: var(--color-white);
+  color: var(--color-brown);
+  max-width: 50rem;
 }
 
 input[type="email"] {
@@ -31,7 +33,7 @@ input[type="email"] {
 }
 
 input[type="password"] {
-  background-color: var(--color-beige);
+  background-color: var(--color-white);
   border: none;
   padding: 1rem;
   width: 100%;
@@ -44,20 +46,20 @@ input[type="password"] {
 }
 
 .postForm {
-  background: rgba(210, 184, 116, 0.32);
+  background: var(--color-light-beige);
   color: var(--color-brown);
   box-sizing: border-box;
   border-radius: 8px;
   padding: 2rem;
-  max-width: 700px;
+  max-width: 50rem;
   border: none;
   margin-top: 2rem;
   margin-bottom: 2rem;
   margin-left: auto;
   margin-right: auto;
-  
 }
 
 .editComment {
   background-color: var(--color-beige);
+  color: var(--color-brown);
 }
