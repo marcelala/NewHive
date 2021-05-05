@@ -8,6 +8,7 @@ import sda.project.users.User;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.util.List;
 
 @Entity
 public class Post {

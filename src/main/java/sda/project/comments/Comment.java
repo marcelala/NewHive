@@ -4,14 +4,24 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import sda.project.posts.Post;
+import sda.project.users.User;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import java.util.Date;
 
 @Entity
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private Date created;
+
+    @PrePersist
+    protected void onCreate() {
+        created = new Date();
+    }
 
     @Column(nullable = false)
     @NotEmpty
@@ -42,6 +52,14 @@ public class Comment {
 
     public Long getId() {
         return id;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
     }
 
     public void setId(Long id) {

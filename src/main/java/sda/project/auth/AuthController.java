@@ -4,11 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import sda.project.users.User;
 import sda.project.users.UserService;
+import sda.project.users.UserService;
 
-import javax.validation.Valid;
 
 @RestController
 public class AuthController {
@@ -19,8 +20,7 @@ public class AuthController {
     private UserService userService;
 
     @PostMapping("/register")
-    public ResponseEntity<?> register(@Valid @RequestBody User user) {
-
+    public ResponseEntity<?> register(@Validated @RequestBody User user) {
         userService.register(user);
 
         String token = authService.createAuthToken(user.getEmail());
@@ -40,4 +40,10 @@ public class AuthController {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
     }
+    @GetMapping("/user")
+    public String getUser(){
+        User userInSession = userService.findUserByEmail(authService.getLoggedInUserEmail());
+        return userInSession.getEmail();
+    }
+
 }

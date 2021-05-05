@@ -25,7 +25,7 @@ public class JWTAuthFilter extends OncePerRequestFilter {
 
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
-
+    
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String authorizationHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
@@ -47,9 +47,6 @@ public class JWTAuthFilter extends OncePerRequestFilter {
             usernamePasswordAuthenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 
             SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
-
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }

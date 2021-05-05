@@ -34,11 +34,11 @@ public class User {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "user")
+   /* @OneToMany(mappedBy = "user")
     private List<Post> posts;
 
     @OneToMany(mappedBy = "user")
-    private List<Comment> comments;
+    private List<Comment> comments;*/
 
     // Hibernate needs a default constructor to function
     public User() {}
@@ -84,7 +84,7 @@ public class User {
         this.name = name;
     }
 
-    public List<Post> getPosts() {
+    /*public List<Post> getPosts() {
         return posts;
     }
 
@@ -98,5 +98,5 @@ public class User {
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
-    }
+    }*/
 }
