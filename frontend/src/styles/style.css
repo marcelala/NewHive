@@ -8,6 +8,7 @@
 /* Pages */
 @import url("./pages/home.css");
 @import url("./pages/auth-page.css");
+@import url("./pages/organizations-page.css");
 
 /* Modules */
 @import url("./modules/header.css");
