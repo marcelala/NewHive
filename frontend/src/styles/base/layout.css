@@ -1,14 +1,64 @@
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+html,body {
+  height: 100vh;
+  width: 100vw;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--color-beige);
 }
 
 body {
+  position: relative;
+}
+
+section {
+  text-align: center;
+  padding-bottom: 3rem;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
   height: 100vh;
-  width: 100vw;
-  font-family: "Thasadith", sans-serif;
-  background-color: var(--color-beige);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+p {
+  font-size: 1.6rem;
+}
+
+h2 {
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+  padding: 0.5rem;
+}
+
+h5 {
+  font-size: 0.8rem;
 }
 
 .page-with-bg {

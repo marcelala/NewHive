@@ -4,8 +4,11 @@ import React, { useEffect, useState } from "react";
 import PostApi from "../api/PostApi";
 import PostCard from "../components/Post/PostCard";
 import PostForm from "../components/Post/PostForm";
+import Banner from "../components/Banner";
 
-export default function Feed() {
+
+
+export const Feed = () => {
     // Local state
   const [posts, setPosts] = useState([]);
 
@@ -45,7 +48,9 @@ export default function Feed() {
   ));
 
   return (
+
     <div>
+      <Banner/>
       <PostForm onSubmit={(postData) => createPost(postData)} />
 
       {PostsArray}

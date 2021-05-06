@@ -2,6 +2,7 @@ package sda.project.user;
 
 import org.hibernate.validator.constraints.Length;
 import org.springframework.validation.annotation.Validated;
+import sda.project.comments.Comment;
 import sda.project.profile.Profile;
 import sda.project.posts.Post;
 
@@ -42,6 +43,9 @@ public class User {
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
     private List<Post> postList;
 
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Comment> commentList;
 
     @OneToOne(mappedBy = "owner",cascade = CascadeType.ALL)
     private Profile profile;
