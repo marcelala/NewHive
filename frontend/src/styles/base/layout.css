@@ -12,14 +12,14 @@ body {
 }
 
 .page-with-bg {
-  background-image: url("../../assets/common/vector-creator-4.svg"),
-    url("../../assets/common/vector-creator-9.svg"),
-    url("../../assets/common/vector-creator-7.svg"),
-    url("../../assets/common/vector-creator-7.svg"),
-    url("../../assets/common/vector-creator-9-1.svg"),
-    url("../../assets/common/vector-creator-4-1.svg");
+  background-image: url("../../assets/images/common/vector-creator-4.svg"),
+    url("../../assets/images/common/vector-creator-9.svg"),
+    url("../../assets/images/common/vector-creator-7.svg"),
+    url("../../assets/images/common/vector-creator-7.svg"),
+    url("../../assets/images/common/vector-creator-9-1.svg"),
+    url("../../assets/images/common/vector-creator-4-1.svg");
   background-repeat: no-repeat;
   background-position: top right, center right, bottom right -6%, top left,
     top 56% left, bottom left -3%;
-  background-size: 14vw, 10vw, 15vw, 14vw, 10vw, 17vw;
+  background-size: 14vh, 10vh, 15vh, 14vh, 10vh, 17vh;
 }
