@@ -8,7 +8,7 @@ import sda.project.auth.AuthService;
 import sda.project.exceptions.ResourceNotFoundException;
 import sda.project.posts.Post;
 import sda.project.posts.PostRepository;
-import sda.project.users.UserRepository;
+import sda.project.user.UserRepository;
 
 import java.util.List;
 
