@@ -13,7 +13,9 @@ import javax.validation.Valid;
 @RestController
 public class ProfileController {
 
+    @Autowired
     ProfileRepository profileRepository;
+
     AuthService authService;
     UserService userService;
     ProfileService profileService;

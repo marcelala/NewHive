@@ -2,10 +2,9 @@ package sda.project.user;
 
 import org.hibernate.validator.constraints.Length;
 import org.springframework.validation.annotation.Validated;
+//import sda.project.image.Image;
 import sda.project.profile.Profile;
 import sda.project.posts.Post;
-
-
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -45,6 +44,9 @@ public class User {
 
     @OneToOne(mappedBy = "owner",cascade = CascadeType.ALL)
     private Profile profile;
+
+   /* @OneToOne(mappedBy = "avatar",cascade = CascadeType.ALL)
+    private Image picture;*/
 
 
     // Hibernate needs a default constructor to function
@@ -102,6 +104,14 @@ public class User {
         this.profile = profile;
     }
 
+   /* public Image getPicture() {
+        return picture;
+    }
+
+    public void setPicture(Image picture) {
+        this.picture = picture;
+    }
+*/
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
