@@ -3,6 +3,12 @@ package sda.project.comments;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sda.project.exception.ResourceNotFoundException;
+import sda.project.user.UserService;
+import sda.project.user.User;
+
+
+import java.security.Principal;
+
 
 @Service
 public class CommentService {

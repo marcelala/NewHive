@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import sda.project.posts.Post;
 import sda.project.user.User;
 
+import javax.validation.constraints.NotNull;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.util.Date;
@@ -28,7 +29,6 @@ public class Comment {
     @ManyToOne
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     @JsonIdentityReference(alwaysAsId = true)
-    private Post commentedPost;
     @NotNull
     private Post commentOwner;
 
@@ -44,6 +44,12 @@ public class Comment {
         updated = new Date();
     }
 
+    public Comment() {
+    }
+
+    public Comment(String body) {
+        this.body = body;
+    }
 
     public String getBody() {
         return body;
@@ -55,32 +61,16 @@ public class Comment {
 
 
     public Long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    public Post getCommentedPost() {
-        return commentedPost;
-    }
-
-    public void setCommentedPost(Post commentedPost) {
-        this.commentedPost = commentedPost;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User userComments) {
-        this.user = userComments;
-    }
     public Post getCommentOwner() {
         return this.commentOwner;
     }
-
     public void setCommentOwner(Post commentOwner) {
         this.commentOwner = commentOwner;
     }
@@ -89,9 +79,12 @@ public class Comment {
         return this.userCommentOwner;
     }
 
+    
     public void setUserCommentOwner(User userCommentOwner) {
         this.userCommentOwner = userCommentOwner;
     }
+
+
     public Date getCreated() {
         return this.created;
     }
