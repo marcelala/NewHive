@@ -33,12 +33,12 @@ public class ImageController {
         return  ResponseEntity.status(HttpStatus.CREATED).body(image);
     }
 
-    /*@GetMapping("/show")
+    @GetMapping("/show")
     public ResponseEntity<byte[]> showPicture(){
         User userInSession = userService.findUserByEmail(authService.getLoggedInUserEmail());
-        Image image = imageRepository.findByOwner(userInSession);
+        Image image = imageRepository.findByAvatar(userInSession);
         return ResponseEntity.ok().contentType(MediaType.valueOf(image.getFileType())).body(image.getData());
-    }*/
+    }
 }
 
 
