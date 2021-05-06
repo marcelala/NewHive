@@ -5,10 +5,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import sda.project.auth.AuthService;
-import sda.project.exceptions.ResourceNotFoundException;
+import sda.project.exception.ResourceNotFoundException;
 import sda.project.posts.Post;
 import sda.project.posts.PostRepository;
-import sda.project.users.UserRepository;
+import sda.project.user.UserRepository;
 
 import java.util.List;
 

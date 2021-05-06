@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import sda.project.posts.Post;
-import sda.project.users.User;
+import sda.project.user.User;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
