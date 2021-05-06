@@ -16,7 +16,7 @@ export default function PostCard({ post, onDeleteClick }) {
   const [toggleBody, setToggleBody] = useState(false);
   const [toggleEdit, setToggleEdit] = useState(false);
   const [user, setUser] = useState({});
-
+  const [image, setImage] = useState([]);
   // Methods
 
   useEffect(() => {
@@ -34,6 +34,17 @@ export default function PostCard({ post, onDeleteClick }) {
       })
       .catch((err) => console.error(err));
   }, [setComments]);
+
+
+  // useEffect(() => {
+  //   PostImageApi.getImageByPostId(post.id)
+  //     .then(({ data }) => {
+  //       setImage(data);
+  //     })
+  //     .catch((err) => console.error(err));
+  // }, [setImage]);
+
+
 
   async function createComment(commentData) {
     console.log(commentData);
