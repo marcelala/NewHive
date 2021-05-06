@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import sda.project.users.UserRepository;
-import sda.project.users.User;
+import sda.project.user.UserRepository;
+import sda.project.user.User;
 
 
 import java.util.ArrayList;

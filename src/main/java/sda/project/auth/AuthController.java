@@ -6,9 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import sda.project.users.User;
-import sda.project.users.UserService;
-import sda.project.users.UserService;
+import sda.project.user.User;
+import sda.project.user.UserService;
 
 
 @RestController
@@ -45,5 +44,4 @@ public class AuthController {
         User userInSession = userService.findUserByEmail(authService.getLoggedInUserEmail());
         return userInSession.getEmail();
     }
-
 }

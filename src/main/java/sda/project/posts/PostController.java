@@ -4,56 +4,46 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import sda.project.auth.AuthService;
-import sda.project.exceptions.ResourceNotFoundException;
-import sda.project.users.UserRepository;
 
+
+import java.util.Date;
 import java.util.List;
 
 @RestController
 public class PostController {
-    PostRepository postRepository;
-    PostService postService;
-    UserRepository userRepository;
-    AuthService authService;
-
+    private final PostService postService;
 
     @Autowired
-    public PostController(PostRepository postRepository, PostService postService, UserRepository userRepository , AuthService authService) {
-        this.postRepository = postRepository;
+    public PostController(PostService postService) {
         this.postService = postService;
-        this.userRepository = userRepository;
-        this.authService = authService;
-    }
-    @PostMapping("/posts")
-    public ResponseEntity<Post> createPost(@RequestBody Post postParam){
-        postParam.setUser(userRepository.findByEmail(authService.getLoggedInUserEmail()));
-        Post post = postService.savePost(postParam);
-        return ResponseEntity.status(HttpStatus.CREATED).body(post);
 
     }
-    @GetMapping("/posts")
-    public ResponseEntity<List<Post>> viewAllPosts(){
-        List<Post> posts = postRepository.findAll();
-        return ResponseEntity.ok(posts);
+
+
+    @PostMapping("/posts")
+    public ResponseEntity<Post> createPost(@RequestBody Post postParam){
+        return postService.create(postService.generatePost(postParam));
     }
+
+    @GetMapping("/posts")
+    public ResponseEntity<List<Post>> getAllPosts(){
+        return postService.fetchAll();
+    }
+
     @GetMapping("/posts/{id}")
     public ResponseEntity<Post> getPostById(@PathVariable Long id){
-        Post post = postRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
-        return ResponseEntity.ok(post);
-    }
-    @DeleteMapping ("/posts/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deletePost (@PathVariable Long id){
-        Post post = postRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
-        postRepository.delete(post);
+        return ResponseEntity.ok(postService.fetchPostById(id));
     }
 
     @PutMapping("/posts/{id}")
-    public ResponseEntity<Post> updatePost(@PathVariable Long id, @RequestBody Post postParam){
+    public ResponseEntity<Post> postUpdate(@PathVariable Long id, @RequestBody Post post){
+        Post existingPost = postService.fetchPostById(id);
+        return postService.create(postService.update( post, existingPost));
+    }
 
-        Post existingPost = postRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
-        Post post = postService.updatePost(id, postParam, existingPost);
-        return ResponseEntity.ok(post);
+    @DeleteMapping("/posts/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deletePost(@PathVariable Long id){
+        postService.deletePostById(id);
     }
 }
