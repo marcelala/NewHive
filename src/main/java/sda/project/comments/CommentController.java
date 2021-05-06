@@ -9,9 +9,13 @@ import sda.project.exception.ResourceNotFoundException;
 import sda.project.posts.Post;
 import sda.project.posts.PostRepository;
 import sda.project.user.UserRepository;
+import sda.project.user.UserService;
 
+
+import java.security.Principal;
 import java.util.List;
 
+@RequestMapping("/comments")
 @RestController
 public class CommentController {
     CommentRepository commentRepository;
@@ -19,6 +23,8 @@ public class CommentController {
     UserRepository userRepository;
     AuthService authService;
     CommentService commentService;
+    UserService userService;
+
 
     @Autowired
     public CommentController(CommentRepository commentRepository, PostRepository postRepository, UserRepository userRepository , AuthService authService, CommentService commentService) {
@@ -29,18 +35,36 @@ public class CommentController {
         this.commentService=commentService;
     }
 
-
-    //Creates a new comment + Works in Postman
-
-    @PostMapping("/posts/{postId}/comments")
-    public ResponseEntity<Comment> createComment(@PathVariable Long postId, @RequestBody Comment commentParam) {
+ @GetMapping("/{postId}")
+    public ResponseEntity<List<Comment>> listAllCommentsOnPost(@PathVariable Long postId) {
         Post post = postRepository.findById(postId).orElseThrow(ResourceNotFoundException::new);
-        commentParam.setCommentedPost(post);
-        commentParam.setUser(userRepository.findByEmail(authService.getLoggedInUserEmail()));
-        Comment comment = commentService.saveComment(commentParam);
+        return ResponseEntity.ok(post.getComments());
+    }
+    // //Creates a new comment + Works in Postman
+
+    // @PostMapping("/posts/{postId}/comments")
+    // public ResponseEntity<Comment> createComment(@PathVariable Long postId, @RequestBody Comment commentParam) {
+    //     Post post = postRepository.findById(postId).orElseThrow(ResourceNotFoundException::new);
+    //     commentParam.setCommentedPost(post);
+    //     commentParam.setUser(userRepository.findByEmail(authService.getLoggedInUserEmail()));
+    //     Comment comment = commentService.saveComment(commentParam);
+    //     return ResponseEntity.status(HttpStatus.CREATED).body(comment);
+    // }
+
+@PostMapping("/{postId}")
+    public ResponseEntity<Comment> createComment(@PathVariable Long postId, @RequestBody Comment comment,
+            Principal principal) {
+        Post post = postRepository.findById(postId).orElseThrow(ResourceNotFoundException::new);
+
+        String userName = principal.getName();
+        User user = userService.findUserByEmail(userName);
+        comment.setUserCommentOwner(user);
+
+        comment.setCommentOwner(post);
+        commentRepository.save(comment);
+
         return ResponseEntity.status(HttpStatus.CREATED).body(comment);
     }
-
 
     // !!! New method !!! Works in Postman
     //Returns all comments on post given by postId
