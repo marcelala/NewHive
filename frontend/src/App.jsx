@@ -16,6 +16,7 @@ import { Feed }from "../src/pages/Feed";
 import { AuthPage } from "./pages/auth/AuthPage";
 import { OrganizationsPage } from "./pages/OrganizationsPage";
 import "./styles/style.css";
+import PrivateProfile from "./components/Profile/PrivateProfile";
 
 function App() {
   // State
@@ -38,6 +39,7 @@ function App() {
           <Route component={Home} path="/" exact />
           <Route component={Feed} path="/feed" />
           <Route component={OrganizationsPage} path="/organizations" />
+          <Route component={PrivateProfile} path="/profile"/>
         </Switch>
       </BrowserRouter>
     </div>

@@ -7,7 +7,7 @@ export default function PrivateProfile () {
         <InformationCard key={item.id} information={item}/>
     ));
     return (
-        <div>
+        <div className="full-profile">
             <h1>My Profile</h1>
             {Information}
             <h2>My Posts</h2>

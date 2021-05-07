@@ -162,7 +162,7 @@ export default function PostCard({ post, onDeleteClick }) {
         </div>
       )}
 
-      <div className="postCard--date">{date()}</div>
+      {/* <div className="postCard--date">{date()}</div> */}
 
       {toggleComments && (
         <div className="commentCard-container">
