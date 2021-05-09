@@ -132,4 +132,27 @@ export const organizations = [
     phone: "08-642-64-01",
     location: "Sweden",
   },
+  {
+    id: 13,
+    name: "Women’s and Girl’s Shelters in Sweden, ROKS",
+    topic: "Shelter",
+    description:
+      "Roks coordinates the work of women’s shelters in their work against male violence towards women.",
+    img: "../assets/images/organizations/org12.png",
+    website: "http://www.roks.se",
+    phone: "08-442-99-30",
+    location: "Stockholm, Sweden",
+  },
+  {
+    id: 14,
+    name:
+      "Swedish Association of Women´s Shelters and Young Women´s Empowerment Centres, SKR",
+    topic: "Shelter",
+    description:
+      "SKR is a national association of women’s shelters, young women’s centres, relatives’ associations and other organisations that seek to prevent men’s violence against women.",
+    img: "../assets/images/organizations/org12.png",
+    website: "https://kvinnojourenhuddinge.se",
+    phone: "08-746-75-53",
+    location: "Sweden",
+  },
 ];

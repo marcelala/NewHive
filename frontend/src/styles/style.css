@@ -6,14 +6,15 @@
 @import url("./base/variables.css");
 @import url("./base/layout.css");
 
-/* Pages */
-@import url("./pages/home.css");
-@import url("./pages/auth-page.css");
-@import url("./pages/organizations-page.css");
-
 /* Modules */
 @import url("./modules/navbar.css");
 @import url("./modules/banner.css");
 @import url("./modules/forms.css");
 @import url("./modules/postCard.css");
+
+/* Pages */
+@import url("./pages/home.css");
+@import url("./pages/auth-page.css");
+@import url("./pages/organizations-page.css");
+
 
