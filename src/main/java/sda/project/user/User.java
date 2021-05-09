@@ -44,7 +44,7 @@ public class User {
     private List<Post> postList;
 
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "commentOwner", cascade = CascadeType.ALL)
     private List<Comment> commentList;
 
     @OneToOne(mappedBy = "owner",cascade = CascadeType.ALL)
