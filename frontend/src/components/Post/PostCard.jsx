@@ -21,7 +21,6 @@ export default function PostCard({ post, onDeleteClick }) {
   // Methods
 
   useEffect(() => {
-    debugger;
     UserApi.getUser()
       .then(({ data }) => {
         setUser(data);
@@ -119,11 +118,12 @@ export default function PostCard({ post, onDeleteClick }) {
     >
       <div className="postCard">
         <div className="postCard__content">
-          <img src={Cactus} className="topic-picture" alt="cactus" />
+          <img src={Cactus} className="picture" alt="cactus" />
           <div className="postCard__topic">
             <h1> {post.topic} </h1>
           </div>
           <h2 className="postCard__content-heading">{post.title}</h2>
+          <div className="postCard--date">{date()}</div>
           {toggleBody && (
       <p className="postCard__content-body">{post.body}</p>)}
         </div>
@@ -171,7 +171,6 @@ export default function PostCard({ post, onDeleteClick }) {
           </div>
         )}
 
-        <div className="postCard--date">{date()}</div>
 
         {toggleComments && (
           <div className="commentCard-container">
