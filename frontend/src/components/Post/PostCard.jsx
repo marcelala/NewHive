@@ -10,7 +10,6 @@ import EditPost from "./EditPost";
 import PostApi from "../../api/PostApi";
 import InformationCard from "../Profile/InformationCard";
 
-
 export default function PostCard({ post, onDeleteClick }) {
   // Local state
   const [comments, setComments] = useState([]);
@@ -22,6 +21,7 @@ export default function PostCard({ post, onDeleteClick }) {
   // Methods
 
   useEffect(() => {
+    debugger;
     UserApi.getUser()
       .then(({ data }) => {
         setUser(data);
@@ -37,7 +37,6 @@ export default function PostCard({ post, onDeleteClick }) {
       .catch((err) => console.error(err));
   }, [setComments]);
 
-
   // useEffect(() => {
   //   PostImageApi.getImageByPostId(post.id)
   //     .then(({ data }) => {
@@ -45,8 +44,6 @@ export default function PostCard({ post, onDeleteClick }) {
   //     })
   //     .catch((err) => console.error(err));
   // }, [setImage]);
-
-
 
   async function createComment(commentData) {
     console.log(commentData);
@@ -116,74 +113,76 @@ export default function PostCard({ post, onDeleteClick }) {
     />
   ));
   return (
-    <section className="postCard-section"  onClick={() =>
-      toggleBody
-        ? setToggleBody(false)
-        : setToggleBody(true)
-    }>
-    <div className="postCard">
-      <div className="postCard__content">
+    <section
+      className="postCard-section"
+      onClick={() => (toggleBody ? setToggleBody(false) : setToggleBody(true))}
+    >
+      <div className="postCard">
+        <div className="postCard__content">
           <img src={Cactus} className="topic-picture" alt="cactus" />
-        <h2 className="postCard__content-heading">{post.title}</h2>
-        <p className="postCard__content-body">{post.body}</p>
-      </div>
-      <div className="postCard__comments">
-        <div className="postCard__comments-btn">
-          <div className="postCard__comments-icon">
-            <FontAwesomeIcon
-              className="comments-icon"
-              icon={["fa", "comments"]}
-              onClick={() =>
-                toggleComments
-                  ? setToggleComments(false)
-                  : setToggleComments(true)
-              }
-            />
+          <div className="postCard__topic">
+            <h1> {post.topic} </h1>
           </div>
+          <h2 className="postCard__content-heading">{post.title}</h2>
+          <p className="postCard__content-body">{post.body}</p>
         </div>
-        {comments.length}
-      </div>
-      <p className="postCard--user">{post.postOwner}</p>
-      {userCheck() && (
-        <div>
-          <div className="postCard__editDelete">
-            <div className="commentCard__Delete">
+        <div className="postCard__comments">
+          <div className="postCard__comments-btn">
+            <div className="postCard__comments-icon">
               <FontAwesomeIcon
-                className="delete"
-                icon={["fa", "trash-alt"]}
-                onClick={onDeleteClick}
+                className="comments-icon"
+                icon={["fa", "comments"]}
+                onClick={() =>
+                  toggleComments
+                    ? setToggleComments(false)
+                    : setToggleComments(true)
+                }
               />
             </div>
-            <FontAwesomeIcon
-              className="edit"
-              icon={["fa", "edit"]}
-              onClick={() =>
-                toggleEdit ? setToggleEdit(false) : setToggleEdit(true)
-              }
-            />
           </div>
-          {toggleEdit && (
-            <EditPost
-              onSubmit={(postData) => updatePost(postData)}
-              post={post}
-            />
-          )}
+          {comments.length}
         </div>
-      )}
-
-      {/* <div className="postCard--date">{date()}</div> */}
-
-      {toggleComments && (
-        <div className="commentCard-container">
-          <div>{CommentsArray}</div>
-          <div className="commentCard__commentForm">
-            <CommentForm
-              onSubmit={(commentData) => createComment(commentData)}
-            />
+        <p className="postCard--user">{post.postOwner}</p>
+        {userCheck() && (
+          <div>
+            <div className="postCard__editDelete">
+              <div className="commentCard__Delete">
+                <FontAwesomeIcon
+                  className="delete"
+                  icon={["fa", "trash-alt"]}
+                  onClick={onDeleteClick}
+                />
+              </div>
+              <FontAwesomeIcon
+                className="edit"
+                icon={["fa", "edit"]}
+                onClick={() =>
+                  toggleEdit ? setToggleEdit(false) : setToggleEdit(true)
+                }
+              />
+            </div>
+            {toggleEdit && (
+              <EditPost
+                onSubmit={(postData) => updatePost(postData)}
+                post={post}
+              />
+            )}
           </div>
-        </div>
-      )}
-    </div>
+        )}
+
+        {/* <div className="postCard--date">{date()}</div> */}
+
+        {toggleComments && (
+          <div className="commentCard-container">
+            <div>{CommentsArray}</div>
+            <div className="commentCard__commentForm">
+              <CommentForm
+                onSubmit={(commentData) => createComment(commentData)}
+              />
+            </div>
+          </div>
+        )}
+      </div>
     </section>
   );
 }
