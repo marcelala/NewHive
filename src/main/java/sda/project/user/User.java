@@ -3,6 +3,8 @@ package sda.project.user;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.validation.annotation.Validated;
 import sda.project.comments.Comment;
+
+import sda.project.connection.Connection;
 import sda.project.profile.Profile;
 import sda.project.posts.Post;
 
@@ -49,6 +51,10 @@ public class User {
 
     @OneToOne(mappedBy = "owner",cascade = CascadeType.ALL)
     private Profile profile;
+
+    @OneToMany(mappedBy = "connection", cascade = CascadeType.ALL)
+    private List<Connection> connectionList;
+
 
 
     // Hibernate needs a default constructor to function
@@ -105,6 +111,7 @@ public class User {
     public void setProfile(Profile profile) {
         this.profile = profile;
     }
+
 
     @Override
     public boolean equals(Object o) {

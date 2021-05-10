@@ -79,6 +79,11 @@ public class PostService {
         User userInSession = userService.findUserByEmail(authService.getLoggedInUserEmail());
         return postAuthor.equals(userInSession);
     }
+    public List<Post> fetchPostByTopic(String topic){
+        return postRepository.findByTopic(topic);
+    }
+
+
 
 }
 

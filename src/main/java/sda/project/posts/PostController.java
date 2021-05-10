@@ -3,6 +3,7 @@ package sda.project.posts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -46,4 +47,10 @@ public class PostController {
     public void deletePost(@PathVariable Long id){
         postService.deletePostById(id);
     }
+
+    @GetMapping("/posts/{topics}")
+    public ResponseEntity<List<Post>> getPostByTopic(@PathVariable String topics ) {
+        return ResponseEntity.ok(postService.fetchPostByTopic(topics));
+    }
+
 }
