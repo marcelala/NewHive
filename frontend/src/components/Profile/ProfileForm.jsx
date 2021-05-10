@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function ProfileForm ({onSubmit}) {
    // const [id, setId] = React.useState("");
@@ -33,7 +33,7 @@ export default function ProfileForm ({onSubmit}) {
 
     return (
         <form>
-            <div className="profile-form">
+            <div className="profile">
             <div>
                 <input placeholder="Your name" value={name} onChange={(e) => setName(e.target.value)} type="text" />
                 <input placeholder="Your surname" value={surname} onChange={(e) => setSurname(e.target.value)} type="text" />

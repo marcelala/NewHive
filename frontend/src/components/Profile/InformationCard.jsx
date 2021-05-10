@@ -19,7 +19,6 @@ export default function InformationCard ({profileInfo}) {
                 <p>Open for mentoring others:</p>
                 <input type="checkbox"/>
                 <p>Can mentor in: {profileInfo.mentorArea}</p>
-                <button className="btn">Edit Profile</button>
             </div>
         </div>
     )
