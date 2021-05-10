@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // Project files
 import PostApi from "../api/PostApi";
@@ -11,6 +12,8 @@ import Banner from "../components/Banner";
 export const Feed = () => {
     // Local state
   const [posts, setPosts] = useState([]);
+  const [toggleForm, setToggleForm] = useState(false);
+
 
   // Methods
   async function createPost(postData) {
@@ -49,10 +52,27 @@ export const Feed = () => {
 
   return (
 
-    <div>
+    <div className="feed">
       <Banner/>
-      <PostForm onSubmit={(postData) => createPost(postData)} />
 
+      <div className="Feed__postForm-icon">
+            <h3>Make your own post</h3>
+            <FontAwesomeIcon
+              className="postForm-icon"
+              icon={["fa", "plus-circle"]}
+              onClick={() =>
+                toggleForm
+                  ? setToggleForm(false)
+                  : setToggleForm(true)
+              }
+            />
+          </div>
+
+          {toggleForm && (
+        <div className="postForm-container">
+            <PostForm onSubmit={(postData) => createPost(postData)}/>
+        </div>
+      )}
       {PostsArray}
     </div>
   );

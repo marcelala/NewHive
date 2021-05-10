@@ -8,6 +8,8 @@ import CommentForm from "../Comment/CommentForm";
 import UserApi from "../../api/UserApi";
 import EditPost from "./EditPost";
 import PostApi from "../../api/PostApi";
+import InformationCard from "../Profile/InformationCard";
+
 
 export default function PostCard({ post, onDeleteClick }) {
   // Local state
