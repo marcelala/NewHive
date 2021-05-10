@@ -1,6 +1,16 @@
+import { useState } from "react";
+import { organizations } from "../../data/organizations";
+import { OrganizationCard } from "./OrganizationCard";
+
 export const OrganizationsPage = () => {
+  const [organizationsList, setOrganizationsList] = useState(organizations);
+
+  function getOrganizationsByTopic (topic) {
+    return organizations.filter(item => item.topic === topic)
+  }
+
   return (
-    <section className="organizations-page">
+    <div className="organizations-page">
       <div className="header-block">
         <div className="heading">
           <h2>Organizations that are there for you</h2>
@@ -21,7 +31,7 @@ export const OrganizationsPage = () => {
           </select>
 
           <select name="sortBy" id="sortBy">
-            <option value="" disabled selected>
+            <option value="" disabled defaultValue>
               Sort by
             </option>
 
@@ -29,11 +39,15 @@ export const OrganizationsPage = () => {
             <option value="option2">Option 2</option>
           </select>
         </div>
-        <p>Showing {18} organizations</p>
+
+        <p className="org-number">
+          Showing {organizationsList.length} organizations
+        </p>
         <div className="organizations-group">
           <h3>Legal help</h3>
+          {getOrganizationsByTopic("Legal help").map((item) => <OrganizationCard item={item} key={item.id}/>)}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
