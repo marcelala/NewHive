@@ -5,11 +5,17 @@ import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import sda.project.user.User;
+import sda.project.comments.Comment;
+
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 import java.util.Objects;
+import java.util.List;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 public class Post {
@@ -31,14 +37,23 @@ public class Post {
     @NotEmpty(message = "Please provide a valid post body")
     private String body;
 
+<<<<<<< HEAD
     @Column(nullable = false)
     //@NotEmpty(message = "Please provide a valid post topic")
+=======
+    // @Column(nullable = false)
+    // @NotEmpty(message = "Please provide a valid post topic")
+>>>>>>> e7c0de41b949c0d4cbb3b6f1a7fa72efe743557f
     private String topic;
 
     @ManyToOne
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "email")
     @JsonIdentityReference(alwaysAsId = true)
     private User author;
+
+    @OneToMany(mappedBy = "commentOwner")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private List<Comment> comments;
 
     public Post() {
 
@@ -111,6 +126,14 @@ public class Post {
 
     public void setAuthor(User author) {
         this.author = author;
+    }
+
+        public List<Comment> getComments() {
+        return this.comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 
     //To be used in comparing the post author with the user in session

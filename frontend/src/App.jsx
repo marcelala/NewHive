@@ -16,6 +16,8 @@ import { Feed }from "../src/pages/Feed";
 import { AuthPage } from "./pages/auth/AuthPage";
 import { OrganizationsPage } from "./pages/OrganizationsPage";
 import "./styles/style.css";
+//import icons to library
+library.add(fab, far, fas);
 
 function App() {
   // State
