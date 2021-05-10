@@ -115,7 +115,7 @@ export default function PostCard({ post, onDeleteClick }) {
   return (
     <section
       className="postCard-section"
-      onClick={() => (toggleBody ? setToggleBody(false) : setToggleBody(true))}
+      onClick={() => (setToggleBody(true))}
     >
       <div className="postCard">
         <div className="postCard__content">
@@ -124,7 +124,8 @@ export default function PostCard({ post, onDeleteClick }) {
             <h1> {post.topic} </h1>
           </div>
           <h2 className="postCard__content-heading">{post.title}</h2>
-          <p className="postCard__content-body">{post.body}</p>
+          {toggleBody && (
+      <p className="postCard__content-body">{post.body}</p>)}
         </div>
         <div className="postCard__comments">
           <div className="postCard__comments-btn">
