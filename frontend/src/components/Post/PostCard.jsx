@@ -92,15 +92,15 @@ export default function PostCard({ post, onDeleteClick }) {
     }
   }
 
-  // function date() {
-  //   if (dateCreatedOrUpdatedCheck()) {
-  //     const createDate = post.created.substring(0, 10);
-  //     return `Created: ${createDate}`;
-  //   } else {
-  //     const updateDate = post.updated.substring(0, 10);
-  //     return `Updated: ${updateDate}`;
-  //   }
-  // }
+  function date() {
+    if (dateCreatedOrUpdatedCheck()) {
+      const createDate = post.dateCreated.substring(0, 10);
+      return `${createDate}`;
+    } else {
+      const updateDate = post.lastEdited.substring(0, 10);
+      return `Updated: ${updateDate}`;
+    }
+  }
 
   // Components;
 
@@ -170,7 +170,7 @@ export default function PostCard({ post, onDeleteClick }) {
           </div>
         )}
 
-        {/* <div className="postCard--date">{date()}</div> */}
+        <div className="postCard--date">{date()}</div>
 
         {toggleComments && (
           <div className="commentCard-container">

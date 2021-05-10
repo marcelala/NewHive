@@ -25,7 +25,7 @@ export default function CommentCard({ comment, onDeleteClick, user }) {
   function date() {
     if (dateCreatedOrUpdatedCheck()) {
       const createDate = comment.created.substring(0, 10);
-      return `Created: ${createDate}`;
+      return `${createDate}`;
     } else {
       const updateDate = comment.updated.substring(0, 10);
       return `Updated: ${updateDate}`;
