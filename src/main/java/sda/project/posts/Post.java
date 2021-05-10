@@ -39,11 +39,8 @@ public class Post {
 
 <<<<<<< HEAD
     @Column(nullable = false)
-    //@NotEmpty(message = "Please provide a valid post topic")
-=======
     // @Column(nullable = false)
     // @NotEmpty(message = "Please provide a valid post topic")
->>>>>>> e7c0de41b949c0d4cbb3b6f1a7fa72efe743557f
     private String topic;
 
     @ManyToOne
