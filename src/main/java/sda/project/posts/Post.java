@@ -23,9 +23,7 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     private Date dateCreated;
-
 
     private Date lastEdited;
 
@@ -37,11 +35,11 @@ public class Post {
     @NotEmpty(message = "Please provide a valid post body")
     private String body;
 
-<<<<<<< HEAD
     @Column(nullable = false)
-    // @Column(nullable = false)
-    // @NotEmpty(message = "Please provide a valid post topic")
+    @NotEmpty(message = "Please provide a valid post topic")
     private String topic;
+
+    private String authorName;
 
     @ManyToOne
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "email")
@@ -59,7 +57,7 @@ public class Post {
     public Post(Long id, Date dateCreated, Date lastEdited,
                 @NotEmpty(message = "Please provide a valid post tittle") String title,
                 @NotEmpty(message = "Please provide a valid post body") String body,
-                @NotEmpty(message = "Please provide a valid post topic") String topic, User author) {
+                @NotEmpty(message = "Please provide a valid post topic") String topic, User author, String authorName) {
         this.id = id;
         this.dateCreated = new Date();
         this.lastEdited = this.dateCreated;
@@ -67,6 +65,7 @@ public class Post {
         this.body = body;
         this.topic = topic;
         this.author = author;
+        this.authorName = authorName;
     }
 
     public Long getId() {
@@ -115,6 +114,14 @@ public class Post {
 
     public void setTopic(String topic) {
         this.topic = topic;
+    }
+
+    public String getAuthorName() {
+        return authorName;
+    }
+
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
     }
 
     public User getAuthor() {

@@ -1,4 +1,4 @@
-package sda.project.users;
+package sda.project.user;
 
 import org.springframework.web.bind.annotation.RestController;
 

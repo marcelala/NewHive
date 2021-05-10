@@ -20,7 +20,6 @@ public class PostController {
 
     }
 
-
     @PostMapping("/posts")
     public ResponseEntity<Post> createPost(@RequestBody Post postParam){
         return postService.create(postService.generatePost(postParam));
@@ -48,9 +47,10 @@ public class PostController {
         postService.deletePostById(id);
     }
 
-    @GetMapping("/posts/{topics}")
-    public ResponseEntity<List<Post>> getPostByTopic(@PathVariable String topics ) {
-        return ResponseEntity.ok(postService.fetchPostByTopic(topics));
+    @GetMapping("/{topic}/posts")
+    public ResponseEntity<List<Post>> getPostByTopic(@PathVariable String topic) {
+        //return ResponseEntity.status(postService.fetchPostByTopic(topic));
+       return ResponseEntity.status(HttpStatus.CREATED).body(postService.fetchPostByTopic(topic));
     }
 
 }
