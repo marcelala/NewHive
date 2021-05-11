@@ -14,11 +14,9 @@ import { NavBar } from "./components/NavBar";
 import { Home } from "../src/pages/Home";
 import { Feed }from "../src/pages/Feed";
 import { AuthPage } from "./pages/auth/AuthPage";
-import { OrganizationsPage } from "./pages/OrganizationsPage";
+import { OrganizationsPage } from "./pages/Organizations/OrganizationsPage";
 import { Contact }from "../src/pages/Contact";
 import { CommunityGuidelines }from "../src/pages/CommunityGuidelines";
-
-
 import "./styles/style.css";
 //import icons to library
 library.add(fab, far, fas);
