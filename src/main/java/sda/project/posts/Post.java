@@ -41,13 +41,14 @@ public class Post {
 
     private String authorName;
 
+
     @ManyToOne
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "email")
     @JsonIdentityReference(alwaysAsId = true)
     private User author;
 
-    @OneToMany(mappedBy = "commentOwner")
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OneToMany(mappedBy = "commentOwner", cascade = CascadeType.ALL)
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     private List<Comment> comments;
 
     public Post() {
@@ -66,6 +67,7 @@ public class Post {
         this.topic = topic;
         this.author = author;
         this.authorName = authorName;
+
     }
 
     public Long getId() {

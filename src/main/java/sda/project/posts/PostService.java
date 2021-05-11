@@ -8,7 +8,6 @@ import sda.project.exceptions.ResourceNotFoundException;
 import sda.project.exceptions.UnAuthorizedUserException;
 import sda.project.user.User;
 import sda.project.user.UserService;
-
 import java.util.Date;
 import java.util.List;
 
@@ -49,7 +48,7 @@ public class PostService {
         } else {
             throw new UnAuthorizedUserException();
         }
-        ;
+
     }
 
     //Update a post.
@@ -83,6 +82,9 @@ public class PostService {
     //fetch all lost by topics
     public List<Post> fetchPostByTopic(String topic){
         return postRepository.findByTopic(topic);
+    }
+    public List<Post> findAllPostByDateDec(){
+        return postRepository.findAllPostByDateDec();
     }
 
 

@@ -17,7 +17,6 @@ public class PostController {
     @Autowired
     public PostController(PostService postService) {
         this.postService = postService;
-
     }
 
     @PostMapping("/posts")
@@ -27,7 +26,7 @@ public class PostController {
 
     @GetMapping("/posts")
     public ResponseEntity<List<Post>> getAllPosts(){
-        return postService.fetchAll();
+        return ResponseEntity.ok(postService.findAllPostByDateDec());
     }
 
     @GetMapping("/posts/{id}")
@@ -47,10 +46,11 @@ public class PostController {
         postService.deletePostById(id);
     }
 
-    @GetMapping("/{topic}/posts")
-    public ResponseEntity<List<Post>> getPostByTopic(@PathVariable String topic) {
-        //return ResponseEntity.status(postService.fetchPostByTopic(topic));
-       return ResponseEntity.status(HttpStatus.CREATED).body(postService.fetchPostByTopic(topic));
+    @GetMapping(value ="/posts",params = {"topic"})
+    public ResponseEntity<List<Post>> getPostByTopic(@RequestParam String topic) {
+        return ResponseEntity.ok(postService.fetchPostByTopic(topic));
     }
+
+
 
 }
