@@ -7,7 +7,7 @@ export default function ProfileForm ({onSubmit}) {
     const [countryFrom, setCounrtyFrom] = React.useState("");
     const [liveIn, setLiveIn] = React.useState("");
     const [bio, setBio] = React.useState("");
-   // const [mentor, setMentor] = React.useState("");
+    //const [mentor, setMentor] = React.useState(false);
     const [mentorArea, setMentorArea] = React.useState("");
 
     const handleSubmit = () => {
@@ -18,7 +18,7 @@ export default function ProfileForm ({onSubmit}) {
             liveIn: liveIn,
             bio: bio,
             //mentor: mentor,
-            //mentorArea: mentorArea,
+            mentorArea: mentorArea,
         });
 
         setName("");
@@ -26,20 +26,22 @@ export default function ProfileForm ({onSubmit}) {
         setCounrtyFrom("");
         setLiveIn("");
         setBio("");
-        //setMentor("");
-        //setMentorArea("");
+        //setMentor(Boolean);
+        setMentorArea("");
 
     };
 
     return (
         <form>
-            <div className="profile">
+            <div>
             <div>
                 <input placeholder="Your name" value={name} onChange={(e) => setName(e.target.value)} type="text" />
                 <input placeholder="Your surname" value={surname} onChange={(e) => setSurname(e.target.value)} type="text" />
                 <input placeholder="Country from" value={countryFrom} onChange={(e) => setCounrtyFrom(e.target.value)} type="text" />
                 <input placeholder="Live in" value={liveIn} onChange={(e) => setLiveIn(e.target.value)} type="text" />
                 <input placeholder="Bio" value={bio} onChange={(e) => setBio(e.target.value)} type="text" />
+               {/*<input type="checkbox" value={mentor} onChange={handleChecked} />*/}
+                <input placeholder="Can mentor in" value={mentorArea} onChange={(e) => setMentorArea(e.target.value)} type="text" />
             </div>
             <div>
                 <button className="btn" type="button" onClick={handleSubmit}>Save</button>

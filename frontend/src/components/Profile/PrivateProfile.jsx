@@ -9,6 +9,20 @@ export default function PrivateProfile ({profileInfo}) {
     const [toggleAdd, setToggleAdd] = useState(false);
     const [toggleEdit, setToggleEdit] = useState(false);    
     const [profile, setProfile] = useState({});
+
+    useEffect(()=> {
+        ProfileApi.viewProfile()
+        .then(({ data }) => {
+            if (data == ""){
+                setProfile({});
+            } else {
+                setProfile(data);
+            }
+            
+        })
+        .catch((err)=> console.error(err));
+    }, [setProfile]);
+
     async function createProfile(profile) {
         try {
             const response = await ProfileApi.createProfile(profile);
@@ -26,19 +40,6 @@ export default function PrivateProfile ({profileInfo}) {
             console.error(e);
         }
     }
-
-    useEffect(()=> {
-        ProfileApi.viewProfile()
-        .then(({ data }) => {
-            if (data == ""){
-                setProfile({});
-            } else {
-                setProfile(data);
-            }
-            
-        })
-        .catch((err)=> console.error(err));
-    }, [setProfile]);
 
     return (
         <div className="full-profile">

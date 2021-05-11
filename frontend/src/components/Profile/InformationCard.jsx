@@ -6,7 +6,7 @@ import ProfileApi from "../../api/ProfileApi";
 export default function InformationCard ({profileInfo}) {
 
     return (
-        <div className="profile">
+        <div>
             <div className="full-name">
                 <p>Name: {profileInfo.name}</p>
                 <p>Surname: {profileInfo.surname}</p>
@@ -16,8 +16,7 @@ export default function InformationCard ({profileInfo}) {
                 <p>I am from: {profileInfo.countryFrom}</p>
                 <p>I live in: {profileInfo.liveIn}</p>
                 <p>Bio: {profileInfo.bio}</p>
-                <p>Open for mentoring others:</p>
-                <input type="checkbox"/>
+                {/*<p>Open for mentoring others: {profileInfo.mentor}</p>*/}
                 <p>Can mentor in: {profileInfo.mentorArea}</p>
             </div>
         </div>
