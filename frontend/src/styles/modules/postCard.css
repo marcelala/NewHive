@@ -47,11 +47,11 @@
   grid-row-end: 2;
   background-color: var(--color-warm-brown);
   color: var(--color-light-beige);
-  padding: 0.8rem;
+  padding: 0.5rem 0.7rem;
   justify-self: end;
-  margin: 0;
   font-variant: small-caps;
   font-size: 0.8rem;
+  margin: .5rem .1rem;
 
 }
 .postCard__content-heading {
