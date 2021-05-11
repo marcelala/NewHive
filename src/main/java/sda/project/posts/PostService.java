@@ -4,8 +4,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import sda.project.auth.AuthService;
-import sda.project.exceptions.ResourceNotFoundException;
-import sda.project.exceptions.UnAuthorizedUserException;
+import sda.project.exception.ResourceNotFoundException;
+import sda.project.exception.UnAuthorizedException;
 import sda.project.user.User;
 import sda.project.user.UserService;
 
@@ -47,7 +47,7 @@ public class PostService {
         if (isAuthorized(post)) {
             postRepository.delete(post);
         } else {
-            throw new UnAuthorizedUserException();
+            throw new UnAuthorizedException();
         }
         ;
     }
@@ -59,7 +59,7 @@ public class PostService {
             existingPost.setLastEdited(new Date());
             return existingPost;
         } else {
-            throw new UnAuthorizedUserException();
+            throw new UnAuthorizedException();
         }
     }
 
