@@ -3,6 +3,8 @@ package sda.project.comments;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import sda.project.posts.Post;
 import sda.project.user.User;
 
@@ -30,6 +32,7 @@ public class Comment {
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     @JsonIdentityReference(alwaysAsId = true)
     @NotNull
+    @JoinColumn(nullable = false)
     private Post commentOwner;
 
     private String authorname;
