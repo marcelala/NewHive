@@ -17,7 +17,7 @@ export const NavBar = ({ onLogout }) => (
       <Link id="messages" className="menu-item" href="/messages">
         My messages
       </Link>
-      <Link id="profile" className="menu-item" href="/profile">
+      <Link id="profile" className="menu-item" to="/profile">
         My Profile
       </Link>
       <div className="logout">

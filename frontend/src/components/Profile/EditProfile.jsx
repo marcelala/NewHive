@@ -20,7 +20,7 @@ export default function EditProfile ({onSubmit, profileInfo}) {
             countryFrom: countryFrom,
             liveIn: liveIn,
             bio: bio,
-            //mentor: mentor,
+            mentor: true,
             mentorArea: mentorArea,
         });
     };

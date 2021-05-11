@@ -35,6 +35,7 @@ export default function PrivateProfile ({profileInfo}) {
     async function editProfile(profile) {
         try {
             const response = await ProfileApi.editProfile(profile);
+            console.log(response);
             setProfile(response.data);
         } catch (e) {
             console.error(e);
@@ -48,7 +49,7 @@ export default function PrivateProfile ({profileInfo}) {
             <button className="btn" type="button" onClick={() => toggleAdd? setToggleAdd(false) : setToggleAdd(true)}>Add info</button>
             <button className="btn" type="button" onClick={() => toggleEdit? setToggleEdit(false) : setToggleEdit(true)}>Edit info</button>
             {toggleAdd && (<ProfileForm onSubmit={(profileData) => createProfile(profileData)} />)}
-            {toggleEdit && <EditProfile onSubmit={(profile) => editProfile(profile)} profileInfo={profile}/>}           
+            {toggleEdit && (<EditProfile onSubmit={(profileData) => editProfile(profileData)} profileInfo={profile}/>)}           
             <h2>My Posts</h2>
             <h2>Posts I have interacted with</h2>
         </div>
