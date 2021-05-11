@@ -1,6 +1,7 @@
 .postCard-section{
   padding-bottom: 3rem;
   margin-bottom: 1rem;
+  font-family: "Montserrat", sans-serif;
 }
 
 .postCard {
@@ -15,7 +16,7 @@
     margin-right: auto;
     color: var(--color-warm-brown);
     height: auto;
-    
+    font-family: "Montserrat", sans-serif;
   }
 
   .postCard__content {
@@ -53,7 +54,7 @@
   font-variant: small-caps;
   font-size: 0.8rem;
   margin: .5rem .1rem;
-
+  border-radius: 2px;
 }
 .postCard__content-heading {
   padding-top: 0;
