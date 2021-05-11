@@ -11,6 +11,8 @@
 @import url("./modules/banner.css");
 @import url("./modules/forms.css");
 @import url("./modules/postCard.css");
+@import url("./modules/selectors.css");
+@import url("./modules/commentCard.css");
 
 /* Pages */
 @import url("./pages/home.css");

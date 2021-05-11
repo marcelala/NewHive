@@ -18,22 +18,18 @@ export default function EditPost({ onSubmit, post }) {
   };
 
   return (
-    <form>
-      <div>
-        <div>
+    <form className="editPost-form">
+      <div className="editPost">
           <input
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             type="text"
           />
-        </div>
-        <div>
           <textarea
             value={body}
             onChange={(e) => setBody(e.target.value)}
             type="text"
           />
-        </div>
       </div>
       <div>
         <button className="btn" type="submit" onClick={handleSubmit}>

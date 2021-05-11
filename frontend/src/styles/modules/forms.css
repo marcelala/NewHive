@@ -10,12 +10,12 @@ textarea {
   font-size: 1.6rem;
   max-width: 50rem;
   border-radius: 5px;
-  color: var(--color-brown);
+  color: var(--color-warm-brown);
 }
 
 .postForm__input[type="text"] {
   background-color: var(--color-white);
-  color: var(--color-brown);
+  color: var(--color-warm-brown);
   max-width: 50rem;
 }
 
@@ -47,7 +47,7 @@ input[type="password"] {
 
 .postForm {
   background: var(--color-light-beige);
-  color: var(--color-brown);
+  color: var(--color-warm-brown);
   box-sizing: border-box;
   border-radius: 8px;
   padding: 2rem;
@@ -60,16 +60,18 @@ input[type="password"] {
   box-shadow: 0 1.5rem 2rem rgba(107, 122, 133, 0.2);
 }
 
+
 .editComment {
   background-color: var(--color-beige);
   color: var(--color-brown);
+  width: 100%;
 }
 
 .contact-form .input {
   display: block;
   background-color: transparent;
   border-color: transparent;
-  color: white;
+  color: var(--color-warm-brown);
   font-weight: normal;
   border-bottom: 2px solid white;
   padding-left: 0;
@@ -119,14 +121,7 @@ input[type="password"] {
   max-height: 50%;
 }
 
-/* select{
-  border-color: transparent;
-  background-color: transparent;
-  background: transparent;
-  font-weight: normal;
-  color: white;
-  border-color: white;
-} */
+
 
 .bar {
   display: block;
