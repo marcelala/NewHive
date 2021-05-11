@@ -43,10 +43,10 @@
 
 /* Position and sizing of burger button */
 .bm-burger-button {
-  position: fixed;
+  position: relative;
   width: 1.5rem;
   height: 1.5rem;
-  right: 2rem;
+  right: 1.5rem;
   top: 1rem;
 }
 

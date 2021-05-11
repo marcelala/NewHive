@@ -1,13 +1,10 @@
 import { useState } from "react";
 import { organizations } from "../../data/organizations";
-import { OrganizationCard } from "./OrganizationCard";
+import { OrganizationsGroup } from "./OrganizationsGroup";
 
 export const OrganizationsPage = () => {
   const [organizationsList, setOrganizationsList] = useState(organizations);
-
-  function getOrganizationsByTopic (topic) {
-    return organizations.filter(item => item.topic === topic)
-  }
+  const topics = [...new Set(organizationsList.map(item => item.topic))];
 
   return (
     <div className="organizations-page">
@@ -43,10 +40,13 @@ export const OrganizationsPage = () => {
         <p className="org-number">
           Showing {organizationsList.length} organizations
         </p>
-        <div className="organizations-group">
+        {/* <div className="organizations-group">
           <h3>Legal help</h3>
           {getOrganizationsByTopic("Legal help").map((item) => <OrganizationCard item={item} key={item.id}/>)}
-        </div>
+        </div> */}
+      {
+          topics.map(topic => <OrganizationsGroup topic={topic} key={topic}/>)
+      }
       </div>
     </div>
   );
