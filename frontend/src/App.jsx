@@ -15,6 +15,8 @@ import { Home } from "../src/pages/Home";
 import { Feed }from "../src/pages/Feed";
 import { AuthPage } from "./pages/auth/AuthPage";
 import { OrganizationsPage } from "./pages/Organizations/OrganizationsPage";
+import { Contact }from "../src/pages/Contact";
+import { CommunityGuidelines }from "../src/pages/CommunityGuidelines";
 import "./styles/style.css";
 //import icons to library
 library.add(fab, far, fas);
@@ -40,6 +42,10 @@ function App() {
           <Route component={Home} path="/" exact />
           <Route component={Feed} path="/feed" />
           <Route component={OrganizationsPage} path="/organizations" />
+          <Route component={Contact} path="/contact" />
+          <Route component={CommunityGuidelines} path="/guidelines" />
+
+
         </Switch>
       </BrowserRouter>
     </div>

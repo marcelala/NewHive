@@ -1,4 +1,7 @@
 import React from "react";
+import Select from 'react-select';
+
+import Topics from "../Topics";
 
 export default function PostForm({ onSubmit }) {
   const [title, setTitle] = React.useState("");
@@ -44,14 +47,13 @@ export default function PostForm({ onSubmit }) {
             type="text"
           />
         </div>
-        <div className="postForm_topic" placeholder= "Topic"
-        value={topic}
-        onChange={(e) => setBody(e.target.value)}
-        type= "text"
-        >
-
-        </div>
-
+        <Select className="postForm_topic" 
+        placeholder= "Select a topic"
+        labelKey="label"
+        valueKey="id"
+        options={Topics}
+        onChange={(e) => setTopic(e.value)}
+        />
         <div>
           <button className="btn" type="button" onClick={handleSubmit}>
             Post
