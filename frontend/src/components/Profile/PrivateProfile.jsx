@@ -19,7 +19,8 @@ export default function PrivateProfile () {
      ProfileApi.viewProfile()
        .then(({ data }) => {
          if (data) {
-          setProfile(data.json());
+          setProfile(data);
+          setProfileExisted(true);
          }
        })
        .catch((err) => console.error(err));
