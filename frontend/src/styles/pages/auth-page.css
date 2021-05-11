@@ -1,6 +1,12 @@
 .auth-page {
   padding: 10vh 4vw;
   height: 100vh;
+  text-align: initial;
+  font-size: initial;
+}
+
+.auth-page p {
+  font-size: initial;
 }
 
 .auth-page h1 {
@@ -26,7 +32,7 @@
 
 .form-background {
   height: 100%;
-  background-image: url("../../assets/auth/formBg.jpg");
+  background-image: url("../../assets/images/auth/formBg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -48,6 +54,7 @@
 .form-wrapper h2 {
   margin-bottom: 3%;
   text-align: center;
+  font-size: 1.5rem;
 }
 
 .form-group {
@@ -59,7 +66,7 @@
   margin-bottom: 0.5rem;
 }
 
-.form-control {
+.auth-form .form-control {
   display: block;
   width: 100%;
   padding: 0.3rem 0.7rem;

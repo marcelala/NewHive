@@ -14,10 +14,6 @@ export const Contact = () => {
                 <span className="bar"></span>
               </div>
             </div>
-              <div className="input-group">
-                <input type="text" className="input" placeholder="Enter your phone number..."/>
-                <span className="bar"></span>
-              </div>
             <div class="input-group">
               <select name="topics" id="topic">
               <option value="placeholder">Select a topic...</option>

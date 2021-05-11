@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function CommunityGuidelines() {
+export const CommunityGuidelines= () => {
   return (
     <section className="communityGuidelines">
       <div>

@@ -25,7 +25,7 @@ export default function CommentCard({ comment, onDeleteClick, user }) {
   function date() {
     if (dateCreatedOrUpdatedCheck()) {
       const createDate = comment.created.substring(0, 10);
-      return `Created: ${createDate}`;
+      return `${createDate}`;
     } else {
       const updateDate = comment.updated.substring(0, 10);
       return `Updated: ${updateDate}`;
@@ -58,15 +58,13 @@ export default function CommentCard({ comment, onDeleteClick, user }) {
               />
             </div>
             <p className="commentCard__editDelete--heading"></p>
-            <button
-              className="btn"
-              type="button"
+            <FontAwesomeIcon
+              className="edit"
+              icon={["fa", "edit"]}
               onClick={() =>
                 toggleEdit ? setToggleEdit(false) : setToggleEdit(true)
               }
-            >
-              Edit
-            </button>
+            />
           </div>
           {toggleEdit && (
             <EditComment
