@@ -41,7 +41,7 @@ export const RegisterForm = ({ onSubmit }) => {
             type="password"
             className="form-control"
             value={password}
-            placeholder="Password (must contain at least 8 characters)"
+            placeholder="Password (at least 8 characters)"
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>

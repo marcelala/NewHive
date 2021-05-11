@@ -35,6 +35,7 @@ public class Comment {
     @JoinColumn(nullable = false)
     private Post commentOwner;
 
+    private String authorname;
 
     @ManyToOne
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "email")
@@ -104,4 +105,11 @@ public class Comment {
         this.updated = updated;
     }
 
+    public String getAuthorname() {
+        return authorname;
+    }
+
+    public void setAuthorname(String authorname) {
+        this.authorname = authorname;
+    }
 }
