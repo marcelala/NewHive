@@ -12,11 +12,10 @@
   }
   
   .commentCard {
-    background: var(--color-beige);
+    background: var(--color-light-beige);
     padding: 1rem;
     position: relative;
     box-shadow: 0 1.5rem 2rem rgba(54, 57, 59, 0.2);
-    border-radius: 4px;
     margin-top: 1rem;
     margin-bottom: 3rem;
     font-family: "Montserrat", sans-serif;
@@ -40,6 +39,7 @@
     width: 2rem;
     height: 2rem;
     transition: color 0.5s;
+    font-size: 2rem;
   }
   .commentCard__Delete:hover {
     color: var(--color-light-beige);
