@@ -11,15 +11,21 @@ export const NavBar = ({ onLogout }) => (
       <Link id="feed" className="menu-item" to="/feed">
         Feed
       </Link>
-      <Link id="mentorship" className="menu-item" to="/mentorship">
-        Mentorship
-      </Link>
-      {/* {/* <Link id="messages" className="menu-item" href="/messages">
-        My messages
-      </Link> */} 
       <Link id="profile" className="menu-item" to="/profile">
       Profile
       </Link>
+      <Link id="guidelines" className="menu-item" to="/guidelines">
+      Community Guidelines
+      </Link>
+      <Link id="contact" className="menu-item" to="/contact">
+      Contact
+      </Link>
+      {/* <Link id="mentorship" className="menu-item" to="/mentorship">
+        Mentorship
+      </Link> */}
+      {/* {/* <Link id="messages" className="menu-item" href="/messages">
+        My messages
+      </Link> */} 
       <div className="logout">
         <button className="logout-button" onClick={onLogout}>
           Logout

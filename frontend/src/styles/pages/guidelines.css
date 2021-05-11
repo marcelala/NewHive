@@ -1,0 +1,35 @@
+
+.communityGuidelines {
+    text-align: left;
+    padding: 2rem;
+    color: var(--color-dark-brown);
+    max-width: 90%;
+    text-justify: newspaper;
+  }
+  
+  .communityGuidelines--heading {
+    text-align: center;
+    font-weight: bolder;
+  }
+  
+  .communityGuidelines--welcome {
+    text-align: center;
+    padding-bottom: 2rem;
+  }
+  
+  .communityGuidelines--subHeading {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .communityGuidelines__list {
+    list-style: disc;
+    font-size: 1.4rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  
+  .communityGuidelines__list--item {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }

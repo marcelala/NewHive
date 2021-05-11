@@ -4,7 +4,7 @@ export const CommunityGuidelines= () => {
   return (
     <section className="communityGuidelines">
       <div>
-        <h2 className="communityGuidelines--heading">Community GuideLines</h2>
+        <h2 className="communityGuidelines--heading">Community Guidelines</h2>
         <h3 className="communityGuidelines--welcome">Welcome to ????</h3>
         <p className="communityGuidelines--contentBody">
           This forum was setup to help women and non-binary people 
