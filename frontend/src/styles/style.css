@@ -9,7 +9,7 @@
 /* Pages */
 @import url("./pages/home.css");
 @import url("./pages/auth-page.css");
-
+@import url("./pages/about.css");
 /* Modules */
 @import url("./modules/navbar.css");
 @import url("./modules/banner.css");
