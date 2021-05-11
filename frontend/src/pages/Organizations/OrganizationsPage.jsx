@@ -16,6 +16,7 @@ export const OrganizationsPage = () => {
         <div className="heading-picture"></div>
       </div>
 
+{/* TODO update select (reuse existing components, add topics and filters) */}
       <div className="organizations">
         <div className="filters">
           <select name="topics" id="topics">
@@ -40,10 +41,6 @@ export const OrganizationsPage = () => {
         <p className="org-number">
           Showing {organizationsList.length} organizations
         </p>
-        {/* <div className="organizations-group">
-          <h3>Legal help</h3>
-          {getOrganizationsByTopic("Legal help").map((item) => <OrganizationCard item={item} key={item.id}/>)}
-        </div> */}
       {
           topics.map(topic => <OrganizationsGroup topic={topic} key={topic}/>)
       }
