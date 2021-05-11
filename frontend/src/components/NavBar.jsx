@@ -14,11 +14,11 @@ export const NavBar = ({ onLogout }) => (
       <Link id="mentorship" className="menu-item" href="/mentorship">
         Mentorship
       </Link>
-      <Link id="messages" className="menu-item" href="/messages">
+      {/* {/* <Link id="messages" className="menu-item" href="/messages">
         My messages
-      </Link>
+      </Link> */} 
       <Link id="profile" className="menu-item" href="/profile">
-        My Profile
+      Profile
       </Link>
       <div className="logout">
         <button className="logout-button" onClick={onLogout}>

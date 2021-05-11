@@ -73,3 +73,9 @@ h5 {
     top 56% left, bottom left -3%;
   background-size: 14vw, 10vw, 15vw, 14vw, 10vw, 17vw;
 }
+
+.Feed__topic-filter, .Feed__post-sorter{
+  display: flexbox;
+  max-width: 30%;
+
+}
