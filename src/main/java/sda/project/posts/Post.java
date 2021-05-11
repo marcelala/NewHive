@@ -41,6 +41,8 @@ public class Post {
     // @NotEmpty(message = "Please provide a valid post topic")
     private String topic;
 
+    private String authorname;
+
     @ManyToOne
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "email")
     @JsonIdentityReference(alwaysAsId = true)
@@ -129,6 +131,14 @@ public class Post {
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+    public String getAuthorname() {
+        return authorname;
+    }
+
+    public void setAuthorname(String authorname) {
+        this.authorname = authorname;
     }
 
     //To be used in comparing the post author with the user in session
