@@ -41,7 +41,6 @@ public class Post {
 
     private String authorName;
 
-
     @ManyToOne
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "email")
     @JsonIdentityReference(alwaysAsId = true)
