@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 export default function ProfileForm ({onSubmit}) {
    // const [id, setId] = React.useState("");
-    const [name, setName] = React.useState("");
-    const [surname, setSurname] = React.useState("");
-    const [countryFrom, setCounrtyFrom] = React.useState("");
-    const [liveIn, setLiveIn] = React.useState("");
-    const [bio, setBio] = React.useState("");
+    const [name, setName] = useState("");
+    const [surname, setSurname] = useState("");
+    const [countryFrom, setCounrtyFrom] = useState("");
+    const [liveIn, setLiveIn] = useState("");
+    const [bio, setBio] = useState("");
     //const [mentor, setMentor] = React.useState(false);
-    const [mentorArea, setMentorArea] = React.useState("");
+    const [mentorArea, setMentorArea] = useState("");
 
     const handleSubmit = () => {
         onSubmit({

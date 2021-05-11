@@ -1,46 +1,77 @@
-import React from "react";
+//import { useState } from "react";
+import {useFormFields} from '../../services/useFormFields';
 
 export default function EditProfile ({onSubmit, profileInfo}) {
-   const [name, setName] = React.useState(profileInfo.name);
-    const [surname, setSurname] = React.useState(profileInfo.surname);
-    const [countryFrom, setCounrtyFrom] = React.useState(profileInfo.countryFrom);
-    const [liveIn, setLiveIn] = React.useState(profileInfo.liveIn);
-    const [bio, setBio] = React.useState(profileInfo.bio);
+//    const [name, setName] = useState(profileInfo.name);
+//     const [surname, setSurname] = useState(profileInfo.surname);
+//     const [countryFrom, setCounrtyFrom] = useState(profileInfo.countryFrom);
+//     const [liveIn, setLiveIn] = useState(profileInfo.liveIn);
+//     const [bio, setBio] = useState(profileInfo.bio);
+
     //const [mentor, setMentor] = React.useState(false);
-    const [mentorArea, setMentorArea] = React.useState(profileInfo.mentorArea);
+
+    // const [mentorArea, setMentorArea] = useState(profileInfo.mentorArea);
+    const [fields, handleFieldChange] = useFormFields({...profileInfo});
 
     //const handleChecked = ({ target }) => {
     //setMentor(target.true);
 //}
 
-    const handleSubmit = () => {
-        onSubmit({
-            name: name,
-            surname: surname,
-            countryFrom: countryFrom,
-            liveIn: liveIn,
-            bio: bio,
-            mentor: true,
-            mentorArea: mentorArea,
-        });
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log("updated", { ...profileInfo, ...fields });
+        onSubmit({ ...profileInfo, ...fields });
     };
 
     return (
-        <form>
-            <div>
-            <div>
-                <input placeholder="Your name" value={name} onChange={(e) => setName(e.target.value)} type="text" />
-                <input placeholder="Your surname" textarea value={surname} onChange={(e) => setSurname(e.target.value)} type="text" />
-                <input placeholder="Country from" textarea value={countryFrom} onChange={(e) => setCounrtyFrom(e.target.value)} type="text" />
-                <input placeholder="Live in" value={liveIn} onChange={(e) => setLiveIn(e.target.value)} type="text" />
-                <input placeholder="Bio" value={bio} onChange={(e) => setBio(e.target.value)} type="text" />
-                {/*<input type="checkbox" onChange={handleChecked} mentor={mentor} />*/}
-                <input placeholder="Can mentor in" value={mentorArea} onChange={(e) => setMentorArea(e.target.value)} type="text" />
-            </div>
-            <div>
-                <button className="btn" type="submit" onClick={handleSubmit}>Update</button>
-            </div>
-            </div>
-        </form>
-    )
+      <form onSubmit={handleSubmit}>
+        <div>
+          <div>
+            <input
+              placeholder="Your name"
+              id="name"
+              value={fields.name || ""}
+              //   onChange={(e) => setUser(() => e.target.value)}
+              onChange={handleFieldChange}
+              type="text"
+            />
+            <input
+              placeholder="Your surname"
+              id="surname"
+              value={fields.surname || ""}
+              onChange={handleFieldChange}
+              type="text"
+            />
+            <input
+              placeholder="Country from"
+              id="countryFrom"
+              value={fields.countryFrom || ""}
+              onChange={handleFieldChange}
+              type="text"
+            />
+            <input
+              placeholder="Live in"
+              id="liveIn"
+              value={fields.liveIn || ""}
+              onChange={handleFieldChange}
+              type="text"
+            />
+            <input
+              placeholder="Bio"
+              id="bio"
+              value={fields.bio || ""}
+              onChange={handleFieldChange}
+              type="text"
+            />
+            {/*<input type="checkbox" onChange={handleChecked} mentor={mentor} />*/}
+            {/* <input placeholder="Can mentor in" value={mentorArea} onChange={(e) => setMentorArea(e.target.value)} type="text" /> */}
+          </div>
+          <div>
+            <button className="btn" type="submit">
+              Update
+            </button>
+          </div>
+        </div>
+      </form>
+    );
 }
