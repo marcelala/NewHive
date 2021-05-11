@@ -8,6 +8,7 @@ import CommentForm from "../Comment/CommentForm";
 import UserApi from "../../api/UserApi";
 import EditPost from "./EditPost";
 import PostApi from "../../api/PostApi";
+import InformationCard from "../Profile/InformationCard";
 
 export default function PostCard({ post, onDeleteClick }) {
   // Local state
@@ -35,7 +36,6 @@ export default function PostCard({ post, onDeleteClick }) {
       .catch((err) => console.error(err));
   }, [setComments]);
 
-
   // useEffect(() => {
   //   PostImageApi.getImageByPostId(post.id)
   //     .then(({ data }) => {
@@ -43,8 +43,6 @@ export default function PostCard({ post, onDeleteClick }) {
   //     })
   //     .catch((err) => console.error(err));
   // }, [setImage]);
-
-
 
   async function createComment(commentData) {
     console.log(commentData);
@@ -93,15 +91,15 @@ export default function PostCard({ post, onDeleteClick }) {
     }
   }
 
-  // function date() {
-  //   if (dateCreatedOrUpdatedCheck()) {
-  //     const createDate = post.created.substring(0, 10);
-  //     return `Created: ${createDate}`;
-  //   } else {
-  //     const updateDate = post.updated.substring(0, 10);
-  //     return `Updated: ${updateDate}`;
-  //   }
-  // }
+  function date() {
+    if (dateCreatedOrUpdatedCheck()) {
+      const createDate = post.dateCreated.substring(0, 10);
+      return `${createDate}`;
+    } else {
+      const updateDate = post.lastEdited.substring(0, 10);
+      return `Updated: ${updateDate}`;
+    }
+  }
 
   // Components;
 
@@ -114,74 +112,74 @@ export default function PostCard({ post, onDeleteClick }) {
     />
   ));
   return (
-    <section className="postCard-section"  onClick={() =>
-      toggleBody
-        ? setToggleBody(false)
-        : setToggleBody(true)
-    }>
-    <div className="postCard">
-      <div className="postCard__content">
-          <img src={Cactus} className="topic-picture" alt="cactus" />
-        <h2 className="postCard__content-heading">{post.title}</h2>
-        <p className="postCard__content-body">{post.body}</p>
-      </div>
-      <div className="postCard__comments">
-        <div className="postCard__comments-btn">
-          <div className="postCard__comments-icon">
-            <FontAwesomeIcon
-              className="comments-icon"
-              icon={["fa", "comments"]}
-              onClick={() =>
-                toggleComments
-                  ? setToggleComments(false)
-                  : setToggleComments(true)
-              }
-            />
+    <section
+      className="postCard-section"
+      onClick={() => toggleBody ? setToggleBody(false) : setToggleBody(true)
+      }
+    >
+      <div className="postCard">
+        <div className="postCard__content">
+          <img src={Cactus} className="picture" alt="cactus" />
+          <div className="postCard__topic">
+            <h1> {post.topic} </h1>
           </div>
-        </div>
-        {comments.length}
-      </div>
-      <p className="postCard--user">{post.postOwner}</p>
-      {userCheck() && (
-        <div>
-          <div className="postCard__editDelete">
-            <div className="commentCard__Delete">
+          <h2 className="postCard__content-heading">{post.title}</h2>
+          <div className="postCard--date">{date()}</div>
+          {userCheck() && (
+            <div className="postCard__editDelete">
+                <FontAwesomeIcon
+                  className="delete"
+                  icon={["fa", "trash-alt"]}
+                  onClick={onDeleteClick}
+                />
               <FontAwesomeIcon
-                className="delete"
-                icon={["fa", "trash-alt"]}
-                onClick={onDeleteClick}
+                className="edit"
+                icon={["fa", "edit"]}
+                onClick={() =>
+                  toggleEdit ? setToggleEdit(false) : setToggleEdit(true)
+                }
+              />
+              
+              <div className="postCard__editPost">
+            {toggleEdit && (
+              <EditPost
+                onSubmit={(postData) => updatePost(postData)}
+                post={post}
+              />
+            )}
+          </div>
+          </div>
+          )}
+        {toggleBody && (
+      <p className="postCard__content-body">{post.body}</p>)}
+        <div className="postCard__comments">
+            <div className="postCard__comments-icon">
+              <FontAwesomeIcon
+                className="comments-icon"
+                icon={["fa", "comments"]}
+                onClick={() =>
+                  toggleComments
+                    ? setToggleComments(false)
+                    : setToggleComments(true)
+                }
+              />
+          </div>
+          {comments.length}
+        </div>
+        <p className="postCard--user">{post.postOwner}</p>
+</div>
+
+        {toggleComments && (
+          <div className="commentCard-container">
+            <div>{CommentsArray}</div>
+            <div className="commentCard__commentForm">
+              <CommentForm
+                onSubmit={(commentData) => createComment(commentData)}
               />
             </div>
-            <FontAwesomeIcon
-              className="edit"
-              icon={["fa", "edit"]}
-              onClick={() =>
-                toggleEdit ? setToggleEdit(false) : setToggleEdit(true)
-              }
-            />
           </div>
-          {toggleEdit && (
-            <EditPost
-              onSubmit={(postData) => updatePost(postData)}
-              post={post}
-            />
-          )}
-        </div>
-      )}
-
-      {/* <div className="postCard--date">{date()}</div> */}
-
-      {toggleComments && (
-        <div className="commentCard-container">
-          <div>{CommentsArray}</div>
-          <div className="commentCard__commentForm">
-            <CommentForm
-              onSubmit={(commentData) => createComment(commentData)}
-            />
-          </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
     </section>
   );
 }

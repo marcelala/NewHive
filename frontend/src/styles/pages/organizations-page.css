@@ -1,0 +1,135 @@
+.organizations-page {
+  color: var(--color-dark-brown);
+}
+.header-block {
+  width: 80%;
+  height: 31vh;
+  margin: 3rem auto;
+  background-color: var(--color-light-beige);
+  font-family: Thasadith;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header-block h2 {
+  font-size: 1.5rem;
+  padding: 0;
+}
+
+.organizations-page p {
+  font-size: 1rem;
+}
+
+.heading-picture {
+  position: relative;
+  width: 40%;
+  height: 80%;
+  background-image: url(../../assets/images/organizations/header-img.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border: 1rem solid var(--color-white);
+}
+
+.heading-picture::before,
+.heading-picture::after {
+  content: "";
+  position: absolute;
+  width: 7rem;
+  height: 6rem;
+  background: url(../../assets/images/common/vector-creator-4-3.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+.heading-picture::before {
+  bottom: -3rem;
+  left: -5rem;
+}
+
+.heading-picture::after {
+  top: -3rem;
+  right: -4rem;
+}
+.organizations {
+  width: 80%;
+  margin: 1rem auto;
+}
+
+.org-number {
+  color: var(--color-dark-brown);
+  font-size: 1.1rem;
+}
+
+.organizations-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.organization-card {
+  display: flex;
+  flex-direction: column;
+  -moz-box-pack: justify;
+  justify-content: space-between;
+  box-shadow: rgba(12, 15, 20, 0.02) 0 0 0 1px, rgba(12, 15, 20, 0.06) 0 0 1px 0,
+    rgba(12, 15, 20, 0.06) 0 2px 2px 0;
+  padding: 16px 24px;
+  max-width: 344px;
+  min-width: 80vw;
+  margin: 24px auto;
+  background-color: var(--color-light-beige);
+}
+@media (min-width: 768px) {
+  .organization-card {
+    flex-direction: row;
+    max-width: 1200px;
+  }
+}
+.org-picture {
+  height: 214px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-origin: content-box;
+  /* padding: 16px; */
+  margin: -16px -24px 24px;
+}
+
+@media (min-width: 768px) {
+  .org-picture {
+    flex-grow: 0;
+    flex-shrink: 0;
+    align-self: stretch;
+    width: 286px;
+    height: unset;
+    margin: -16px 24px -16px -25px;
+    border-radius: 4px 0 0 4px;
+  }
+}
+
+.org-details {
+  width: 100%;
+}
+
+.organizations h2 {
+  padding: 1rem 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.contacts {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.contacts p {
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.web a {
+  font-style: italic;
+  text-decoration: underline;
+}

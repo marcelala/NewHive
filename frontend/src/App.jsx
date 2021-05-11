@@ -12,10 +12,12 @@ import Auth from "./services/Auth";
 import AuthApi from "./api/AuthApi";
 import { NavBar } from "./components/NavBar";
 import { Home } from "../src/pages/Home";
-import { Feed }from "../src/pages/Feed";
+import { Feed } from "../src/pages/Feed";
 import { AuthPage } from "./pages/auth/AuthPage";
-import { OrganizationsPage } from "./pages/OrganizationsPage";
 import PrivateProfile from "./components/Profile/PrivateProfile";
+import { OrganizationsPage } from "./pages/Organizations/OrganizationsPage";
+import { Contact } from "../src/pages/Contact";
+import { CommunityGuidelines } from "../src/pages/CommunityGuidelines";
 import "./styles/style.css";
 //import icons to library
 library.add(fab, far, fas);
@@ -42,6 +44,8 @@ function App() {
           <Route component={Feed} path="/feed" />
           <Route component={OrganizationsPage} path="/organizations" />
           <Route component={PrivateProfile} path="/profile"/>
+          <Route component={Contact} path="/contact" />
+          <Route component={CommunityGuidelines} path="/guidelines" />
         </Switch>
       </BrowserRouter>
     </div>
