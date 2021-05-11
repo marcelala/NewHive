@@ -58,15 +58,13 @@ export default function CommentCard({ comment, onDeleteClick, user }) {
               />
             </div>
             <p className="commentCard__editDelete--heading"></p>
-            <button
-              className="btn"
-              type="button"
+            <FontAwesomeIcon
+              className="edit"
+              icon={["fa", "edit"]}
               onClick={() =>
                 toggleEdit ? setToggleEdit(false) : setToggleEdit(true)
               }
-            >
-              Edit
-            </button>
+            />
           </div>
           {toggleEdit && (
             <EditComment

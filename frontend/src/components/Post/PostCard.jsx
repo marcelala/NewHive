@@ -114,7 +114,8 @@ export default function PostCard({ post, onDeleteClick }) {
   return (
     <section
       className="postCard-section"
-      onClick={() => (setToggleBody(true))}
+      onClick={() => toggleBody ? setToggleBody(false) : setToggleBody(true)
+      }
     >
       <div className="postCard">
         <div className="postCard__content">
@@ -124,28 +125,7 @@ export default function PostCard({ post, onDeleteClick }) {
           </div>
           <h2 className="postCard__content-heading">{post.title}</h2>
           <div className="postCard--date">{date()}</div>
-          {toggleBody && (
-      <p className="postCard__content-body">{post.body}</p>)}
-        </div>
-        <div className="postCard__comments">
-          <div className="postCard__comments-btn">
-            <div className="postCard__comments-icon">
-              <FontAwesomeIcon
-                className="comments-icon"
-                icon={["fa", "comments"]}
-                onClick={() =>
-                  toggleComments
-                    ? setToggleComments(false)
-                    : setToggleComments(true)
-                }
-              />
-            </div>
-          </div>
-          {comments.length}
-        </div>
-        <p className="postCard--user">{post.postOwner}</p>
-        {userCheck() && (
-          <div>
+          {userCheck() && (
             <div className="postCard__editDelete">
               <div className="commentCard__Delete">
                 <FontAwesomeIcon
@@ -161,7 +141,6 @@ export default function PostCard({ post, onDeleteClick }) {
                   toggleEdit ? setToggleEdit(false) : setToggleEdit(true)
                 }
               />
-            </div>
             {toggleEdit && (
               <EditPost
                 onSubmit={(postData) => updatePost(postData)}
@@ -169,8 +148,25 @@ export default function PostCard({ post, onDeleteClick }) {
               />
             )}
           </div>
-        )}
-
+          )}
+        {toggleBody && (
+      <p className="postCard__content-body">{post.body}</p>)}
+        <div className="postCard__comments">
+            <div className="postCard__comments-icon">
+              <FontAwesomeIcon
+                className="comments-icon"
+                icon={["fa", "comments"]}
+                onClick={() =>
+                  toggleComments
+                    ? setToggleComments(false)
+                    : setToggleComments(true)
+                }
+              />
+          </div>
+          {comments.length}
+        </div>
+        <p className="postCard--user">{post.postOwner}</p>
+</div>
 
         {toggleComments && (
           <div className="commentCard-container">

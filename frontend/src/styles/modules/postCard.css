@@ -5,7 +5,7 @@
 
 .postCard {
     background: var(--color-light-beige);
-    padding: 1rem;
+    padding: 1.5rem;
     box-shadow: 0 6px 6px rgb(0 0 0 / 25%);
     border-radius: 2px;
     max-width: 90%;
@@ -19,23 +19,14 @@
   }
 
   .postCard__content {
-    margin: 2rem 1rem;
     padding: 1rem;
     border-radius: 8px;
-    width: 90%;
+    width: 100%;
     display: grid;
-    grid-template-areas: 
-    "picture . . topic"
-    ". title . date"
-    ". body body body"
-    ". edit-delete . comments"
-    " . comment comment comment"
-    ". comment-form comment-form comment-form";
-    grid-template-rows: auto;
     gap: 1rem 1rem;
-    grid-template-columns: 10rem 10rem 10rem 10rem;
-    grid-template-rows: 2rem 10rem auto auto; 
-    justify-items: center;
+    grid-template-columns: 9rem auto auto auto;
+    grid-template-rows: 4rem auto auto auto;
+    margin-right: 0; 
   }
 
   .picture{
@@ -52,15 +43,26 @@
 .postCard__topic{
   grid-area: "topic";
   grid-column-start: 5;
+  grid-column-end: 6;
+  grid-row-end: 2;
+  background-color: var(--color-warm-brown);
+  color: var(--color-light-beige);
+  padding: 0.8rem;
+  justify-self: end;
+  margin: 0;
+  font-variant: small-caps;
+  font-size: 0.8rem;
+
 }
 .postCard__content-heading {
   padding-top: 0;
   font-weight: 700;
   grid-area: "title";
-  grid-row-start: 1;
+  grid-row-start: 2;
+  grid-row-end: 3;
   grid-column-start: 2;
-  grid-column: span 2;
-
+  grid-column: span 4;
+  padding: 0.5rem;
 }
 .postCard--date {
   font-size: 1rem;
@@ -72,55 +74,47 @@
 }
 .postCard__content-body{
   grid-area: "body";
-  grid-row-start: 2;
-  grid-column-start: 1;
+  grid-row-start: 3;
+  grid-column-start: 2;
   grid-column: span 4;
+  grid-row: span auto;
 }
 
   .postCard__editDelete {
     padding: 1rem;
-    grid-area: "edit-delete";
+    grid-row-start: 4;
+    grid-column-start: 5;
+    grid-column: span 1;  
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: .5rem;
   }
   
   .postCard__comments {
-    background: var(--color-beige);
     text-align: right;
     font-size: 1.2rem;
-    margin-right: 3rem;
-    margin-top: 2rem;
-    grid-area: "comment";
+    grid-row-start: 4;
+    grid-column-start: 5;
+    grid-column-end: 6;
+    justify-self: end;
+    display: inline-block;
+    padding: .5rem;
   }
   
   .postCard__comments-icon {
     background: none;
     color: var(--color-brown);
     display: inline-block;
-    padding: 0.5rem 1.5rem;
-    font-size: 1.6rem;
-    margin: 1rem;
+    padding: 0.3rem .3rem;
     cursor: pointer;
-    width: 1rem;
-    height: 1rem;
     transition: color 0.5s;
     cursor: pointer;
-    left: 20rem;
-    grid-area: "comments";
+    font-size: 2rem;
   }
   .postCard__comments-icon:hover {
     color: var(--color-light-beige);
   }
-  
-  .comments-icon{
-    width: 2rem;
-    height: 2rem;
-    font-size: 3rem;
-  }
-  
-  
-
-
- 
-
   
   .postCard--user {
     left: 0.6rem;

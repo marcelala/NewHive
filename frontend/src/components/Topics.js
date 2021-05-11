@@ -3,20 +3,20 @@ const topics = [
         value: 'health', 
         label: 'Health' 
     },
-    { id:2,value: 'education', label: 'Education' },
-    { id:3, value: 'work', label: 'Work and career' },
-    { id: 4,value: 'pregnancy', label: 'Pregnancy' },
-    { id:5, value: 'parenting', label: 'Parenting' },
-    { id: 6, value: 'relationships', label: 'Relationships' },
-    { id: 7, value: 'family', label: 'Family' },
-    { id: 8,value: 'legal', label: 'Legal' },
-    { id:9, value: 'finance', label: 'Finance' },
-    { id:10,value: 'accommodation', label: 'Accommodation' },
-    { id:11, value: 'residence', label: 'Residence Permit and Citizenship' },
-    { id:12, value: 'travel', label: 'Travel' },
-    { id: 13, value: 'hobbies', label: 'Hobbies' },
-    { id: 14, value: 'sports', label: 'Sports' },
-    { id: 15, value: 'other', label: 'Others' }
+    { id:2,value: 'Education', label: 'Education' },
+    { id:3, value: 'Work', label: 'Work and career' },
+    { id: 4,value: 'Pregnancy', label: 'Pregnancy' },
+    { id:5, value: 'Parenting', label: 'Parenting' },
+    { id: 6, value: 'Relationships', label: 'Relationships' },
+    { id: 7, value: 'Family', label: 'Family' },
+    { id: 8,value: 'Legal', label: 'Legal' },
+    { id:9, value: 'Finance', label: 'Finance' },
+    { id:10,value: 'Accommodation', label: 'Accommodation' },
+    { id:11, value: 'Residence Permit', label: 'Residence Permit' },
+    { id:12, value: 'Travel', label: 'Travel' },
+    { id: 13, value: 'Hobbies', label: 'Hobbies' },
+    { id: 14, value: 'Sports', label: 'Sports' },
+    { id: 15, value: 'Others', label: 'Others' }
 ];
 
 export default topics;
