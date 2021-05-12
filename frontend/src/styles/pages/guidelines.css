@@ -13,20 +13,21 @@
   
   .communityGuidelines--heading {
     text-align: center;
-    font-weight: 900;
+    font-weight: 600;
     color: var(--color-warm-brown);
   }
   
   .communityGuidelines--welcome {
     text-align: center;
     padding-bottom: 2rem;
-
+    font-weight: 500;
   }
   
   .communityGuidelines--subHeading {
     text-align: center;
     padding: 2rem;
     color: var(--color-warm-brown);
+    font-weight: 500;
   }
   
   .communityGuidelines__list {
@@ -34,9 +35,12 @@
     font-size: 1.4rem;
     margin-left: 1rem;
     margin-right: 1rem;
+    font-weight: 400;
+
   }
   
   .communityGuidelines__list--item {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+    font-weight: 400;
   }
