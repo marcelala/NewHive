@@ -21,7 +21,7 @@ export default function FaqCard({ information }) {
           <h4>by {information.author}</h4>
           <p>{information.description}</p>
           <p>Date published: {information.date}</p>
-          <a href={information.link}><p>Go to the video</p></a>
+          <a href={information.link} target="_blank"><p>Go to the video</p></a>
       </div>
     </div>
   );

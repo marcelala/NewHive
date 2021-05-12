@@ -50,6 +50,12 @@ padding: 5%;
     margin: 2rem;
 }
 
+.faq-info a{
+    font-weight: bold;
+  font-style: italic;
+  text-decoration: underline;
+}
+
 @media (min-width: 600px) {
 .faq-array{
     display: grid;
@@ -57,7 +63,7 @@ padding: 5%;
 }
 }
 
-@media (min-width: 800px) {
+@media (min-width: 900px) {
 .faq-array{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
