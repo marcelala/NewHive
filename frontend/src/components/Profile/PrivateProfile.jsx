@@ -56,11 +56,9 @@ export default function PrivateProfile () {
       <div className="full-profile">
         <h1>My Profile</h1>
         {profileExisted && (
+            <>
           <InformationCard key={profile.id} profileInfo={profile} />
-        )}
-        {/* <button className="btn" type="button" onClick={() => (toggleAdd ? setToggleAdd(false) : setToggleAdd(true))}> Add info </button> */}
-        {!profileExisted && (
-          <button
+           <button
             className="btn"
             type="button"
             onClick={() =>
@@ -69,7 +67,10 @@ export default function PrivateProfile () {
           >
             Edit info
           </button>
+          </>
         )}
+        {/* <button className="btn" type="button" onClick={() => (toggleAdd ? setToggleAdd(false) : setToggleAdd(true))}> Add info </button> */}
+
         {/* {toggleAdd && (
           <ProfileForm onSubmit={(profileData) => createProfile(profileData)} />
         )} */}
