@@ -66,3 +66,14 @@ input[type="password"] {
   color: var(--color-brown);
   width: 100%;
 }
+.comment-form textarea{
+  border-color: transparent;
+  background-color: transparent;
+  background: transparent;
+  font-weight: normal;
+  color: var(--color-dark-brown);
+  /* position: absolute; */
+  left: 10rem;
+  max-width: 70%;
+  max-height: 50%;
+}   

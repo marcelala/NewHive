@@ -1,6 +1,13 @@
+import Select from 'react-select';
+import React from "react"; 
 export const Contact = () => {
 
-
+  const options = [
+    { value: 'Question', label: 'Question' },
+    { value: 'Suggestions', label: 'Suggestions' },
+    { value: 'Feedback', label: 'Feedback' }];
+    
+    
     return (
 <section class="contact">
           <div className="form contact-form">
@@ -15,12 +22,7 @@ export const Contact = () => {
               </div>
             </div>
             <div class="input-group">
-              <select name="topics" id="topic">
-              <option value="placeholder">Select a topic...</option>
-              <option value="Questions">Questions</option>
-              <option value="Suggestions">Suggestions</option>
-              <option value="Feedback">Feedback</option>
-              </select>
+              <Select name="topics" id="topic" options={options} />
               <span className="bar"></span>
             </div>
             <div className="input-group">
@@ -28,7 +30,7 @@ export const Contact = () => {
               <span className="bar"></span>
             </div>
             <div className="cta">
-            <a href="#" className="btn-pink">Send Message</a>
+            <a href="#" className="form-group btn-group">Send Message</a>
             </div>
         </div>
     </section>

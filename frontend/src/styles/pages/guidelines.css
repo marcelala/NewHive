@@ -4,7 +4,11 @@
     padding: 2rem;
     color: var(--color-dark-brown);
     max-width: 90%;
-    text-justify: newspaper;
+    max-width: 80%;
+    margin: 4rem;
+    align-content: center;
+    padding: 2rem 4rem;
+    background-color: var(--color-light-beige);
   }
   
   .communityGuidelines--heading {

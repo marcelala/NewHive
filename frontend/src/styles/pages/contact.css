@@ -1,18 +1,32 @@
+.contact{
+    max-width: 80%;
+    margin: 4rem;
+    align-content: center;
+    padding: 2rem 4rem;
+    background-color: var(--color-light-beige);
+}
+
+
+.input-group{
+    background: transparent;
+}
+
 .contact-form .input {
     display: block;
-    background-color: transparent;
+    background-color: var(--color-light-beige);
     border-color: transparent;
     color: var(--color-warm-brown);
     font-weight: normal;
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid;
     padding-left: 0;
     background: transparent;
-    position: absolute;
-    left: ;
+    font-size: 1rem;
   }
   
   .input-group{
       margin-bottom: 1rem;
+      background: transparent;
+      margin-top: 1rem;
   }
   .contact-content{
     justify-content: space-between;
@@ -28,6 +42,7 @@
   .contact.form{
     flex: 0 0 50%;
     align-self: flex-start;
+    background: transparent;
   }
   
   .input-group-wrap{
@@ -37,22 +52,11 @@
     width: 50%;
     margin-right: 2rem;
   }
-  
-  
-  
-  .comment-form textarea{
-    border-color: transparent;
-    background-color: transparent;
-    background: transparent;
-    font-weight: normal;
-    color: var(--color-dark-brown);
-    /* position: absolute; */
-    left: 10rem;
-    max-width: 70%;
-    max-height: 50%;
+
+  #subject{
+      color:var(--color-dark-brown);
+      background-color: var(--color-light-beige);
   }
-  
-  
   
   .bar {
     display: block;
@@ -66,7 +70,7 @@
     bottom: 0;
     width: 100%;
     height: 3px;
-    background-color: var(--cyan-transparent);
+    background-color: var(--color-brown);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.5s;
@@ -74,4 +78,18 @@
   
   .contact-form .input:focus + bar::after {
     transform: scaleX(1);
+}
+
+.cta{
+    margin-top: 0.75rem;
+    display: inline-block;
+    width: 10rem;
+    background-color: var(--color-dark-brown);
+    border-radius: 0.5rem;
+    color: var(--color-white);
+    padding: 0.45rem 0.8rem;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 4px 0 rgb(0 0 0 / 25%);
+    -webkit-appearance: button;
+    border: 0;
 }
