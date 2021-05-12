@@ -3,23 +3,43 @@
     color: var(--color-warm-brown);
     align-content: center;
 }
+.home__join h2{
+    font-weight: 500;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+.home__join h3{
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: var(--color-dark-brown);
+    font-variant: unset;
+}
 
 .home__features{
     background-color: var(--color-light-beige);
     margin-top: 3rem;
-    padding-top: 5rem;
+    margin-bottom: 6rem;
+    padding-top: 4rem;
     padding-bottom: 5rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    max-width: 90%;
+    max-width: 100%;
     align-items: center;
     align-content: center;
+}
+.home__features h3{
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+.home__features h4{
+    font-weight: 400;
+    font-size: 1rem;
 }
 
 .home__post{
     font-size: 8rem;
     padding: 0.5rem;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.8rem;
     color: var(--color-brown);
     margin-left: 1.5rem;
 }
@@ -28,14 +48,14 @@
 .home__mentor{
     font-size: 8rem;
     padding: 0.5rem;
-    margin-top: 0.4rem;
+    margin-top: 0.8rem;
     color: var(--color-brown);
 }
 
 .home__connect{
     font-size: 8rem;
     padding: 0.5rem;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.8rem;
     color: var(--color-brown);
     margin-right: .3rem;
 

@@ -14,6 +14,8 @@ export const Home = () => {
 
 <div className="home__join">
     <h2>Click here and join our community now!</h2>
+
+    <h3>Already a user? Login here</h3>
 </div>
 <div className="home__features">
         <div className="home__features-meet">
