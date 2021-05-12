@@ -11,6 +11,7 @@
 @import url("./modules/banner.css");
 @import url("./modules/forms.css");
 @import url("./modules/postCard.css");
+@import url("./modules/footer.css");
 @import url("./modules/selectors.css");
 @import url("./modules/commentCard.css");
 
@@ -18,5 +19,6 @@
 @import url("./pages/home.css");
 @import url("./pages/auth-page.css");
 @import url("./pages/organizations-page.css");
+@import url("./pages/about.css");
 
 
