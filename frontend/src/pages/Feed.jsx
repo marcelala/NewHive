@@ -71,7 +71,6 @@ export const Feed = () => {
               icon={["fa", "plus-circle"]}
             />
           </div>
-
           {toggleForm && (
         <div className="postForm-container">
             <PostForm onSubmit={(postData) => createPost(postData)}/>

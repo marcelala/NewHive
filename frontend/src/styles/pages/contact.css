@@ -1,5 +1,5 @@
 .contact{
-    max-width: 80%;
+    max-width: 75%;
     margin: 4rem;
     align-content: center;
     padding: 2rem 4rem;
@@ -22,7 +22,6 @@
 }
 
 .contact-form .input {
-    display: block;
     background-color: var(--color-light-beige);
     border-color: transparent;
     color: var(--color-warm-brown);
@@ -63,6 +62,16 @@
     width: 50%;
     margin-right: 2rem;
   }
+.contact__selector-container{
+  min-width: 20%;
+  max-width: 15rem;
+  width: 40%;
+  margin-top: 1.5rem;
+}
+
+.contact-selector{
+  background-color: var(--color-light-beige);
+}
 
   #subject{
       color:var(--color-dark-brown);
@@ -95,7 +104,7 @@
     margin-top: 0.75rem;
     display: inline-block;
     width: 10rem;
-    background-color: var(--color-dark-brown);
+    background-color: var(--color-warm-brown);
     border-radius: 0.5rem;
     color: var(--color-white);
     padding: 0.45rem 0.8rem;

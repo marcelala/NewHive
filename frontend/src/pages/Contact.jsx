@@ -24,10 +24,10 @@ export const Contact = () => {
                 <span className="bar"></span>
               </div>
             </div>
-            <div class="input-group">
+            <div className="contact__selector-container">
               <Select name="contact-selector" options={options} />
+              </div>
               <span className="bar"></span>
-            </div>
             <div className="input-group">
               <textarea name="subject" id="subject" cols="30" rows="8" placeholder="Enter your message here..." required></textarea>
               <span className="bar"></span>
