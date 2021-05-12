@@ -9,6 +9,7 @@
 @import url("./modules/banner.css");
 @import url("./modules/forms.css");
 @import url("./modules/postCard.css");
+@import url("./modules/footer.css");
 @import url("./modules/selectors.css");
 @import url("./modules/commentCard.css");
 
@@ -19,7 +20,7 @@
 @import url("./pages/guidelines.css");
 @import url("./pages/contact.css");
 @import url("./pages/feed.css");
-
+@import url("./pages/about.css");
 
 
 
