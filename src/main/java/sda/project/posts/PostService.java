@@ -84,6 +84,7 @@ public class PostService {
     public List<Post> fetchPostByTopic(String topic){
         return postRepository.findByTopic(topic);
     }
+
     public List<Post> findAllPostByDateDec(){
         return postRepository.findAllPostByDateDec();
     }
