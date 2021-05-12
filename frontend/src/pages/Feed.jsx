@@ -60,16 +60,15 @@ export const Feed = () => {
     <div className="feed">
       <Banner/>
 
-      <div className="Feed__postForm-icon">
-            <h3>Make your own post</h3>
-            <FontAwesomeIcon
-              className="postForm-icon"
-              icon={["fa", "plus-circle"]}
-              onClick={() =>
+      <div className="Feed__postForm-icon" onClick={() =>
                 toggleForm
                   ? setToggleForm(false)
                   : setToggleForm(true)
-              }
+              }>
+            <h3>Make your own post here</h3>
+            <FontAwesomeIcon
+              className="postForm-icon"
+              icon={["fa", "plus-circle"]}
             />
           </div>
 
@@ -78,7 +77,7 @@ export const Feed = () => {
             <PostForm onSubmit={(postData) => createPost(postData)}/>
         </div>
       )}
-      <div className="Feed__topic-filter">
+      <div className="feed__selectors">
       <Select className="topic-filter" 
         placeholder= "Filter by topic"
         labelKey="label"
@@ -86,8 +85,6 @@ export const Feed = () => {
         options={Topics}
         // onChange={(e) => setTopic(e.value)}
         />
-        </div>
-        <div className="Feed__post-sorter">
       <Select className="post-sorter" 
         placeholder= "Sort by"
         options={sorterOptions}

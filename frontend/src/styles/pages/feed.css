@@ -1,0 +1,44 @@
+.Feed__postForm-icon{
+    display: flex;
+    justify-content: flex-end;
+    max-width: 90%;
+    margin-bottom: 2rem;
+    cursor: pointer;
+
+}
+
+.postForm-icon:hover,.Feed__postForm-icon h3:hover{
+    color: var(--color-brown);
+}
+.Feed__postForm-icon h3{
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: var(--color-dark-brown);
+}
+
+.postForm-icon{
+    font-size: 3rem;
+    color: var(--color-warm-brown);
+    padding: 0.2rem;
+    margin: 0rem .5rem;
+}
+.feed__selectors{
+    display: flex;
+    margin-bottom: 2rem;
+    justify-content: flex-end;
+    max-width: 90%;
+}
+
+.topic-filter{
+    min-width: 20%;
+    max-width: 15rem;
+    width: 40%;
+    margin:1rem;
+}
+
+.post-sorter{
+    min-width: 20%;
+    max-width: 15rem;
+    width: 40%;
+    margin:1rem;
+}
