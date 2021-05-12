@@ -3,8 +3,7 @@ package sda.project.comments;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
+
 import sda.project.posts.Post;
 import sda.project.user.User;
 
@@ -18,8 +17,13 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotEmpty
+    @Column(nullable = false)
     private String body;
+
     private Date updated;
+
     private Date created;
 
     @PrePersist
