@@ -53,12 +53,13 @@
   margin: 0;
   font-variant: small-caps;
   font-size: 0.8rem;
-  margin: .5rem .1rem;
+  margin: .6rem .1rem;
   border-radius: 2px;
+  font-weight: 300;
 }
 .postCard__content-heading {
   padding-top: 0;
-  font-weight: 700;
+  font-weight: 500;
   grid-area: "title";
   grid-row-start: 2;
   grid-row-end: 3;

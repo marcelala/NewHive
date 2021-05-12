@@ -15,7 +15,7 @@ export const NavBar = ({ onLogout }) => (
       Profile
       </Link>
       <Link id="guidelines" className="menu-item" to="/guidelines">
-      Community Guidelines
+      Guidelines
       </Link>
       <Link id="contact" className="menu-item" to="/contact">
       Contact

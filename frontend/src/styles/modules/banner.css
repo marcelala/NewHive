@@ -15,9 +15,8 @@
 
 .feed--banner-text{
     position: absolute;
-    font-family: Montserrat, sans-serif;
     font-style: normal;
-    font-weight: bold;
+    font-weight: normal;
     left: 8rem;
     bottom:100%;
     right: 100%;
@@ -27,15 +26,15 @@
     position: absolute;
     font-size: 1.5rem;
     color: var(--color-dark-brown);
-    font-weight: bold;
-    width: 18rem;
+    font-weight: 500;
+    width: auto;
     top:15rem;
 }
 .feed--banner-text h2{
     position: absolute;
     font-size: 1.8rem;
     color: var(--color-warm-brown);
-    font-weight: bold;
+    font-weight: 550;
     width: 50rem;
     top: 16rem;
     left:-9.8rem;

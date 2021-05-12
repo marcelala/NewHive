@@ -10,6 +10,9 @@ export const Contact = () => {
     
     return (
 <section class="contact">
+                <h2 className="contact__heading">Contact</h2>
+                <h4 className="contact__sub-heading">Have questions? We have answers! </h4>
+                  <h4>Contact us with this form or on other social media.</h4>
           <div className="form contact-form">
             <div className="input-group-wrap">
               <div className="input-group">
@@ -22,7 +25,7 @@ export const Contact = () => {
               </div>
             </div>
             <div class="input-group">
-              <Select name="topics" id="topic" options={options} />
+              <Select name="contact-selector" options={options} />
               <span className="bar"></span>
             </div>
             <div className="input-group">
@@ -30,7 +33,7 @@ export const Contact = () => {
               <span className="bar"></span>
             </div>
             <div className="cta">
-            <a href="#" className="form-group btn-group">Send Message</a>
+            <a href="mailto:info@community.com" className="form-group btn-group">Send Message</a>
             </div>
         </div>
     </section>
