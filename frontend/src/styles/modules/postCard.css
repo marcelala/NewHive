@@ -49,6 +49,7 @@
   color: var(--color-light-beige);
   padding: 0.5rem 0.7rem;
   justify-self: end;
+  margin: 0;
   font-variant: small-caps;
   font-size: 0.8rem;
   margin: .5rem .1rem;
@@ -63,6 +64,9 @@
   grid-column-start: 2;
   grid-column: span 4;
   padding: 0.5rem;
+  justify-self: center;
+  margin: 0rem 2.5rem;
+
 }
 .postCard--date {
   font-size: 1rem;
@@ -78,6 +82,9 @@
   grid-column-start: 2;
   grid-column: span 4;
   grid-row: span auto;
+  justify-self: start;
+  margin: 1rem 2.5rem;
+
 }
 
   .postCard__editDelete {
@@ -88,8 +95,36 @@
     display: flex;
     justify-content: space-between;
     cursor: pointer;
-    padding: .5rem;
+    padding: 1rem;
+    font-size: 1.5rem;
   }
+
+  .delete,.edit{
+    font-size: 1.5rem;
+    margin: 1rem;
+    color: var(--color-brown);
+  }
+
+  .delete:hover,.edit:hover{
+    color: var(--color-beige);
+  }
+
+  .postCard__editPost{
+    width: 100%;
+    grid-row-start: 5;
+    grid-row-end: auto;
+    grid-column-start: 2;
+    grid-column-end: 6;
+
+  }
+  .editPost{
+    width: 100%;
+    grid-row-start: 5;
+    grid-row-end: auto;
+    grid-column-start: 2;
+    grid-column-end: 6;
+  }
+
   
   .postCard__comments {
     text-align: right;
@@ -112,8 +147,8 @@
     cursor: pointer;
     font-size: 2rem;
   }
-  .postCard__comments-icon:hover {
-    color: var(--color-light-beige);
+  .postCard__comments-icon:hover,.postCard__comments:hover {
+    color: var(--color-beige);
   }
   
   .postCard--user {
@@ -125,6 +160,5 @@
     margin-top: 1rem;
   }
   
-
 
 

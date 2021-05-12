@@ -127,13 +127,11 @@ export default function PostCard({ post, onDeleteClick }) {
           <div className="postCard--date">{date()}</div>
           {userCheck() && (
             <div className="postCard__editDelete">
-              <div className="commentCard__Delete">
                 <FontAwesomeIcon
                   className="delete"
                   icon={["fa", "trash-alt"]}
                   onClick={onDeleteClick}
                 />
-              </div>
               <FontAwesomeIcon
                 className="edit"
                 icon={["fa", "edit"]}
@@ -141,12 +139,15 @@ export default function PostCard({ post, onDeleteClick }) {
                   toggleEdit ? setToggleEdit(false) : setToggleEdit(true)
                 }
               />
+              
+              <div className="postCard__editPost">
             {toggleEdit && (
               <EditPost
                 onSubmit={(postData) => updatePost(postData)}
                 post={post}
               />
             )}
+          </div>
           </div>
           )}
         {toggleBody && (

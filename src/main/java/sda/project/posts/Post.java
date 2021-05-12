@@ -23,9 +23,7 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     private Date dateCreated;
-
 
     private Date lastEdited;
 
@@ -37,19 +35,20 @@ public class Post {
     @NotEmpty(message = "Please provide a valid post body")
     private String body;
 
-    // @Column(nullable = false)
-    // @NotEmpty(message = "Please provide a valid post topic")
+    @Column(nullable = false)
+    @NotEmpty(message = "Please provide a valid post topic")
     private String topic;
 
     private String authorname;
+
 
     @ManyToOne
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "email")
     @JsonIdentityReference(alwaysAsId = true)
     private User author;
 
-    @OneToMany(mappedBy = "commentOwner")
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OneToMany(mappedBy = "commentOwner", cascade = CascadeType.ALL)
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     private List<Comment> comments;
 
     public Post() {
@@ -59,7 +58,7 @@ public class Post {
     public Post(Long id, Date dateCreated, Date lastEdited,
                 @NotEmpty(message = "Please provide a valid post tittle") String title,
                 @NotEmpty(message = "Please provide a valid post body") String body,
-                @NotEmpty(message = "Please provide a valid post topic") String topic, User author) {
+                @NotEmpty(message = "Please provide a valid post topic") String topic, User author, String authorname) {
         this.id = id;
         this.dateCreated = new Date();
         this.lastEdited = this.dateCreated;
@@ -67,6 +66,8 @@ public class Post {
         this.body = body;
         this.topic = topic;
         this.author = author;
+        this.authorname = authorname;
+
     }
 
     public Long getId() {
@@ -115,6 +116,14 @@ public class Post {
 
     public void setTopic(String topic) {
         this.topic = topic;
+    }
+
+    public String getAuthorName() {
+        return authorname;
+    }
+
+    public void setAuthorName(String authorName) {
+        this.authorname = authorname;
     }
 
     public User getAuthor() {
