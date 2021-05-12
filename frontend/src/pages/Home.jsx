@@ -1,22 +1,58 @@
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 import { LoginForm } from "./auth/LoginForm";
+import { RegisterForm } from "./auth/RegisterForm";
+import Auth from "./../services/Auth";
+
 
 
 export const Home = () => {
+    const [toggleRegister, setToggleRegister] = useState(false);
+    const [toggleLogin, setToggleLogin] = useState(false);
+    const [signIn, setSignIn] = useState(true);
+      
+        // Methods
+        async function login(loginData) {
+          const loginSuccess = await Auth.login(loginData);
+          if (!loginSuccess) {
+            alert("Invalid credentials");
+          }
+        }
+      
+        async function register(registrationData) {
+          const registerSuccess = await Auth.register(registrationData);
+          if (!registerSuccess) {
+            alert("Couldn't register check credentials and try again");
+          }
+        }
 
     return(
 <section className="home">
 <Banner/>
 
-<div className="home__join">
-    <h2>Click here and join our community now!</h2>
+    <div className="home__join" onClick={() => toggleRegister ? setToggleRegister(false) : setToggleRegister(true)
+      }>
 
-    <h3>Already a user? Login here</h3>
+    <h2> Click here and join our community now!</h2>
+    </div>
+            {toggleRegister && (
+            <RegisterForm onSubmit={register}/>
+            )}
+
+
+
+<div className="home__return">
+    <h3 onClick={() => toggleLogin ? setToggleLogin(false) : setToggleLogin(true)      
+    }>Already a user? Log in here </h3>
+        {toggleLogin && (
+        <LoginForm onSubmit={login}/>
+          )}
 </div>
+
 <div className="home__features">
         <div className="home__features-meet">
         <FontAwesomeIcon
@@ -44,15 +80,9 @@ export const Home = () => {
         </div>
 
 </div>
-<div className="login">
-{/* <LoginForm/> */}
-</div>
 
 <Footer/>
 </section>
 
     )
 }
-
-
-<div>Home Page</div>
