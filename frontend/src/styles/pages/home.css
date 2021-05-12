@@ -1,6 +1,49 @@
 .home{
     font-family: "Montserrat", sans-serif;
+    color: var(--color-warm-brown);
+    align-content: center;
 }
+
+.home__features{
+    background-color: var(--color-light-beige);
+    margin-top: 3rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 90%;
+    align-items: center;
+    align-content: center;
+}
+
+.home__post{
+    font-size: 8rem;
+    padding: 0.5rem;
+    margin-bottom: 0.4rem;
+    color: var(--color-brown);
+    margin-left: 1.5rem;
+}
+
+
+.home__mentor{
+    font-size: 8rem;
+    padding: 0.5rem;
+    margin-top: 0.4rem;
+    color: var(--color-brown);
+}
+
+.home__connect{
+    font-size: 8rem;
+    padding: 0.5rem;
+    margin-bottom: 0.4rem;
+    color: var(--color-brown);
+    margin-right: .3rem;
+
+
+}
+
+
+
 
 .login{
     font-family: "Montserrat", sans-serif;
