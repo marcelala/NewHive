@@ -55,10 +55,9 @@
     border: none;
     font-size: 1.2rem;
     padding: 0.5rem;
-  
     cursor: pointer;
     border-radius: 6px;
-    background-color: var(--off-white);
+    background-color: var(--color-beige);
   }
   
   .commentCard__content-heading {

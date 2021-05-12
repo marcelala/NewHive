@@ -1,5 +1,7 @@
 import Select from 'react-select';
 import React from "react"; 
+import Footer from "../components/Footer";
+
 export const Contact = () => {
 
   const options = [
@@ -36,6 +38,7 @@ export const Contact = () => {
             <a href="mailto:info@community.com" className="form-group btn-group">Send Message</a>
             </div>
         </div>
+        <Footer/>
     </section>
     )
 }

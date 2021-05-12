@@ -21,9 +21,9 @@ export default function Footer () {
             </li>
             <li><p>Guidelines</p></li>
             <li>
-                <a href="mailto:info@community.com" target="_blank" rel="noreferrer" title="Email">
+            <Link to="/contact">
                     <p>Contact</p>
-                </a>
+            </Link>
             </li>
         </ul>
     </div>

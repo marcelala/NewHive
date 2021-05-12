@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../components/Footer";
 
 export const CommunityGuidelines= () => {
   return (
@@ -70,6 +71,7 @@ export const CommunityGuidelines= () => {
           </li>
         </ul>
       </div>
+      <Footer/>
     </section>
   );
 }
