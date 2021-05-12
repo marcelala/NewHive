@@ -56,17 +56,17 @@ export default function PrivateProfile () {
       <div className="full-profile">
         <h1>My Profile</h1>
         {profileExisted && (
-            <>
-          <InformationCard key={profile.id} profileInfo={profile} />
-           <button
-            className="btn"
-            type="button"
-            onClick={() =>
-              toggleEdit ? setToggleEdit(false) : setToggleEdit(true)
-            }
-          >
-            Edit info
-          </button>
+          <>
+            <InformationCard key={profile.id} profileInfo={profile} />
+            <button
+              className={  `btn ${toggleEdit ? 'hidden' : ''}`}
+              type="button"
+              onClick={() =>
+                toggleEdit ? setToggleEdit(false) : setToggleEdit(true)
+              }
+            >
+              Edit info
+            </button>
           </>
         )}
         {/* <button className="btn" type="button" onClick={() => (toggleAdd ? setToggleAdd(false) : setToggleAdd(true))}> Add info </button> */}
