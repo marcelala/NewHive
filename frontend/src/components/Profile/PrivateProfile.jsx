@@ -11,20 +11,17 @@ export default function PrivateProfile () {
     const [profile, setProfile] = useState({});
    // const [currentUser, setCurrentUser] = useState({});
     const [profileExisted, setProfileExisted] = useState(false);
-    const {id, owner, ...profileInfo} = profile;
-    console.log("profileInfo", profileInfo);
-    console.log("owner", owner);
 
     useEffect(() => {
-     ProfileApi.viewProfile()
-       .then(({ data }) => {
-         if (data) {
-          setProfile(data);
-          setProfileExisted(true);
-         }
-       })
-       .catch((err) => console.error(err));
-    }, [setProfile], setProfileExisted);
+      ProfileApi.viewProfile()
+        .then(({ data }) => {
+          if (data) {
+            setProfile(data);
+            setProfileExisted(true);
+          }
+        })
+        .catch((err) => console.error(err));
+    }, [setProfile, setProfileExisted]);
 
     async function createProfile(profile) {
         try {
@@ -58,21 +55,21 @@ export default function PrivateProfile () {
     return (
       <div className="full-profile">
         <h1>My Profile</h1>
-
         {profileExisted && (
           <InformationCard key={profile.id} profileInfo={profile} />
         )}
         {/* <button className="btn" type="button" onClick={() => (toggleAdd ? setToggleAdd(false) : setToggleAdd(true))}> Add info </button> */}
-        <button
-          className="btn"
-          type="button"
-          onClick={() =>
-            toggleEdit ? setToggleEdit(false) : setToggleEdit(true)
-          }
-        >
-          {" "}
-          Edit info{" "}
-        </button>
+        {!profileExisted && (
+          <button
+            className="btn"
+            type="button"
+            onClick={() =>
+              toggleEdit ? setToggleEdit(false) : setToggleEdit(true)
+            }
+          >
+            Edit info
+          </button>
+        )}
         {/* {toggleAdd && (
           <ProfileForm onSubmit={(profileData) => createProfile(profileData)} />
         )} */}
