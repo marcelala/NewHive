@@ -3,7 +3,8 @@ import Footer from "../components/Footer";
 
 export const CommunityGuidelines= () => {
   return (
-    <section className="communityGuidelines">
+    <section className="communityGuidelines-container">
+      <div className="communityGuidelines">
       <div>
         <h2 className="communityGuidelines--heading">Community Guidelines</h2>
         <h3 className="communityGuidelines--welcome">Welcome to ????</h3>
@@ -70,6 +71,7 @@ export const CommunityGuidelines= () => {
             it.
           </li>
         </ul>
+      </div>
       </div>
       <Footer/>
     </section>
