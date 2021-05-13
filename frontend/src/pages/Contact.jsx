@@ -38,7 +38,6 @@ export const Contact = () => {
             <a href="mailto:info@community.com" className="form-group btn-group">Send Message</a>
             </div>
         </div>
-        <Footer/>
     </section>
     )
 }

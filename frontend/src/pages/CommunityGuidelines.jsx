@@ -73,7 +73,6 @@ export const CommunityGuidelines= () => {
         </ul>
       </div>
       </div>
-      <Footer/>
     </section>
   );
 }

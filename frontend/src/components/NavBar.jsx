@@ -12,7 +12,7 @@ export const NavBar = ({ onLogout }) => (
         Feed
       </Link>
       <Link id="profile" className="menu-item" to="/profile">
-      Profile
+        My Profile
       </Link>
       {/* <Link id="guidelines" className="menu-item" to="/guidelines">
       Guidelines
@@ -26,6 +26,12 @@ export const NavBar = ({ onLogout }) => (
       {/* {/* <Link id="messages" className="menu-item" href="/messages">
         My messages
       </Link> */} 
+      <Link id="organizations" className="menu-item" to="/organizations">
+        Organizations
+      </Link>
+      <Link id="faq" className="menu-item" to="/faq">
+        FAQ about Sweden
+      </Link>
       <div className="logout">
         <button className="logout-button" onClick={onLogout}>
           Logout
