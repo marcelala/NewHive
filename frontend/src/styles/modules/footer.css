@@ -1,5 +1,10 @@
 .footer{
     padding: 0.5rem;
+    font-size: smaller;
+}
+
+.footer p{
+    font-size: medium;
 }
 
 .socials{

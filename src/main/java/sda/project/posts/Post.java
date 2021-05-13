@@ -134,7 +134,7 @@ public class Post {
         this.author = author;
     }
 
-        public List<Comment> getComments() {
+    public List<Comment> getComments() {
         return this.comments;
     }
 

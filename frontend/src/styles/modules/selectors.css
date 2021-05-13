@@ -4,5 +4,5 @@ Select{
   background: transparent;
   font-weight: normal;
   color: var(--color-dark-brown);
-  border-color: white;
+  border-color: none;
 }
