@@ -9,8 +9,8 @@ class ProfileApi {
     return Api.get("/view-profile");
   }
 
-  editProfile(profile) {
-    return Api.put("/edit-profile", profile)
+  editProfile(id, profile) {
+    return Api.put(`/edit-profile/${id}`, profile);
   }
 
 }

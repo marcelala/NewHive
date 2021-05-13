@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ProfileApi from "../../api/ProfileApi";
 import EditProfile from "./EditProfile";
 import InformationCard from "./InformationCard";
-import ProfileForm from "./ProfileForm";
+//import ProfileForm from "./ProfileForm";
 
 export default function PrivateProfile () {
 
@@ -35,20 +35,21 @@ export default function PrivateProfile () {
         }
     }
 
-    async function editProfile(profile) {
-        try {
-            console.log("editProfile", profile);
-            const response = await ProfileApi.editProfile(profile);
-            console.log("response", response.data);
-            setProfile({...response.data});
-        } catch (e) {
-            console.error(e);
-        }
+    async function editProfile(id, profile) {
+      try {
+        const {owner, ...updatedData} = profile;
+        const response = await ProfileApi.editProfile(id, updatedData);
+        setProfile({ ...response.data });
+        setToggleEdit(false);
+      } catch (e) {
+        console.error(e);
+      }
     }
 
     function updateProfile(data){
-        console.log("updateProfile");
-        return !profileExisted ? createProfile(data) : editProfile(data);
+        return !profileExisted
+          ? createProfile(data)
+          : editProfile(data.id, data);
     }
 
 
