@@ -5,21 +5,27 @@ export const NavBar = ({ onLogout }) => (
   <div className="nav-bar">
     <div className="logo">Logotype</div>
     <Menu right>
-      <Link id="home" className="menu-item" to="/" exact>
+      {/* <Link id="home" className="menu-item" to="/" exact>
         Home
-      </Link>
+      </Link> */}
       <Link id="feed" className="menu-item" to="/feed">
         Feed
       </Link>
-      <Link id="mentorship" className="menu-item" to="/mentorship">
-        Mentorship
-      </Link>
-      {/* {/* <Link id="messages" className="menu-item" href="/messages">
-        My messages
-      </Link> */} 
       <Link id="profile" className="menu-item" to="/profile">
       Profile
       </Link>
+      {/* <Link id="guidelines" className="menu-item" to="/guidelines">
+      Guidelines
+      </Link> */}
+      {/* <Link id="contact" className="menu-item" to="/contact">
+      Contact us
+      </Link> */}
+      {/* <Link id="mentorship" className="menu-item" to="/mentorship">
+        Mentorship
+      </Link> */}
+      {/* {/* <Link id="messages" className="menu-item" href="/messages">
+        My messages
+      </Link> */} 
       <div className="logout">
         <button className="logout-button" onClick={onLogout}>
           Logout

@@ -1,8 +1,20 @@
+import Select from 'react-select';
+import React from "react"; 
+import Footer from "../components/Footer";
+
 export const Contact = () => {
 
-
+  const options = [
+    { value: 'Question', label: 'Question' },
+    { value: 'Suggestions', label: 'Suggestions' },
+    { value: 'Feedback', label: 'Feedback' }];
+    
+    
     return (
-<section class="contact">
+<section class="contact__container">
+                <h2 className="contact__heading">Contact</h2>
+                <h4 className="contact__sub-heading">Have questions? We have answers! </h4>
+                  <h4>Contact us with this form or on other social media.</h4>
           <div className="form contact-form">
             <div className="input-group-wrap">
               <div className="input-group">
@@ -14,23 +26,19 @@ export const Contact = () => {
                 <span className="bar"></span>
               </div>
             </div>
-            <div class="input-group">
-              <select name="topics" id="topic">
-              <option value="placeholder">Select a topic...</option>
-              <option value="Questions">Questions</option>
-              <option value="Suggestions">Suggestions</option>
-              <option value="Feedback">Feedback</option>
-              </select>
+            <div className="contact__selector-container">
+              <Select name="contact-selector" options={options} />
+              </div>
               <span className="bar"></span>
-            </div>
             <div className="input-group">
               <textarea name="subject" id="subject" cols="30" rows="8" placeholder="Enter your message here..." required></textarea>
               <span className="bar"></span>
             </div>
             <div className="cta">
-            <a href="#" className="btn-pink">Send Message</a>
+            <a href="mailto:info@community.com" className="form-group btn-group">Send Message</a>
             </div>
         </div>
+        <Footer/>
     </section>
     )
 }
