@@ -1,6 +1,7 @@
 .postCard-section{
   padding-bottom: 3rem;
   margin-bottom: 1rem;
+  font-family: "Montserrat", sans-serif;
 }
 
 .postCard {
@@ -15,7 +16,7 @@
     margin-right: auto;
     color: var(--color-warm-brown);
     height: auto;
-    
+    font-family: "Montserrat", sans-serif;
   }
 
   .postCard__content {
@@ -27,6 +28,7 @@
     grid-template-columns: 9rem auto auto auto;
     grid-template-rows: 4rem auto auto auto;
     margin-right: 0; 
+    font-family: "Montserrat", sans-serif;
   }
 
   .picture{
@@ -41,23 +43,29 @@
   }
   
 .postCard__topic{
-  grid-area: "topic";
   grid-column-start: 5;
   grid-column-end: 6;
   grid-row-end: 2;
   background-color: var(--color-warm-brown);
-  color: var(--color-light-beige);
   padding: 0.5rem 0.7rem;
   justify-self: end;
-  margin: 0;
-  font-variant: small-caps;
   font-size: 0.8rem;
-  margin: .5rem .1rem;
+  margin: .6rem .1rem;
+  border-radius: 2px;
 
 }
+
+.postCard__topic h1{
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+  text-transform: capitalize;
+  color: var(--color-light-beige);
+
+}
+
 .postCard__content-heading {
   padding-top: 0;
-  font-weight: 700;
+  font-weight: 500;
   grid-area: "title";
   grid-row-start: 2;
   grid-row-end: 3;
@@ -102,7 +110,7 @@
   .delete,.edit{
     font-size: 1.5rem;
     margin: 1rem;
-    color: var(--color-brown);
+    color: var(--color-warm-brown);
   }
 
   .delete:hover,.edit:hover{
@@ -139,7 +147,7 @@
   
   .postCard__comments-icon {
     background: none;
-    color: var(--color-brown);
+    color: var(--color-warm-brown);
     display: inline-block;
     padding: 0.3rem .3rem;
     cursor: pointer;

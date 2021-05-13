@@ -1,17 +1,17 @@
 import React from "react";
+import Footer from "../components/Footer";
 
 export const CommunityGuidelines= () => {
   return (
-    <section className="communityGuidelines">
+    <section className="communityGuidelines-container">
+      <div className="communityGuidelines">
       <div>
-        <h2 className="communityGuidelines--heading">Community GuideLines</h2>
+        <h2 className="communityGuidelines--heading">Community Guidelines</h2>
         <h3 className="communityGuidelines--welcome">Welcome to ????</h3>
         <p className="communityGuidelines--contentBody">
-          This forum was setup to help new arrivals integrate in Swedish Society
-          by giving them the opportunity to join in community events. Connect
-          with Swedish mentors, make new friends, and generate a business
-          network that can help with the job search, interview process and
-          Swedish work culture.
+          This forum was setup to help women and non-binary people 
+          integrate in Sweden by establishing new networks of connections. 
+          Find members with availability to mentor, make new friends and have fun!
         </p>
         <h3 className="communityGuidelines--subHeading">The Short Version</h3>
         <ul className="communityGuidelines__list">
@@ -20,12 +20,19 @@ export const CommunityGuidelines= () => {
             conversations in our community.
           </li>
           <li className="communityGuidelines__list--item">
-            Do politely ask us questions and let us know what you like and don’t
-            like about a specific post, or the ideas talked about in it.
+          We want to ensure that ..... is safe and remains a platform for women to engage in fun and meaningful conversations. 
+          Please know that if your post or comment was reported in breach of the following rules, 
+          this may lead to the permanent deactivation of your account.
+          If you see any off-limits content, please report it! 
+          All of us will be grateful.
           </li>
           <li className="communityGuidelines__list--item">
-            Don’t be a jerk, call people jerks, or react to jerks. We’ll remove
-            bad stuff when we see it.
+          There's zero-tolerance policy for any content which supports 
+          racism, bigotry, hatred against users or groups based on factors 
+          including but not limited to race, ethnicity, religion, sexual 
+          orientation, disability, gender or age.
+
+
           </li>
           <li className="communityGuidelines__list--item">
             Respect and help the moderators. It’s a small team of dedicated,
@@ -42,9 +49,9 @@ export const CommunityGuidelines= () => {
             other spam.
           </li>
           <li className="communityGuidelines__list--item">
-            Personal attacks: Don’t attack or insult another user. It’s not
-            helpful and it doesn’t make BeeConnected a friendly place. This
-            includes calling other members trolls.
+          We value respect and encourage all users to approach 
+          each other with no judgment especially when disagreeing 
+          with one another. We can all have different opinions! 
           </li>
           <li className="communityGuidelines__list--item">
             Doxxing: Don’t reveal someone else’s personal information.
@@ -54,26 +61,19 @@ export const CommunityGuidelines= () => {
             steal service, and other nefarious activity is not OK here.
           </li>
           <li className="communityGuidelines__list--item">
-            NSFW material: Nope, not allowed. Even images or links that could be
-            considered borderline are not acceptable. A good rule of thumb is
-            that anything beyond PG-13 will get you in trouble, but we reserve
-            the right to remove any post we deem offensive. This goes for
-            pornographic material, vile language, gore and generally gross
-            stuff.
+          Sex is an important topic and we welcome those conversations. 
+          However, we reserve the right to remove overly graphic descriptions and images. 
+          We may also remove content we decide to be inappropriate for our platform.
           </li>
           <li className="communityGuidelines__list--item">
             Racism, sexism, and other discrimination: Attacking entire classes
             of people is just like attacking a single person: we’ll ban you for
             it.
           </li>
-          <li className="communityGuidelines__list--item">
-            Trolling: ”Trolling” is a big, messy term, but we know what trolls
-            are and we won’t tolerate it. If you’re abusing the good
-            conversations here at BeeConnected, we will take your comments and
-            posts down. This includes taking a thread off-topic, by the way.
-          </li>
         </ul>
       </div>
+      </div>
+      <Footer/>
     </section>
   );
 }

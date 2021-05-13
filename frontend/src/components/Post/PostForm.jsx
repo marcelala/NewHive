@@ -55,7 +55,7 @@ export default function PostForm({ onSubmit }) {
         onChange={(e) => setTopic(e.value)}
         />
         <div>
-          <button className="btn" type="button" onClick={handleSubmit}>
+          <button className="postForm_btn" type="button" onClick={handleSubmit}>
             Post
           </button>
         </div>

@@ -1,0 +1,48 @@
+
+.communityGuidelines {
+    text-align: left;
+    padding: 2rem;
+    color: var(--color-dark-brown);
+    max-width: 80%;
+    margin: 4rem;
+    align-content: center;
+    padding: 2rem 4rem;
+    background-color: var(--color-light-beige);
+    margin-bottom: 6rem;
+    justify-content: center;
+    display: inline-block;
+  }
+  
+  .communityGuidelines--heading {
+    text-align: center;
+    font-weight: 600;
+    color: var(--color-warm-brown);
+  }
+  
+  .communityGuidelines--welcome {
+    text-align: center;
+    padding-bottom: 2rem;
+    font-weight: 500;
+  }
+  
+  .communityGuidelines--subHeading {
+    text-align: center;
+    padding: 2rem;
+    color: var(--color-warm-brown);
+    font-weight: 500;
+  }
+  
+  .communityGuidelines__list {
+    list-style: disc;
+    font-size: 1.4rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    font-weight: 400;
+
+  }
+  
+  .communityGuidelines__list--item {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-weight: 400;
+  }
