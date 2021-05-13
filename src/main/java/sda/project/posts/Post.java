@@ -39,7 +39,7 @@ public class Post {
     @NotEmpty(message = "Please provide a valid post topic")
     private String topic;
 
-    private String authorname;
+    private String authorName;
 
 
     @ManyToOne
@@ -58,7 +58,7 @@ public class Post {
     public Post(Long id, Date dateCreated, Date lastEdited,
                 @NotEmpty(message = "Please provide a valid post tittle") String title,
                 @NotEmpty(message = "Please provide a valid post body") String body,
-                @NotEmpty(message = "Please provide a valid post topic") String topic, User author, String authorname) {
+                @NotEmpty(message = "Please provide a valid post topic") String topic, User author, String authorName) {
         this.id = id;
         this.dateCreated = new Date();
         this.lastEdited = this.dateCreated;
@@ -66,7 +66,7 @@ public class Post {
         this.body = body;
         this.topic = topic;
         this.author = author;
-        this.authorname = authorname;
+        this.authorName = authorName;
 
     }
 
@@ -119,11 +119,11 @@ public class Post {
     }
 
     public String getAuthorName() {
-        return authorname;
+        return authorName;
     }
 
     public void setAuthorName(String authorName) {
-        this.authorname = authorname;
+        this.authorName = authorName;
     }
 
     public User getAuthor() {
@@ -143,11 +143,11 @@ public class Post {
     }
 
     public String getAuthorname() {
-        return authorname;
+        return authorName;
     }
 
     public void setAuthorname(String authorname) {
-        this.authorname = authorname;
+        this.authorName = authorname;
     }
 
     //To be used in comparing the post author with the user in session
