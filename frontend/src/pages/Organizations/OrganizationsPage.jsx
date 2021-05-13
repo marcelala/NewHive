@@ -19,8 +19,7 @@ export const OrganizationsPage = () => {
       </div>
 
       <div className="organizations">
-        <div className="filters">
-          <div className="Feed__topic-filter">
+          <div className="Organizations__topic-filter">
             <Select
               isClearable
               className="topic-filter"
@@ -29,7 +28,6 @@ export const OrganizationsPage = () => {
               onChange={handleChange}
             />
           </div>
-        </div>
 
         <p className="org-number">
           Showing {organizations.length} organizations
