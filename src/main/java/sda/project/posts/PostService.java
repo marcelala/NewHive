@@ -85,6 +85,7 @@ public class PostService {
         return postRepository.findByTopic(topic);
     }
 
+    //fetch all post by latest
     public List<Post> findAllPostByDateDec(){
         return postRepository.findAllPostByDateDec();
     }

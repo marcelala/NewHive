@@ -2,7 +2,6 @@ package sda.project.profile;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import sda.project.auth.AuthService;
 import sda.project.exception.ResourceNotFoundException;
@@ -10,7 +9,6 @@ import sda.project.exception.UnAuthorizedException;
 import sda.project.user.User;
 import sda.project.user.UserService;
 
-import java.util.Date;
 
 @Service
 public class ProfileService {

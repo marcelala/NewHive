@@ -39,12 +39,14 @@ public class PostController {
         return postService.create(postService.update( post, existingPost));
     }
 
+
     @DeleteMapping("/posts/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletePost(@PathVariable Long id){
         postService.deletePostById(id);
     }
 
+    //Method for post sorted by topics
     @GetMapping(value ="/posts",params = {"topic"})
     public ResponseEntity<List<Post>> getPostByTopic(@RequestParam String topic) {
         return ResponseEntity.ok(postService.fetchPostByTopic(topic));
