@@ -17,9 +17,9 @@ export const NavBar = ({ onLogout }) => (
       {/* <Link id="guidelines" className="menu-item" to="/guidelines">
       Guidelines
       </Link> */}
-      <Link id="contact" className="menu-item" to="/contact">
+      {/* <Link id="contact" className="menu-item" to="/contact">
       Contact us
-      </Link>
+      </Link> */}
       {/* <Link id="mentorship" className="menu-item" to="/mentorship">
         Mentorship
       </Link> */}

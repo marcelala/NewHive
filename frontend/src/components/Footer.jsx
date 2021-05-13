@@ -19,10 +19,14 @@ export default function Footer () {
                     <p>About</p>
                 </Link>
             </li>
-            <li><p>Guidelines</p></li>
+            <li>     
+            <Link to="/guidelines">
+            <p>Community Guidelines</p>
+            </Link>
+            </li>
             <li>
             <Link to="/contact">
-                    <p>Contact</p>
+                    <p>Contact us</p>
             </Link>
             </li>
         </ul>

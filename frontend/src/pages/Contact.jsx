@@ -11,7 +11,7 @@ export const Contact = () => {
     
     
     return (
-<section class="contact">
+<section class="contact__container">
                 <h2 className="contact__heading">Contact</h2>
                 <h4 className="contact__sub-heading">Have questions? We have answers! </h4>
                   <h4>Contact us with this form or on other social media.</h4>
