@@ -1,0 +1,111 @@
+[
+    {
+        "id": 1,
+        "category": "culture",
+        "author": "Flash Pack",
+        "image":"wellness.jpg",
+        "title": "Sweden's secret to wellness",
+        "description": "Sandra West, owner of Putney's Blåbär cafe, shares how the Swedish concept of lagom is the key to wellness. Lagom loosely translates to ‘not too much, not too little’, and is at the heart of Swedish culture. It's widely considered one of the reason's why people from Sweden live such happy, balanced lives. By living lagom you can also improve your work-life balance, create a minimalistic home life and reduce your environmental impact. How do you practice lagom?",
+        "link": "https://www.youtube.com/watch?v=Sg8z6-nyiz4",
+        "date": "Aug 14, 2019"
+    },
+
+    {
+        "id": 2,
+        "category": "work",
+        "author":"Tana Storani",
+        "image":"working.jpg",
+        "title":"JOB MARKET IN SWEDEN | How to Get a Job in Sweden 2021",
+        "description":"Are you looking for a job in Sweden? In this video, I interview the Recruiter Matias, specialised in talent acquisition in Sweden and Finland, and he shares strategies, information, tips and suggestions for the jobs in the area for 2021. Hope this helps and you find some direction in your career.",
+        "link":"https://www.youtube.com/watch?v=HCcDuys9U2I",
+        "date":"Feb 24, 2021"
+    },
+
+    {
+        "id": 3,
+        "category": "culture",
+        "author":"Anastasia K",
+        "image":"work-culture.jpg",
+        "title":"Swedish working culture: Benefits, talking about money and Data Science salaries",
+        "description":"What to expect when you are working in Sweden as an employee? If you are interested in working in Sweden/Stockholm, I'll talk about general working culture in international companies, how common is it to talk about money and compensation and how to ask for a raise. What kinds of benefits you get when you work here, what are the vacations, parental leave, and all about free food and fika you can get! I'll discuss what salary ranges data scientist usually receive in Sweden/Stockholm, what are the differences for seniority levels.",
+        "link": "https://www.youtube.com/watch?v=KnoHB973jQc",
+        "date":"Jun 30, 2020"
+    },
+
+    {
+        "id":4,
+        "category":"life",
+        "author":"costoflivingin",
+        "image":"stockholm.jpg",
+        "title":"Cost of living in Stockholm (Sweden)",
+        "description":"In this video I summarize the average cost of living in Stockholm (Sweden) showing prices and expenses of living there. How much does it cost to live in Stockholm? Check it out... I travel the world investigating the costs of living in different places. I visit shops, gyms, offices, talk to local people to find out the expenses for an average person.",
+        "link":"https://www.youtube.com/watch?v=mTVII4Od85c",
+        "date":"Nov 5, 2020"
+    },
+
+    {
+        "id":5,
+        "category":"life",
+        "author":"Jonna Jinton",
+        "image":"darkness.jpg",
+        "title":"Living with the Dark Winters in Sweden | Midnight sun & Polar night",
+        "description":"Dark winters with no sunlight for many weeks, and bright summers with sunlight 24 hours/day. How is it to live with the extreme light conditions that countries in the Northern hemisphere have? In this video I want to share my own personal experience and perspective of living with the seasons in the North of Sweden, and take you on a journey to the darkest and brightest times of the year, and share the beauty and the challenges that comes with them.",
+        "link":"https://www.youtube.com/watch?v=3zTR4ayDG38",
+        "date":"Jan 13, 2021"
+    },
+
+    {
+        "id":6,
+        "category":"education",
+        "author":"Study in Sweden",
+        "image":"study.jpg",
+        "title":"Study in Sweden: how to apply to bachelor’s and master’s programmes for 2021",
+        "description":"We are joined by our admissions experts from the Swedish Council for Higher Education (UHR), who will tell you everything you need to know about how to apply to master’s and bachelor’s programmes, about the admissions process itself, and answer any questions you may have. We are joined by Marleen, head of English communication and Ida, admissions officer at the Swedish Council for Higher Education.",
+        "link":"https://www.youtube.com/watch?v=IgOWPRcSZ_E",
+        "date":"Dec 1, 2020"
+    },
+
+    {
+        "id":7,
+        "category":"housing",
+        "author":"Sveriges Allmännytta",
+        "image":"housing.jpg",
+        "title":"What is Public Housing in Sweden?",
+        "description":"Public Housing Sweden is the organisation of the municipality owned public housing companies in Sweden. Our 300 member companies manage some 802 000 dwellings all together. The public housing sector represents almost 20 percent of the total housing stock in Sweden and half of the rental sector. Every 7th Swede lives in public housing.",
+        "link":"https://www.youtube.com/watch?v=p0w1A4lOaLM",
+        "date":""
+    },
+
+    {
+        "id":8,
+        "category":"housing",
+        "author":"The Local",
+        "image":"buy-house.jpg",
+        "title":"BUYING A HOUSE IN SWEDEN IN 2020: Cheapest and most expensive places",
+        "description":"If you've been thinking of buying a house in Sweden and wondered where you can get the best deal, the country's latest official real estate stats reveal where prices have gone up the most and where it's possible to buy a house under SEK 2 million in 2020.",
+        "link":"https://www.youtube.com/watch?v=iaK_RJFYzho",
+        "date":"Aug 26, 2020"
+    },
+
+    {
+        "id":9,
+        "category":"education",
+        "author": "Study in Sweden",
+        "image":"study-swedish.jpg",
+        "title":"5 Tips to Learn Swedish from an International Student",
+        "description":"Hej, everyone! Raeed here! Learning any language can be difficult initially and Swedish is not an exception. Suci, one of the students at Halmstad University also faced the struggle when she started to learn Swedish, but she overcame those difficulties and can speak Swedish now. In this video, she will give you 5 tips to learn Swedish based on her personal experience so that you can speak Swedish like her :)",
+        "link":"https://www.youtube.com/watch?v=0-OQ4eCXlzo",
+        "date":"Jun 12, 2019"
+    },
+
+    {
+        "id":10,
+        "category":"work",
+        "author":"Arbetsförmedlingen",
+        "image":"job.jpg",
+        "title":"How to apply for a job I Sweden",
+        "description":"This film about how to apply for a job in Sweden is produced by EURES National Coordination Office Sweden at Arbetsförmedlingen. The target group is EU/EEA and Swiss citizens interested in coming to Sweden for work.",
+        "link":"https://www.youtube.com/watch?v=4E2xlHifIKM",
+        "date":"May 7, 2018"
+    }
+]
