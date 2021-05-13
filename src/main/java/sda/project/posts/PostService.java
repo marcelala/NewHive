@@ -1,5 +1,7 @@
 package sda.project.posts;
 
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -78,6 +80,12 @@ public class PostService {
         User postAuthor = existingPost.getAuthor();
         User userInSession = userService.findUserByEmail(authService.getLoggedInUserEmail());
         return postAuthor.equals(userInSession);
+    }
+
+    public List<Post> findAllPostByDateDec(){
+
+        return postRepository.findAllPostByDateDec();
+
     }
 
 }

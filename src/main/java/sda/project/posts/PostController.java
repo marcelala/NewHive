@@ -27,7 +27,7 @@ public class PostController {
 
     @GetMapping("/posts")
     public ResponseEntity<List<Post>> getAllPosts(){
-        return postService.fetchAll();
+        return ResponseEntity.ok(postService.findAllPostByDateDec());
     }
 
     @GetMapping("/posts/{id}")

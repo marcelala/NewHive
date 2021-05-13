@@ -14,6 +14,7 @@ import java.util.Objects;
 import java.util.List;
 
 
+
 @Entity
 @Table(name="account")
 public class User {
@@ -22,12 +23,10 @@ public class User {
     @Column(name = "id")
     private Long id;
 
-
     @Email(message = "Invalid email address! Please provide a valid email address")
     @NotEmpty(message = "Please provide an email address")
     @Column(name = "email", unique = true)
     private String email;
-
 
     @Length(min = 8, max=100, message = "Password length most be between 8-100 characters")
     @NotEmpty(message ="Please provide a password")
@@ -41,11 +40,16 @@ public class User {
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
     private List<Post> postList;
 
-
     @OneToOne(mappedBy = "owner",cascade = CascadeType.ALL)
     private Profile profile;
 
-   /* @OneToOne(mappedBy = "avatar",cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "id",cascade = CascadeType.ALL)
+    private List<User> followings;
+
+    /*@ManyToMany(mappedBy = "id")
+    private List<User>  followers;*/
+
+    /* @OneToOne(mappedBy = "avatar",cascade = CascadeType.ALL)
     private Image picture;*/
 
 
@@ -61,6 +65,7 @@ public class User {
         this.email = email;
         this.password = password;
         this.name = name;
+
     }
 
 
@@ -112,6 +117,26 @@ public class User {
         this.picture = picture;
     }
 */
+
+   /* public void addFollower(User follower){
+        followers.add(follower);
+        follower.followings.add(this);
+    }
+
+    public void unFollow(User follower){
+        followers.remove(follower);
+        follower.followings.remove(this);
+    }
+
+    public boolean isFollower(User follower){
+        return followers.contains(follower);
+    }
+
+    public boolean isFollowing(User following){
+        return followings.contains(following);
+    }*/
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import sda.project.auth.AuthService;
+import sda.project.exception.ResourceNotFoundException;
 import sda.project.exception.UnAuthorizedException;
 import sda.project.user.User;
 import sda.project.user.UserService;
@@ -36,14 +37,12 @@ public class ProfileController {
         return ResponseEntity.status(HttpStatus.CREATED).body(profile);
     }
 
-    @PutMapping("/edit-profile")
-    public ResponseEntity<Profile> editProfile(@Valid @RequestBody Profile updatedProfile)
+   @PutMapping("/edit-profile/{id}")
+    public ResponseEntity<Profile> editProfile(@PathVariable Long id,@Valid @RequestBody Profile updatedProfile)
     {
-        if(profileService.isAuthorized(updatedProfile))
+        Profile profile = profileRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
+        if(profileService.isAuthorized(profile))
         {
-            User userInSession = userService.findUserByEmail(authService.getLoggedInUserEmail());
-            Profile profile = userInSession.getProfile();
-            profile.setName(updatedProfile.getName());
             profileRepository.save(profileService.update(profile, updatedProfile));
             return ResponseEntity.ok(profile);
         }
