@@ -107,11 +107,11 @@ public class Profile {
         this.bio = bio;
     }
 
-    public boolean isMentor() {
+    public boolean getIsMentor() {
         return isMentor;
     }
 
-    public void setMentor(boolean mentor) {
+    public void setIsMentor(boolean mentor) {
         isMentor = mentor;
     }
 

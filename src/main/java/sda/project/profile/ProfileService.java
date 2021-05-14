@@ -26,7 +26,7 @@ public class ProfileService {
         profile.setCountryFrom(updatedProfile.getCountryFrom());
         profile.setLiveIn(updatedProfile.getLiveIn());
         profile.setMentorArea(updatedProfile.getMentorArea());
-        profile.setMentor(updatedProfile.isMentor());
+        profile.setIsMentor(updatedProfile.getIsMentor());
         return profile;
      }
 

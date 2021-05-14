@@ -47,6 +47,7 @@ public class CommentController {
         User user = userService.findUserByEmail(userName);
         comment.setUserCommentOwner(user);
         comment.setCommentOwner(post);
+        comment.setAuthorname(user.getName());
         commentRepository.save(comment);
 
        return ResponseEntity.status(HttpStatus.CREATED).body(comment);

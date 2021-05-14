@@ -24,11 +24,11 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public void addFollower(User user,User follower){
+   /* public void addFollower(User user,User follower){
         if(user.isFollower(follower)){
             user.addFollower(follower);
         }
-    }
+    }*/
 
 
 }

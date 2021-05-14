@@ -15,6 +15,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.List;
 
@@ -53,13 +54,13 @@ public class User {
     @OneToOne(mappedBy = "owner",cascade = CascadeType.ALL)
     private Profile profile;
 
-    @ManyToMany
+   /* @ManyToOne
     @JoinColumn(referencedColumnName = "id")
-    private List<User> followings;
+    private List<User> followings = new ArrayList<>();
 
-    @ManyToMany
+    @OneToMany
     @JoinColumn(referencedColumnName = "id")
-    private List<User>  followers;
+    private List<User> followers = new ArrayList<>();*/
 
     /* @OneToOne(mappedBy = "avatar",cascade = CascadeType.ALL)
     private Image picture;*/
@@ -131,7 +132,7 @@ public class User {
     }
 */
 
-    public void addFollower(User follower){
+    /*public void addFollower(User follower){
         followers.add(follower);
         follower.followings.add(this);
     }
@@ -147,7 +148,7 @@ public class User {
 
     public boolean isFollowing(User following){
         return followings.contains(following);
-    }
+    }*/
 
 
 
