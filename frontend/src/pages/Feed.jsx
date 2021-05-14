@@ -63,7 +63,6 @@ export const Feed = () => {
 
   // Components
   const PostsArray = () => {
-    debugger;
     return posts
       .filter((post) => {
         if (selectedTopic) {
