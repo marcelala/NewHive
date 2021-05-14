@@ -17,7 +17,6 @@ export default function EditProfile({ onSubmit, profileInfo }) {
   const handleMentorArea = ({value}) => setMentorArea(value);
 
 
-<<<<<<< HEAD
     return (
       <form onSubmit={handleSubmit} className="profile-page">
         <div className="profile-form">
@@ -66,61 +65,6 @@ export default function EditProfile({ onSubmit, profileInfo }) {
               Update
             </button>
           </div>
-=======
-  return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <div>
-          <input
-            placeholder="Your name"
-            id="name"
-            value={fields.name || ""}
-            onChange={handleFieldChange}
-            type="text"
-          />
-          <input
-            placeholder="Your surname"
-            id="surname"
-            value={fields.surname || ""}
-            onChange={handleFieldChange}
-            type="text"
-          />
-          <input
-            placeholder="Country from"
-            id="countryFrom"
-            value={fields.countryFrom || ""}
-            onChange={handleFieldChange}
-            type="text"
-          />
-          <input
-            placeholder="Live in"
-            id="liveIn"
-            value={fields.liveIn || ""}
-            onChange={handleFieldChange}
-            type="text"
-          />
-          <input
-            placeholder="Bio"
-            id="bio"
-            value={fields.bio || ""}
-            onChange={handleFieldChange}
-            type="text"
-          />
-          Open for mentoring others:
-          <input
-            id="mentor"
-            checked={fields.mentor || false}
-            onChange={handleFieldChange}
-            type="checkbox"
-          />
-          <Select
-            isDisabled={!fields.mentor}
-            placeholder="Choose area"
-            id="mentorArea"
-            options={MentorAreas}
-            onChange={handleMentorArea}
-          />
->>>>>>> f256a91579df38f8df960f1c698e120ef5685be2
         </div>
         <div>
           <button className="btn" type="submit">
