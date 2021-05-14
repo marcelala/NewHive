@@ -42,7 +42,6 @@ function App() {
       <BrowserRouter>
         <NavBar onLogout={() => Auth.logout()}/>
         <Switch>
-          <Route component={AuthPage} path="/" exact />
           <Route component={Feed} path="/feed" />
           <Route component={OrganizationsPage} path="/organizations" />
           <Route component={PrivateProfile} path="/profile"/>
