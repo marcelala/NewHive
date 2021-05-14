@@ -113,7 +113,7 @@ export const Feed = () => {
         />
         {/* <Select
           isClearable
-          className="post-sorter"
+          className="topic-filter"
           placeholder="Display all posts"
           options={sorterOptions}
           onChange={handleChange}
