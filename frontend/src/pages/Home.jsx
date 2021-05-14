@@ -81,7 +81,6 @@ export const Home = () => {
 
 </div>
 
-<Footer/>
 </section>
 
     )
