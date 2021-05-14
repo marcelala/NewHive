@@ -69,7 +69,7 @@ export default function PostCard({ post, onDeleteClick }) {
   }
 
   function userCheck() {
-    if (post.author === user.email) {
+    if (post.postOwner === user.email) {
       return true;
     }
     return false;
@@ -124,17 +124,14 @@ export default function PostCard({ post, onDeleteClick }) {
             <h1> {post.topic} </h1>
           </div>
           <h2 className="postCard__content-heading">{post.title}</h2>
-          <p className="postCard--user">{post.authorname}</p>
           <div className="postCard--date">{date()}</div>
           {userCheck() && (
             <div className="postCard__editDelete">
-              <div className="commentCard__Delete">
                 <FontAwesomeIcon
                   className="delete"
                   icon={["fa", "trash-alt"]}
                   onClick={onDeleteClick}
                 />
-              </div>
               <FontAwesomeIcon
                 className="edit"
                 icon={["fa", "edit"]}
@@ -142,11 +139,16 @@ export default function PostCard({ post, onDeleteClick }) {
                   toggleEdit ? setToggleEdit(false) : setToggleEdit(true)
                 }
               />
-            {toggleEdit && (
+              </div>)}
+              {userCheck() && ( 
+            <div className="postCard__editPost">
+            {toggleEdit && ( 
+              <div className="postCard__editPostForm">
               <EditPost
                 onSubmit={(postData) => updatePost(postData)}
                 post={post}
               />
+              </div>
             )}
           </div>
           )}
@@ -166,7 +168,7 @@ export default function PostCard({ post, onDeleteClick }) {
           </div>
           {comments.length}
         </div>
-       
+        <p className="postCard--user">{post.postOwner}</p>
 </div>
 
         {toggleComments && (
