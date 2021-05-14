@@ -1,0 +1,172 @@
+.postCard-section{
+  padding-bottom: 3rem;
+  margin-bottom: 1rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.postCard {
+    background: var(--color-light-beige);
+    padding: 1.5rem;
+    box-shadow: 0 6px 6px rgb(0 0 0 / 25%);
+    border-radius: 2px;
+    max-width: 90%;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--color-warm-brown);
+    height: auto;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .postCard__content {
+    padding: 1rem;
+    border-radius: 8px;
+    width: 100%;
+    display: grid;
+    gap: 1rem 1rem;
+    grid-template-columns: 9rem auto auto auto;
+    grid-template-rows: 4rem auto auto auto;
+    margin-right: 0; 
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .picture{
+    width: 10rem;
+    height: 100%;
+    object-fit: cover;
+    padding: 0;
+    grid-column-start: 1;
+    grid-column-end: 2; 
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+  
+.postCard__topic{
+  grid-column-start: 5;
+  grid-column-end: 6;
+  grid-row-end: 2;
+  background-color: var(--color-warm-brown);
+  padding: 0.5rem 0.7rem;
+  justify-self: end;
+  font-size: 0.8rem;
+  margin: .6rem .1rem;
+  border-radius: 2px;
+
+}
+
+.postCard__topic h1{
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+  text-transform: capitalize;
+  color: var(--color-light-beige);
+
+}
+
+.postCard__content-heading {
+  padding-top: 0;
+  font-weight: 500;
+  grid-area: "title";
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  grid-column: span 4;
+  padding: 0.5rem;
+  justify-self: center;
+  margin: 0rem 2.5rem;
+
+}
+.postCard--date {
+  font-size: 1rem;
+  padding: .5rem;
+  grid-area: "date";
+  grid-row-start: 3;
+  grid-column-start: 1;
+  grid-column: span 1;
+}
+.postCard__content-body{
+  grid-area: "body";
+  grid-row-start: 3;
+  grid-column-start: 2;
+  grid-column: span 4;
+  grid-row: span auto;
+  justify-self: start;
+  margin: 1rem 2.5rem;
+
+}
+
+  .postCard__editDelete {
+    padding: 1rem;
+    grid-row-start: 4;
+    grid-column-start: 5;
+    grid-column: span 1;  
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .delete,.edit{
+    font-size: 1.5rem;
+    margin: 1rem;
+    color: var(--color-warm-brown);
+  }
+
+  .delete:hover,.edit:hover{
+    color: var(--color-beige);
+  }
+
+  .postCard__editPost{
+    width: 100%;
+    grid-row-start: 5;
+    grid-row-end: auto;
+    grid-column-start: 2;
+    grid-column-end: 6;
+
+  }
+  .editPost{
+    width: 100%;
+    grid-row-start: 5;
+    grid-row-end: auto;
+    grid-column-start: 2;
+    grid-column-end: 6;
+  }
+
+  
+  .postCard__comments {
+    text-align: right;
+    font-size: 1.2rem;
+    grid-row-start: 4;
+    grid-column-start: 5;
+    grid-column-end: 6;
+    justify-self: end;
+    display: inline-block;
+    padding: .5rem;
+  }
+  
+  .postCard__comments-icon {
+    background: none;
+    color: var(--color-warm-brown);
+    display: inline-block;
+    padding: 0.3rem .3rem;
+    cursor: pointer;
+    transition: color 0.5s;
+    cursor: pointer;
+    font-size: 2rem;
+  }
+  .postCard__comments-icon:hover,.postCard__comments:hover {
+    color: var(--color-beige);
+  }
+  
+  .postCard--user {
+    left: 0.6rem;
+    top: 0.4rem;
+    font-size: 1rem;
+    padding: .5rem;
+    margin-left: 2rem;
+    margin-top: 1rem;
+  }
+  
+
+

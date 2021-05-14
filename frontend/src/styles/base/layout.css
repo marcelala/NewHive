@@ -1,25 +1,81 @@
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* font-family: "Montserrat", sans-serif; */
 }
 
-body {
+html,body {
   height: 100vh;
   width: 100vw;
-  font-family: "Thasadith", sans-serif;
+  /* margin-left: auto;
+  margin-right: auto; */
+  font-family: "Montserrat", sans-serif;
   background-color: var(--color-beige);
 }
 
+body {
+  position: relative;
+}
+
+section {
+  text-align: center;
+  padding-bottom: 3rem;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+p {
+  font-size: 1.6rem;
+}
+
+h2 {
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+  padding: 0.5rem;
+}
+
+h5 {
+  font-size: 0.8rem;
+}
+
 .page-with-bg {
-  background-image: url("../../assets/common/vector-creator-4.svg"),
-    url("../../assets/common/vector-creator-9.svg"),
-    url("../../assets/common/vector-creator-7.svg"),
-    url("../../assets/common/vector-creator-7.svg"),
-    url("../../assets/common/vector-creator-9-1.svg"),
-    url("../../assets/common/vector-creator-4-1.svg");
+  background-image: url("../../assets/images/common/vector-creator-4.svg"),
+    url("../../assets/images/common/vector-creator-9.svg"),
+    url("../../assets/images/common/vector-creator-7.svg"),
+    url("../../assets/images/common/vector-creator-7.svg"),
+    url("../../assets/images/common/vector-creator-9-1.svg"),
+    url("../../assets/images/common/vector-creator-4-1.svg");
   background-repeat: no-repeat;
   background-position: top right, center right, bottom right -6%, top left,
     top 56% left, bottom left -3%;
-  background-size: 14vw, 10vw, 15vw, 14vw, 10vw, 17vw;
+  background-size: 14vh, 10vh, 15vh, 14vh, 10vh, 17vh;
+}
+
+.Feed__topic-filter, .Feed__post-sorter{
+  display: flexbox;
+  max-width: 30%;
+
 }

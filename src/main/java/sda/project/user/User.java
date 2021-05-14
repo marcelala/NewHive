@@ -1,8 +1,13 @@
 package sda.project.user;
 
 import org.hibernate.validator.constraints.Length;
-import org.springframework.validation.annotation.Validated;
-//import sda.project.image.Image;
+
+
+
+
+import sda.project.comments.Comment;
+
+
 import sda.project.profile.Profile;
 import sda.project.posts.Post;
 
@@ -40,14 +45,21 @@ public class User {
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
     private List<Post> postList;
 
+
+    @OneToMany(mappedBy = "commentOwner", cascade = CascadeType.ALL)
+    private List<Comment> commentList;
+
+
     @OneToOne(mappedBy = "owner",cascade = CascadeType.ALL)
     private Profile profile;
 
-    @ManyToMany(mappedBy = "id",cascade = CascadeType.ALL)
+    @ManyToMany
+    @JoinColumn(referencedColumnName = "id")
     private List<User> followings;
 
-    /*@ManyToMany(mappedBy = "id")
-    private List<User>  followers;*/
+    @ManyToMany
+    @JoinColumn(referencedColumnName = "id")
+    private List<User>  followers;
 
     /* @OneToOne(mappedBy = "avatar",cascade = CascadeType.ALL)
     private Image picture;*/
@@ -109,6 +121,7 @@ public class User {
         this.profile = profile;
     }
 
+
    /* public Image getPicture() {
         return picture;
     }
@@ -118,7 +131,7 @@ public class User {
     }
 */
 
-   /* public void addFollower(User follower){
+    public void addFollower(User follower){
         followers.add(follower);
         follower.followings.add(this);
     }
@@ -134,7 +147,8 @@ public class User {
 
     public boolean isFollowing(User following){
         return followings.contains(following);
-    }*/
+    }
+
 
 
     @Override

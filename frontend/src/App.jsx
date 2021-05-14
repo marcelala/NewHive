@@ -10,12 +10,19 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 // Project files
 import Auth from "./services/Auth";
 import AuthApi from "./api/AuthApi";
-import { Header } from "../src/components/Header";
+import { NavBar } from "./components/NavBar";
 import { Home } from "../src/pages/Home";
-import  Feed from "../src/pages/Feed";
+import { Feed }from "../src/pages/Feed";
 import { AuthPage } from "./pages/auth/AuthPage";
-import { OrganizationsPage } from "./pages/OrganizationsPage";
+import  AboutUs from "./pages/AboutUs";
+import { OrganizationsPage } from "./pages/Organizations/OrganizationsPage";
+import { Contact }from "../src/pages/Contact";
+import { CommunityGuidelines }from "../src/pages/CommunityGuidelines";
 import "./styles/style.css";
+import FAQ from "./pages/FAQ/FAQ";
+import Footer from "./components/Footer";
+//import icons to library
+library.add(fab, far, fas);
 
 function App() {
   // State
@@ -33,12 +40,17 @@ function App() {
   const loggedInRouter = (
     <div className="App">
       <BrowserRouter>
-        <Header onLogout={() => Auth.logout()}/>
+        <NavBar onLogout={() => Auth.logout()}/>
         <Switch>
           <Route component={Home} path="/" exact />
           <Route component={Feed} path="/feed" />
           <Route component={OrganizationsPage} path="/organizations" />
+          <Route component={AboutUs} path="/about"/>
+          <Route component={Contact} path="/contact" />
+          <Route component={CommunityGuidelines} path="/guidelines" />
+          <Route component={FAQ} path="/faq" />
         </Switch>
+        <Footer/>
       </BrowserRouter>
     </div>
   );

@@ -1,8 +1,9 @@
 :root {
   /* Colors */
-  --color-dark-brown: #4e2910;
-  --color-brown: #7a5f48;
+  --color-dark-brown: rgba(71, 51, 12, 1);
+  --color-warm-brown: rgba(117, 66, 31, 1);
+  --color-brown: rgba(122, 95, 72, 1);
   --color-beige: #e5ded7;
-  --color-light-beige: #eeece6;
+  --color-light-beige: rgba(238, 236, 230, 1);
   --color-white: #ffffff;
 }

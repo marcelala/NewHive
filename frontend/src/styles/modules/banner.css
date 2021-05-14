@@ -1,0 +1,51 @@
+.feed--background-banner{
+    position: relative;
+    min-height: 30rem;
+}
+.feed--background-banner::before{
+    content: "";
+    display: block;
+    background-image: url("../../assets/images/banner-women.jpg");
+    background-size: cover;
+    background-position: center;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    background-repeat: no-repeat;
+    position: absolute; 
+}
+
+.feed--banner-text{
+    display: inline-block;
+    text-align: left;
+    margin-top: 20rem;
+    margin-right: 15rem;
+    align-self: baseline;
+    position: relative;
+    padding: 0.3rem;
+    margin-bottom: 0.4rem;
+}
+.feed--banner-text h3{
+    font-size: 1.5rem;
+    color: var(--color-dark-brown);
+    font-weight: 500;
+    width: 100%;
+    padding: 0;
+}
+.feed--banner-text h2{
+    font-size: 1.8rem;
+    color: var(--color-warm-brown);
+    font-weight: 550;
+    width: 100%;
+    padding: 0;
+}
+.feed--banner-text p{
+    margin-top: 0.8rem;
+    font-size: 1rem;
+    color: var(--color-dark-brown);
+    font-weight: regular;
+    width: 100%;
+    padding: 0;
+}

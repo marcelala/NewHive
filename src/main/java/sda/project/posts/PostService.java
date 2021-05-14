@@ -10,7 +10,6 @@ import sda.project.exception.ResourceNotFoundException;
 import sda.project.exception.UnAuthorizedException;
 import sda.project.user.User;
 import sda.project.user.UserService;
-
 import java.util.Date;
 import java.util.List;
 
@@ -51,7 +50,7 @@ public class PostService {
         } else {
             throw new UnAuthorizedException();
         }
-        ;
+
     }
 
     //Update a post.
@@ -70,6 +69,7 @@ public class PostService {
         Date currentDate = new Date();
         User author = userService.findUserByEmail(authService.getLoggedInUserEmail());
         postParam.setAuthor(author);
+        postParam.setAuthorname(author.getName());
         postParam.setDateCreated(currentDate);
         postParam.setLastEdited(currentDate);
         return postParam;
@@ -82,11 +82,15 @@ public class PostService {
         return postAuthor.equals(userInSession);
     }
 
-    public List<Post> findAllPostByDateDec(){
-
-        return postRepository.findAllPostByDateDec();
-
+    //fetch all lost by topics
+    public List<Post> fetchPostByTopic(String topic){
+        return postRepository.findByTopic(topic);
     }
+    public List<Post> findAllPostByDateDec(){
+        return postRepository.findAllPostByDateDec();
+    }
+
+
 
 }
 

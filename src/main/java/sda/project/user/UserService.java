@@ -17,9 +17,18 @@ public class UserService {
         return userRepository.findByEmail(email);
     }
 
+
     public void register(User user) {
         String encryptedPass = passwordEncoder.encode(user.getPassword());
         user.setPassword(encryptedPass);
         userRepository.save(user);
     }
+
+    public void addFollower(User user,User follower){
+        if(user.isFollower(follower)){
+            user.addFollower(follower);
+        }
+    }
+
+
 }

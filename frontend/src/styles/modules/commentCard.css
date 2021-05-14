@@ -1,0 +1,92 @@
+.commentCard-container {
+    background: var(--color-beige);
+    padding: 1rem;
+    position: relative;
+    /* box-shadow: 0 1.5rem 2rem rgba(54, 57, 59, 0.2); */
+    border-radius: 2px;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .commentCard {
+    background: var(--color-light-beige);
+    padding: 1rem;
+    position: relative;
+    box-shadow: 0 1.5rem 2rem rgba(54, 57, 59, 0.2);
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 2px;
+  }
+  
+  .commentCard__editDelete {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 1rem;
+    font-size: 1.5rem;
+    margin: 1rem;
+  }
+  
+  .commentCard__Delete {
+    background: none;
+    color: var(--color-dark-brown);
+    display: inline-block;
+    font-size: 1.6rem;
+    cursor: pointer;
+    z-index: 999;
+    width: 2rem;
+    height: 2rem;
+    transition: color 0.5s;
+    font-size: 2rem;
+  }
+  .commentCard__Delete:hover {
+    color: var(--color-light-beige);
+  }
+  
+  .commentCard__comments {
+    text-align: right;
+  }
+  
+  .commentCard__comments-btn {
+    border: none;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 6px;
+    background-color: var(--color-beige);
+  }
+  
+  .commentCard__content-heading {
+    padding-top: 0;
+  }
+  
+  .commentCard__content {
+    background: var(--off-white);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    color: var(--dark-brown);
+  }
+  
+  .commentCard--user {
+    position: absolute;
+    left: 0.6rem;
+    top: 0.4rem;
+    font-size: 1rem;
+    color: var(--dark-brown);
+    padding: 1rem;
+  }
+  
+  .commentCard--date {
+    position: absolute;
+    right: 0.6rem;
+    top: 0.4rem;
+    font-size: 1rem;
+    color: var(--dark-brown);
+    padding: 1rem;
+  }
+  

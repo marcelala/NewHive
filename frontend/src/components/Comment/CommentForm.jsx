@@ -17,17 +17,17 @@ export default function CommentForm({ onSubmit }) {
 
   return (
     <form>
-      <div>
-        <div>
+      <div className="comment-form">
+        <div className="comment-form-input">
           <textarea
-            placeholder="Your comment here"
+            placeholder="Comment here..."
             value={body}
             onChange={(e) => setBody(e.target.value)}
           />
         </div>
       </div>
       <div>
-        <button className="btn" type="button" onClick={handleSubmit}>
+        <button className="comment-form btn" type="button" onClick={handleSubmit}>
           Comment
         </button>
       </div>

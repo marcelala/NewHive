@@ -8,9 +8,15 @@ import org.w3c.dom.stylesheets.LinkStyle;
 
 import java.util.List;
 
+import java.util.List;
+
 @Repository
 public interface PostRepository extends JpaRepository<Post, Long> {
 
+    List<Post> findByTopic(String topic);
+
     @Query("FROM Post ORDER BY dateCreated DESC")
     List<Post> findAllPostByDateDec();
+
+
 }

@@ -1,0 +1,117 @@
+input[type="text"],
+textarea {
+  background-color: var(--color-white);
+  border: none;
+  padding: 1rem;
+  width: 100%;
+  margin-top: 1rem;
+  border-radius: 4px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.6rem;
+  max-width: 50rem;
+  border-radius: 5px;
+  color: var(--color-warm-brown);
+}
+
+.postForm__input[type="text"] {
+  background-color: var(--color-white);
+  color: var(--color-warm-brown);
+  max-width: 50rem;
+}
+
+input[type="email"] {
+  background-color: var(--color-beige);
+  border: none;
+  padding: 1rem;
+  width: 100%;
+  margin-top: 1rem;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.6rem;
+  max-width: 600px;
+  color: var(--color-brown);
+}
+
+input[type="password"] {
+  background-color: var(--color-white);
+  border: none;
+  padding: 1rem;
+  width: 100%;
+  margin-top: 1rem;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.6rem;
+  max-width: 600px;
+  color: var(--color-brown);
+}
+
+.postForm {
+  background: var(--color-light-beige);
+  color: var(--color-warm-brown);
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 50rem;
+  border: none;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 1.5rem 2rem rgba(107, 122, 133, 0.2);
+}
+
+.postForm_topic{
+  margin-top: .8rem;
+}
+
+.postForm_btn{
+  margin-top: 0.75rem;
+  /* display: inline-block; */
+  width: 10rem;
+  background-color: var(--color-brown);
+  border-radius: 0.5rem;
+  color: var(--color-white);
+  padding: 0.45rem 0.8rem;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 4px 0 rgb(0 0 0 / 25%);
+  -webkit-appearance: button;
+  border: 0;
+  font-weight: 500;
+  margin-bottom: 4rem;
+  font-family: 'Montserrat', sans-serif;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.editComment {
+  background-color: var(--color-beige);
+  color: var(--color-brown);
+  width: 100%;
+}
+.comment-form textarea{
+  border-color: transparent;
+  background-color: transparent;
+  background: transparent;
+  font-weight: normal;
+  color: var(--color-dark-brown);
+  /* position: absolute; */
+  left: 10rem;
+  max-width: 90%;
+  max-height: 50%;
+}   
+
+.comment-form-input{
+  background-color: var(--color-light-beige);
+  width: 100%;
+  box-shadow: 0 4px 4px 0 rgb(0 0 0 / 25%);
+}
+
+.comment-form.btn{
+  background-color: var(--color-warm-brown);
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+}
+
+.btn{
+  font-family: "Montserrat", sans-serif;
+}
