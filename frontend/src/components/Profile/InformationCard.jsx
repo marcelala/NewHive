@@ -1,24 +1,24 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import UserApi from "../../api/UserApi";
 import ProfileApi from "../../api/ProfileApi";
 
+export default function InformationCard({ profileInfo }) {
+  const { name, surname, countryFrom, liveIn, bio, mentorArea } = profileInfo;
 
-export default function InformationCard ({profileInfo}) {
-
-    return (
-        <div>
-            <div className="full-name">
-                <p>Name: {profileInfo.name}</p>
-                <p>Surname: {profileInfo.surname}</p>
-            </div>
-            <div className="profile-info">
-                <h2>Personal information</h2>
-                <p>I am from: {profileInfo.countryFrom}</p>
-                <p>I live in: {profileInfo.liveIn}</p>
-                <p>Bio: {profileInfo.bio}</p>
-                {/*<p>Open for mentoring others: {profileInfo.mentor}</p>*/}
-                <p>Can mentor in: {profileInfo.mentorArea}</p>
-            </div>
-        </div>
-    )
+  return (
+    <div>
+      <div className="full-name">
+        <p>Name: {name}</p>
+        <p>Surname: {surname}</p>
+      </div>
+      <div className="profile-info">
+        <h2>Personal information</h2>
+        <p>I am from: {countryFrom}</p>
+        <p>I live in: {liveIn}</p>
+        <p>Bio: {bio}</p>
+        {/*<p>Open for mentoring others: {profileInfo.mentor}</p>*/}
+        <p>Can mentor in: {mentorArea}</p>
+      </div>
+    </div>
+  );
 }
