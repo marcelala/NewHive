@@ -3,7 +3,6 @@ package sda.project.posts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -40,12 +39,14 @@ public class PostController {
         return postService.create(postService.update( post, existingPost));
     }
 
+
     @DeleteMapping("/posts/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletePost(@PathVariable Long id){
         postService.deletePostById(id);
     }
 
+    //Method for post sorted by topics
     @GetMapping(value ="/posts",params = {"topic"})
     public ResponseEntity<List<Post>> getPostByTopic(@RequestParam String topic) {
         return ResponseEntity.ok(postService.fetchPostByTopic(topic));

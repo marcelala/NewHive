@@ -12,12 +12,13 @@ import Auth from "./services/Auth";
 import AuthApi from "./api/AuthApi";
 import { NavBar } from "./components/NavBar";
 import { Home } from "../src/pages/Home";
-import { Feed }from "../src/pages/Feed";
+import { Feed } from "../src/pages/Feed";
 import { AuthPage } from "./pages/auth/AuthPage";
+import PrivateProfile from "./components/Profile/PrivateProfile";
 import  AboutUs from "./pages/AboutUs";
 import { OrganizationsPage } from "./pages/Organizations/OrganizationsPage";
-import { Contact }from "../src/pages/Contact";
-import { CommunityGuidelines }from "../src/pages/CommunityGuidelines";
+import { Contact } from "../src/pages/Contact";
+import { CommunityGuidelines } from "../src/pages/CommunityGuidelines";
 import "./styles/style.css";
 import FAQ from "./pages/FAQ/FAQ";
 import Footer from "./components/Footer";
@@ -45,9 +46,10 @@ function App() {
           <Route component={Home} path="/" exact />
           <Route component={Feed} path="/feed" />
           <Route component={OrganizationsPage} path="/organizations" />
-          <Route component={AboutUs} path="/about"/>
+          <Route component={PrivateProfile} path="/profile"/>
           <Route component={Contact} path="/contact" />
           <Route component={CommunityGuidelines} path="/guidelines" />
+          <Route component={AboutUs} path="/about"/>
           <Route component={FAQ} path="/faq" />
         </Switch>
         <Footer/>

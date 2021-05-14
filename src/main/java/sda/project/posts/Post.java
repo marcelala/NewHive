@@ -31,7 +31,7 @@ public class Post {
     @NotEmpty(message = "Please provide a valid post tittle")
     private String title;
 
-    @Column(nullable = false)
+    @Column(length = 2000, nullable = false)
     @NotEmpty(message = "Please provide a valid post body")
     private String body;
 
