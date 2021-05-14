@@ -35,17 +35,6 @@ public class ProfileService {
 
     }
 
-   //public Profile update(Profile profile,Profile updatedProfile)
-   // {
-     //
-       // profile.setSurname(updatedProfile.getSurname());
-       // profile.setBio(updatedProfile.getBio());
-       // profile.setCountryFrom(updatedProfile.getCountryFrom());
-       // profile.setLiveIn(updatedProfile.getLiveIn());
-       // profile.setMentorArea(updatedProfile.getMentorArea());
-       // profile.setMentor(updatedProfile.isMentor());
-       // return profile;
-    // }
 
     public boolean isAuthorized(Profile updateProfile)
     {

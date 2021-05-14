@@ -27,29 +27,6 @@ public class ProfileController {
         this.profileService = profileService;
     }
 
-   // @PostMapping("/create-profile")
-    //public ResponseEntity<Profile> createProfile(@Valid @RequestBody Profile profile){
-      //  User userInSession = userService.findUserByEmail(authService.getLoggedInUserEmail());
-      //  profile.setOwner(userInSession);
-      //  profileRepository.save(profile);
-      //  return ResponseEntity.status(HttpStatus.CREATED).body(profile);
-   // }
-
- //   @PutMapping("/edit-profile/{id}")
-    //public ResponseEntity<Profile> editProfile(@Valid  @RequestBody Profile updatedProfile)
-    //{
-      //  if(profileService.isAuthorized(updatedProfile))
-       // {
-         //  User userInSession = userService.findUserByEmail(authService.getLoggedInUserEmail());
-           // Profile profile = userInSession.getProfile();
-
-            //profileRepository.save(profileService.update(profile, updatedProfile));
-           // return ResponseEntity.ok(profile);
-       // }
-        //else {
-          //  throw  new UnAuthorizedException();
-        //}
-   // }
     @PostMapping("create-profile")
     public ResponseEntity<Profile> createProfile(@RequestBody Profile profile){
         return profileService.create(profileService.generateProfile(profile));
