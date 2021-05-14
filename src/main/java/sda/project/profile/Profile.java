@@ -111,6 +111,10 @@ public class Profile {
         return isMentor;
     }
 
+    public boolean getIsMentor() {
+        return isMentor;
+    }
+
     public void setMentor(boolean mentor) {
         isMentor = mentor;
     }
