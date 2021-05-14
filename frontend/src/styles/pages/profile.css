@@ -1,0 +1,47 @@
+.profile {
+    width: 80rem;
+    height: auto;
+    position: relative;
+    background-color: white;
+    padding: 2rem;
+    margin: 3rem;
+    display: inline-flex;
+    color: #4E2910;
+    box-shadow: 0 1.5rem 2rem rgba(107, 122, 133, 0.2);
+}
+
+.profile-photo {
+    width: 25rem;
+    padding: 5rem;
+    margin-top: 1rem;
+    background-color: #EEECE6;
+}
+
+.profile .full-name {
+    position: absolute;
+    text-align: center;
+    margin-left: 10rem;
+    font-weight: bolder;
+}
+
+.profile .full-name p{
+    padding-right: 1rem;
+}
+
+.profile-info {
+    padding: 2rem;
+}
+
+.full-profile h1, h2{
+    text-align: center;
+    padding: 2rem;
+}
+
+.profile-info p{
+    padding-bottom: 1rem;
+}
+
+.full-profile {
+    color: #4E2910;
+}
+

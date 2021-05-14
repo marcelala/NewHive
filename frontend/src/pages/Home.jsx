@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 import Banner from "../components/Banner";
-import Footer from "../components/Footer";
 import { LoginForm } from "./auth/LoginForm";
 import { RegisterForm } from "./auth/RegisterForm";
 import Auth from "./../services/Auth";
@@ -81,7 +80,6 @@ export const Home = () => {
 
 </div>
 
-<Footer/>
 </section>
 
     )

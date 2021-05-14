@@ -156,3 +156,9 @@ export const organizations = [
     location: "Sweden",
   },
 ];
+
+ export const topics = [...new Set(organizations.map((item) => item.topic))];
+ export const topicOptions = topics.map((topic) => ({
+   label: topic,
+   value: topic,
+ }));
