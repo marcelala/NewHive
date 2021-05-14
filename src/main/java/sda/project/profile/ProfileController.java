@@ -3,6 +3,7 @@ package sda.project.profile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 import sda.project.auth.AuthService;
 import sda.project.exception.UnAuthorizedException;
@@ -66,6 +67,13 @@ public class ProfileController {
         Profile updatedProfile = profileService.fetchProfileById(id);
         return profileService.create(profileService.update(profile, updatedProfile));
     }
+
+    @GetMapping("/view-profile/{id}")
+    public ResponseEntity<Profile> viewProfileById(@PathVariable Long id) {
+        return ResponseEntity.ok(profileService.fetchProfileById(id));
+
+    }
+
 
 }
 
