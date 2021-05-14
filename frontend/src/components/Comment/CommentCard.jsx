@@ -8,7 +8,7 @@ export default function CommentCard({ comment, onDeleteClick, user }) {
   const [toggleEdit, setToggleEdit] = useState(false);
 
   function userCheck() {
-    if (comment.author === user.email) {
+    if (comment.userCommentOwner === user) {
       return true;
     }
     return false;
