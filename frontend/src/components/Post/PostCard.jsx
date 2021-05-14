@@ -125,6 +125,7 @@ export default function PostCard({ post, onDeleteClick }) {
           </div>
           <h2 className="postCard__content-heading">{post.title}</h2>
           <div className="postCard--date">{date()}</div>
+          <p className="postCard--user">{post.author}</p>
           {userCheck() && (
             <div className="postCard__editDelete">
                 <FontAwesomeIcon
@@ -168,7 +169,6 @@ export default function PostCard({ post, onDeleteClick }) {
           </div>
           {comments.length}
         </div>
-        <p className="postCard--user">{post.postOwner}</p>
 </div>
 
         {toggleComments && (

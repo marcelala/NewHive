@@ -40,6 +40,7 @@
     grid-column-end: 2; 
     grid-row-start: 1;
     grid-row-end: 3;
+    margin: auto;
   }
   
 .postCard__topic{
@@ -50,7 +51,7 @@
   padding: 0.5rem 0.7rem;
   justify-self: end;
   font-size: 0.8rem;
-  margin: .6rem .1rem;
+  margin: auto;
   border-radius: 2px;
 
 }
@@ -76,11 +77,17 @@
   margin: 0rem 2.5rem;
 
 }
-.postCard--date {
+.postCard--user {
+  grid-row-start: 3;
+  grid-column-start: 1;
+  grid-column-end: 2;
   font-size: 1rem;
   padding: .5rem;
-  grid-area: "date";
-  grid-row-start: 3;
+}
+.postCard--date {
+  font-size: 1rem;
+  padding: .3rem;
+  grid-row-start: 4;
   grid-column-start: 1;
   grid-column: span 1;
 }
@@ -122,8 +129,23 @@
     grid-row-start: 5;
     grid-row-end: auto;
     grid-column-start: 2;
-    grid-column-end: 6;
+    grid-column-end: 5;
+    margin:auto;
 
+  }
+  .editPost{
+    width: 100%;
+
+  }
+  .editForm_topic{
+    padding-top: 0.5rem;
+    justify-content: center;
+  }
+
+  .editForm_topic-selector{
+      min-width: 10rem;
+      max-width: 30%;
+      margin: auto;
   }
   
   .postCard__comments {
@@ -151,14 +173,8 @@
     color: var(--color-beige);
   }
   
-  .postCard--user {
-    left: 0.6rem;
-    top: 0.4rem;
-    font-size: 1rem;
-    padding: .5rem;
-    margin-left: 2rem;
-    margin-top: 1rem;
-  }
+
+
   
 
 
