@@ -1,4 +1,4 @@
-.profile {
+/*.profile {
     width: 80rem;
     height: auto;
     position: relative;
@@ -43,5 +43,62 @@
 
 .full-profile {
     color: #4E2910;
+}*/
+
+/*InformationCard styles*/
+
+.profile {
+    color: var(--color-dark-brown);
 }
 
+.profile-grid{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.profile h2{
+    text-align: center;
+    margin: 1rem;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.profile p{
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.profile-info {
+    padding: 1rem;
+}
+
+.profile-section{
+    background-color: var(--color-light-beige);
+    box-shadow: 0 6px 6px rgb(0 0 0 / 25%);
+    display: flex;
+    justify-content: center;
+    max-width: 50rem;
+}
+
+.profile-photo img{
+width: 15rem;
+height: auto;
+padding: 1rem;
+}
+
+/*PrivateProfile styles*/
+
+.full-profile h1{
+    text-align: center;
+    margin: 1rem;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.full-profile h2{
+    text-align: center;
+    margin: 1rem;
+    font-size: 24px;
+    font-weight: normal;
+}
