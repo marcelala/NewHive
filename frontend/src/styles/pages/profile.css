@@ -79,6 +79,7 @@
     display: flex;
     justify-content: center;
     max-width: 50rem;
+    margin: 1rem;
 }
 
 .profile-photo img{
@@ -101,4 +102,32 @@ padding: 1rem;
     margin: 1rem;
     font-size: 24px;
     font-weight: normal;
+}
+
+.full-profile{
+    display: grid;
+    justify-content: center;
+    color: var(--color-dark-brown);
+}
+
+.full-profile button{
+    margin-left: 2rem;
+}
+
+/*ProfileForm*/
+.profile-page {
+    display: flex;
+    justify-content: center;
+}
+
+.profile-form{
+    background-color: var(--color-light-beige);
+    box-shadow: 0 6px 6px rgb(0 0 0 / 25%);
+    margin: 2rem;
+    padding: 2rem;
+    max-width: 50rem;
+}
+
+.profile-form input{
+ margin-right: 1rem;
 }

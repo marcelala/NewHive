@@ -24,8 +24,8 @@ export default function EditProfile ({onSubmit, profileInfo}) {
     };
 
     return (
-      <form onSubmit={handleSubmit}>
-        <div>
+      <form onSubmit={handleSubmit} className="profile-page">
+        <div className="profile-form">
           <div>
             <input
               placeholder="Your name"
