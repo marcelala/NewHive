@@ -79,3 +79,7 @@ h5 {
   max-width: 30%;
 
 }
+
+.btn.hidden {
+  display: none;
+}
