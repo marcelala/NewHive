@@ -55,6 +55,8 @@ public class PostService {
     public Post update(Post postUpdate, Post existingPost){
         if(isAuthorized(existingPost)){
             existingPost.setBody(postUpdate.getBody());
+            existingPost.setTitle(postUpdate.getTitle());
+            existingPost.setTopic(postUpdate.getTopic());
             existingPost.setLastEdited(new Date());
             return existingPost;
         } else {

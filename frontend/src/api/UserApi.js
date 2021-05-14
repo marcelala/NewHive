@@ -1,10 +1,9 @@
 import Api from "./Api";
 
 class UserApi {
-  getUser(userEmail) {
-    return Api.get("/users");
+  getUser() {
+    return Api.get("/user");
   }
-
 }
 
 export default new UserApi();
