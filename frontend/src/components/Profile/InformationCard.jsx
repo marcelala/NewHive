@@ -3,9 +3,7 @@ import UserApi from "../../api/UserApi";
 import ProfileApi from "../../api/ProfileApi";
 
 export default function InformationCard({ profileInfo }) {
-  const { name, surname, countryFrom, liveIn, bio, mentorArea } = profileInfo;
-
-export default function InformationCard ({profileInfo}) {
+    const { name, surname, countryFrom, liveIn, bio, mentorArea } = profileInfo;
     const TestPhotoObject = require (`../../assets/images/profile/profile-photo.png`);
     const TestPhotoURL = TestPhotoObject.default;
     return (

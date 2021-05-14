@@ -71,7 +71,6 @@ export default function EditProfile({ onSubmit, profileInfo }) {
             Update
           </button>
         </div>
-      </div>
     </form>
   );
 }
