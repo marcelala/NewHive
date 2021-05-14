@@ -69,7 +69,8 @@ export default function PostCard({ post, onDeleteClick }) {
   }
 
   function userCheck() {
-    if (post.author === user.email) {
+    debugger;
+    if (post.author === user) {
       return true;
     }
     return false;
