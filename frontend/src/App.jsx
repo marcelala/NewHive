@@ -11,7 +11,6 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import Auth from "./services/Auth";
 import AuthApi from "./api/AuthApi";
 import { NavBar } from "./components/NavBar";
-import { Home } from "../src/pages/Home";
 import { Feed } from "../src/pages/Feed";
 import { AuthPage } from "./pages/auth/AuthPage";
 import PrivateProfile from "./components/Profile/PrivateProfile";
@@ -43,7 +42,7 @@ function App() {
       <BrowserRouter>
         <NavBar onLogout={() => Auth.logout()}/>
         <Switch>
-          <Route component={Home} path="/" exact />
+          <Route component={AuthPage} path="/" exact />
           <Route component={Feed} path="/feed" />
           <Route component={OrganizationsPage} path="/organizations" />
           <Route component={PrivateProfile} path="/profile"/>
