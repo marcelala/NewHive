@@ -7,16 +7,29 @@ import PostApi from "../api/PostApi";
 import PostCard from "../components/Post/PostCard";
 import PostForm from "../components/Post/PostForm";
 import Banner from "../components/Banner";
-import Topics from "../components/Topics";
+import Topics from "../components/Post/Topics";
 
 export const Feed = () => {
   // Local state
   const [posts, setPosts] = useState([]);
   const [toggleForm, setToggleForm] = useState(false);
   const sorterOptions = [
-    { value: "dateAscending", label: "Date ascending" },
-    { value: "dateDescending", label: "Date descending" },
+    { value: "displayAllPosts", 
+      label: "Display all Posts" },
+    {
+      value: "displayConnectionsPosts",
+      label: "Display posts from connections",
+    },
   ];
+  //Topic selector state
+  const [selectedTopic, setSelectedTopic] = useState(undefined);
+  const handleChange = (chosenValue) => {
+    if (chosenValue) {
+      setSelectedTopic(chosenValue.value);
+    } else {
+      setSelectedTopic(undefined);
+    }
+  };
 
   // Methods
   async function createPost(postData) {
@@ -49,13 +62,23 @@ export const Feed = () => {
   }, [setPosts]);
 
   // Components
-  const PostsArray = posts.map((post) => (
-    <PostCard
-      key={post.id}
-      post={post}
-      onDeleteClick={() => deletePost(post)}
-    />
-  ));
+  const PostsArray = () => {
+    return posts
+      .filter((post) => {
+        if (selectedTopic) {
+          return post.topic == selectedTopic;
+        } else {
+          return true;
+        }
+      })
+      .map((post) => (
+        <PostCard
+          key={post.id}
+          post={post}
+          onDeleteClick={() => deletePost(post)}
+        />
+      ));
+  };
 
   return (
     <div className="feed">
@@ -80,22 +103,23 @@ export const Feed = () => {
       )}
       <div className="feed__selectors">
         <Select
+          isClearable
           className="topic-filter"
           placeholder="Filter by topic"
           labelKey="label"
           valueKey="id"
           options={Topics}
-          // onChange={(e) => setTopic(e.value)}
+          onChange={handleChange}
         />
-        <Select
-          className="post-sorter"
-          placeholder="Sort by"
+        {/* <Select
+          isClearable
+          className="topic-filter"
+          placeholder="Display all posts"
           options={sorterOptions}
-          // onChange={(e) => setTopic(e.value)}
-        />
+          onChange={handleChange}
+        /> */}
       </div>
-
-      {PostsArray}
+      {PostsArray()}
     </div>
   );
 };

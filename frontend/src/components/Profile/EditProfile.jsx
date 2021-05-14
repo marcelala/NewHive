@@ -1,28 +1,23 @@
-//import { useState } from "react";
-import {useFormFields} from '../../services/useFormFields';
+import Select from "react-select";
+import { useState } from "react";
+import { useFormFields } from "../../services/useFormFields";
+import MentorAreas from "../../data/mentorAreas";
 
-export default function EditProfile ({onSubmit, profileInfo}) {
-//    const [name, setName] = useState(profileInfo.name);
-//     const [surname, setSurname] = useState(profileInfo.surname);
-//     const [countryFrom, setCounrtyFrom] = useState(profileInfo.countryFrom);
-//     const [liveIn, setLiveIn] = useState(profileInfo.liveIn);
-//     const [bio, setBio] = useState(profileInfo.bio);
+export default function EditProfile({ onSubmit, profileInfo }) {
 
-    //const [mentor, setMentor] = React.useState(false);
+  const [fields, handleFieldChange] = useFormFields({ ...profileInfo });
+  const [mentorArea, setMentorArea] = useState('');
 
-    // const [mentorArea, setMentorArea] = useState(profileInfo.mentorArea);
-    const [fields, handleFieldChange] = useFormFields({...profileInfo});
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if(!fields.mentor) setMentorArea('');
+    onSubmit({ ...profileInfo, ...fields, mentorArea });
+  };
 
-    //const handleChecked = ({ target }) => {
-    //setMentor(target.true);
-//}
+  const handleMentorArea = ({value}) => setMentorArea(value);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("updated", { ...profileInfo, ...fields });
-        onSubmit({ ...profileInfo, ...fields });
-    };
 
+<<<<<<< HEAD
     return (
       <form onSubmit={handleSubmit} className="profile-page">
         <div className="profile-form">
@@ -71,7 +66,68 @@ export default function EditProfile ({onSubmit, profileInfo}) {
               Update
             </button>
           </div>
+=======
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <div>
+          <input
+            placeholder="Your name"
+            id="name"
+            value={fields.name || ""}
+            onChange={handleFieldChange}
+            type="text"
+          />
+          <input
+            placeholder="Your surname"
+            id="surname"
+            value={fields.surname || ""}
+            onChange={handleFieldChange}
+            type="text"
+          />
+          <input
+            placeholder="Country from"
+            id="countryFrom"
+            value={fields.countryFrom || ""}
+            onChange={handleFieldChange}
+            type="text"
+          />
+          <input
+            placeholder="Live in"
+            id="liveIn"
+            value={fields.liveIn || ""}
+            onChange={handleFieldChange}
+            type="text"
+          />
+          <input
+            placeholder="Bio"
+            id="bio"
+            value={fields.bio || ""}
+            onChange={handleFieldChange}
+            type="text"
+          />
+          Open for mentoring others:
+          <input
+            id="mentor"
+            checked={fields.mentor || false}
+            onChange={handleFieldChange}
+            type="checkbox"
+          />
+          <Select
+            isDisabled={!fields.mentor}
+            placeholder="Choose area"
+            id="mentorArea"
+            options={MentorAreas}
+            onChange={handleMentorArea}
+          />
+>>>>>>> f256a91579df38f8df960f1c698e120ef5685be2
         </div>
-      </form>
-    );
+        <div>
+          <button className="btn" type="submit">
+            Update
+          </button>
+        </div>
+      </div>
+    </form>
+  );
 }

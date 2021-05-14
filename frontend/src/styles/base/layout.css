@@ -74,11 +74,7 @@ h5 {
   background-size: 14vh, 10vh, 15vh, 14vh, 10vh, 17vh;
 }
 
-.Feed__topic-filter, .Feed__post-sorter{
-  display: flexbox;
-  max-width: 30%;
 
-}
 
 .btn.hidden {
   display: none;
