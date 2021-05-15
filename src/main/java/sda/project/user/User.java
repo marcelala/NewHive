@@ -8,6 +8,7 @@ import org.hibernate.validator.constraints.Length;
 import sda.project.comments.Comment;
 
 
+import sda.project.image.Image;
 import sda.project.profile.Profile;
 import sda.project.posts.Post;
 
@@ -62,8 +63,8 @@ public class User {
     @JoinColumn(referencedColumnName = "id")
     private List<User> followers = new ArrayList<>();*/
 
-    /* @OneToOne(mappedBy = "avatar",cascade = CascadeType.ALL)
-    private Image picture;*/
+    @OneToOne(mappedBy = "avatar",cascade = CascadeType.ALL)
+    private Image picture;
 
 
     // Hibernate needs a default constructor to function
