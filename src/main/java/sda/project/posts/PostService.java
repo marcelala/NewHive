@@ -90,6 +90,10 @@ public class PostService {
         return postRepository.findAllPostByDateDec();
     }
 
+    public List<Post> fetchPostByAuthorname(String authorname) {
+        return postRepository.findByAuthorname(authorname);
+    }
+
 
 
 
