@@ -11,10 +11,8 @@ export default function EditPost({ onSubmit, post }) {
 
   const [topic, setTopic] = React.useState(post.topic);
 
+  
   const handleSubmit = (e) => {
-    // Invoke the passed in event callback
-    e.preventDefault();
-
     onSubmit({
       title: title,
       body: body,
@@ -23,7 +21,7 @@ export default function EditPost({ onSubmit, post }) {
   };
 
   return (
-    <form className="editPost-form">
+    <form className="editPost-form" onSubmit={handleSubmit}>
       <div className="editPost">
         <input
           value={title}
@@ -47,7 +45,7 @@ export default function EditPost({ onSubmit, post }) {
         </div>
       </div>
       <div>
-        <button className="btn" type="submit" onClick={handleSubmit}>
+        <button className="btn" type="submit">
           Update
         </button>
       </div>
