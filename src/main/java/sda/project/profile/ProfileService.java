@@ -70,6 +70,10 @@ public class ProfileService {
         return profileRepository.findByMentorArea(mentorArea);
     }
 
+    public List<Profile> fetchAllMentors (boolean isMentor) {
+        return profileRepository.findByIsMentor(isMentor);
+    }
+
 
 
 }

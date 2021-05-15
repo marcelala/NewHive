@@ -57,6 +57,11 @@ public class ProfileController {
         return ResponseEntity.ok(profileService.fetchProfileByMentorArea(mentorArea));
     }
 
+    @GetMapping(value ="/mentors", params = "isMentor")
+    public ResponseEntity<List<Profile>> getAllMentors (@RequestParam boolean isMentor) {
+        return ResponseEntity.ok(profileService.fetchAllMentors(isMentor));
+    }
+
 
 }
 
