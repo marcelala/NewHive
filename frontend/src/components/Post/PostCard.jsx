@@ -69,7 +69,7 @@ export default function PostCard({ post, onDeleteClick }) {
   }
 
   function userCheck() {
-    if (post.postOwner === user.email) {
+    if (post.author === user) {
       return true;
     }
     return false;
@@ -114,8 +114,7 @@ export default function PostCard({ post, onDeleteClick }) {
   return (
     <section
       className="postCard-section"
-      onClick={() => toggleBody ? setToggleBody(false) : setToggleBody(true)
-      }
+      // onClick={() => (toggleBody ? setToggleBody(false) : setToggleBody(true))}
     >
       <div className="postCard">
         <div className="postCard__content">
@@ -123,15 +122,18 @@ export default function PostCard({ post, onDeleteClick }) {
           <div className="postCard__topic">
             <h1> {post.topic} </h1>
           </div>
+         
           <h2 className="postCard__content-heading">{post.title}</h2>
+          
           <div className="postCard--date">{date()}</div>
+          <p className="postCard--user">{post.authorname}</p>
           {userCheck() && (
             <div className="postCard__editDelete">
-                <FontAwesomeIcon
-                  className="delete"
-                  icon={["fa", "trash-alt"]}
-                  onClick={onDeleteClick}
-                />
+              <FontAwesomeIcon
+                className="delete"
+                icon={["fa", "trash-alt"]}
+                onClick={onDeleteClick}
+              />
               <FontAwesomeIcon
                 className="edit"
                 icon={["fa", "edit"]}
@@ -139,20 +141,29 @@ export default function PostCard({ post, onDeleteClick }) {
                   toggleEdit ? setToggleEdit(false) : setToggleEdit(true)
                 }
               />
-              
-              <div className="postCard__editPost">
-            {toggleEdit && (
-              <EditPost
-                onSubmit={(postData) => updatePost(postData)}
-                post={post}
-              />
-            )}
-          </div>
-          </div>
+            </div>
           )}
-        {toggleBody && (
-      <p className="postCard__content-body">{post.body}</p>)}
-        <div className="postCard__comments">
+          {userCheck() && (
+            <div className="postCard__editPost">
+              {toggleEdit && (
+                <div className="postCard__editPostForm">
+                  <EditPost
+                    onSubmit={(postData) => updatePost(postData)}
+                    post={post}
+                  />
+                </div>
+              )}
+            </div>
+          )}
+
+          {toggleBody && <p className="postCard__content-body">{post.body}</p>}
+          <div className="postCard__content-read-more" onClick={() => (toggleBody ? setToggleBody(false) : setToggleBody(true))}>
+          <p className="postCard__content-read-more p">Continue reading   </p>
+            <FontAwesomeIcon
+                className="read-more"
+                icon={["fas", "plus"]}
+              />
+              </div><div className="postCard__comments">
             <div className="postCard__comments-icon">
               <FontAwesomeIcon
                 className="comments-icon"
@@ -163,11 +174,10 @@ export default function PostCard({ post, onDeleteClick }) {
                     : setToggleComments(true)
                 }
               />
+            </div>
+            {comments.length}
           </div>
-          {comments.length}
         </div>
-        <p className="postCard--user">{post.postOwner}</p>
-</div>
 
         {toggleComments && (
           <div className="commentCard-container">
