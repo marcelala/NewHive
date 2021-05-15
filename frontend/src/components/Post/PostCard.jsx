@@ -114,7 +114,7 @@ export default function PostCard({ post, onDeleteClick }) {
   return (
     <section
       className="postCard-section"
-      onClick={() => (toggleBody ? setToggleBody(false) : setToggleBody(true))}
+      // onClick={() => (toggleBody ? setToggleBody(false) : setToggleBody(true))}
     >
       <div className="postCard">
         <div className="postCard__content">
@@ -122,9 +122,11 @@ export default function PostCard({ post, onDeleteClick }) {
           <div className="postCard__topic">
             <h1> {post.topic} </h1>
           </div>
+         
           <h2 className="postCard__content-heading">{post.title}</h2>
+          
           <div className="postCard--date">{date()}</div>
-          <p className="postCard--user">{post.author}</p>
+          <p className="postCard--user">{post.authorname}</p>
           {userCheck() && (
             <div className="postCard__editDelete">
               <FontAwesomeIcon
@@ -153,8 +155,15 @@ export default function PostCard({ post, onDeleteClick }) {
               )}
             </div>
           )}
+
           {toggleBody && <p className="postCard__content-body">{post.body}</p>}
-          <div className="postCard__comments">
+          <div className="postCard__content-read-more" onClick={() => (toggleBody ? setToggleBody(false) : setToggleBody(true))}>
+          <p className="postCard__content-read-more p">Continue reading   </p>
+            <FontAwesomeIcon
+                className="read-more"
+                icon={["fas", "plus"]}
+              />
+              </div><div className="postCard__comments">
             <div className="postCard__comments-icon">
               <FontAwesomeIcon
                 className="comments-icon"
