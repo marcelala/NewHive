@@ -83,6 +83,7 @@ input[type="password"] {
   cursor: pointer;
 }
 
+
 .editComment {
   background-color: var(--color-beige);
   color: var(--color-brown);
@@ -114,4 +115,5 @@ input[type="password"] {
 
 .btn{
   font-family: "Montserrat", sans-serif;
+  margin: auto;
 }

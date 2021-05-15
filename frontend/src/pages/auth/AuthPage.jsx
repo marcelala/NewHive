@@ -12,8 +12,8 @@ import Auth from "../../services/Auth";
 
 export const AuthPage = () => {
   const [signIn, setSignIn] = useState(true);
-  const [toggleRegister, setToggleRegister] = useState(false);
-  const [toggleLogin, setToggleLogin] = useState(false);
+  // const [toggleRegister, setToggleRegister] = useState(false);
+  // const [toggleLogin, setToggleLogin] = useState(false);
   // Methods
   async function login(loginData) {
     const loginSuccess = await Auth.login(loginData);

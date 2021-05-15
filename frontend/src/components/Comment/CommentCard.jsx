@@ -8,7 +8,7 @@ export default function CommentCard({ comment, onDeleteClick, user }) {
   const [toggleEdit, setToggleEdit] = useState(false);
 
   function userCheck() {
-    if (comment.CommentOwner === user.email) {
+    if (comment.userCommentOwner === user) {
       return true;
     }
     return false;
@@ -44,7 +44,7 @@ export default function CommentCard({ comment, onDeleteClick, user }) {
     <div className="commentCard">
       <div className="commentCard__content">
         <p>{comment.body}</p>
-        <p className="commentCard--user">{comment.userCommentOwner}</p>
+        <p className="commentCard--user">{comment.authorname}</p>
       </div>
       <div className="commentCard--date">{date()}</div>
       {userCheck() && (
