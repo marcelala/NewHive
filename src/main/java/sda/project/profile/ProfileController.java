@@ -10,6 +10,7 @@ import sda.project.exception.UnAuthorizedException;
 import sda.project.user.User;
 import sda.project.user.UserService;
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 public class ProfileController {
@@ -49,6 +50,11 @@ public class ProfileController {
     public ResponseEntity<Profile> viewProfileById(@PathVariable Long id) {
         return ResponseEntity.ok(profileService.fetchProfileById(id));
 
+    }
+
+    @GetMapping(value = "/mentors", params = "mentorArea")
+    public ResponseEntity<List<Profile>> getMentorsByMentorArea (@RequestParam String mentorArea){
+        return ResponseEntity.ok(profileService.fetchProfileByMentorArea(mentorArea));
     }
 
 
