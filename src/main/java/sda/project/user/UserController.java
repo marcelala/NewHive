@@ -7,16 +7,22 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/** This is a Controller class of User Entity which contains methods of User Entity.
+ * @since : 2021-05-04
+ */
 @RestController
 public class UserController {
 
     UserService userService;
 
+    //
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
-    //User can search other user
+    /**
+     * This Method represents User can search other user
+     */
    @GetMapping(path = "/search", params = {"name"})
    public ResponseEntity<List<User>> getAllUserByName(@RequestParam String name) {
         return ResponseEntity.ok(userService.searchUserByName(name));
