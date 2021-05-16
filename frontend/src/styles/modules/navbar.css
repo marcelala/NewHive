@@ -31,6 +31,7 @@
   background-color: #7a5f48;
   font-size: 16px;
   color: #faf3e9;
+  cursor: pointer;
 }
 
 .logout {

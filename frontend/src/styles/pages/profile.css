@@ -1,47 +1,111 @@
+/*InformationCard*/
+
 .profile {
-    width: 80rem;
-    height: auto;
-    position: relative;
-    background-color: white;
-    padding: 2rem;
-    margin: 3rem;
-    display: inline-flex;
-    color: #4E2910;
-    box-shadow: 0 1.5rem 2rem rgba(107, 122, 133, 0.2);
+    color: var(--color-dark-brown);
+    display: flex;
+    justify-content: center;
 }
 
-.profile-photo {
-    width: 25rem;
-    padding: 5rem;
-    margin-top: 1rem;
-    background-color: #EEECE6;
-}
-
-.profile .full-name {
-    position: absolute;
+.profile h2{
     text-align: center;
-    margin-left: 10rem;
-    font-weight: bolder;
+    font-size: 24px;
+    font-weight: normal;
 }
 
-.profile .full-name p{
-    padding-right: 1rem;
-}
-
-.profile-info {
-    padding: 2rem;
-}
-
-.full-profile h1, h2{
-    text-align: center;
-    padding: 2rem;
+.profile-info .bold-p{
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .profile-info p{
-    padding-bottom: 1rem;
+    font-size: 18px;
+    font-weight: normal;
 }
 
-.full-profile {
-    color: #4E2910;
+.profile-info {
+    padding: 1rem;
+}
+
+.profile-section{
+    background-color: var(--color-light-beige);
+    box-shadow: 0 6px 6px rgb(0 0 0 / 25%);
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    max-width: 50rem;
+}
+.profile-photo {
+    display: flex;
+    justify-content: center;
+}
+
+.profile-photo img{
+    width: 20rem;
+    padding: 1rem;
+}
+
+@media (min-width: 600px) {
+    .profile-section{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/*PrivateProfile*/
+
+.full-profile h1{
+    display: flex;
+    text-align: center;
+    margin: 1rem;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.full-profile h2{
+    text-align: center;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.full-profile{
+    display: grid;
+    justify-content: center;
+    color: var(--color-dark-brown);
+}
+
+.full-profile button{
+    margin-left: 2rem;
+}
+
+
+/*ProfileForm*/
+
+.profile-page {
+    display: flex;
+    justify-content: center;
+}
+
+.profile-form{
+    background-color: var(--color-light-beige);
+    box-shadow: 0 6px 6px rgb(0 0 0 / 25%);
+    margin: 2rem;
+    padding: 2rem;
+    max-width: 50rem;
+}
+
+.profile-form input{
+ font-size: 18px;
+}
+
+.profile-form .mentor-area{
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.mentor-area p{
+    font-size: 18px;
+    margin: 0.5rem;
 }
 

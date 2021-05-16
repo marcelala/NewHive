@@ -6,7 +6,6 @@ import InformationCard from "./InformationCard";
 
 export default function PrivateProfile () {
 
-  //  const [toggleAdd, setToggleAdd] = useState(false);
     const [toggleEdit, setToggleEdit] = useState(false);    
     const [profile, setProfile] = useState({});
    // const [currentUser, setCurrentUser] = useState({});
@@ -70,11 +69,6 @@ export default function PrivateProfile () {
             </button>
           </>
         )}
-        {/* <button className="btn" type="button" onClick={() => (toggleAdd ? setToggleAdd(false) : setToggleAdd(true))}> Add info </button> */}
-
-        {/* {toggleAdd && (
-          <ProfileForm onSubmit={(profileData) => createProfile(profileData)} />
-        )} */}
         {(toggleEdit || !profileExisted) && (
           <EditProfile
             profileInfo={profile}

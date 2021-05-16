@@ -21,12 +21,12 @@ export default function Footer () {
             </li>
             <li>     
             <Link to="/guidelines">
-            <p>Community Guidelines</p>
+            <p>Guidelines</p>
             </Link>
             </li>
             <li>
             <Link to="/contact">
-                    <p>Contact us</p>
+                    <p>Contact</p>
             </Link>
             </li>
         </ul>
