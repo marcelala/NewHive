@@ -1,5 +1,5 @@
 import { atom, selector } from "recoil";
-import UserApi from "../api/UserApi"
+import ProfileApi from "../api/ProfileApi"
 
 export const profilesState = atom({
   key: "profilesState",

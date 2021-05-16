@@ -1,5 +1,5 @@
 import { atom, selector } from "recoil";
-import PostsApi from "../api/PostsApi"
+import PostApi from "../api/PostApi"
 
 export const postsState = atom({
   key: "postsState",
@@ -9,7 +9,7 @@ export const postsState = atom({
 export const allPosts = selector({
   key: 'allPosts',
   get: async ({get}) => {
-    const response = await PostsApi.getAllPosts({
+    const response = await PostApi.getAllPosts({
       postsState: get(postsState),
     });
     return response.data;
