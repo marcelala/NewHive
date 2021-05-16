@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import UserApi from "../../api/UserApi";
 import ProfileApi from "../../api/ProfileApi";
+import MyEditor from "../MyEditor";
 
 export default function InformationCard({ profileInfo }) {
   const { name, surname, countryFrom, liveIn, bio, mentorArea } = profileInfo;
 
   return (
     <div>
+      <MyEditor/>
       <div className="full-name">
         <p>Name: {name}</p>
         <p>Surname: {surname}</p>
