@@ -9,6 +9,8 @@ import sda.project.exception.UnAuthorizedException;
 import sda.project.user.User;
 import sda.project.user.UserService;
 
+import java.util.List;
+
 
 @Service
 public class ProfileService {
@@ -34,18 +36,6 @@ public class ProfileService {
         return profile;
 
     }
-
-   //public Profile update(Profile profile,Profile updatedProfile)
-   // {
-     //
-       // profile.setSurname(updatedProfile.getSurname());
-       // profile.setBio(updatedProfile.getBio());
-       // profile.setCountryFrom(updatedProfile.getCountryFrom());
-       // profile.setLiveIn(updatedProfile.getLiveIn());
-       // profile.setMentorArea(updatedProfile.getMentorArea());
-       // profile.setMentor(updatedProfile.isMentor());
-       // return profile;
-    // }
 
     public boolean isAuthorized(Profile updateProfile)
     {
@@ -75,6 +65,15 @@ public class ProfileService {
     public Profile fetchProfileById(Long id) {
         return profileRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
     }
+
+    public List<Profile> fetchProfileByMentorArea (String mentorArea) {
+        return profileRepository.findByMentorArea(mentorArea);
+    }
+
+    public List<Profile> fetchAllMentors (boolean isMentor) {
+        return profileRepository.findByIsMentor(isMentor);
+    }
+
 
 
 }
