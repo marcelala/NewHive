@@ -9,9 +9,15 @@ export const PublicProfile = ({ item }) => {
     const [profile, setProfile] = useState({});
 
     useEffect(() => {
-        ProfileApi.viewProfile()
+        ProfileApi.viewProfileById()
+          .then(({ data }) => {
+            if (data) {
+              setProfile(data);
+            }
+          })
           .catch((err) => console.error(err));
-      });
+      }, []);
+
     return(
 
         <UserCard key={profile.id} profileInfo={profile} />

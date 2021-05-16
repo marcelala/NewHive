@@ -74,6 +74,14 @@ public class ProfileService {
         return profileRepository.findByIsMentor(isMentor);
     }
 
+    /**
+     * @return list of all profiles
+     */
+    public List<Profile> listAllProfiles() {
+        List<Profile> profiles = profileRepository.findAll();
+        return profiles;
+    }
+
 
 
 }

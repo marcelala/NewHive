@@ -1,6 +1,8 @@
 // NPM Packages
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { RecoilRoot } from "recoil";
+
 // import fontawesome components
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
@@ -40,20 +42,24 @@ function App() {
   // Constants
   const loggedInRouter = (
     <div className="App">
+      <RecoilRoot>
       <BrowserRouter>
         <NavBar onLogout={() => Auth.logout()}/>
         <Switch>
+        <React.Suspense fallback={<div>Loading...</div>}>
           <Route component={Feed} path="/feed" />
           <Route component={OrganizationsPage} path="/organizations" />
           <Route component={PrivateProfile} path="/profile"/>
-          <Route component={PublicProfile} path="/user-profile"/>
+          <Route component={PublicProfile} path="/user-profile/:id" exact component={PublicProfile}/>
           <Route component={Contact} path="/contact" />
           <Route component={CommunityGuidelines} path="/guidelines" />
           <Route component={AboutUs} path="/about"/>
           <Route component={FAQ} path="/faq" />
+          </React.Suspense>
         </Switch>
         <Footer/>
       </BrowserRouter>
+      </RecoilRoot>
     </div>
   );
 

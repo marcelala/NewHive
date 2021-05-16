@@ -12,7 +12,13 @@ class ProfileApi {
   editProfile(id, profile) {
     return Api.put(`/edit-profile/${id}`, profile);
   }
-
+  
+  viewProfileById(id){
+    return Api.get(`/view-profile/${id}`);
+}
+getAllProfiles() {
+  return Api.get('/view-profile/all');
+}
 }
 
 export default new ProfileApi();
