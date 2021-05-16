@@ -35,14 +35,13 @@ function App() {
       .then(({ data }) => setUserInSession(data))
       .catch((err) => console.error(err));
   }, [loggedIn]);
-
   // Constants
   const loggedInRouter = (
     <div className="App">
       <BrowserRouter>
         <NavBar onLogout={() => Auth.logout()}/>
         <Switch>
-          <Route component={Feed} path="/feed" />
+          <Route component={Feed} path="/" exact />
           <Route component={OrganizationsPage} path="/organizations" />
           <Route component={PrivateProfile} path="/profile"/>
           <Route component={Contact} path="/contact" />
