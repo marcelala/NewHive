@@ -1,7 +1,7 @@
-import React from "react";
+import {useState} from "react";
 
 export default function CommentForm({ onSubmit }) {
-  const [body, setBody] = React.useState("");
+  const [body, setBody] = useState("");
 
   const handleSubmit = () => {
     // Invoke the passed in event callback
@@ -27,7 +27,13 @@ export default function CommentForm({ onSubmit }) {
         </div>
       </div>
       <div>
-        <button className="comment-form btn" type="button" onClick={handleSubmit}>
+        <button
+          //className="comment-form btn"
+          className={`comment-form btn ${body ? "" : "disabled"}`}
+          type="button"
+          disabled={!body}
+          onClick={handleSubmit}
+        >
           Comment
         </button>
       </div>
