@@ -18,8 +18,8 @@ export default function EditProfile({ onSubmit, profileInfo }) {
 
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
+    <form onSubmit={handleSubmit} className="profile-page">
+      <div className="profile-form">
         <div>
           <input
             placeholder="Your name"
@@ -56,13 +56,15 @@ export default function EditProfile({ onSubmit, profileInfo }) {
             onChange={handleFieldChange}
             type="text"
           />
-          Open for mentoring others:
+          <div className="mentor-area">
+          <p>Open for mentoring others:</p>
           <input
             id="mentor"
             checked={fields.mentor || false}
             onChange={handleFieldChange}
             type="checkbox"
           />
+          </div>
           <Select
             isDisabled={!fields.mentor}
             placeholder="Choose area"
