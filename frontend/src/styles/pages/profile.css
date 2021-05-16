@@ -13,12 +13,12 @@
 }
 
 .profile-info .bold-p{
-    font-size: 18px;
+    font-size: 1.2rem;
     font-weight: bold;
 }
 
 .profile-info p{
-    font-size: 18px;
+    font-size: 1.2rem;
     font-weight: normal;
 }
 
@@ -94,7 +94,7 @@
 }
 
 .profile-form input{
- font-size: 18px;
+ font-size: 1.3rem;
 }
 
 .profile-form .mentor-area{
@@ -105,7 +105,11 @@
 }
 
 .mentor-area p{
-    font-size: 18px;
     margin: 0.5rem;
 }
 
+.profile-info .user-name {
+margin-bottom: 1.3rem;
+font-size: 1.6rem;
+text-align: center;
+}
