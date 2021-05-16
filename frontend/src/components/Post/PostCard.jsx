@@ -14,7 +14,7 @@ import InformationCard from "../Profile/InformationCard";
 
 import Cactus from "../../assets/images/cactus.jpg";
 
-export default function PostCard({ post, onDeleteClick }) {
+export default function PostCard({ post, onDeleteClick, onPostUpdate }) {
   // Local state
   const [comments, setComments] = useState([]);
   const [toggleComments, setToggleComments] = useState(false);
@@ -79,14 +79,16 @@ export default function PostCard({ post, onDeleteClick }) {
     return false;
   }
 
-  async function updatePost(updatedPost) {
-    try {
-      await PostApi.updatePost(post.id, updatedPost);
-      setToggleEdit(false);
-    } catch (e) {
-      console.error(e);
-    }
-  }
+  // async function updatePost(updatedPost) {
+  //   try {
+  //     console.log('updatedPost 1',updatedPost);
+  //     await PostApi.updatePost(post.id, updatedPost);
+  //     console.log('updatedPost 2',updatedPost);
+  //     setToggleEdit(false);
+  //   } catch (e) {
+  //     console.error(e);
+  //   }
+  // }
 
   function dateCreatedOrUpdatedCheck() {
     if (post.created === null) {
@@ -151,7 +153,11 @@ export default function PostCard({ post, onDeleteClick }) {
               {toggleEdit && (
                 <div className="postCard__editPostForm">
                   <EditPost
-                    onSubmit={(postData) => updatePost(postData)}
+                    // onSubmit={(postData) => updatePost(postData)}
+                    onSubmit={(postData) => {
+                      onPostUpdate(postData);
+                      setToggleEdit(false);
+                    }}
                     post={post}
                   />
                 </div>

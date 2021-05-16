@@ -44,6 +44,14 @@ export const Feed = () => {
     }
   }
 
+    async function updatePost(id,updatedPost) {
+      try {
+        await PostApi.updatePost(id, updatedPost);
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
   async function deletePost(post) {
     try {
       await PostApi.deletePost(post.id);
@@ -62,23 +70,28 @@ export const Feed = () => {
   }, [setPosts]);
 
   // Components
-  const PostsArray = () => {
-    return posts
-      .filter((post) => {
+  const postsToShow = posts.filter((post) => {
         if (selectedTopic) {
           return post.topic === selectedTopic;
         } else {
           return true;
         }
-      })
-      .map((post) => (
+      });
+      const PostsArray = postsToShow.map((post) => (
         <PostCard
           key={post.id}
           post={post}
+          onPostUpdate={(postData) => {
+             const newPosts = [...posts];
+             const ind = posts.findIndex((item) => item.id === post.id);
+             newPosts[ind] = { ...newPosts[ind], ...postData };
+             setPosts([...newPosts]);
+              updatePost(post.id, postData);
+            
+          }}
           onDeleteClick={() => deletePost(post)}
         />
       ));
-  };
 
   return (
     <div className="feed">
@@ -119,7 +132,7 @@ export const Feed = () => {
           onChange={handleChange}
         /> */}
       </div>
-      {PostsArray()}
+      {PostsArray}
     </div>
   );
 };
