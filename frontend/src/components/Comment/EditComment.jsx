@@ -1,10 +1,11 @@
-import React from "react";
+import {useState} from "react";
 
 export default function EditComment({ onSubmit, comment }) {
-  const [body, setBody] = React.useState(comment.body);
+  const [body, setBody] = useState(comment.body);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     // Invoke the passed in event callback
+    e.preventDefault();
     onSubmit({
       body: body,
     });

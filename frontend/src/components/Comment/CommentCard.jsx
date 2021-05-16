@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import EditComment from "./EditComment";
 import CommentApi from "../../api/CommentApi";
 
-export default function CommentCard({ comment, onDeleteClick, user }) {
+export default function CommentCard({ comment, onDeleteClick, onCommentUpdate, user }) {
   const [toggleEdit, setToggleEdit] = useState(false);
 
   function userCheck() {
@@ -32,13 +32,13 @@ export default function CommentCard({ comment, onDeleteClick, user }) {
     }
   }
 
-  async function updateComment(updatedComment) {
-    try {
-      await CommentApi.updateComment(updatedComment, comment.id);
-    } catch (e) {
-      console.error(e);
-    }
-  }
+  // async function updateComment(updatedComment) {
+  //   try {
+  //     await CommentApi.updateComment(updatedComment, comment.id);
+  //   } catch (e) {
+  //     console.error(e);
+  //   }
+  // }
 
   return (
     <div className="commentCard">
@@ -68,7 +68,11 @@ export default function CommentCard({ comment, onDeleteClick, user }) {
           </div>
           {toggleEdit && (
             <EditComment
-              onSubmit={(commentData) => updateComment(commentData)}
+              onSubmit={(commentData) => {
+                onCommentUpdate(commentData);
+                setToggleEdit(false);
+              }
+            }
               comment={comment}
             />
           )}

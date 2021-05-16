@@ -61,6 +61,18 @@ export default function PostCard({ post, onDeleteClick, onPostUpdate }) {
     }
   }
 
+    async function updateComment(updatedComment, id) {
+      try {
+        await CommentApi.updateComment(updatedComment, id);
+         const newComments = [...comments];
+         const ind = comments.findIndex((item) => item.id === id);
+         newComments[ind] = { ...newComments[ind], ...updatedComment };
+         setComments([...newComments]);
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
   async function deleteComment(comment) {
     try {
       await CommentApi.deleteComment(comment.id);
@@ -115,6 +127,9 @@ export default function PostCard({ post, onDeleteClick, onPostUpdate }) {
       key={comment.id}
       comment={comment}
       onDeleteClick={() => deleteComment(comment)}
+      onCommentUpdate={(commentData) => {
+        updateComment(commentData, comment.id);
+      }}
       user={user}
     />
   ));

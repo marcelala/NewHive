@@ -44,9 +44,13 @@ export const Feed = () => {
     }
   }
 
-    async function updatePost(id,updatedPost) {
+    async function updatePost(id, updatedPost) {
       try {
         await PostApi.updatePost(id, updatedPost);
+          const newPosts = [...posts];
+          const ind = posts.findIndex((item) => item.id === id);
+          newPosts[ind] = { ...newPosts[ind], ...updatedPost };
+          setPosts([...newPosts]);
       } catch (e) {
         console.error(e);
       }
@@ -81,14 +85,7 @@ export const Feed = () => {
         <PostCard
           key={post.id}
           post={post}
-          onPostUpdate={(postData) => {
-             const newPosts = [...posts];
-             const ind = posts.findIndex((item) => item.id === post.id);
-             newPosts[ind] = { ...newPosts[ind], ...postData };
-             setPosts([...newPosts]);
-              updatePost(post.id, postData);
-            
-          }}
+          onPostUpdate={(postData) => updatePost(post.id, postData)}
           onDeleteClick={() => deletePost(post)}
         />
       ));
