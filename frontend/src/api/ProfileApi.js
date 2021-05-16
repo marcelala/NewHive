@@ -13,6 +13,14 @@ class ProfileApi {
     return Api.put(`/edit-profile/${id}`, profile);
   }
 
+  getAllMentors() {
+    return Api.get("/mentors?isMentor=true");
+  }
+
+  //getMentorsByMentorArea() {
+  //  return Api.get("/mentors");
+  //}
+
 }
 
 export default new ProfileApi();
