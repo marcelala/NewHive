@@ -66,7 +66,7 @@ export const Feed = () => {
     return posts
       .filter((post) => {
         if (selectedTopic) {
-          return post.topic == selectedTopic;
+          return post.topic === selectedTopic;
         } else {
           return true;
         }

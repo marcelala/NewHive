@@ -1,18 +1,18 @@
-import React from "react";
+import { useState } from "react";
 
 import Select from "react-select";
 
 import Topics from "./Topics";
 
 export default function EditPost({ onSubmit, post }) {
-  const [title, setTitle] = React.useState(post.title);
+  const [title, setTitle] = useState(post.title);
 
-  const [body, setBody] = React.useState(post.body);
+  const [body, setBody] = useState(post.body);
 
-  const [topic, setTopic] = React.useState(post.topic);
+  const [topic, setTopic] = useState(post.topic);
 
-  
   const handleSubmit = (e) => {
+    e.preventDefault();
     onSubmit({
       title: title,
       body: body,
