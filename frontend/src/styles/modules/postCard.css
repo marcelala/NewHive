@@ -82,7 +82,6 @@
   grid-row-start: 4;
   grid-column-start: 3;
   grid-column-end: 4;  
-  justify-self: center;
   color: var(--color-brown);
   justify-self: center;
   cursor: pointer;
@@ -155,12 +154,12 @@
 
   .postCard__editPost{
     width: 100%;
-    grid-row-start: 5;
+    grid-row-start: 6;
     grid-row-end: auto;
     grid-column-start: 2;
-    grid-column-end: 5;
+    grid-column-end: 6;
     margin:auto;
-
+    justify-self: center;
   }
   .editPost{
     width: 100%;

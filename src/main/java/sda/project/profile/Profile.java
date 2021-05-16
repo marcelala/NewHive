@@ -111,7 +111,15 @@ public class Profile {
         return isMentor;
     }
 
+<<<<<<< HEAD
     public void setIsMentor(boolean mentor) {
+=======
+    public boolean getIsMentor() {
+        return isMentor;
+    }
+
+    public void setMentor(boolean mentor) {
+>>>>>>> c757f2f04b5592b95334bb42f4a9072d98c632aa
         isMentor = mentor;
     }
 

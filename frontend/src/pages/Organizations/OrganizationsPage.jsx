@@ -28,10 +28,6 @@ export const OrganizationsPage = () => {
               onChange={handleChange}
             />
           </div>
-
-        <p className="org-number">
-          Showing {organizations.length} organizations
-        </p>
         {topicsToShow.map((topic) => (
           <OrganizationsGroup topic={topic} key={topic} />
         ))}

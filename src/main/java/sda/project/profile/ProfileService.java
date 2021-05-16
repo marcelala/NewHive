@@ -9,6 +9,8 @@ import sda.project.exception.UnAuthorizedException;
 import sda.project.user.User;
 import sda.project.user.UserService;
 
+import java.util.List;
+
 
 @Service
 public class ProfileService {
@@ -64,4 +66,18 @@ public class ProfileService {
     public Profile fetchProfileById(Long id) {
         return profileRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
     }
+<<<<<<< HEAD
+=======
+
+    public List<Profile> fetchProfileByMentorArea (String mentorArea) {
+        return profileRepository.findByMentorArea(mentorArea);
+    }
+
+    public List<Profile> fetchAllMentors (boolean isMentor) {
+        return profileRepository.findByIsMentor(isMentor);
+    }
+
+
+
+>>>>>>> c757f2f04b5592b95334bb42f4a9072d98c632aa
 }

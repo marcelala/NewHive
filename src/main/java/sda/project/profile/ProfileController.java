@@ -3,6 +3,7 @@ package sda.project.profile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 import sda.project.auth.AuthService;
 import sda.project.exception.ResourceNotFoundException;
@@ -10,6 +11,7 @@ import sda.project.exception.UnAuthorizedException;
 import sda.project.user.User;
 import sda.project.user.UserService;
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 public class ProfileController {
@@ -47,6 +49,23 @@ public class ProfileController {
         Profile updatedProfile = profileService.fetchProfileById(id);
         return profileService.create(profileService.update(profile, updatedProfile));
     }
+
+    @GetMapping("/view-profile/{id}")
+    public ResponseEntity<Profile> viewProfileById(@PathVariable Long id) {
+        return ResponseEntity.ok(profileService.fetchProfileById(id));
+
+    }
+
+    @GetMapping(value = "/mentors", params = "mentorArea")
+    public ResponseEntity<List<Profile>> getMentorsByMentorArea (@RequestParam String mentorArea){
+        return ResponseEntity.ok(profileService.fetchProfileByMentorArea(mentorArea));
+    }
+
+    @GetMapping(value ="/mentors", params = "isMentor")
+    public ResponseEntity<List<Profile>> getAllMentors (@RequestParam boolean isMentor) {
+        return ResponseEntity.ok(profileService.fetchAllMentors(isMentor));
+    }
+
 
 }
 
