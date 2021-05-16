@@ -16,8 +16,14 @@ export default function MentorsPage () {
     ))
 
     return (
-        <div>
+        <div className="mentors-page">
+            <div className="mentors-header">
+            <h1>Mentorship</h1>
+            <h2>Get mentorship help from others!</h2>
+            </div>
+            <div className="mentors-card">
             {MentorsArray}
+            </div>
         </div>
     )
 }

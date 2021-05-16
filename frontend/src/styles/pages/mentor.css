@@ -1,0 +1,79 @@
+/*MentorCard*/
+.mentor {
+    color: var(--color-dark-brown);
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+}
+
+.mentor h2{
+    text-align: center;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.mentor-info .bold-p{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.mentor-info .mentor-name{
+    font-size: 22px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.mentor-info p{
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.mentor-info {
+    padding: 1rem;
+}
+
+.mentor-section{
+    background-color: var(--color-light-beige);
+    box-shadow: 0 6px 6px rgb(0 0 0 / 25%);
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    max-width: 50rem;
+}
+.mentor-photo {
+    display: flex;
+    justify-content: center;
+}
+
+.mentor-photo img{
+    width: 20rem;
+    padding: 1rem;
+}
+
+@media (min-width: 600px) {
+    .mentor-section{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/*MentorsPage*/
+
+.mentors-page h1{
+    text-align: center;
+    margin: 1rem;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.mentors-page h2{
+    text-align: center;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.mentors-page {
+    display: grid;
+    justify-content: center;
+    color: var(--color-dark-brown);
+}
