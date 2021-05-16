@@ -1,14 +1,14 @@
-import React from "react";
+import {useState} from "react";
 import Select from 'react-select';
 
 import Topics from "./Topics";
 
 export default function PostForm({ onSubmit }) {
-  const [title, setTitle] = React.useState("");
+  const [title, setTitle] = useState("");
 
-  const [body, setBody] = React.useState("");
+  const [body, setBody] = useState("");
 
-  const [topic, setTopic] = React.useState("");
+  const [topic, setTopic] = useState("");
 
 
   const handleSubmit = () => {

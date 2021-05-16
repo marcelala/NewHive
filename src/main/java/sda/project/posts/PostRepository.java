@@ -14,4 +14,6 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     @Query("FROM Post ORDER BY dateCreated DESC")
     List<Post> findAllPostByDateDec();
 
+    List<Post> findByAuthorname(String authorname);
+
 }

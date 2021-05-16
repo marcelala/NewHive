@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import EditComment from "./EditComment";
 import CommentApi from "../../api/CommentApi";
 
-export default function CommentCard({ comment, onDeleteClick, user }) {
+export default function CommentCard({ comment, onDeleteClick, onCommentUpdate, user }) {
   const [toggleEdit, setToggleEdit] = useState(false);
 
   function userCheck() {
-    if (comment.CommentOwner === user.email) {
+    if (comment.userCommentOwner === user) {
       return true;
     }
     return false;
@@ -32,19 +32,19 @@ export default function CommentCard({ comment, onDeleteClick, user }) {
     }
   }
 
-  async function updateComment(updatedComment) {
-    try {
-      await CommentApi.updateComment(updatedComment, comment.id);
-    } catch (e) {
-      console.error(e);
-    }
-  }
+  // async function updateComment(updatedComment) {
+  //   try {
+  //     await CommentApi.updateComment(updatedComment, comment.id);
+  //   } catch (e) {
+  //     console.error(e);
+  //   }
+  // }
 
   return (
     <div className="commentCard">
       <div className="commentCard__content">
         <p>{comment.body}</p>
-        <p className="commentCard--user">{comment.userCommentOwner}</p>
+        <p className="commentCard--user">{comment.authorname}</p>
       </div>
       <div className="commentCard--date">{date()}</div>
       {userCheck() && (
@@ -68,7 +68,11 @@ export default function CommentCard({ comment, onDeleteClick, user }) {
           </div>
           {toggleEdit && (
             <EditComment
-              onSubmit={(commentData) => updateComment(commentData)}
+              onSubmit={(commentData) => {
+                onCommentUpdate(commentData);
+                setToggleEdit(false);
+              }
+            }
               comment={comment}
             />
           )}

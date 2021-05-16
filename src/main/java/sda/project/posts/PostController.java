@@ -52,6 +52,9 @@ public class PostController {
         return ResponseEntity.ok(postService.fetchPostByTopic(topic));
     }
 
-
+    @GetMapping (value ="/posts" , params = "authorname")
+    public ResponseEntity<List<Post>> getPostByAuthorname(@RequestParam String authorname) {
+        return ResponseEntity.ok(postService.fetchPostByAuthorname(authorname));
+    }
 
 }
