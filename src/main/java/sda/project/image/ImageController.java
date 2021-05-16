@@ -22,7 +22,6 @@ public class ImageController {
 
     @GetMapping("/show")
     public ResponseEntity<byte[]> showPicture(){
-
         return imageService.show();
     }
 }

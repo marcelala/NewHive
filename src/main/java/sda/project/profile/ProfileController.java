@@ -29,26 +29,10 @@ public class ProfileController {
         this.profileService = profileService;
     }
 
-    @PostMapping("/create-profile")
-    public ResponseEntity<Profile> createProfile(@Valid @RequestBody Profile profile){
-        User userInSession = userService.findUserByEmail(authService.getLoggedInUserEmail());
-        profile.setOwner(userInSession);
-        profileRepository.save(profile);
-        return ResponseEntity.status(HttpStatus.CREATED).body(profile);
-    }
+    @PostMapping("create-profile")
+    public ResponseEntity<Profile> createProfile(@RequestBody Profile profile){
+        return profileService.create(profileService.generateProfile(profile));
 
-   @PutMapping("/edit-profile/{id}")
-    public ResponseEntity<Profile> editProfile(@PathVariable Long id,@Valid @RequestBody Profile updatedProfile)
-    {
-        Profile profile = profileRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
-        if(profileService.isAuthorized(profile))
-        {
-            profileRepository.save(profileService.update(profile, updatedProfile));
-            return ResponseEntity.ok(profile);
-        }
-        else {
-            throw  new UnAuthorizedException();
-        }
     }
 
     @GetMapping("/view-profile")
@@ -57,5 +41,12 @@ public class ProfileController {
         Profile profile = userInSession.getProfile();
         return ResponseEntity.ok(profile);
     }
+
+    @PutMapping("/edit-profile/{id}")
+    public ResponseEntity<Profile> profileUpdate (@PathVariable Long id, @RequestBody Profile profile) {
+        Profile updatedProfile = profileService.fetchProfileById(id);
+        return profileService.create(profileService.update(profile, updatedProfile));
+    }
+
 }
 

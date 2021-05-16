@@ -19,7 +19,7 @@ public class Comment {
     private Long id;
 
     @NotEmpty
-    @Column(nullable = false)
+    @Column( length =500, nullable = false)
     private String body;
 
     private Date updated;

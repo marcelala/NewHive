@@ -1,30 +1,24 @@
-import React from "react";
+import { useEffect, useState } from "react";
+import UserApi from "../../api/UserApi";
+import ProfileApi from "../../api/ProfileApi";
 
-export default function InformationCard ({information}) {
-    const frameObject = require (`../../assets/images/profile/Photo.jpg`);
-    const frameURL = frameObject.default;
+export default function InformationCard({ profileInfo }) {
+  const { name, surname, countryFrom, liveIn, bio, mentorArea } = profileInfo;
 
-    return (
-        <div>
-            <div>
-                <p>{information.name}</p>
-                <p>{information.surname}</p>
-            <img src={frameURL} alt="an illustration frame"/>
-            </div>
-            <div>
-                <h2>Personal Information</h2>
-                <p>I am from: {information.countryFrom}</p>
-                <p>I live in: {information.liveIn}</p>
-                <p>Bio: {information.bio}</p>
-            </div>
-            <div>
-                <p>Open for mentoring others:</p>
-                <input type="checkbox"/>
-                <p>Can mentor in: {information.mentorArea}</p>
-            </div>
-            <div>
-                <button>Edit Profile</button>
-            </div>
-        </div>
-    )
+  return (
+    <div>
+      <div className="full-name">
+        <p>Name: {name}</p>
+        <p>Surname: {surname}</p>
+      </div>
+      <div className="profile-info">
+        <h2>Personal information</h2>
+        <p>I am from: {countryFrom}</p>
+        <p>I live in: {liveIn}</p>
+        <p>Bio: {bio}</p>
+        {/*<p>Open for mentoring others: {profileInfo.mentor}</p>*/}
+        <p>Can mentor in: {mentorArea}</p>
+      </div>
+    </div>
+  );
 }

@@ -1,26 +1,16 @@
 package sda.project.user;
 
 import org.hibernate.validator.constraints.Length;
-
-
-
-
 import sda.project.comments.Comment;
-
-
+import sda.project.follower.Followers;
 import sda.project.image.Image;
 import sda.project.profile.Profile;
 import sda.project.posts.Post;
-
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-
-import java.util.ArrayList;
 import java.util.Objects;
 import java.util.List;
-
-
 
 @Entity
 @Table(name="account")
@@ -41,27 +31,23 @@ public class User {
     private String password;
 
     @Length(min = 3, max=100, message = "Name must be between 3-100 characters")
-    @Column(name = "name")
-    private String name;
+    @Column(name = "username",unique = true)
+    private String username;
 
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
     private List<Post> postList;
 
-
     @OneToMany(mappedBy = "commentOwner", cascade = CascadeType.ALL)
     private List<Comment> commentList;
-
 
     @OneToOne(mappedBy = "owner",cascade = CascadeType.ALL)
     private Profile profile;
 
-   /* @ManyToOne
-    @JoinColumn(referencedColumnName = "id")
-    private List<User> followings = new ArrayList<>();
+    @OneToMany(mappedBy = "to")
+    private List<Followers> followings;
 
-    @OneToMany
-    @JoinColumn(referencedColumnName = "id")
-    private List<User> followers = new ArrayList<>();*/
+    @OneToMany(mappedBy = "from")
+    private List<Followers> followers;
 
     @OneToOne(mappedBy = "avatar",cascade = CascadeType.ALL)
     private Image picture;
@@ -78,7 +64,7 @@ public class User {
                 @Length(min = 3, max = 100, message = "Name must be between 3-100 characters") String name) {
         this.email = email;
         this.password = password;
-        this.name = name;
+        this.username = name;
 
     }
 
@@ -108,11 +94,11 @@ public class User {
     }
 
     public String getName() {
-        return name;
+        return username;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.username = name;
     }
 
     public Profile getProfile() {
@@ -124,14 +110,29 @@ public class User {
     }
 
 
-   /* public Image getPicture() {
+   public Image getPicture() {
         return picture;
     }
 
     public void setPicture(Image picture) {
         this.picture = picture;
     }
-*/
+
+    public List<Followers> getFollowings() {
+        return followings;
+    }
+
+    public void setFollowings(List<Followers> followings) {
+        this.followings = followings;
+    }
+
+    public List<Followers> getFollowers() {
+        return followers;
+    }
+
+    public void setFollowers(List<Followers> followers) {
+        this.followers = followers;
+    }
 
     /*public void addFollower(User follower){
         followers.add(follower);

@@ -9,7 +9,17 @@ export const Contact = () => {
     { value: 'Suggestions', label: 'Suggestions' },
     { value: 'Feedback', label: 'Feedback' }];
     
+    function validateEmail(input) {
+
+      var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     
+      if (input.value.match(validRegex)) {
+        return true;
+      } else {
+        alert("Invalid email address!");
+        return false;
+      }
+    }
     return (
 <section class="contact__container">
                 <h2 className="contact__heading">Contact</h2>
@@ -27,7 +37,7 @@ export const Contact = () => {
               </div>
             </div>
             <div className="contact__selector-container">
-              <Select name="contact-selector" options={options} />
+              <Select name="topic-filter" options={options} />
               </div>
               <span className="bar"></span>
             <div className="input-group">
@@ -35,7 +45,7 @@ export const Contact = () => {
               <span className="bar"></span>
             </div>
             <div className="cta">
-            <a href="mailto:info@community.com" className="form-group btn-group">Send Message</a>
+            <a href="mailto:info@community.com" className="form-group btn-group" onclick="validateEmail(email)">Send Message</a>
             </div>
         </div>
     </section>

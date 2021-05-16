@@ -42,3 +42,9 @@
     width: 40%;
     margin:1rem;
 }
+
+.Feed__topic-filter, .Feed__post-sorter{
+    display: flexbox;
+    max-width: 30%;
+  
+  }

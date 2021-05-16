@@ -46,6 +46,7 @@ public class CommentController {
         String userName = principal.getName();
         User user = userService.findUserByEmail(userName);
         comment.setUserCommentOwner(user);
+        comment.setAuthorname(user.getName());
         comment.setCommentOwner(post);
         comment.setAuthorname(user.getName());
         commentRepository.save(comment);

@@ -1,9 +1,14 @@
 package sda.project.profile;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import sda.project.auth.AuthService;
+import sda.project.exception.ResourceNotFoundException;
+import sda.project.exception.UnAuthorizedException;
 import sda.project.user.User;
 import sda.project.user.UserService;
+
 
 @Service
 public class ProfileService {
@@ -18,22 +23,45 @@ public class ProfileService {
         this.authService = authService;
     }
 
-    public Profile update(Profile profile,Profile updatedProfile)
-    {
-        profile.setName(updatedProfile.getName());
-        profile.setSurname(updatedProfile.getSurname());
-        profile.setBio(updatedProfile.getBio());
-        profile.setCountryFrom(updatedProfile.getCountryFrom());
-        profile.setLiveIn(updatedProfile.getLiveIn());
-        profile.setMentorArea(updatedProfile.getMentorArea());
-        profile.setIsMentor(updatedProfile.getIsMentor());
-        return profile;
-     }
+    public ResponseEntity<Profile> create(Profile profile){
+        return ResponseEntity.status(HttpStatus.CREATED).body(profileRepository.save(profile));
+    }
 
-    public boolean isAuthorized(Profile profile)
+    public Profile generateProfile(Profile profile) {
+        User owner = userService.findUserByEmail(authService.getLoggedInUserEmail());
+        profile.setOwner(owner);
+        profileRepository.save(profile);
+        return profile;
+    }
+
+    public boolean isAuthorized(Profile updateProfile)
     {
-        User owner = profile.getOwner();
+        User owner = updateProfile.getOwner();
         User userInSession = userService.findUserByEmail(authService.getLoggedInUserEmail());
         return owner.equals(userInSession);
+    }
+
+    public Profile update(Profile profile, Profile updatedProfile)
+    {
+        if(isAuthorized(updatedProfile))
+        {
+            updatedProfile.setName(profile.getName());
+            updatedProfile.setSurname(profile.getSurname());
+            updatedProfile.setBio(profile.getBio());
+            updatedProfile.setCountryFrom(profile.getCountryFrom());
+            updatedProfile.setLiveIn(profile.getLiveIn());
+            updatedProfile.setMentorArea(profile.getMentorArea());
+            updatedProfile.setIsMentor(profile.getIsMentor());
+            return updatedProfile;
+        }
+
+        else{
+            throw new UnAuthorizedException();
+        }
+    }
+
+
+    public Profile fetchProfileById(Long id) {
+        return profileRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
     }
 }

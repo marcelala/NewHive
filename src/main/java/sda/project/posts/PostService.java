@@ -1,7 +1,5 @@
 package sda.project.posts;
 
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -57,6 +55,8 @@ public class PostService {
     public Post update(Post postUpdate, Post existingPost){
         if(isAuthorized(existingPost)){
             existingPost.setBody(postUpdate.getBody());
+            existingPost.setTitle(postUpdate.getTitle());
+            existingPost.setTopic(postUpdate.getTopic());
             existingPost.setLastEdited(new Date());
             return existingPost;
         } else {
@@ -86,11 +86,10 @@ public class PostService {
     public List<Post> fetchPostByTopic(String topic){
         return postRepository.findByTopic(topic);
     }
+
+    //fetch all post by latest
     public List<Post> findAllPostByDateDec(){
         return postRepository.findAllPostByDateDec();
     }
-
-
-
 }
 
