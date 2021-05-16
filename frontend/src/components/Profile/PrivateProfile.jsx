@@ -76,7 +76,6 @@ export default function PrivateProfile () {
           />
         )}
         <h2>My Posts</h2>
-        <h2>Posts I have interacted with</h2>
       </div>
     );
 }

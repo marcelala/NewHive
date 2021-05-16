@@ -14,6 +14,7 @@ import { NavBar } from "./components/NavBar";
 import { Feed } from "../src/pages/Feed";
 import { AuthPage } from "./pages/auth/AuthPage";
 import PrivateProfile from "./components/Profile/PrivateProfile";
+import { PublicProfile } from "./components/Profile/PublicProfile";
 import  AboutUs from "./pages/AboutUs";
 import { OrganizationsPage } from "./pages/Organizations/OrganizationsPage";
 import { Contact } from "../src/pages/Contact";
@@ -45,6 +46,7 @@ function App() {
           <Route component={Feed} path="/feed" />
           <Route component={OrganizationsPage} path="/organizations" />
           <Route component={PrivateProfile} path="/profile"/>
+          <Route component={PublicProfile} path="/user-profile"/>
           <Route component={Contact} path="/contact" />
           <Route component={CommunityGuidelines} path="/guidelines" />
           <Route component={AboutUs} path="/about"/>
