@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
+
 
 //Api
 import CommentApi from "../../api/CommentApi";
@@ -21,7 +23,7 @@ export default function PostCard({ post, onDeleteClick, onPostUpdate }) {
   const [toggleBody, setToggleBody] = useState(false);
   const [toggleEdit, setToggleEdit] = useState(false);
   const [user, setUser] = useState({});
-  const [image, setImage] = useState([]);
+  // const [image, setImage] = useState([]);
 
   // Methods
   useEffect(() => {
@@ -140,7 +142,9 @@ export default function PostCard({ post, onDeleteClick, onPostUpdate }) {
     >
       <div className="postCard">
         <div className="postCard__content">
+        <Link to={`/view-profile/${user.id}/`}>
           <img src={Cactus} className="picture" alt="cactus" />
+          </Link>
           <div className="postCard__topic">
             <h1> {post.topic} </h1>
           </div>

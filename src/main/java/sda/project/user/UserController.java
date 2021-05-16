@@ -21,4 +21,9 @@ public class UserController {
    public ResponseEntity<List<User>> getAllUserByName(@RequestParam String name) {
         return ResponseEntity.ok(userService.searchUserByName(name));
     }
+
+      @GetMapping(path = "/user", params = {"id"})
+   public ResponseEntity<User> getUserById(@RequestParam Long id) {
+        return ResponseEntity.ok(userService.searchUserById(id));
+    }
 }

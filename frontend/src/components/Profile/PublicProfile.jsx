@@ -35,7 +35,7 @@ export const PublicProfile = () => {
       }, []);
 
       const userPostCards = postsGlobal
-    .filter((post) => profileOwner.id === post.profileOwner.id)
+    .filter((post) => profileOwner.name === post.authorname.id)
     .map((post) => (
       <PostCard
         key={post.id}
@@ -44,8 +44,8 @@ export const PublicProfile = () => {
     ));
 
     return(
-  <div className="publi-profile">
-  <div className="profilve__userCard">
+  <div className="public-profile">
+  <div className="profile__userCard">
     <UserCard key={profileOwner.id} profileInfo={profileOwner} />
   </div>
   <div className="profile__userPosts">

@@ -20,6 +20,10 @@ class PostApi {
   deletePost(id) {
     return Api.delete("/posts/" + id);
   }
+  getPostsByName(authorname) {
+    return Api.get(`/posts/${authorname}`);
+}
+  
 }
 
 export default new PostApi();

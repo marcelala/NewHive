@@ -34,6 +34,8 @@ public class UserService {
   public List<User> searchUserByName(String name){
        return userRepository.findByName(name);
     }
-
+  public User getUserById(Long id){
+       return userRepository.findById(id);
+    }
 
 }
