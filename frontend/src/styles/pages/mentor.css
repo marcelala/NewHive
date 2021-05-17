@@ -38,7 +38,7 @@
     display: grid;
     grid-template-columns: 1fr;
     align-items: center;
-    max-width: 50rem;
+    max-width: 40rem;
 }
 .mentor-photo {
     display: flex;
