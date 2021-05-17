@@ -59,9 +59,13 @@
 
 /*MentorsPage*/
 
+.mentors-page{
+    color: var(--color-dark-brown);
+}
+
 .mentors-page h1{
     text-align: center;
-    margin: 1rem;
+    margin-top: 2rem;
     font-size: 30px;
     font-weight: bolder;
 }
@@ -70,10 +74,13 @@
     text-align: center;
     font-size: 24px;
     font-weight: normal;
+    margin-bottom: 2rem;
 }
 
-.mentors-page {
-    display: grid;
-    justify-content: center;
-    color: var(--color-dark-brown);
+.mentors-header {
+    background-image: url("../../assets/images/profile/mentor-page1.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 15rem;
+    opacity: 0.5;
 }
