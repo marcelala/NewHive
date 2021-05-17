@@ -45,7 +45,7 @@ function App() {
           <NavBar onLogout={() => Auth.logout()} />
           <Switch>
             <React.Suspense fallback={<div>Loading...</div>}>
-              <Route component={Feed} path="/feed" />
+              <Route component={Feed} path="/" exact />
               <Route component={OrganizationsPage} path="/organizations" />
               <Route component={PublicProfile} path="/user-profile/:email" />
               <Route component={PrivateProfile} path="/profile" />
