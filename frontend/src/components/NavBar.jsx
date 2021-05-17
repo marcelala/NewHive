@@ -4,11 +4,12 @@ import { slide as Menu } from "react-burger-menu";
 export const NavBar = ({ onLogout }) => (
   <div className="nav-bar">
     <div className="logo">Logotype</div>
+
     <Menu right>
       {/* <Link id="home" className="menu-item" to="/" exact>
         Home
       </Link> */}
-      <Link id="feed" className="menu-item" to="/feed">
+      <Link id="feed" className="menu-item" to="/">
         Feed
       </Link>
       <Link id="profile" className="menu-item" to="/profile">
@@ -20,9 +21,9 @@ export const NavBar = ({ onLogout }) => (
       {/* <Link id="contact" className="menu-item" to="/contact">
       Contact us
       </Link> */}
-      {/* <Link id="mentorship" className="menu-item" to="/mentorship">
+      <Link id="mentorship" className="menu-item" to="/mentors">
         Mentorship
-      </Link> */}
+      </Link> 
       {/* {/* <Link id="messages" className="menu-item" href="/messages">
         My messages
       </Link> */} 
@@ -32,6 +33,7 @@ export const NavBar = ({ onLogout }) => (
       <Link id="faq" className="menu-item" to="/faq">
         FAQ about Sweden
       </Link>
+
       <div className="logout">
         <button className="logout-button" onClick={onLogout}>
           Logout

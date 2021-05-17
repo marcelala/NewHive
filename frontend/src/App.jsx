@@ -21,6 +21,7 @@ import { CommunityGuidelines } from "../src/pages/CommunityGuidelines";
 import "./styles/style.css";
 import FAQ from "./pages/FAQ/FAQ";
 import Footer from "./components/Footer";
+import MentorsPage from "./components/Mentor/MentorsPage";
 //import icons to library
 library.add(fab, far, fas);
 
@@ -35,20 +36,20 @@ function App() {
       .then(({ data }) => setUserInSession(data))
       .catch((err) => console.error(err));
   }, [loggedIn]);
-
   // Constants
   const loggedInRouter = (
     <div className="App">
       <BrowserRouter>
         <NavBar onLogout={() => Auth.logout()}/>
         <Switch>
-          <Route component={Feed} path="/feed" />
+          <Route component={Feed} path="/" exact />
           <Route component={OrganizationsPage} path="/organizations" />
           <Route component={PrivateProfile} path="/profile"/>
           <Route component={Contact} path="/contact" />
           <Route component={CommunityGuidelines} path="/guidelines" />
           <Route component={AboutUs} path="/about"/>
           <Route component={FAQ} path="/faq" />
+          <Route component={MentorsPage} path="/mentors" />
         </Switch>
         <Footer/>
       </BrowserRouter>

@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 import sda.project.auth.AuthService;
+import sda.project.exception.ResourceNotFoundException;
 import sda.project.exception.UnAuthorizedException;
 import sda.project.user.User;
 import sda.project.user.UserService;
@@ -15,7 +16,9 @@ import java.util.List;
 @RestController
 public class ProfileController {
 
+
     ProfileRepository profileRepository;
+
     AuthService authService;
     UserService userService;
     ProfileService profileService;
@@ -31,6 +34,7 @@ public class ProfileController {
     @PostMapping("create-profile")
     public ResponseEntity<Profile> createProfile(@RequestBody Profile profile){
         return profileService.create(profileService.generateProfile(profile));
+
     }
 
     @GetMapping("/view-profile")
