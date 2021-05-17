@@ -1,28 +1,40 @@
 .userCard{
-    background-color: var(--color-light-beige);
+    background-color: var(--color-brown);
     box-shadow: 0 6px 6px rgb(0 0 0 / 25%);
     display: grid;
-    grid-template-columns: 1fr;
     align-items: center;
     max-width: 50rem;
-    margin-top: 2rem;
-    margin-left: auto;
-    grid-gap: 4rem;
-    padding: 2rem;
+    margin: auto;
+    grid-gap: 1rem;
+    padding-top: 2rem;
+    width: 90%;
+    color: var(--color-light-beige);
 }
 .userCard__avatar{
-    width: 10rem;
+    width: 16rem;
     height: 100%;
     object-fit: cover;
-    padding: 0;
+    padding: 0 1.5rem;
     grid-column-start: 1;
     grid-column-end: 2; 
     grid-row-start: 1;
     grid-row-end: 3;
-    margin: auto;
+    margin: 2rem auto;
   }
 
 .userCard__full-name{
-
+  font-weight: 600;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  margin: auto;
 }
 
+p.userCard__origin {
+  font-weight: 300;
+  font-size: 0.9rem;
+}
+
+.userCard__info p{
+  font-weight: 300;
+  font-size: 0.9rem;
+}
