@@ -88,7 +88,7 @@ public class User {
 
     /**
      *  A method to set the id of User
-      */
+     */
     public void setId(Long id) {
         this.id = id;
     }
