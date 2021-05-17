@@ -1,15 +1,20 @@
 import { useEffect, useState } from "react";
 import ProfileApi from "../../api/ProfileApi";
+import PostApi from "../../api/PostApi";
+
 import EditProfile from "./EditProfile";
 import InformationCard from "./InformationCard";
+import PostCard from "../Post/PostCard";
+
 //import ProfileForm from "./ProfileForm";
 
 export default function PrivateProfile () {
-  debugger;
     const [toggleEdit, setToggleEdit] = useState(false);    
     const [profile, setProfile] = useState({});
    // const [currentUser, setCurrentUser] = useState({});
     const [profileExisted, setProfileExisted] = useState(false);
+    const [allPosts, setAllPosts] = useState([]);
+
 
     useEffect(() => {
       ProfileApi.viewProfile()
@@ -21,6 +26,20 @@ export default function PrivateProfile () {
         })
         .catch((err) => console.error(err));
     }, [setProfile, setProfileExisted]);
+
+    useEffect(() => {
+      PostApi.getPostsByEmail(profile.owner)
+        .then(({ data }) => {
+          if (data) {
+            setAllPosts(data);
+          }
+        })
+        .catch((err) => console.error(err));
+    }, []);
+
+    const ownersPosts = allPosts.map((post) => (
+      <PostCard key={post.author} post={post} />
+    ));
 
     async function createProfile(profile) {
         try {
@@ -75,7 +94,10 @@ export default function PrivateProfile () {
             onSubmit={(profileData) => updateProfile(profileData)}
           />
         )}
+        <div className="posts">
         <h2>My Posts</h2>
+        {ownersPosts}
+        </div>
       </div>
     );
 }

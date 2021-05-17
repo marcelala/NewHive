@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
 import { useParams } from "react-router-dom";
 
 //Api
@@ -48,11 +47,10 @@ export const PublicProfile = () => {
   const ownersPosts = allPosts.map((post) => (
     <PostCard key={post.author} post={post} />
   ));
-  debugger;
   return (
     <div className="public-profile">
       <div className="profile__userCard">
-        <UserCard key={profileOwner.email} profileInfo={profile} />
+        <UserCard key={profile.id} profileInfo={profile} />
       </div>
       <div className="profile__userPosts">{ownersPosts}</div>
     </div>
