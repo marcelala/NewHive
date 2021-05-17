@@ -16,7 +16,7 @@ export default function UserCard({ profileInfo }) {
       </div>
       <p className="userCard__origin">
         I'm from {countryFrom} now I live in {liveIn}
-    </p>
+      </p>
       <p className="userCard__mentorship">
         {" "}
         I can mentor others in {mentorArea}

@@ -17,7 +17,7 @@ import PostCard from "../Post/PostCard";
 export const PublicProfile = () => {
   // State
   const [allPosts, setAllPosts] = useState([]);
-
+  const [profile, setProfile] = useState({});
   // Constants
 
   useEffect(() => {
@@ -29,18 +29,30 @@ export const PublicProfile = () => {
       })
       .catch((err) => console.error(err));
   }, []);
+
+  useEffect(() => {
+    ProfileApi.viewProfileByEmail(profileOwner.email)
+      .then(({ data }) => {
+        if (data) {
+          setProfile(data);
+        }
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
   const profileOwner = useParams();
   // const userPostCards = allPosts
   //   .filter((post) => user.email === post.author)
   //   .map((post) => <PostCard key={post.author} post={post} />);
 
-const ownersPosts = allPosts
-.map((post) => <PostCard key={post.author} post={post} />);
-
+  const ownersPosts = allPosts.map((post) => (
+    <PostCard key={post.author} post={post} />
+  ));
+  debugger;
   return (
     <div className="public-profile">
       <div className="profile__userCard">
-        <UserCard key={profileOwner.email} profileInfo={profileOwner.email} />
+        <UserCard key={profileOwner.email} profileInfo={profile} />
       </div>
       <div className="profile__userPosts">{ownersPosts}</div>
     </div>
