@@ -25,9 +25,8 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 
     List<Post> findByAuthorname(String authorname);
 
-<<<<<<< HEAD
+
     List<Post> findByAuthor(User author);
-=======
->>>>>>> 79f5a846679bc3bb2538ae253629df0a7685ec60
+
 
 }

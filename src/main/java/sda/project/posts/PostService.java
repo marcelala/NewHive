@@ -97,12 +97,7 @@ public class PostService {
         return postRepository.findByAuthorname(authorname);
     }
 
-<<<<<<< HEAD
-   // public List<Post> fetchPostByAuthor(String author){
-  //      return postRepository.findByAuthor(author);
- //   }
-=======
->>>>>>> 79f5a846679bc3bb2538ae253629df0a7685ec60
+
 
 }
 
