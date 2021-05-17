@@ -52,21 +52,23 @@ public class ProfileService {
         updatedProfile.setCountryFrom(profile.getCountryFrom());
         updatedProfile.setLiveIn(profile.getLiveIn());
         updatedProfile.setMentorArea(profile.getMentorArea());
-        updatedProfile.setMentor(profile.isMentor());
+        updatedProfile.setIsMentor(profile.getIsMentor());
 
         return updatedProfile;
     }
     else {
         throw new UnAuthorizedException();
     }
-
+    }
 
     public Profile fetchProfileById(Long id) {
         return profileRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
     }
+
 //    public Profile fetchProfileByUserName(User author) {
 //         return profileRepository.findUserByName(author).orElseThrow(ResourceNotFoundException::new);
 //     }
+
     public Profile fetchProfileByOwner(User owner) {
         return profileRepository.findByOwner(owner);
     }
@@ -79,14 +81,5 @@ public class ProfileService {
     public List<Profile> fetchAllMentors (boolean isMentor) {
         return profileRepository.findByIsMentor(isMentor);
     }
-
-    /**
-    //  * @return list of all profiles
-    //  */
-    // public List<Profile> listAllProfiles() {
-    //     List<Profile> profiles = profileRepository.findAll();
-    //     return profiles;
-    // }
-
 
 }
