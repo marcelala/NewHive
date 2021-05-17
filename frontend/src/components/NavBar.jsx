@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import { slide as Menu } from "react-burger-menu";
+export const NavBar = ({ onLogout }) =>{
 
-export const NavBar = ({ onLogout }) => (
+const photoObject = require ("../assets/images/NewHive.png")
+const photoURL = photoObject.default;
+return(
   <div className="nav-bar">
-    <div className="logo">Logotype</div>
+    <div className="logo"><img src={photoURL} className="logo-newHive" alt="honeycomb" /></div>
 
     <Menu right>
       {/* <Link id="home" className="menu-item" to="/" exact>
@@ -41,4 +44,4 @@ export const NavBar = ({ onLogout }) => (
       </div>
     </Menu>
   </div>
-);
+)};
