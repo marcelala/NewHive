@@ -1,7 +1,6 @@
 // NPM Packages
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { RecoilRoot } from "recoil";
 
 // import fontawesome components
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -24,6 +23,7 @@ import { CommunityGuidelines } from "../src/pages/CommunityGuidelines";
 import "./styles/style.css";
 import FAQ from "./pages/FAQ/FAQ";
 import Footer from "./components/Footer";
+import MentorsPage from "./components/Mentor/MentorsPage";
 //import icons to library
 library.add(fab, far, fas);
 
@@ -38,11 +38,9 @@ function App() {
       .then(({ data }) => setUserInSession(data))
       .catch((err) => console.error(err));
   }, [loggedIn]);
-
   // Constants
   const loggedInRouter = (
     <div className="App">
-      <RecoilRoot>
         <BrowserRouter>
           <NavBar onLogout={() => Auth.logout()} />
           <Switch>
@@ -55,11 +53,11 @@ function App() {
               <Route component={CommunityGuidelines} path="/guidelines" />
               <Route component={AboutUs} path="/about" />
               <Route component={FAQ} path="/faq" />
+              <Route component={MentorsPage} path="/mentors" />
             </React.Suspense>
           </Switch>
           <Footer />
         </BrowserRouter>
-      </RecoilRoot>
     </div>
   );
 

@@ -17,6 +17,7 @@ class ProfileApi {
 //     return Api.get(`/view-profile/${id}`);
 // }
 
+
 viewProfileByOwner(owner){
   return Api.get(`/profile/${owner}`);
 }
@@ -27,6 +28,13 @@ viewProfileByEmail(email){
 getAllProfiles() {
   return Api.get('/view-profile/all');
 }
-}
+
+  getAllMentors() {
+    return Api.get("/mentors?isMentor=true");
+  }
+
+  //getMentorsByMentorArea() {
+  //  return Api.get("/mentors");
+  //}
 
 export default new ProfileApi();
