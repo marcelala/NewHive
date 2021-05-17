@@ -22,15 +22,14 @@ class PostApi {
   }
   getPostsByName(authorname) {
     return Api.get(`/posts/${authorname}`);
-}
-getPostsByEmail(author) {
-  return Api.get(`/posts/${author}`);
-}
+  }
+  getPostsByEmail(author) {
+    return Api.get(`/posts?author=${author}`);
+  }
 
-getProfileByOwner(owner){
-  return Api.get("/profile/" + owner);
-
-}
+  getProfileByOwner(owner) {
+    return Api.get("/profile/" + owner);
+  }
 }
 
 export default new PostApi();

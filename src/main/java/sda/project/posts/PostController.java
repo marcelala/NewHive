@@ -63,10 +63,10 @@ public class PostController {
         return ResponseEntity.ok(postService.fetchPostByTopic(topic));
     }
 
-    @GetMapping (value ="/posts" , params = "author")
-    public ResponseEntity<List<Post>> getPostByAuthor(@RequestParam User author ) {
-        return ResponseEntity.ok(postService.fetchPostByAuthor(author));
-    }
+    // @GetMapping (value ="/posts" , params = "author")
+    // public ResponseEntity<List<Post>> getPostByAuthor(@RequestParam User author ) {
+    //     return ResponseEntity.ok(postService.fetchPostByAuthor(author));
+    // }
 
     @GetMapping (value = "/profile" , params = "owner")
     public ResponseEntity<Profile> getProfileByAuthor(@RequestParam String owner){
