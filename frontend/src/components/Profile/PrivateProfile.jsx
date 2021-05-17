@@ -8,83 +8,86 @@ import PostCard from "../Post/PostCard";
 
 //import ProfileForm from "./ProfileForm";
 
-export default function PrivateProfile () {
-    const [toggleEdit, setToggleEdit] = useState(false);    
-    const [profile, setProfile] = useState({});
-   // const [currentUser, setCurrentUser] = useState({});
-    const [profileExisted, setProfileExisted] = useState(false);
-    const [allPosts, setAllPosts] = useState([]);
-    const [posts, setPosts] = useState([]);
+export default function PrivateProfile() {
+  const [toggleEdit, setToggleEdit] = useState(false);
+  const [profile, setProfile] = useState({});
+  // const [currentUser, setCurrentUser] = useState({});
+  const [profileExisted, setProfileExisted] = useState(false);
+  const [allPosts, setAllPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
 
-
-    useEffect(() => {
-      ProfileApi.viewProfile()
-        .then(({ data }) => {
-          if (data) {
-            setProfile(data);
-            setProfileExisted(true);
-          }
-        })
-        .catch((err) => console.error(err));
-    }, [setProfile, setProfileExisted]);
-
-    useEffect(() => {
-      PostApi.getPostsByEmail(profile.owner)
-        .then(({ data }) => {
+  useEffect(() => {
+    ProfileApi.viewProfile()
+      .then(({ data }) => {
+        if (data) {
+          setProfile(data);
+          setProfileExisted(true);
+          return data;
+        }
+      })
+      .then((profileData) => {
+        PostApi.getPostsByEmail(profileData.owner).then(({ data }) => {
           if (data) {
             setAllPosts(data);
           }
-        })
-        .catch((err) => console.error(err));
-    }, []);
+        });
+      })
+      .catch((err) => console.error(err));
+  }, [setProfile, setProfileExisted]);
 
-    const ownersPosts = allPosts.map((post) => (
-      <PostCard key={post.author} post={post} />
-    ));
+  // useEffect(() => {
+  //   PostApi.getPostsByEmail(profile.owner)
+  //     .then(({ data }) => {
+  //       if (data) {
+  //         setAllPosts(data);
+  //       }
+  //     })
+  //     .catch((err) => console.error(err));
+  // }, []);
 
-    async function createProfile(profile) {
-        try {
-            console.log("createProfile", profile);
-            const response = await ProfileApi.createProfile(profile);
-            setProfile({ ...response.data });
-            setProfileExisted(true);
+  const ownersPosts = allPosts.map((post) => (
+    <PostCard key={post.author} post={post} />
+  ));
 
-        } catch (e) {
-            console.error(e);
-        }
+  async function createProfile(profile) {
+    try {
+      console.log("createProfile", profile);
+      const response = await ProfileApi.createProfile(profile);
+      setProfile({ ...response.data });
+      setProfileExisted(true);
+    } catch (e) {
+      console.error(e);
     }
+  }
 
-    async function editProfile(id, profile) {
-      try {
-        const {owner, ...updatedData} = profile;
-        const response = await ProfileApi.editProfile(id, updatedData);
-        setProfile({ ...response.data });
-        setToggleEdit(false);
-      } catch (e) {
-        console.error(e);
-      }
+  async function editProfile(id, profile) {
+    try {
+      const { owner, ...updatedData } = profile;
+      const response = await ProfileApi.editProfile(id, updatedData);
+      setProfile({ ...response.data });
+      setToggleEdit(false);
+    } catch (e) {
+      console.error(e);
     }
+  }
 
-    function updateProfile(data){
-        return !profileExisted
-          ? createProfile(data)
-          : editProfile(data.id, data);
+  function updateProfile(data) {
+    return !profileExisted ? createProfile(data) : editProfile(data.id, data);
+  }
+
+  // Methods
+
+  async function updatePost(id, updatedPost) {
+    try {
+      await PostApi.updatePost(id, updatedPost);
+      const newPosts = [...posts];
+      const ind = posts.findIndex((item) => item.id === id);
+      newPosts[ind] = { ...newPosts[ind], ...updatedPost };
+      setPosts([...newPosts]);
+    } catch (e) {
+      console.error(e);
     }
-
-     // Methods
-
-
-     async function updatePost(id, updatedPost) {
-      try {
-        await PostApi.updatePost(id, updatedPost);
-          const newPosts = [...posts];
-          const ind = posts.findIndex((item) => item.id === id);
-          newPosts[ind] = { ...newPosts[ind], ...updatedPost };
-          setPosts([...newPosts]);
-      } catch (e) {
-        console.error(e);
-      }
-    }
+  }
 
   async function deletePost(post) {
     try {
@@ -97,33 +100,33 @@ export default function PrivateProfile () {
     }
   }
 
-    return (
-      <div className="full-profile">
-        <h1>My Profile</h1>
-        {profileExisted && (
-          <>
-            <InformationCard key={profile.id} profileInfo={profile} />
-            <button
-              className={  `btn ${toggleEdit ? 'hidden' : ''}`}
-              type="button"
-              onClick={() =>
-                toggleEdit ? setToggleEdit(false) : setToggleEdit(true)
-              }
-            >
-              Edit info
-            </button>
-          </>
-        )}
-        {(toggleEdit || !profileExisted) && (
-          <EditProfile
-            profileInfo={profile}
-            onSubmit={(profileData) => updateProfile(profileData)}
-          />
-        )}
-        <div className="posts">
+  return (
+    <div className="full-profile">
+      <h1>My Profile</h1>
+      {profileExisted && (
+        <>
+          <InformationCard key={profile.id} profileInfo={profile} />
+          <button
+            className={`btn ${toggleEdit ? "hidden" : ""}`}
+            type="button"
+            onClick={() =>
+              toggleEdit ? setToggleEdit(false) : setToggleEdit(true)
+            }
+          >
+            Edit info
+          </button>
+        </>
+      )}
+      {(toggleEdit || !profileExisted) && (
+        <EditProfile
+          profileInfo={profile}
+          onSubmit={(profileData) => updateProfile(profileData)}
+        />
+      )}
+      <div className="posts">
         <h2>My Posts</h2>
         {ownersPosts}
-        </div>
       </div>
-    );
+    </div>
+  );
 }
