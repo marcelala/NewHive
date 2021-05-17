@@ -13,12 +13,16 @@ class ProfileApi {
     return Api.put(`/edit-profile/${id}`, profile);
   }
   
-  viewProfileById(id){
-    return Api.get(`/view-profile/${id}`);
+//   viewProfileById(id){
+//     return Api.get(`/view-profile/${id}`);
+// }
+
+viewProfileByOwner(owner){
+  return Api.get(`/profile/${owner}`);
 }
 
-viewProfileByUserName(author){
-  return Api.get(`/view-profile/${author}`);
+viewProfileByEmail(email){
+  return Api.get(`/view-profile/${email}`);
 }
 getAllProfiles() {
   return Api.get('/view-profile/all');

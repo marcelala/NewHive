@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import CommentApi from "../../api/CommentApi";
 import UserApi from "../../api/UserApi";
 import PostApi from "../../api/PostApi";
+import ProfileApi from "../../api/ProfileApi";
+
 
 //Components
 import CommentCard from "../Comment/CommentCard";
@@ -23,6 +25,7 @@ export default function PostCard({ post, onDeleteClick, onPostUpdate }) {
   const [toggleBody, setToggleBody] = useState(false);
   const [toggleEdit, setToggleEdit] = useState(false);
   const [user, setUser] = useState({});
+
   // const [image, setImage] = useState([]);
 
   // Methods
@@ -142,7 +145,7 @@ export default function PostCard({ post, onDeleteClick, onPostUpdate }) {
     >
       <div className="postCard">
         <div className="postCard__content">
-        <Link to={`/view-profile/${author}/`}>
+        <Link to={`/user-profile/${post.author}/`}>
           <img src={Cactus} className="picture" alt="cactus" />
           </Link>
           <div className="postCard__topic">

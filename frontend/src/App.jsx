@@ -17,7 +17,7 @@ import { Feed } from "../src/pages/Feed";
 import { AuthPage } from "./pages/auth/AuthPage";
 import PrivateProfile from "./components/Profile/PrivateProfile";
 import { PublicProfile } from "./components/Profile/PublicProfile";
-import  AboutUs from "./pages/AboutUs";
+import AboutUs from "./pages/AboutUs";
 import { OrganizationsPage } from "./pages/Organizations/OrganizationsPage";
 import { Contact } from "../src/pages/Contact";
 import { CommunityGuidelines } from "../src/pages/CommunityGuidelines";
@@ -43,27 +43,27 @@ function App() {
   const loggedInRouter = (
     <div className="App">
       <RecoilRoot>
-      <BrowserRouter>
-        <NavBar onLogout={() => Auth.logout()}/>
-        <Switch>
-        <React.Suspense fallback={<div>Loading...</div>}>
-          <Route component={Feed} path="/feed" />
-          <Route component={OrganizationsPage} path="/organizations" />
-          <Route component={PrivateProfile} path="/profile"/>
-          <Route component={PublicProfile} path="/view-profile/:author" exact component={PublicProfile}/>
-          <Route component={Contact} path="/contact" />
-          <Route component={CommunityGuidelines} path="/guidelines" />
-          <Route component={AboutUs} path="/about"/>
-          <Route component={FAQ} path="/faq" />
-          </React.Suspense>
-        </Switch>
-        <Footer/>
-      </BrowserRouter>
+        <BrowserRouter>
+          <NavBar onLogout={() => Auth.logout()} />
+          <Switch>
+            <React.Suspense fallback={<div>Loading...</div>}>
+              <Route component={Feed} path="/feed" />
+              <Route component={OrganizationsPage} path="/organizations" />
+              <Route component={PublicProfile} path="/user-profile/:email" />
+              <Route component={PrivateProfile} path="/profile" />
+              <Route component={Contact} path="/contact" />
+              <Route component={CommunityGuidelines} path="/guidelines" />
+              <Route component={AboutUs} path="/about" />
+              <Route component={FAQ} path="/faq" />
+            </React.Suspense>
+          </Switch>
+          <Footer />
+        </BrowserRouter>
       </RecoilRoot>
     </div>
   );
 
-   return loggedIn ? loggedInRouter : <AuthPage />;
+  return loggedIn ? loggedInRouter : <AuthPage />;
 }
 
 export default App;

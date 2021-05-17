@@ -23,8 +23,13 @@ class PostApi {
   getPostsByName(authorname) {
     return Api.get(`/posts/${authorname}`);
 }
-getPostsByUserName(author) {
+getPostsByEmail(author) {
   return Api.get(`/posts/${author}`);
+}
+
+getProfileByOwner(owner){
+  return Api.get("/profile/" + owner);
+
 }
 }
 

@@ -28,8 +28,8 @@ public class UserController {
         return ResponseEntity.ok(userService.searchUserByName(name));
     }
 
-      @GetMapping(path = "/user", params = {"id"})
-   public ResponseEntity<User> getUserById(@RequestParam Long id) {
-        return ResponseEntity.ok(userService.searchUserById(id));
-    }
+//       @GetMapping(path = "/user", params = {"id"})
+//    public ResponseEntity<User> getUserById(@RequestParam Long id) {
+//         return ResponseEntity.ok(userService.searchUserById(id));
+//     }
 }

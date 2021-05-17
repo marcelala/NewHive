@@ -5,7 +5,7 @@ import InformationCard from "./InformationCard";
 //import ProfileForm from "./ProfileForm";
 
 export default function PrivateProfile () {
-
+  debugger;
     const [toggleEdit, setToggleEdit] = useState(false);    
     const [profile, setProfile] = useState({});
    // const [currentUser, setCurrentUser] = useState({});

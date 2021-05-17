@@ -17,13 +17,12 @@ export default function UserCard({ profileInfo }) {
       <p className="userCard__origin">
         I'm from {countryFrom} now I live in {liveIn}
     </p>
-
-      {/* <p className="userCard__mentorship">
+      <p className="userCard__mentorship">
         {" "}
         I can mentor others in {mentorArea}
       </p>
       <p className="userCard__bio"> Bio: </p>
-      <p>{bio}</p> */}
+      <p>{bio}</p>
     </div>
   );
 }

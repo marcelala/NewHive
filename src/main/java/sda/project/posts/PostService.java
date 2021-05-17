@@ -56,7 +56,7 @@ public class PostService {
         if(isAuthorized(existingPost)){
             existingPost.setBody(postUpdate.getBody());
             existingPost.setTitle(postUpdate.getTitle());
-            existingPost.setTopic(postUpdate.getTopic());
+            existingPost.setTopic(postUpdate.getTopic());   
             existingPost.setLastEdited(new Date());
             return existingPost;
         } else {
@@ -91,9 +91,13 @@ public class PostService {
     public List<Post> findAllPostByDateDec(){
         return postRepository.findAllPostByDateDec();
     }
-
+// fetch posts by authorName
     public List<Post> fetchPostByAuthorname(String authorname) {
         return postRepository.findByAuthorname(authorname);
+    }
+//fetch posts by email
+    public List<Post> fetchPostByAuthor(User author) {
+        return postRepository.findByAuthor(author);
     }
 
 

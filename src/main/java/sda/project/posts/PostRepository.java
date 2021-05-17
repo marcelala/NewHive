@@ -16,4 +16,7 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 
     List<Post> findByAuthorname(String authorname);
 
+    @Query
+    List<Post> findByAuthor(User author);
+
 }

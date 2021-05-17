@@ -51,18 +51,23 @@ public class ProfileController {
         return ResponseEntity.ok(profileService.fetchProfileById(id));
     }
 
-        @GetMapping("/view-profile/{author}")
-    public ResponseEntity<Profile> viewProfileByUserName(@PathVariable User author) {
-        return ResponseEntity.ok(profileService.fetchProfileByUserName(author));
+    //     @GetMapping("/view-profile/{author}")
+    // public ResponseEntity<Profile> viewProfileByUserName(@PathVariable User author) {
+    //     return ResponseEntity.ok(profileService.fetchProfileByUserName(author));
 
-    }
+    // }
 
+    //     @GetMapping("/view-profile/{owner}")
+    // public ResponseEntity<Profile> viewProfileByOwner(@PathVariable User email) {
+    //     return ResponseEntity.ok(profileService.fetchProfileByOwner(owner));
 
-        @GetMapping("/view-profile/all")
-    public ResponseEntity<Profile> listAllProfiles() {
-        return ResponseEntity.ok(profileService.listAllUsers());
+    // }
 
-    }
+    //     @GetMapping("/view-profile/all")
+    // public ResponseEntity<Profile> listAllProfiles() {
+    //     return ResponseEntity.ok(profileService.listAllUsers());
+
+    // }
 
     @GetMapping(value = "/mentors", params = "mentorArea")
     public ResponseEntity<List<Profile>> getMentorsByMentorArea (@RequestParam String mentorArea){

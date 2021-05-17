@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom";
 //Api
 import ProfileApi from "../../api/ProfileApi";
 import PostApi from "../../api/PostApi";
+import UserApi from "../../api/UserApi";
+
 //State
 import { postsState, allPosts } from "../../state/postData";
 import { allProfiles } from "../../state/profileData";
@@ -12,45 +14,35 @@ import { allProfiles } from "../../state/profileData";
 import UserCard from "../UserCard";
 import PostCard from "../Post/PostCard";
 
-
 export const PublicProfile = () => {
-  // Global state
-  const [posts, setPosts] = useRecoilState(postsState);
-  const postsGlobal = useRecoilValue(allPosts);
-  const profilesGlobal = useRecoilValue(allProfiles);
-  const [profileOwner, setProfileOwner] = useState({});
+  // State
+  const [allPosts, setAllPosts] = useState([]);
 
   // Constants
-  const { id } = useParams();
 
+  useEffect(() => {
+    PostApi.getPostsByEmail(profileOwner.email)
+      .then(({ data }) => {
+        if (data) {
+          setAllPosts(data);
+        }
+      })
+      .catch((err) => console.error(err));
+  }, []);
+  const profileOwner = useParams();
+  // const userPostCards = allPosts
+  //   .filter((post) => user.email === post.author)
+  //   .map((post) => <PostCard key={post.author} post={post} />);
 
-    useEffect(() => {
-        ProfileApi.viewProfileById()
-          .then(({ data }) => {
-            if (data) {
-              setProfileOwner(data);
-            }
-          })
-          .catch((err) => console.error(err));
-      }, []);
+const ownersPosts = allPosts
+.map((post) => <PostCard key={post.author} post={post} />);
 
-      const userPostCards = postsGlobal
-    .filter((post) => profileOwner.name === post.authorname.id)
-    .map((post) => (
-      <PostCard
-        key={post.id}
-        post={post}
-      />
-    ));
-
-    return(
-  <div className="public-profile">
-  <div className="profile__userCard">
-    <UserCard key={profileOwner.id} profileInfo={profileOwner} />
-  </div>
-  <div className="profile__userPosts">
-      {userPostCards}
+  return (
+    <div className="public-profile">
+      <div className="profile__userCard">
+        <UserCard key={profileOwner.email} profileInfo={profileOwner.email} />
       </div>
-  </div>
-
-)}
+      <div className="profile__userPosts">{ownersPosts}</div>
+    </div>
+  );
+};
