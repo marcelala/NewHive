@@ -65,7 +65,9 @@ public class ProfileService {
     public Profile fetchProfileById(Long id) {
         return profileRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
     }
-
+   public Profile fetchProfileByUserName(User author) {
+        return profileRepository.findUserByName(author).orElseThrow(ResourceNotFoundException::new);
+    }
     public List<Profile> fetchProfileByMentorArea (String mentorArea) {
         return profileRepository.findByMentorArea(mentorArea);
     }

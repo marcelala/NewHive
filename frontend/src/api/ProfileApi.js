@@ -16,6 +16,10 @@ class ProfileApi {
   viewProfileById(id){
     return Api.get(`/view-profile/${id}`);
 }
+
+viewProfileByUserName(author){
+  return Api.get(`/view-profile/${author}`);
+}
 getAllProfiles() {
   return Api.get('/view-profile/all');
 }

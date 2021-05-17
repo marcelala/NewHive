@@ -23,7 +23,9 @@ class PostApi {
   getPostsByName(authorname) {
     return Api.get(`/posts/${authorname}`);
 }
-  
+getPostsByUserName(author) {
+  return Api.get(`/posts/${author}`);
+}
 }
 
 export default new PostApi();

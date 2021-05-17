@@ -49,8 +49,14 @@ public class ProfileController {
     @GetMapping("/view-profile/{id}")
     public ResponseEntity<Profile> viewProfileById(@PathVariable Long id) {
         return ResponseEntity.ok(profileService.fetchProfileById(id));
+    }
+
+        @GetMapping("/view-profile/{author}")
+    public ResponseEntity<Profile> viewProfileByUserName(@PathVariable User author) {
+        return ResponseEntity.ok(profileService.fetchProfileByUserName(author));
 
     }
+
 
         @GetMapping("/view-profile/all")
     public ResponseEntity<Profile> listAllProfiles() {

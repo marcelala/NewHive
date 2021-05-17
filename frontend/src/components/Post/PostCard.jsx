@@ -142,7 +142,7 @@ export default function PostCard({ post, onDeleteClick, onPostUpdate }) {
     >
       <div className="postCard">
         <div className="postCard__content">
-        <Link to={`/view-profile/${user.id}/`}>
+        <Link to={`/view-profile/${author}/`}>
           <img src={Cactus} className="picture" alt="cactus" />
           </Link>
           <div className="postCard__topic">

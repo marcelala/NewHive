@@ -50,7 +50,7 @@ function App() {
           <Route component={Feed} path="/feed" />
           <Route component={OrganizationsPage} path="/organizations" />
           <Route component={PrivateProfile} path="/profile"/>
-          <Route component={PublicProfile} path="/user-profile/:id" exact component={PublicProfile}/>
+          <Route component={PublicProfile} path="/view-profile/:author" exact component={PublicProfile}/>
           <Route component={Contact} path="/contact" />
           <Route component={CommunityGuidelines} path="/guidelines" />
           <Route component={AboutUs} path="/about"/>
