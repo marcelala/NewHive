@@ -145,9 +145,8 @@ export default function PostCard({ post, onDeleteClick, onPostUpdate }) {
     >
       <div className="postCard">
         <div className="postCard__content">
-        <Link to={`/user-profile/${post.author}/`}>
+        
           <img src={Cactus} className="picture" alt="cactus" />
-          </Link>
           <div className="postCard__topic">
             <h1> {post.topic} </h1>
           </div>
@@ -155,7 +154,9 @@ export default function PostCard({ post, onDeleteClick, onPostUpdate }) {
           <h2 className="postCard__content-heading">{post.title}</h2>
 
           <div className="postCard--date">{date()}</div>
+          <Link to={`/user-profile/${post.author}/`}>
           <p className="postCard--user">{post.authorname}</p>
+          </Link>
           {userCheck() && (
             <div className="postCard__editDelete">
               <FontAwesomeIcon
