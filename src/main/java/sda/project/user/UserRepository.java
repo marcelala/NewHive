@@ -1,9 +1,7 @@
 package sda.project.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
-import sda.project.posts.Post;
 
 import java.util.List;
 
@@ -18,12 +16,15 @@ public interface UserRepository extends JpaRepository<User, Long> {
      * @param email A String contains email of User
      */
     User findByEmail(String email);
-
-    /**
+  
+  /**
      * A Method to find User by Name
      * @param name A String contains Name of User
      */
-    List<User> findByName(String name);
+  List<User> findByUsername(String name);
+
+    
+   
 
     // User findById(Long id);
 

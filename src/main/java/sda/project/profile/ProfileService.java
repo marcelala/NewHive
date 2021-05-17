@@ -34,7 +34,6 @@ public class ProfileService {
         profile.setOwner(owner);
         profileRepository.save(profile);
         return profile;
-
     }
 
     public boolean isAuthorized(Profile updateProfile)
@@ -61,7 +60,7 @@ public class ProfileService {
         throw new UnAuthorizedException();
     }
 
-    }
+
     public Profile fetchProfileById(Long id) {
         return profileRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
     }
@@ -71,6 +70,7 @@ public class ProfileService {
     public Profile fetchProfileByOwner(User owner) {
         return profileRepository.findByOwner(owner);
     }
+
 
     public List<Profile> fetchProfileByMentorArea (String mentorArea) {
         return profileRepository.findByMentorArea(mentorArea);
@@ -87,8 +87,6 @@ public class ProfileService {
     //     List<Profile> profiles = profileRepository.findAll();
     //     return profiles;
     // }
-
-
 
 
 }

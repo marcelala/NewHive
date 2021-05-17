@@ -1,9 +1,14 @@
 package sda.project.posts;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import sda.project.user.User;
+
+import org.w3c.dom.stylesheets.LinkStyle;
+
+import java.util.List;
 
 import java.util.List;
 
@@ -14,6 +19,7 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 
     @Query("FROM Post ORDER BY dateCreated DESC")
     List<Post> findAllPostByDateDec();
+
 
     List<Post> findByAuthorname(String authorname);
 
