@@ -4,6 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import sda.project.profile.Profile;
+import sda.project.profile.ProfileRepository;
+import sda.project.user.User;
+import sda.project.user.UserService;
 
 
 import java.util.Date;
@@ -12,10 +16,14 @@ import java.util.List;
 @RestController
 public class PostController {
     private final PostService postService;
+    private UserService userService;
+    private ProfileRepository profileRepository;
 
     @Autowired
-    public PostController(PostService postService) {
+    public PostController(PostService postService, UserService userService, ProfileRepository profileRepository) {
         this.postService = postService;
+        this.userService = userService;
+        this.profileRepository = profileRepository;
     }
 
     @PostMapping("/posts")
@@ -56,5 +64,14 @@ public class PostController {
     public ResponseEntity<List<Post>> getPostByAuthor(@RequestParam User author ) {
         return ResponseEntity.ok(postService.fetchPostByAuthor(author));
     }
+
+    @GetMapping (value = "/profile" , params = "owner")
+    public ResponseEntity<Profile> getProfileByAuthor(@RequestParam String owner){
+        User user = userService.findUserByEmail(owner);
+        Profile profile = profileRepository.findByOwner(user);
+        return ResponseEntity.ok(profile);
+    }
+
+
 
 }

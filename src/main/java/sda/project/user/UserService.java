@@ -7,6 +7,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * A service class which contains necessary service methods to operate User Entity.
+ * @since : 2021-05-04
+ */
 @Service()
 public class UserService {
 
@@ -16,6 +20,10 @@ public class UserService {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
+    /**
+     * Creating object of UserRepository
+     * @param userRepository
+     */
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
