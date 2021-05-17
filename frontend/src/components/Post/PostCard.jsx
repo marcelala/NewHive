@@ -11,6 +11,7 @@ import ProfileApi from "../../api/ProfileApi";
 
 
 //Components
+import UserCard from "../UserCard";
 import CommentCard from "../Comment/CommentCard";
 import CommentForm from "../Comment/CommentForm";
 import EditPost from "./EditPost";
@@ -146,7 +147,7 @@ export default function PostCard({ post, onDeleteClick, onPostUpdate }) {
       <div className="postCard">
         <div className="postCard__content">
         
-          <img src={Cactus} className="picture" alt="cactus" />
+          {/* <UserCard className="picture" key= {post.author} /> */}
           <div className="postCard__topic">
             <h1> {post.topic} </h1>
           </div>

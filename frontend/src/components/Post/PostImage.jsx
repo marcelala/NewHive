@@ -10,6 +10,7 @@ export default function PostImage({ post,user}) {
 
 
 
+    
 return(
 
       <div className="postCard-image">
