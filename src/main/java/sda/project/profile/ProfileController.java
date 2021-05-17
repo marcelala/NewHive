@@ -67,12 +67,6 @@ public class ProfileController {
         return ResponseEntity.ok(profileService.fetchProfileByOwner(user));
     }
 
-    //     @GetMapping("/view-profile/all")
-    // public ResponseEntity<Profile> listAllProfiles() {
-    //     return ResponseEntity.ok(profileService.listAllUsers());
-
-    // }
-
     @GetMapping(value = "/mentors", params = "mentorArea")
     public ResponseEntity<List<Profile>> getMentorsByMentorArea (@RequestParam String mentorArea){
         return ResponseEntity.ok(profileService.fetchProfileByMentorArea(mentorArea));

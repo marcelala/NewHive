@@ -19,4 +19,5 @@ public interface ProfileRepository extends JpaRepository<Profile,Long> {
 
     Profile findByOwner (User owner);
 
+
 }
