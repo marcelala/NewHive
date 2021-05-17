@@ -10,8 +10,6 @@ import org.w3c.dom.stylesheets.LinkStyle;
 
 import java.util.List;
 
-import java.util.List;
-
 @Repository
 public interface PostRepository extends JpaRepository<Post, Long> {
 

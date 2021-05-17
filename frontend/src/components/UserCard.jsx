@@ -10,20 +10,23 @@ export default function UserCard({ profileInfo }) {
     return `${name} ${surname}`
   }
   return (
-    <div>
-      <img src={Lady} className="UserCard__avatar" />
-      <div className="full-name">
+    <section className="userCard">
+      <img src={Lady} className="userCard__avatar" />
+      <div className="userCard__full-name">
         <p className="bold-p user-name">{getFullName()}</p>
       </div>
       <p className="userCard__origin">
-        I'm from {countryFrom} now I live in {liveIn}
+        I'm from {countryFrom}
       </p>
-      <p className="userCard__mentorship">
+      <p className="userCard__home">
+        My home now is in {liveIn}
+      </p>
+      {/* <p className="userCard__mentorship">
         {" "}
         I can mentor others in {mentorArea}
-      </p>
-      <p className="userCard__bio"> Bio: </p>
-      <p>{bio}</p>
-    </div>
+      </p> */}
+      {/* <p className="userCard__bio"> Bio: </p>
+      <p>{bio}</p> */}
+    </section>
   );
 }

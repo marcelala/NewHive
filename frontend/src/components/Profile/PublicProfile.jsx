@@ -73,13 +73,18 @@ export const PublicProfile = () => {
       console.error(e);
     }
   }
-  debugger;
   return (
+    <section className="public-profile-section">
+
     <div className="public-profile">
       <div className="profile__userCard">
         {profile.name && <UserCard key={profile.id} profileInfo={profile} />}
       </div>
+      <div className="profile-welcome">
+      <h2>{profile.name}'s Profile</h2>
       <div className="profile__userPosts">{ownersPosts}</div>
     </div>
+    </div>
+    </section>
   );
 };
