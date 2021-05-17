@@ -21,6 +21,7 @@ import { CommunityGuidelines } from "../src/pages/CommunityGuidelines";
 import "./styles/style.css";
 import FAQ from "./pages/FAQ/FAQ";
 import Footer from "./components/Footer";
+import MentorsPage from "./components/Mentor/MentorsPage";
 //import icons to library
 library.add(fab, far, fas);
 
@@ -48,6 +49,7 @@ function App() {
           <Route component={CommunityGuidelines} path="/guidelines" />
           <Route component={AboutUs} path="/about"/>
           <Route component={FAQ} path="/faq" />
+          <Route component={MentorsPage} path="/mentors" />
         </Switch>
         <Footer/>
       </BrowserRouter>
