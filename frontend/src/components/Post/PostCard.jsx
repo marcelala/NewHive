@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
+
 
 //Api
 import CommentApi from "../../api/CommentApi";
 import UserApi from "../../api/UserApi";
 import PostApi from "../../api/PostApi";
+import ProfileApi from "../../api/ProfileApi";
+
 
 //Components
 import CommentCard from "../Comment/CommentCard";
@@ -21,7 +25,8 @@ export default function PostCard({ post, onDeleteClick, onPostUpdate }) {
   const [toggleBody, setToggleBody] = useState(false);
   const [toggleEdit, setToggleEdit] = useState(false);
   const [user, setUser] = useState({});
-  const [image, setImage] = useState([]);
+
+  // const [image, setImage] = useState([]);
 
   // Methods
   useEffect(() => {
@@ -140,6 +145,7 @@ export default function PostCard({ post, onDeleteClick, onPostUpdate }) {
     >
       <div className="postCard">
         <div className="postCard__content">
+        
           <img src={Cactus} className="picture" alt="cactus" />
           <div className="postCard__topic">
             <h1> {post.topic} </h1>
@@ -148,7 +154,9 @@ export default function PostCard({ post, onDeleteClick, onPostUpdate }) {
           <h2 className="postCard__content-heading">{post.title}</h2>
 
           <div className="postCard--date">{date()}</div>
+          <Link to={`/user-profile/${post.author}/`}>
           <p className="postCard--user">{post.authorname}</p>
+          </Link>
           {userCheck() && (
             <div className="postCard__editDelete">
               <FontAwesomeIcon
