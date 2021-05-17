@@ -42,20 +42,25 @@ export default function MentorsPage () {
         <div className="mentors-page">
             <div className="mentors-header">
             </div>
-            <div className="mentors-page-title">
-                <h1 id="mentor-h1">NewHive Mentors</h1>
-                <h2 id="mentor-h2">Get mentorship help from others!</h2>
-            </div>
-            <div className="feed__selectors">
+            <div className="mentors-title-centered">
+                <div className="mentors-page-title">
+                    <h1 id="mentor-h1">NewHive Mentors</h1>
+                    <h2 id="mentor-h2">Get mentorship help from others!</h2>
+                    <p>A mentorship can be rewarding to both people, personally and professionally. It's an opportunity to develop communication skills, expand your viewpoints, and consider new ways of approaching situations. And both partners can advance their careers in the process.</p>
+                </div>
+                <div className="mentor-selector">
+                    <div>
                 <Select
-                isClearable
-                className="topic-filter"
-                placeholder="Choose field"
-                labelKey="label"
-                valueKey="id"
-                options={mentorAreas}
-                onChange={handleChange}
-                />
+                    isClearable
+                    className="mentor-filter"
+                    placeholder="Choose field"
+                    labelKey="label"
+                    valueKey="id"
+                    options={mentorAreas}
+                    onChange={handleChange}
+                    />
+                    </div>
+                </div>
             </div>
             <div className="mentors-card">
             {MentorsArray}

@@ -63,24 +63,62 @@
     color: var(--color-dark-brown);
 }
 
-.mentors-page h1{
-    text-align: center;
-    margin-top: 2rem;
-    font-size: 30px;
-    font-weight: bolder;
-}
-
-.mentors-page h2{
-    text-align: center;
-    font-size: 24px;
-    font-weight: normal;
-    margin-bottom: 2rem;
-}
-
 .mentors-header {
     background-image: url("../../assets/images/profile/mentor-page1.jpg");
     background-size: cover;
     background-position: center;
     height: 15rem;
     opacity: 0.5;
+}
+
+.mentors-title-centered{
+    display: grid;
+    justify-content: center;
+}
+
+.mentors-page-title{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    width: 25rem;
+}
+
+.mentor-selector{
+    display: grid;
+    justify-content: center;
+}
+
+.mentor-filter{
+    width: 18rem;
+    margin-bottom: 1rem;
+}
+
+.mentors-page-title h1{
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.mentors-page-title h2{
+    text-align: center;
+    font-size: 24px;
+    font-weight: normal;
+    padding-right: 2rem;
+    padding-left: 2rem;
+}
+
+.mentors-page-title p{
+    text-align: center;
+    font-size: 18px;
+    font-weight: thin;
+    padding-bottom: 2rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+}
+
+@media (min-width: 600px) {
+    .mentors-page-title{
+        width: 40rem;
+    }
 }

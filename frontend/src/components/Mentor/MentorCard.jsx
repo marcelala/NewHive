@@ -17,6 +17,7 @@ export default function MentorCard( {mentorInfo} ) {
                     <p>From {mentorInfo.countryFrom}, lives in {mentorInfo.liveIn}</p>
                     <p className="bold-p">About:</p>
                     <p>{mentorInfo.bio}</p>
+                    <p>{mentorInfo.email}</p>
                 </div>
             </div>
         </div>
