@@ -1,26 +1,22 @@
 package sda.project.user;
 
 import org.hibernate.validator.constraints.Length;
-
 import sda.project.comments.Comment;
-
 import sda.project.profile.Profile;
 import sda.project.posts.Post;
-
-
-
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-
 import java.util.Objects;
 import java.util.List;
+
 
 /** This is a model class which represent
 * User Entity and it contains necessary
 * fields to create User Entity.
  * @since : 2021-05-04
  */
+
 @Entity
 @Table(name="account")
 public class User {
@@ -29,13 +25,18 @@ public class User {
     @Column(name = "id")
     private Long id;
 
+
+
     // Represents email Id of User.
+
     @Email(message = "Invalid email address! Please provide a valid email address")
     @NotEmpty(message = "Please provide an email address")
     @Column(name = "email", unique = true)
     private String email;
 
+
     // Represents password of User
+
     @Length(min = 8, max=100, message = "Password length most be between 8-100 characters")
     @NotEmpty(message ="Please provide a password")
     @Column(name = "password")
@@ -43,8 +44,8 @@ public class User {
 
     // Represents name of User
     @Length(min = 3, max=100, message = "Name must be between 3-100 characters")
-    @Column(name = "name")
-    private String name;
+    @Column(name = "username",unique = true)
+    private String username;
 
     // Represents List of User's posts
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
@@ -57,7 +58,6 @@ public class User {
     // Represents User Profile
     @OneToOne(mappedBy = "owner",cascade = CascadeType.ALL)
     private Profile profile;
-
 
     // Hibernate needs a default constructor to function
     public User() {}
@@ -75,7 +75,8 @@ public class User {
                 @Length(min = 3, max = 100, message = "Name must be between 3-100 characters") String name) {
         this.email = email;
         this.password = password;
-        this.name = name;
+        this.username = name;
+
     }
 
     /** A method to get the id of User
@@ -128,14 +129,14 @@ public class User {
      * @return String which contains Name of User
      */
     public String getName() {
-        return name;
+        return username;
     }
 
     /**
      * A method to set the Name of User
      */
     public void setName(String name) {
-        this.name = name;
+        this.username = name;
     }
 
     /** A method to get the Profile of User
@@ -152,7 +153,6 @@ public class User {
     public void setProfile(Profile profile) {
         this.profile = profile;
     }
-
 
     @Override
     public boolean equals(Object o) {

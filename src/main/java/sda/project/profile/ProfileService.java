@@ -34,7 +34,6 @@ public class ProfileService {
         profile.setOwner(owner);
         profileRepository.save(profile);
         return profile;
-
     }
 
     public boolean isAuthorized(Profile updateProfile)
@@ -44,27 +43,30 @@ public class ProfileService {
         return owner.equals(userInSession);
     }
 
-   public Profile update(Profile profile, Profile updatedProfile)
-    { if(isAuthorized(updatedProfile)) {
+    public Profile update(Profile profile, Profile updatedProfile)
+    {
+        if(isAuthorized(updatedProfile))
+        {
+            updatedProfile.setName(profile.getName());
+            updatedProfile.setSurname(profile.getSurname());
+            updatedProfile.setBio(profile.getBio());
+            updatedProfile.setCountryFrom(profile.getCountryFrom());
+            updatedProfile.setLiveIn(profile.getLiveIn());
+            updatedProfile.setMentorArea(profile.getMentorArea());
+            updatedProfile.setIsMentor(profile.getIsMentor());
+            return updatedProfile;
+        }
 
-        updatedProfile.setName(profile.getName());
-        updatedProfile.setSurname(profile.getSurname());
-        updatedProfile.setBio(profile.getBio());
-        updatedProfile.setCountryFrom(profile.getCountryFrom());
-        updatedProfile.setLiveIn(profile.getLiveIn());
-        updatedProfile.setMentorArea(profile.getMentorArea());
-        updatedProfile.setMentor(profile.isMentor());
-
-        return updatedProfile;
-    }
-    else {
-       throw new UnAuthorizedException();
+        else{
+            throw new UnAuthorizedException();
+        }
     }
 
-    }
+
     public Profile fetchProfileById(Long id) {
         return profileRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
     }
+
 
     public List<Profile> fetchProfileByMentorArea (String mentorArea) {
         return profileRepository.findByMentorArea(mentorArea);
@@ -73,8 +75,6 @@ public class ProfileService {
     public List<Profile> fetchAllMentors (boolean isMentor) {
         return profileRepository.findByIsMentor(isMentor);
     }
-
-
 
 
 }

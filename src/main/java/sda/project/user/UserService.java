@@ -32,7 +32,6 @@ public class UserService {
         return userRepository.findByEmail(email);
     }
 
-
     public void register(User user) {
         String encryptedPass = passwordEncoder.encode(user.getPassword());
         user.setPassword(encryptedPass);
@@ -40,8 +39,6 @@ public class UserService {
 
     }
   public List<User> searchUserByName(String name){
-       return userRepository.findByName(name);
+       return userRepository.findByUsername(name);
     }
-
-
 }

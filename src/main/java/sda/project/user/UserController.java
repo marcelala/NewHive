@@ -1,9 +1,9 @@
 package sda.project.user;
 
+
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 
 import java.util.List;
 
@@ -20,6 +20,7 @@ public class UserController {
         this.userService = userService;
     }
 
+
     /**
      * This Method represents User can search other user
      */
@@ -27,4 +28,5 @@ public class UserController {
    public ResponseEntity<List<User>> getAllUserByName(@RequestParam String name) {
         return ResponseEntity.ok(userService.searchUserByName(name));
     }
+
 }
