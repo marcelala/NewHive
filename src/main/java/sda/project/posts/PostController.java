@@ -56,5 +56,6 @@ public class PostController {
     public ResponseEntity<List<Post>> getPostByAuthorname(@RequestParam String authorname) {
         return ResponseEntity.ok(postService.fetchPostByAuthorname(authorname));
     }
+    
 
 }
