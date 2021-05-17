@@ -2,8 +2,6 @@ package sda.project.user;
 
 import org.hibernate.validator.constraints.Length;
 import sda.project.comments.Comment;
-import sda.project.follower.Followers;
-import sda.project.image.Image;
 import sda.project.profile.Profile;
 import sda.project.posts.Post;
 import javax.persistence.*;
@@ -42,16 +40,6 @@ public class User {
 
     @OneToOne(mappedBy = "owner",cascade = CascadeType.ALL)
     private Profile profile;
-
-    @OneToMany(mappedBy = "to")
-    private List<Followers> followings;
-
-    @OneToMany(mappedBy = "from")
-    private List<Followers> followers;
-
-    @OneToOne(mappedBy = "avatar",cascade = CascadeType.ALL)
-    private Image picture;
-
 
     // Hibernate needs a default constructor to function
     public User() {}
@@ -108,51 +96,6 @@ public class User {
     public void setProfile(Profile profile) {
         this.profile = profile;
     }
-
-
-   public Image getPicture() {
-        return picture;
-    }
-
-    public void setPicture(Image picture) {
-        this.picture = picture;
-    }
-
-    public List<Followers> getFollowings() {
-        return followings;
-    }
-
-    public void setFollowings(List<Followers> followings) {
-        this.followings = followings;
-    }
-
-    public List<Followers> getFollowers() {
-        return followers;
-    }
-
-    public void setFollowers(List<Followers> followers) {
-        this.followers = followers;
-    }
-
-    /*public void addFollower(User follower){
-        followers.add(follower);
-        follower.followings.add(this);
-    }
-
-    public void unFollow(User follower){
-        followers.remove(follower);
-        follower.followings.remove(this);
-    }
-
-    public boolean isFollower(User follower){
-        return followers.contains(follower);
-    }
-
-    public boolean isFollowing(User following){
-        return followings.contains(following);
-    }*/
-
-
 
     @Override
     public boolean equals(Object o) {

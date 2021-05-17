@@ -8,8 +8,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import sda.project.auth.AuthService;
-import sda.project.image.Image;
-import sda.project.image.ImageRepository;
+
+import sda.project.profile.Profile;
+import sda.project.profile.ProfileRepository;
 import sda.project.user.User;
 import sda.project.user.UserService;
 
@@ -17,14 +18,17 @@ import sda.project.user.UserService;
 @Service
 public class ImageService {
 
+
     ImageRepository imageRepository;
+    ProfileRepository profileRepository;
     UserService userService;
     AuthService authService;
 
     private FileNameHelper fileHelper = new FileNameHelper();
 
-    public ImageService(ImageRepository imageRepository, UserService userService, AuthService authService) {
+    public ImageService(ImageRepository imageRepository,ProfileRepository profileRepository, UserService userService, AuthService authService) {
         this.imageRepository = imageRepository;
+        this.profileRepository = profileRepository;
         this.userService = userService;
         this.authService = authService;
     }
@@ -38,16 +42,16 @@ public class ImageService {
     public ResponseEntity<Image> upload(MultipartFile file)
     {
         User userInSession = userService.findUserByEmail(authService.getLoggedInUserEmail());
+        Profile profile = profileRepository.findByOwner(userInSession);
         Image image = Image.buildImage(file, fileHelper);
-        image.setAvatar(userInSession);
+        image.setAvatar(profile);
         save(image);
         return ResponseEntity.status(HttpStatus.CREATED).body(imageRepository.save(image));
     }
 
-    public ResponseEntity<byte[]> show(){
+    public ResponseEntity<byte[]> show(Profile profile){
 
-        User userInSession = userService.findUserByEmail(authService.getLoggedInUserEmail());
-        Image image = imageRepository.findByAvatar(userInSession);
+        Image image = imageRepository.findByAvatar(profile);
         return ResponseEntity.ok().contentType(MediaType.valueOf(image.getFileType())).body(image.getData());
 
     }

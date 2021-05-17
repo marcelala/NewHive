@@ -1,6 +1,3 @@
-import React from "react";
-import Footer from "../components/Footer";
-
 export default function AboutUs() {
     //Properties
     const aboutPictureObject = require (`../assets/images/about/about3-picture1.jpg`);

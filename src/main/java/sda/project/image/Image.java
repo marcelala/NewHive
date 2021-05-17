@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.hibernate.annotations.Type;
 import org.springframework.web.multipart.MultipartFile;
+import sda.project.profile.Profile;
 import sda.project.user.User;
 
 import javax.persistence.*;
@@ -32,9 +33,9 @@ public class Image {
     private String uuid;
 
     @OneToOne
-    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "email")
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     @JsonIdentityReference(alwaysAsId = true)
-    private User avatar;
+    private Profile avatar;
 
     @Lob
     @Column(name = "data")
@@ -73,14 +74,13 @@ public class Image {
         this.data = data;
     }
 
-    public User getAvatar() {
+    public Profile getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(User avatar) {
+    public void setAvatar(Profile avatar) {
         this.avatar = avatar;
     }
-
 
     @Transient
     public static Image build() {

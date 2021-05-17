@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.springframework.validation.annotation.Validated;
+import sda.project.image.Image;
 import sda.project.user.User;
 
 import javax.persistence.*;
@@ -44,6 +45,9 @@ public class Profile {
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "email")
     @JsonIdentityReference(alwaysAsId = true)
     private User owner;
+
+    @OneToOne(mappedBy = "avatar",cascade = CascadeType.ALL)
+    private Image picture;
 
     public Profile(){
 
@@ -111,17 +115,12 @@ public class Profile {
         return isMentor;
     }
 
-<<<<<<< HEAD
+
     public void setIsMentor(boolean mentor) {
-=======
-    public boolean getIsMentor() {
-        return isMentor;
+
+        this.isMentor = mentor;
     }
 
-    public void setMentor(boolean mentor) {
->>>>>>> c757f2f04b5592b95334bb42f4a9072d98c632aa
-        isMentor = mentor;
-    }
 
     public String getMentorArea() {
         return mentorArea;
@@ -137,6 +136,14 @@ public class Profile {
 
     public void setOwner(User owner) {
         this.owner = owner;
+    }
+
+    public Image getPicture() {
+        return picture;
+    }
+
+    public void setPicture(Image picture) {
+        this.picture = picture;
     }
 
     @Override

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Select from "react-select";
 
-import { organizations, topics, topicOptions } from "../../data/organizations";
+import { topics, topicOptions } from "../../data/organizations";
 import { OrganizationsGroup } from "./OrganizationsGroup";
 
 export const OrganizationsPage = () => {

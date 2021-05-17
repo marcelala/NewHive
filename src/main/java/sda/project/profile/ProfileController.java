@@ -16,7 +16,7 @@ import java.util.List;
 @RestController
 public class ProfileController {
 
-    @Autowired
+
     ProfileRepository profileRepository;
 
     AuthService authService;

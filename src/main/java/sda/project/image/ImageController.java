@@ -1,18 +1,25 @@
 
 package sda.project.image;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import sda.project.exception.ResourceNotFoundException;
+import sda.project.profile.Profile;
+import sda.project.profile.ProfileRepository;
 
 
 @RestController
 public class ImageController {
 
     private final ImageService imageService;
+    private ProfileRepository profileRepository;
 
-    public ImageController(ImageService imageService) {
+    @Autowired
+    public ImageController(ImageService imageService, ProfileRepository profileRepository) {
         this.imageService = imageService;
+        this.profileRepository = profileRepository;
     }
 
     @PostMapping("/upload")
@@ -20,9 +27,10 @@ public class ImageController {
         return imageService.upload(file);
     }
 
-    @GetMapping("/show")
-    public ResponseEntity<byte[]> showPicture(){
-        return imageService.show();
+    @GetMapping("/show/{id}")
+    public ResponseEntity<byte[]> showPicture(@PathVariable Long id){
+        Profile profile = profileRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
+        return imageService.show(profile);
     }
 }
 
