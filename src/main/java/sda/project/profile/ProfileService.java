@@ -58,7 +58,7 @@ public class ProfileService {
         return updatedProfile;
     }
     else {
-       throw new UnAuthorizedException();
+        throw new UnAuthorizedException();
     }
 
     }
@@ -68,9 +68,9 @@ public class ProfileService {
 //    public Profile fetchProfileByUserName(User author) {
 //         return profileRepository.findUserByName(author).orElseThrow(ResourceNotFoundException::new);
 //     }
-//    public Profile fetchProfileByOwner(User owner) {
-//         return profileRepository.findByOwner(owner).orElseThrow(ResourceNotFoundException::new);
-//     }
+    public Profile fetchProfileByOwner(User owner) {
+        return profileRepository.findByOwner(owner);
+    }
 
     public List<Profile> fetchProfileByMentorArea (String mentorArea) {
         return profileRepository.findByMentorArea(mentorArea);

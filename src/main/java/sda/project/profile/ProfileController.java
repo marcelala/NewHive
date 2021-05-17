@@ -57,11 +57,11 @@ public class ProfileController {
 
     // }
 
-    //     @GetMapping("/view-profile/{owner}")
-    // public ResponseEntity<Profile> viewProfileByOwner(@PathVariable User email) {
-    //     return ResponseEntity.ok(profileService.fetchProfileByOwner(owner));
-
-    // }
+    @GetMapping("/view-profile-by-email/{email}")
+    public ResponseEntity<Profile> viewProfileByEmail(@PathVariable String email) {
+        User user = userService.findUserByEmail(email);
+        return ResponseEntity.ok(profileService.fetchProfileByOwner(user));
+    }
 
     //     @GetMapping("/view-profile/all")
     // public ResponseEntity<Profile> listAllProfiles() {

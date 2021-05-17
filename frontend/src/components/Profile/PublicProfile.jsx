@@ -29,7 +29,6 @@ export const PublicProfile = () => {
     <PostCard key={post.author} post={post} />
   ));
 
-
   useEffect(() => {
     PostApi.getPostsByEmail(profileOwner.email)
       .then(({ data }) => {
@@ -50,22 +49,19 @@ export const PublicProfile = () => {
       .catch((err) => console.error(err));
   }, []);
 
-  
-
   // Methods
 
-
-    async function updatePost(id, updatedPost) {
-      try {
-        await PostApi.updatePost(id, updatedPost);
-          const newPosts = [...posts];
-          const ind = posts.findIndex((item) => item.id === id);
-          newPosts[ind] = { ...newPosts[ind], ...updatedPost };
-          setPosts([...newPosts]);
-      } catch (e) {
-        console.error(e);
-      }
+  async function updatePost(id, updatedPost) {
+    try {
+      await PostApi.updatePost(id, updatedPost);
+      const newPosts = [...posts];
+      const ind = posts.findIndex((item) => item.id === id);
+      newPosts[ind] = { ...newPosts[ind], ...updatedPost };
+      setPosts([...newPosts]);
+    } catch (e) {
+      console.error(e);
     }
+  }
 
   async function deletePost(post) {
     try {
@@ -77,10 +73,11 @@ export const PublicProfile = () => {
       console.error(e);
     }
   }
+  debugger;
   return (
     <div className="public-profile">
       <div className="profile__userCard">
-        <UserCard key={profile.id} profileInfo={profile} />
+        {profile.name && <UserCard key={profile.id} profileInfo={profile} />}
       </div>
       <div className="profile__userPosts">{ownersPosts}</div>
     </div>
