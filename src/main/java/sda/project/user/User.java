@@ -177,24 +177,6 @@ public class User {
         this.following = following;
     }
 
-    /*public void addFollower(User follower){
-    followers.add(follower);
-    follower.followings.add(this);
-}
-
-public void unFollow(User follower){
-    followers.remove(follower);
-    follower.followings.remove(this);
-}
-
-public boolean isFollower(User follower){
-    return followers.contains(follower);
-}
-
-public boolean isFollowing(User following){
-    return followings.contains(following);
-}*/
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

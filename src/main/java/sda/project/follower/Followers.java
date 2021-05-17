@@ -40,4 +40,5 @@ public class Followers {
     public void setFrom(User from) {
         this.from = from;
     }
+
 }
