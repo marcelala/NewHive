@@ -17,7 +17,18 @@ export const PublicProfile = () => {
   // State
   const [allPosts, setAllPosts] = useState([]);
   const [profile, setProfile] = useState({});
+  const [posts, setPosts] = useState([]);
+
   // Constants
+  const profileOwner = useParams();
+  // const userPostCards = allPosts
+  //   .filter((post) => user.email === post.author)
+  //   .map((post) => <PostCard key={post.author} post={post} />);
+
+  const ownersPosts = allPosts.map((post) => (
+    <PostCard key={post.author} post={post} />
+  ));
+
 
   useEffect(() => {
     PostApi.getPostsByEmail(profileOwner.email)
@@ -39,14 +50,33 @@ export const PublicProfile = () => {
       .catch((err) => console.error(err));
   }, []);
 
-  const profileOwner = useParams();
-  // const userPostCards = allPosts
-  //   .filter((post) => user.email === post.author)
-  //   .map((post) => <PostCard key={post.author} post={post} />);
+  
 
-  const ownersPosts = allPosts.map((post) => (
-    <PostCard key={post.author} post={post} />
-  ));
+  // Methods
+
+
+    async function updatePost(id, updatedPost) {
+      try {
+        await PostApi.updatePost(id, updatedPost);
+          const newPosts = [...posts];
+          const ind = posts.findIndex((item) => item.id === id);
+          newPosts[ind] = { ...newPosts[ind], ...updatedPost };
+          setPosts([...newPosts]);
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+  async function deletePost(post) {
+    try {
+      await PostApi.deletePost(post.id);
+      const newPosts = posts.filter((p) => p.id !== post.id);
+
+      setPosts(newPosts);
+    } catch (e) {
+      console.error(e);
+    }
+  }
   return (
     <div className="public-profile">
       <div className="profile__userCard">

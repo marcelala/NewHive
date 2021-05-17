@@ -14,6 +14,7 @@ export default function PrivateProfile () {
    // const [currentUser, setCurrentUser] = useState({});
     const [profileExisted, setProfileExisted] = useState(false);
     const [allPosts, setAllPosts] = useState([]);
+    const [posts, setPosts] = useState([]);
 
 
     useEffect(() => {
@@ -70,6 +71,31 @@ export default function PrivateProfile () {
           : editProfile(data.id, data);
     }
 
+     // Methods
+
+
+     async function updatePost(id, updatedPost) {
+      try {
+        await PostApi.updatePost(id, updatedPost);
+          const newPosts = [...posts];
+          const ind = posts.findIndex((item) => item.id === id);
+          newPosts[ind] = { ...newPosts[ind], ...updatedPost };
+          setPosts([...newPosts]);
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+  async function deletePost(post) {
+    try {
+      await PostApi.deletePost(post.id);
+      const newPosts = posts.filter((p) => p.id !== post.id);
+
+      setPosts(newPosts);
+    } catch (e) {
+      console.error(e);
+    }
+  }
 
     return (
       <div className="full-profile">
