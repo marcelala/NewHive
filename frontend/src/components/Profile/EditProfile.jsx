@@ -59,14 +59,14 @@ export default function EditProfile({ onSubmit, profileInfo }) {
           <div className="mentor-area">
           <p>Open for mentoring others:</p>
           <input
-            id="mentor"
-            checked={fields.mentor || false}
+            id="isMentor"
+            checked={fields.isMentor || false}
             onChange={handleFieldChange}
             type="checkbox"
           />
           </div>
           <Select
-            isDisabled={!fields.mentor}
+            isDisabled={!fields.isMentor}
             placeholder="Choose area"
             id="mentorArea"
             options={MentorAreas}
