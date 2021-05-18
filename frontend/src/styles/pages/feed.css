@@ -24,22 +24,23 @@
 }
 .feed__selectors{
     display: flex;
-    margin-bottom: 2rem;
+    margin:auto;
+    margin-bottom: 1rem;
     justify-content: flex-end;
-    max-width: 90%;
+    max-width: 100%;
 }
 
 .topic-filter{
     min-width: 20%;
     max-width: 15rem;
-    width: 40%;
+    width: 50%;
     margin:1rem;
 }
 
 .post-sorter{
     min-width: 20%;
     max-width: 15rem;
-    width: 40%;
+    width: 50%;
     margin:1rem;
 }
 
