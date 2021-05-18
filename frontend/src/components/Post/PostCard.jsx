@@ -194,7 +194,7 @@ export default function PostCard({ post, onDeleteClick, onPostUpdate }) {
             </div>
           )}
 
-          {toggleBody && <p className="postCard__content-body">{post.body}</p>}
+          {toggleBody && <div className="postCard__content-body"><p>{post.body}</p></div>}
           <div
             className="postCard__content-read-more"
             onClick={() =>
