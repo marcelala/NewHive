@@ -133,7 +133,7 @@ After updating his information he can view his profile.
 When user click to the user-card on the post, he can view the profile of a user who wrote the post and also other post written by that user.
 User can also make a connection request to other using via clicking "connect with me" button.
 
-![profile](screenshot/Profile.png)
+![profile](screenshot/profile.png)
 
 ### Mentorship page
 
@@ -153,6 +153,17 @@ For those who are new to Sweden, there is a section where you may find some fasc
 
 ![profile](screenshot/FAQ.png)
 
+### About page
+
+User can find the vision and mission of your community in the above page. This page can be accessed by clicking "about" in footer.
+
+![about](screenshot/about.png)
+
+### Contact page
+
+User can contact the community via contact-form for some question or suggestions.
+
+![about](screenshot/contact-form.png)
 
 # Author
 
