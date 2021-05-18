@@ -153,7 +153,9 @@ export const Feed = () => {
           onChange={filterFeed}
         />
       </div>
+      <div className="post-array">
       {PostsArray}
+      </div>
     </div>
   );
 };

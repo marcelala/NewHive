@@ -216,6 +216,7 @@ export default function PostCard({ post, onDeleteClick, onPostUpdate }) {
                 }
               />
             </div>
+
             {comments.length}
           </div>
         </div>
