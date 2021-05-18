@@ -88,7 +88,7 @@ public class PostService {
 
     /**
      * A method to generate a post instance from body.
-     * @param postParam is an object of in which value of all required fields are set fo generating post.
+     * @param postParam is an object in which value of all required fields are set for generating post.
      * @return generated post.
      */
     public Post generatePost(Post postParam){
@@ -104,7 +104,7 @@ public class PostService {
     /**
      * A method to check if the author of the post is authenticated before delete/update requests
      * @param existingPost contains author of the post
-     * @return
+     * @return if author is the same User who created post
      */
     public boolean isAuthorized(Post existingPost){
         User postAuthor = existingPost.getAuthor();

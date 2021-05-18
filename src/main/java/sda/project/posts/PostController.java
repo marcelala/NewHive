@@ -46,7 +46,7 @@ public class PostController {
     /**
      * A method to create the post.
      * @param postParam is automatically serialized into JSON and passed back into the HttpResponse object.
-     * @return post will be generated.
+     * @return post will be created.
      */
     @PostMapping("/posts")
     public ResponseEntity<Post> createPost(@RequestBody Post postParam){
