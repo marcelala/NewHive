@@ -3,14 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-
-
 //Api
 import CommentApi from "../../api/CommentApi";
 import UserApi from "../../api/UserApi";
 import PostApi from "../../api/PostApi";
 import ProfileApi from "../../api/ProfileApi";
-
 
 //Components
 import UserCard from "../UserCard";
@@ -29,7 +26,7 @@ export default function PostCard({ post, onDeleteClick, onPostUpdate }) {
   const [toggleBody, setToggleBody] = useState(false);
   const [toggleEdit, setToggleEdit] = useState(false);
   const [user, setUser] = useState({});
-  const [profile, setProfile] = useState([]);
+  const [profile, setProfile] = useState({});
   const profileOwner = useParams();
 
   // Methods
@@ -72,17 +69,17 @@ export default function PostCard({ post, onDeleteClick, onPostUpdate }) {
     }
   }
 
-    async function updateComment(updatedComment, id) {
-      try {
-        await CommentApi.updateComment(updatedComment, id);
-         const newComments = [...comments];
-         const ind = comments.findIndex((item) => item.id === id);
-         newComments[ind] = { ...newComments[ind], ...updatedComment };
-         setComments([...newComments]);
-      } catch (e) {
-        console.error(e);
-      }
+  async function updateComment(updatedComment, id) {
+    try {
+      await CommentApi.updateComment(updatedComment, id);
+      const newComments = [...comments];
+      const ind = comments.findIndex((item) => item.id === id);
+      newComments[ind] = { ...newComments[ind], ...updatedComment };
+      setComments([...newComments]);
+    } catch (e) {
+      console.error(e);
     }
+  }
 
   async function deleteComment(comment) {
     try {
@@ -142,6 +139,7 @@ export default function PostCard({ post, onDeleteClick, onPostUpdate }) {
       user={user}
     />
   ));
+  debugger;
   return (
     <section
       className="postCard-section"
@@ -150,9 +148,13 @@ export default function PostCard({ post, onDeleteClick, onPostUpdate }) {
       <div className="postCard">
         <div className="postCard__content">
           <div className="postCard__userCard">
-        <Link to={`/user-profile/${post.author}/`}>
-          <UserCard profileInfo={profile}  />
-          </Link>
+            <Link to={`/user-profile/${post.author}/`}>
+              {(profile.name && <UserCard profileInfo={profile} />) || (
+                <div>
+                  <p className="postCard--user">{post.authorname}</p>
+                </div>
+              )}
+            </Link>
           </div>
           <div className="postCard__topic">
             <h1> {post.topic} </h1>
@@ -161,8 +163,6 @@ export default function PostCard({ post, onDeleteClick, onPostUpdate }) {
           <h2 className="postCard__content-heading">{post.title}</h2>
 
           <div className="postCard--date">{date()}</div>
-          
-          {/* <p className="postCard--user">{post.authorname}</p> */}
 
           {userCheck() && (
             <div className="postCard__editDelete">

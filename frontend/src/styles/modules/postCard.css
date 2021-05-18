@@ -105,10 +105,9 @@
   display: inline-block;
   margin: auto;
   grid-row-start: 4;
-  grid-column-start: 3;
+  grid-column-start: 2;
   grid-column-end: 4;  
   color: var(--color-brown);
-  justify-self: center;
   cursor: pointer;
   padding:0;
 
