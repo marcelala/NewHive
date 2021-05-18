@@ -5,28 +5,30 @@ import Lady from "../assets/images/profile/profile-photo.png";
 
 export default function UserCard({ profileInfo }) {
   const { name, surname, countryFrom, liveIn, bio, mentorArea } = profileInfo;
-  
-  function getFullName() {
-    return `${name} ${surname}`
-  }
+  const [toggleInfo, setToggleInfo] = useState(false);
+
   return (
-    <section className="userCard">
+    <section className="userCard" onClick={() =>
+      toggleInfo ? setToggleInfo(false) : setToggleInfo(true)
+    }>
       <img src={Lady} className="userCard__avatar" />
-      <div className="userCard__full-name">
-        <p className="bold-p user-name">{getFullName()}</p>
-      </div>
+        <p className="userCard__full-name">{name} {surname}</p>
+        <div className="userCard__text">
       <p className="userCard__origin">
-        I'm from {countryFrom}
-      </p>
-      <p className="userCard__home">
+        I'm from {countryFrom}. 
         My home now is in {liveIn}
       </p>
-      {/* <p className="userCard__mentorship">
-        {" "}
-        I can mentor others in {mentorArea}
-      </p> */}
-      {/* <p className="userCard__bio"> Bio: </p>
-      <p>{bio}</p> */}
+      {toggleInfo && 
+      <div className="userCard__info">
+      {/* <p className="userCard__email">{profileInfo.email}</p> */}
+      <p className="userCard__mentorship">
+        I can mentor others in {profileInfo.mentorArea}
+      </p>
+      <br/>
+      <p className="userCard__bio"> Bio: </p>
+      <p>{bio}</p>
+      </div>}
+      </div>
     </section>
   );
 }

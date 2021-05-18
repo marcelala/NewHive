@@ -18,6 +18,8 @@ export default function MentorCard( {mentorInfo} ) {
                     <p className="bold-p">About:</p>
                     <p>{mentorInfo.bio}</p>
                     <p>{mentorInfo.email}</p>
+                    <p className= "bold-p">  Contact:</p>
+                    <p> {mentorInfo.owner} </p>
                 </div>
             </div>
         </div>

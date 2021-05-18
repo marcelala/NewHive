@@ -6,9 +6,6 @@ import ProfileApi from "../../api/ProfileApi";
 import PostApi from "../../api/PostApi";
 import UserApi from "../../api/UserApi";
 
-//State
-import { postsState, allPosts } from "../../state/postData";
-import { allProfiles } from "../../state/profileData";
 //Components
 import UserCard from "../UserCard";
 import PostCard from "../Post/PostCard";
@@ -21,9 +18,7 @@ export const PublicProfile = () => {
 
   // Constants
   const profileOwner = useParams();
-  // const userPostCards = allPosts
-  //   .filter((post) => user.email === post.author)
-  //   .map((post) => <PostCard key={post.author} post={post} />);
+
 
   const ownersPosts = allPosts.map((post) => (
     <PostCard key={post.author} post={post} />
@@ -78,7 +73,7 @@ export const PublicProfile = () => {
 
     <div className="public-profile">
       <div className="profile__userCard">
-        {profile.name && <UserCard key={profile.id} profileInfo={profile} />}
+        {profile.owner && <UserCard key={profile.id} profileInfo={profile} />}
       </div>
       <div className="profile-welcome">
       <h2>{profile.name}'s Profile</h2>

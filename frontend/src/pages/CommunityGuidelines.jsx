@@ -7,9 +7,9 @@ export const CommunityGuidelines= () => {
       <div className="communityGuidelines">
       <div>
         <h2 className="communityGuidelines--heading">Community Guidelines</h2>
-        <h3 className="communityGuidelines--welcome">Welcome to ????</h3>
+        <h3 className="communityGuidelines--welcome">Welcome to NewHive!</h3>
         <p className="communityGuidelines--contentBody">
-          This forum was setup to help women and non-binary people 
+          Our aim is to help women and non-binary people 
           integrate in Sweden by establishing new networks of connections. 
           Find members with availability to mentor, make new friends and have fun!
         </p>
