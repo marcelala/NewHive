@@ -118,7 +118,7 @@
 .postCard__content-heading p{
   padding: auto;
   margin: auto;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   text-align: start;
   text-justify: inter-word;
 }
@@ -127,7 +127,7 @@
 .postCard__content-read-more{
   display: inline-block;
   margin: auto;
-  grid-row-start: 4;
+  grid-row-start: 2;
   grid-column-start: 2;
   cursor: pointer;
   padding: 0;
@@ -150,7 +150,7 @@
   vertical-align: middle;
 }
 .postCard__content-read-more:hover {
-  color: var(--color-beige);
+  color: var(--color-brown);
 }
 .read-more {
   font-size: 1.7rem;
@@ -176,7 +176,7 @@ p.postCard__content-read-more {
 }
 
 .postCard__content-body{
-  grid-row-start: 5;
+  grid-row-start: 4;
   grid-column-start: 1;
   grid-column-end: 3 end;
   text-align: start;
