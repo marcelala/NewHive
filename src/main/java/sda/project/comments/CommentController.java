@@ -14,7 +14,9 @@ import sda.project.user.User;
 import java.security.Principal;
 import java.util.List;
 
-
+/** This is a Controller class of Comment Entity which contains methods of Comment Entity.
+ * @since : 2021-05-06
+ */
 @RestController
 public class CommentController {
     CommentRepository commentRepository;
@@ -24,6 +26,9 @@ public class CommentController {
     CommentService commentService;
     UserService userService;
 
+    /**
+     * Creating the object of different class.
+     */
     @Autowired
     public CommentController(CommentRepository commentRepository, PostRepository postRepository,UserService userService, UserRepository userRepository , AuthService authService, CommentService commentService) {
         this.commentRepository = commentRepository;
@@ -34,12 +39,21 @@ public class CommentController {
         this.userService = userService;
     }
 
+    /**
+     * A method to get all Comments on post.
+     * @return all comments will be fetched on the post by provide post id.
+     */
     @GetMapping("/comments/{postId}")
     public ResponseEntity<List<Comment>> listAllCommentsOnPost(@PathVariable Long postId) {
         Post post = postRepository.findById(postId).orElseThrow(ResourceNotFoundException::new);
         return ResponseEntity.ok(post.getComments());
     }
 
+    /**
+     * A method to create the comment.
+     * @param comment is automatically serialized into JSON and passed back into the HttpResponse object.
+     * @return comment will be created.
+     */
    @PostMapping("/comments/{postId}")
    public ResponseEntity<Comment> createComment(@PathVariable Long postId, @RequestBody Comment comment, Principal principal) {
         Post post = postRepository.findById(postId).orElseThrow(ResourceNotFoundException::new);
@@ -53,7 +67,10 @@ public class CommentController {
        return ResponseEntity.status(HttpStatus.CREATED).body(comment);
     }
 
-    //Deletes a comment
+    /**
+     * A method for deleting post
+     * @param id is the primary key of post entity
+     */
     @DeleteMapping("/comments/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteComment(@PathVariable Long id) {
@@ -62,7 +79,10 @@ public class CommentController {
         commentRepository.delete(comment);
     }
 
-    //Returns all comments
+    /**
+     * A method to get all comments.
+     * @return fetching all comments
+     */
     @GetMapping("/comments")
     public ResponseEntity <List<Comment>> listAllComments(){
         List<Comment> comments = commentRepository.findAll();
@@ -70,6 +90,12 @@ public class CommentController {
     }
 
 
+    /**
+     * A method for editing the comment.
+     * @param commentId is primary key of comment entity
+     * @param updatedComment is automatically serialized into JSON and passed back into the HttpResponse object.
+     * @return an updated comment.
+     */
     @PutMapping("/comments/{commentId}")
     public ResponseEntity<Comment> updateComment(@PathVariable Long commentId, @RequestBody Comment updatedComment, Principal principal) {
         Comment comment = commentService.updateComment(commentId, updatedComment, principal);
