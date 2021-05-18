@@ -35,7 +35,19 @@
 @media screen and (max-width: 660px) {
   .form-layout {
     grid: none;
-    background: url('../../assets/images/bridge-girl.jpg');
+    background: url("../../assets/images/bridge-girl.jpg") no-repeat;
+    background-position: top;
+  }
+
+  .signup-link,
+  .login-link {
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 4px 0px grey;
+    width: 69%;
+  }
+  .signup-link p,
+  .login-link p {
+    text-shadow: 0 0 0 black;
   }
 }
 
