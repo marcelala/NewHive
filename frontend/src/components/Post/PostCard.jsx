@@ -139,7 +139,6 @@ export default function PostCard({ post, onDeleteClick, onPostUpdate }) {
       user={user}
     />
   ));
-  debugger;
   return (
     <section
       className="postCard-section"

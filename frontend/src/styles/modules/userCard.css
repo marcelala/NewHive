@@ -5,7 +5,7 @@
     align-items: center;
     margin: auto;
     grid-gap: 1rem;
-    padding-top: 2rem;
+    padding: 2rem 1rem;
     max-width: 90%;
     color: var(--color-warm-brown);
 }
