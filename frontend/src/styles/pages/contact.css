@@ -1,3 +1,20 @@
+.contact-us-page{
+  justify-content: center;
+}
+
+.contact-us-header {
+  background-image: url("../../assets/images/contact/contact-us.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 15rem;
+  opacity: 0.5;
+}
+
+.contact-us-form{
+  display: flex;
+  justify-content: center;
+}
+
 .contact__container{
     max-width: 75%;
     margin: 4rem;
