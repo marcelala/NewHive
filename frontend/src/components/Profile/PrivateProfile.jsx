@@ -14,7 +14,6 @@ export default function PrivateProfile() {
   // const [currentUser, setCurrentUser] = useState({});
   const [profileExisted, setProfileExisted] = useState(false);
   const [allPosts, setAllPosts] = useState([]);
-  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     ProfileApi.viewProfile()
@@ -46,7 +45,12 @@ export default function PrivateProfile() {
   // }, []);
 
   const ownersPosts = allPosts.map((post) => (
-    <PostCard key={post.author} post={post} />
+    <PostCard
+      key={post.author}
+      post={post}
+      onPostUpdate={(postData) => updatePost(post.id, postData)}
+      onDeleteClick={() => deletePost(post)}
+    />
   ));
 
   async function createProfile(profile) {
@@ -80,10 +84,10 @@ export default function PrivateProfile() {
   async function updatePost(id, updatedPost) {
     try {
       await PostApi.updatePost(id, updatedPost);
-      const newPosts = [...posts];
-      const ind = posts.findIndex((item) => item.id === id);
+      const newPosts = [...allPosts];
+      const ind = allPosts.findIndex((item) => item.id === id);
       newPosts[ind] = { ...newPosts[ind], ...updatedPost };
-      setPosts([...newPosts]);
+      setAllPosts([...newPosts]);
     } catch (e) {
       console.error(e);
     }
@@ -92,9 +96,9 @@ export default function PrivateProfile() {
   async function deletePost(post) {
     try {
       await PostApi.deletePost(post.id);
-      const newPosts = posts.filter((p) => p.id !== post.id);
+      const newPosts = allPosts.filter((p) => p.id !== post.id);
 
-      setPosts(newPosts);
+      setAllPosts(newPosts);
     } catch (e) {
       console.error(e);
     }
