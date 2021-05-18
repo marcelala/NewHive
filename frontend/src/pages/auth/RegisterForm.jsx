@@ -8,6 +8,7 @@ export const RegisterForm = ({ onSubmit }) => {
 
   return (
     <div className="auth-form register-form">
+
       <h2>Sign Up</h2>
       <div className="form">
         <div className="form-group">

@@ -2,7 +2,6 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import EditComment from "./EditComment";
-import CommentApi from "../../api/CommentApi";
 
 export default function CommentCard({ comment, onDeleteClick, onCommentUpdate, user }) {
   const [toggleEdit, setToggleEdit] = useState(false);
@@ -31,14 +30,6 @@ export default function CommentCard({ comment, onDeleteClick, onCommentUpdate, u
       return `Updated: ${updateDate}`;
     }
   }
-
-  // async function updateComment(updatedComment) {
-  //   try {
-  //     await CommentApi.updateComment(updatedComment, comment.id);
-  //   } catch (e) {
-  //     console.error(e);
-  //   }
-  // }
 
   return (
     <div className="commentCard">

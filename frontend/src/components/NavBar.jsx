@@ -4,20 +4,22 @@ export const NavBar = ({ onLogout }) =>{
 
 const photoObject = require ("../assets/images/NewHive.png")
 const photoURL = photoObject.default;
-return(
+return (
   <div className="nav-bar">
     <Link id="feed" className="menu-item" to="/">
-    <div className="logo"><img src={photoURL} className="logo-newHive" alt="honeycomb" /></div>
+      <div className="logo">
+        <img src={photoURL} className="logo-newHive" alt="honeycomb" />
+      </div>
     </Link>
     <Menu right>
       {/* <Link id="home" className="menu-item" to="/" exact>
         Home
       </Link> */}
-      <Link id="feed" className="menu-item" to="/">
-        Feed
-      </Link>
-      <Link id="profile" className="menu-item" to="/profile">
+      <Link id="profile" className="menu-item" to="/">
         My Profile
+      </Link>
+      <Link id="feed" className="menu-item" to="/feed">
+        Feed
       </Link>
       {/* <Link id="guidelines" className="menu-item" to="/guidelines">
       Guidelines
@@ -27,10 +29,10 @@ return(
       </Link> */}
       <Link id="mentorship" className="menu-item" to="/mentors">
         Mentorship
-      </Link> 
+      </Link>
       {/* {/* <Link id="messages" className="menu-item" href="/messages">
         My messages
-      </Link> */} 
+      </Link> */}
       <Link id="organizations" className="menu-item" to="/organizations">
         Organizations
       </Link>
@@ -45,4 +47,4 @@ return(
       </div>
     </Menu>
   </div>
-)};
+);};
