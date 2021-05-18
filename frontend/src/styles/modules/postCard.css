@@ -20,10 +20,10 @@
 
 .postCard__content {
   border-radius: 8px;
-  width: 90%;
+  width: 100%;
   display: grid;
-  gap: 0.5rem 1rem;
-  grid-template-columns: 15% 55% 30%;
+  gap: 0.5rem 1.4rem;
+  grid-template-columns: 25% 30% 45%;
   grid-template-rows: 4rem auto auto auto auto auto auto;
   margin: auto;
   margin-bottom: 0.7rem;
@@ -37,7 +37,7 @@
   grid-row-start: 1;
   grid-row-end: 3;
   margin: auto;
-  width: 100%;
+  max-width: 70%;
 }
 
 .postCard__userCard .userCard {
@@ -49,7 +49,6 @@
 .postCard__userCard .userCard__avatar {
   margin: auto;
   width: 100%;
-  max-height: 12rem;
 }
 
 .postCard__userCard .userCard__full-name {
@@ -66,10 +65,12 @@
 }
 .date-topic{
   grid-column-start: 2;
-  grid-column-end: 4;
+  grid-column-end: 3 end;
   grid-row-start: 1;
   background-color: transparent;
   margin: auto;
+  margin-right: 8rem;
+  justify-self: end;
 }
 .postCard__topic {
   background-color: var(--color-warm-brown);
@@ -93,27 +94,31 @@
   vertical-align: middle;
   padding: 0.5rem 0;
 }
+
+.postCard--date p{
+  margin-top: 1rem;
+  border-top: 0.4rem;
+
+}
 .date-topic p{
   font-size: 0.8rem;
-  margin-top: 1rem;
-  margin: auto;
+  margin: 0.5rem auto;
   vertical-align: middle;
 
 }
 .postCard__content-heading{
   padding: auto;
   grid-row-start: 2;
-  grid-row-end: 3;
   grid-column-start: 2;
-  grid-column-end: 3;
-  margin: auto;
+  grid-column-end: 3 end;
   text-align: start;
   font-weight: 500;
+  width: 70%;
 }
 .postCard__content-heading p{
   padding: auto;
   margin: auto;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   text-align: start;
   text-justify: inter-word;
 }
@@ -138,10 +143,9 @@
   border-radius: .5rem;
   font-weight: 500;
   padding: auto;
-  max-height: 2rem;
   margin: auto;
   color: var(--color-warm-brown);
-  box-shadow: inset;
+  box-shadow: none;
   display: table-cell;
   vertical-align: middle;
 }
@@ -173,15 +177,17 @@ p.postCard__content-read-more {
 
 .postCard__content-body{
   grid-row-start: 5;
-  grid-column-start: 2;
-  grid-column-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 3 end;
   text-align: start;
   margin:auto;
-  width: 100%;
   padding: 1rem;
   font-size: 1rem;
   text-align: start;
   text-justify: inter-word;
+  width: 60%;
+}
+.postCard__content-body p{
 }
 
 .postCard__editDelete {
@@ -211,8 +217,8 @@ p.postCard__content-read-more {
   width: 100%;
   grid-row-start: 7;
   grid-row-end: auto;
-  grid-column-start: 2;
-  grid-column-end: 4;
+  grid-column-start: 1;
+  grid-column-end: 3 end;
   margin: auto;
   justify-self: center;
   height: 100%;
@@ -220,7 +226,7 @@ p.postCard__content-read-more {
 
 .editPost-form {
   margin: auto;
-  margin-bottom: 8rem;
+  max-width: 70%;
 }
 .editForm_topic {
   padding-top: 0.5rem;
@@ -235,11 +241,13 @@ p.postCard__content-read-more {
 
 .postCard__comments {
   text-align: right;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   grid-row-start: 4;
   grid-column-start: 3;
   display: inline-block;
   margin: auto;
+  margin-right: 5rem;
+  justify-self: end;
 }
 
 .postCard__comments-icon {
@@ -249,6 +257,7 @@ p.postCard__content-read-more {
   cursor: pointer;
   transition: color 0.5s;
   font-size: 2rem;
+  margin: 0.2rem;
 }
 .postCard__comments-icon:hover,
 .postCard__comments:hover {
