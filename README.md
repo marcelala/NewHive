@@ -109,7 +109,49 @@ We have implemented API in Spring boot with postgreSQL database. Below mentioned
 
 # User Manual
 
+## Signup page
 
+User can Sign up via entering Name, Email and password when he is not a member of community.
+
+![signup page](screenshot/Signup.png)
+
+### Feed page
+As soon as User register, It lands to feed page, where he can see posts of the members of community.
+
+![feed](screenshot/feed.png)
+
+### Profile page
+
+A user can enter his information to make his profile more informative via My Profile page in menu.
+
+After updating his information he can view his profile.
+
+![profile](screenshot/private-profile.png)
+
+### Public profile page
+
+When user click to the user-card on the post, he can view the profile of a user who wrote the post and also other post written by that user.
+User can also make a connection request to other using via clicking "connect with me" button.
+
+![profile](screenshot/Profile.png)
+
+### Mentorship page
+
+User can view the profile of the mentor who are expertise in the area mentioned in the profile. If user wants mentorship, he can contact mentor via email provided in the mentor card.User can visit this page via hamburger menu
+
+![profile](screenshot/mentorship.png)
+
+### Organization page
+
+This page provides information about organizations that may be useful if someone requires assistance with a specific topic. User can visit this page via hamburger menu.
+
+![profile](screenshot/organization.png)
+
+### FAQ about Sweden
+
+For those who are new to Sweden, there is a section where you may find some fascinating content about the country.User can visit this page via hamburger menu.
+
+![profile](screenshot/FAQ.png)
 
 
 # Author
