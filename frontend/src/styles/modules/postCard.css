@@ -78,17 +78,16 @@
   padding: 0.8rem;
   font-size: 0.8rem;
   margin-left: auto;
-  margin-top: .5rem;
+  margin-top: .7rem;
   margin-bottom: .5rem;
-  border-radius: 2px;
+  border-radius: 2rem;
 }
 
 .postCard__topic h1{
-  font-weight: 400;
+  font-weight: 500;
   font-family: "Montserrat", sans-serif;
   text-transform: capitalize;
   color: var(--color-light-beige);
-
 }
 
 .postCard__content-heading {

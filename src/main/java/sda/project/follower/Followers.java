@@ -12,11 +12,11 @@ public class Followers {
 
     @ManyToOne
     @JoinColumn(name = "from_user_fk")
-    private User to;
+    private User from;
 
     @ManyToOne
     @JoinColumn(name = "to_user_fk")
-    private User from;
+    private User to;
 
     public Followers(){};
 
