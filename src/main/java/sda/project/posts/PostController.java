@@ -100,9 +100,7 @@ public class PostController {
             following.add(followers.getTo());
         }
         List<Post> posts = new ArrayList<>();
-        for(User user:following){
-
-            posts = postRepository.findByAuthor(user);
+        for(User user:following){ posts = postRepository.findByAuthor(user);
         }
 
         return ResponseEntity.ok(posts);

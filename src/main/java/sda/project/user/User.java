@@ -1,5 +1,6 @@
 package sda.project.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.Length;
 import sda.project.comments.Comment;
 import sda.project.follower.Followers;
@@ -61,9 +62,11 @@ public class User {
     private Profile profile;
 
     @OneToMany(mappedBy="to")
+    @JsonIgnore
     private List<Followers> followers;
 
     @OneToMany(mappedBy="from")
+    @JsonIgnore
     private List<Followers> following;
 
     // Hibernate needs a default constructor to function
