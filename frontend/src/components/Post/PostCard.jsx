@@ -155,13 +155,14 @@ export default function PostCard({ post, onDeleteClick, onPostUpdate }) {
               )}
             </Link>
           </div>
+          <div className="date-topic">
           <div className="postCard__topic">
             <h1> {post.topic} </h1>
           </div>
+          <p className="postCard--date">{date()}</p>
+          </div>
+          <p className="postCard__content-heading">{post.title}</p>
 
-          <h2 className="postCard__content-heading">{post.title}</h2>
-
-          <div className="postCard--date">{date()}</div>
 
           {userCheck() && (
             <div className="postCard__editDelete">
@@ -194,15 +195,14 @@ export default function PostCard({ post, onDeleteClick, onPostUpdate }) {
             </div>
           )}
 
-          {toggleBody && <div className="postCard__content-body"><p>{post.body}</p></div>}
+          {toggleBody && <p className="postCard__content-body">{post.body}</p>}
           <div
             className="postCard__content-read-more"
             onClick={() =>
               toggleBody ? setToggleBody(false) : setToggleBody(true)
             }
           >
-            <p className="postCard__content-read-more p">Continue reading </p>
-            <FontAwesomeIcon className="read-more" icon={["fas", "plus"]} />
+            <button className="postCard__content-read-more btn">read more...</button>
           </div>
           <div className="postCard__comments">
             <div className="postCard__comments-icon">
