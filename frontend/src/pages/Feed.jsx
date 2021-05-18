@@ -8,14 +8,16 @@ import PostCard from "../components/Post/PostCard";
 import PostForm from "../components/Post/PostForm";
 import Banner from "../components/Banner";
 import Topics from "../components/Post/Topics";
+import FollowerApi from "../api/FollowerApi";
+import ProfileApi from "../api/ProfileApi";
 
 export const Feed = () => {
   // Local state
   const [posts, setPosts] = useState([]);
+  const [postsFromFeed, setPostsFromFeed] = useState([]);
   const [toggleForm, setToggleForm] = useState(false);
   const sorterOptions = [
-    { value: "displayAllPosts", 
-      label: "Display all Posts" },
+    { value: "displayAllPosts", label: "Display all Posts" },
     {
       value: "displayConnectionsPosts",
       label: "Display posts from connections",
@@ -28,6 +30,14 @@ export const Feed = () => {
       setSelectedTopic(chosenValue.value);
     } else {
       setSelectedTopic(undefined);
+    }
+  };
+  const [selectedFeed, setSelectedFeed] = useState(undefined);
+  const filterFeed = (chosenValue) => {
+    if (chosenValue) {
+      setSelectedFeed(chosenValue.value);
+    } else {
+      setSelectedFeed(undefined);
     }
   };
 
@@ -44,17 +54,17 @@ export const Feed = () => {
     }
   }
 
-    async function updatePost(id, updatedPost) {
-      try {
-        await PostApi.updatePost(id, updatedPost);
-          const newPosts = [...posts];
-          const ind = posts.findIndex((item) => item.id === id);
-          newPosts[ind] = { ...newPosts[ind], ...updatedPost };
-          setPosts([...newPosts]);
-      } catch (e) {
-        console.error(e);
-      }
+  async function updatePost(id, updatedPost) {
+    try {
+      await PostApi.updatePost(id, updatedPost);
+      const newPosts = [...posts];
+      const ind = posts.findIndex((item) => item.id === id);
+      newPosts[ind] = { ...newPosts[ind], ...updatedPost };
+      setPosts([...newPosts]);
+    } catch (e) {
+      console.error(e);
     }
+  }
 
   async function deletePost(post) {
     try {
@@ -69,26 +79,40 @@ export const Feed = () => {
 
   useEffect(() => {
     PostApi.getAllPosts()
-      .then(({ data }) => setPosts(data))
+      .then(({ data }) => {
+        setPosts(data);
+      })
       .catch((err) => console.error(err));
-  }, [setPosts]);
+    PostApi.getPostsOfConnections()
+      .then(({ data }) => {
+        setPostsFromFeed(data);
+      })
+      .catch((err) => console.error(err));
+  }, [setPosts, setPostsFromFeed]);
 
   // Components
-  const postsToShow = posts.filter((post) => {
+  const postsToShow = (function () {
+    if (selectedFeed) {
+      return postsFromFeed;
+    } else {
+      return posts.filter((post) => {
         if (selectedTopic) {
           return post.topic === selectedTopic;
         } else {
           return true;
         }
       });
-      const PostsArray = postsToShow.map((post) => (
-        <PostCard
-          key={post.id}
-          post={post}
-          onPostUpdate={(postData) => updatePost(post.id, postData)}
-          onDeleteClick={() => deletePost(post)}
-        />
-      ));
+    }
+  })();
+
+  const PostsArray = postsToShow.map((post) => (
+    <PostCard
+      key={post.id}
+      post={post}
+      onPostUpdate={(postData) => updatePost(post.id, postData)}
+      onDeleteClick={() => deletePost(post)}
+    />
+  ));
 
   return (
     <div className="feed">
@@ -121,15 +145,17 @@ export const Feed = () => {
           options={Topics}
           onChange={handleChange}
         />
-        {/* <Select
+        <Select
           isClearable
           className="topic-filter"
           placeholder="Display all posts"
           options={sorterOptions}
-          onChange={handleChange}
-        /> */}
+          onChange={filterFeed}
+        />
       </div>
+      <div className="post-array">
       {PostsArray}
+      </div>
     </div>
   );
 };

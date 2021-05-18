@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     color: var(--color-brown);
-    width: 100%;
+    width: 90%;
     margin: 1rem auto;
 }
 .profile-welcome h2{
@@ -23,7 +23,7 @@
     }
 }
 .profile__userCard{
-    width:100%;
+    width:90%;
     margin: 3rem auto;
 }
 .profile__userPosts{

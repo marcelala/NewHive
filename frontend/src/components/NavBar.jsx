@@ -6,8 +6,9 @@ const photoObject = require ("../assets/images/NewHive.png")
 const photoURL = photoObject.default;
 return(
   <div className="nav-bar">
+    <Link id="feed" className="menu-item" to="/">
     <div className="logo"><img src={photoURL} className="logo-newHive" alt="honeycomb" /></div>
-
+    </Link>
     <Menu right>
       {/* <Link id="home" className="menu-item" to="/" exact>
         Home
