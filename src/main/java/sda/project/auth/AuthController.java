@@ -35,7 +35,10 @@ public class AuthController {
         return new ResponseEntity<>(authResponse, HttpStatus.CREATED);
     }
 
-
+    /**
+     * A method for Authentication  of User
+     * @throws Exception when Unauthorized User is found
+     */
     @PostMapping("/authenticate")
     public ResponseEntity<?> authenticate(@RequestBody AuthRequest authRequest) {
         try {

@@ -1,6 +1,5 @@
 package sda.project.exception;
 
-
 public class FileNameException extends RuntimeException{
 
     public FileNameException(String message) {

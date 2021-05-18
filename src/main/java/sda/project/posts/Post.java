@@ -14,8 +14,6 @@ import java.util.Date;
 import java.util.Objects;
 import java.util.List;
 
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 /** This is a model class which represent
  * Post Entity and it contains necessary
@@ -25,7 +23,7 @@ import org.hibernate.annotations.OnDeleteAction;
 @Entity
 public class Post {
     /**
-     * Represents the id of Post.
+     * A String Represents the id of Post.
      * It is the primary key of Post Entity
      */
     @Id
@@ -43,7 +41,7 @@ public class Post {
     private Date lastEdited;
 
     /**
-     * Represents a String which contains Tittle of the post
+     * A String Represents a String which contains Tittle of the post
      * This field must not be Empty
      */
     @Column(nullable = false)
@@ -51,7 +49,7 @@ public class Post {
     private String title;
 
     /**
-     * Represents a String which contains body of the post
+     * A String Represents a String which contains body of the post
      * This field must not be Empty
      */
     @Column(length = 2000, nullable = false)
@@ -59,7 +57,7 @@ public class Post {
     private String body;
 
     /**
-     * Represents a String which contains topic of the post
+     * A String Represents a String which contains topic of the post
      * This field must not be Empty
      */
     @Column(nullable = false)
@@ -67,7 +65,7 @@ public class Post {
     private String topic;
 
     /**
-     * Represents a String which contains AuthorName of the post
+     * A String Represents a String which contains AuthorName of the post
      */
     private String authorname;
 

@@ -34,7 +34,7 @@ public class User {
 
 
     /**
-     * Represents email Id of User.
+     * A String Represents email Id of User.
      * This field must not be Empty
      */
     @Email(message = "Invalid email address! Please provide a valid email address")
@@ -45,7 +45,7 @@ public class User {
 
 
     /**
-     * Represents password of User
+     * A String Represents password of User
      * This field must not be Empty
      * his field has characters limit of 8 to 100
      */
@@ -57,7 +57,7 @@ public class User {
 
 
     /**
-     * Represents name of User
+     * A String Represents name of User
      * This field has characters limit of 3 to 100
      */
     @Length(min = 3, max=100, message = "Name must be between 3-100 characters")
