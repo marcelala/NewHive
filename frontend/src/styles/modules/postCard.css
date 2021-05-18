@@ -31,17 +31,42 @@
     font-family: "Montserrat", sans-serif;
   }
 
-  .picture{
-    width: 10rem;
-    height: 100%;
-    object-fit: cover;
-    padding: 0;
+  .postCard__userCard{
     grid-column-start: 1;
     grid-column-end: 2; 
     grid-row-start: 1;
     grid-row-end: 3;
     margin: auto;
   }
+
+
+  .postCard__userCard .userCard {
+      max-width: 100%;
+      height: auto;
+      object-fit: cover;
+      padding: 0;
+      box-shadow: none;
+
+  }
+  .postCard__userCard .userCard__avatar{
+    max-height: fit-content;
+  }
+
+
+  .postCard__userCard .userCard__full-name{
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin: auto;
+  }
+  
+  .postCard__userCard .userCard__text{
+    font-weight: 300;
+    font-size: 0.8rem;
+    display:none;
+  }
+
+
   
 .postCard__topic{
   grid-column-start: 5;

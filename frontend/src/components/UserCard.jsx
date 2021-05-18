@@ -13,20 +13,22 @@ export default function UserCard({ profileInfo }) {
     }>
       <img src={Lady} className="userCard__avatar" />
         <p className="userCard__full-name">{name} {surname}</p>
+        <div className="userCard__text">
       <p className="userCard__origin">
         I'm from {countryFrom}. 
         My home now is in {liveIn}
       </p>
       {toggleInfo && 
       <div className="userCard__info">
-      {/* <p className="userCard__email">{email}</p> */}
+      {/* <p className="userCard__email">{profileInfo.email}</p> */}
       <p className="userCard__mentorship">
-        I can mentor others in {mentorArea}
+        I can mentor others in {profileInfo.mentorArea}
       </p>
       <br/>
       <p className="userCard__bio"> Bio: </p>
       <p>{bio}</p>
       </div>}
+      </div>
     </section>
   );
 }

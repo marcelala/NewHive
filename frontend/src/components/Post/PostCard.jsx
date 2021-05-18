@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+
 
 
 //Api
@@ -15,6 +17,7 @@ import UserCard from "../UserCard";
 import CommentCard from "../Comment/CommentCard";
 import CommentForm from "../Comment/CommentForm";
 import EditPost from "./EditPost";
+import PostImage from "./PostImage";
 import InformationCard from "../Profile/InformationCard";
 
 import Cactus from "../../assets/images/cactus.jpg";
@@ -26,8 +29,8 @@ export default function PostCard({ post, onDeleteClick, onPostUpdate }) {
   const [toggleBody, setToggleBody] = useState(false);
   const [toggleEdit, setToggleEdit] = useState(false);
   const [user, setUser] = useState({});
-
-  // const [image, setImage] = useState([]);
+  const [profile, setProfile] = useState([]);
+  const profileOwner = useParams();
 
   // Methods
   useEffect(() => {
@@ -46,13 +49,15 @@ export default function PostCard({ post, onDeleteClick, onPostUpdate }) {
       .catch((err) => console.error(err));
   }, [setComments]);
 
-  // useEffect(() => {
-  //   PostImageApi.getImageByPostId(post.id)
-  //     .then(({ data }) => {
-  //       setImage(data);
-  //     })
-  //     .catch((err) => console.error(err));
-  // }, [setImage]);
+  useEffect(() => {
+    ProfileApi.viewProfileByEmail(post.author)
+      .then(({ data }) => {
+        if (data) {
+          setProfile(data);
+        }
+      })
+      .catch((err) => console.error(err));
+  }, []);
 
   async function createComment(commentData) {
     console.log(commentData);
@@ -126,8 +131,6 @@ export default function PostCard({ post, onDeleteClick, onPostUpdate }) {
     }
   }
 
-  // Components;
-
   const CommentsArray = comments.map((comment) => (
     <CommentCard
       key={comment.id}
@@ -146,8 +149,11 @@ export default function PostCard({ post, onDeleteClick, onPostUpdate }) {
     >
       <div className="postCard">
         <div className="postCard__content">
-        
-          {/* <UserCard className="picture" key= {post.author} /> */}
+          <div className="postCard__userCard">
+        <Link to={`/user-profile/${post.author}/`}>
+          <UserCard profileInfo={profile}  />
+          </Link>
+          </div>
           <div className="postCard__topic">
             <h1> {post.topic} </h1>
           </div>
@@ -155,9 +161,9 @@ export default function PostCard({ post, onDeleteClick, onPostUpdate }) {
           <h2 className="postCard__content-heading">{post.title}</h2>
 
           <div className="postCard--date">{date()}</div>
-          <Link to={`/user-profile/${post.author}/`}>
-          <p className="postCard--user">{post.authorname}</p>
-          </Link>
+          
+          {/* <p className="postCard--user">{post.authorname}</p> */}
+
           {userCheck() && (
             <div className="postCard__editDelete">
               <FontAwesomeIcon

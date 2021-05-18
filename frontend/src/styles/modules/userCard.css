@@ -3,15 +3,14 @@
     box-shadow: 0 6px 6px rgb(0 0 0 / 25%);
     display: grid;
     align-items: center;
-    max-width: 50rem;
     margin: auto;
     grid-gap: 1rem;
     padding-top: 2rem;
-    width: 90%;
+    max-width: 90%;
     color: var(--color-warm-brown);
 }
 .userCard__avatar{
-    width: 16rem;
+    width: 90%;
     height: 100%;
     object-fit: cover;
     padding: 0 1.5rem;
