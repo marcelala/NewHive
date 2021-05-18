@@ -255,7 +255,7 @@ public class Post {
 
     /**
      * A method to To be used in comparing the post author with the user in session
-     * @return a String which contains the author isa same as postAuthor
+     * @return a String which contains the author is same as postAuthor
      */
     @Override
     public boolean equals(Object o) {

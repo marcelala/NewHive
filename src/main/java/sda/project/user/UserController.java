@@ -15,7 +15,9 @@ public class UserController {
 
     UserService userService;
 
-    //
+    /**
+     * Creating the object of UserService class
+     */
     public UserController(UserService userService) {
         this.userService = userService;
     }

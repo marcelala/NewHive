@@ -11,6 +11,10 @@ import sda.project.user.UserService;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * A service class which contains necessary service methods to operate Post Entity.
+ * @since : 2021-05-06
+ */
 @Service
 public class PostService {
 
@@ -18,6 +22,9 @@ public class PostService {
     UserService userService;
     AuthService authService;
 
+    /**
+     * Creating the object of different class.
+     */
     public PostService(PostRepository postRepository, UserService userService, AuthService authService){
 
         this.postRepository = postRepository;
@@ -25,22 +32,34 @@ public class PostService {
         this.authService = authService;
     }
 
-    //saves post in postRepo.
+    /**
+     * A method to save post in postRepository.
+     * @return created post will be saved in postRepository
+     */
     public ResponseEntity<Post> create(Post postParam){
         return ResponseEntity.status(HttpStatus.CREATED).body(postRepository.save(postParam));
     }
 
-    //Fetch all posts in postRepo.
+    /**
+     * A method to fetch all posts in postRepository.
+     * @return fetching all post in the postRepository
+     */
     public ResponseEntity<List<Post>> fetchAll(){
         return ResponseEntity.ok(postRepository.findAll());
     }
 
-    //Fetch post by id.
+    /**
+     * A method to Fetch post by id in postRepository.
+     * @return fetching post in the postRepository by provided id in the query
+     */
     public Post fetchPostById(Long idParam){
         return postRepository.findById(idParam).orElseThrow(ResourceNotFoundException::new);
     }
 
-    //Delete post by id for authorized user.
+    /**
+     * A method to delete post by id for authorized user.
+     * @param idParam is id which is query parameter to delete the post
+     */
     public void deletePostById(Long idParam){
         Post post = postRepository.findById(idParam).orElseThrow(ResourceNotFoundException::new);
         if (isAuthorized(post)) {
@@ -51,6 +70,10 @@ public class PostService {
 
     }
 
+    /**
+     * A method to update post in postRepository by authorized User.
+     * @thows UnAuthorized Exception
+     */
     //Update a post.
     public Post update(Post postUpdate, Post existingPost){
         if(isAuthorized(existingPost)){
