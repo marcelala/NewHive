@@ -31,8 +31,8 @@
     display: flex;
     margin:auto;
     margin-bottom: 1rem;
-    justify-content: flex-end;
-    max-width: 100%;
+    justify-content: space-around;
+    max-width: 90%;
 }
 
 .topic-filter{
