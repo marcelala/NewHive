@@ -1,6 +1,8 @@
 // NPM packages
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // Project files
 import { RegisterForm } from "./RegisterForm";
@@ -16,21 +18,27 @@ export const AuthPage = () => {
   async function login(loginData) {
     const loginSuccess = await Auth.login(loginData);
     if (!loginSuccess) {
-      alert("Invalid credentials");
+      toast.error("Invalid credentials");
     }
   }
 
   async function register(registrationData) {
     const registerSuccess = await Auth.register(registrationData);
     if (!registerSuccess) {
-      alert("Couldn't register check credentials and try again");
+      toast.error("Couldn't register check credentials and try again");
     }
   }
 
   return (
     <section className="home">
       <Banner />
-
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+      />
       <div className="home__features">
         <div className="home__features-meet">
           <FontAwesomeIcon className="home__post" icon={["far", "edit"]} />
