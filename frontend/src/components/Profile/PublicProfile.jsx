@@ -24,7 +24,7 @@ export const PublicProfile = () => {
 
   const ownersPosts = allPosts.map((post) => (
     <PostCard
-      key={post.author}
+      key={post.id}
       post={post}
       onPostUpdate={(postData) => updatePost(post.id, postData)}
       onDeleteClick={() => deletePost(post)}
