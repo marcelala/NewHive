@@ -1,10 +1,13 @@
+import { Link } from "react-router-dom";
+
 export default function MentorCard( {mentorInfo} ) {
     const photoObject = require ("../../assets/images/profile/mentor-photo.jpg");
     const photoURL = photoObject.default;
 
     return (
         <div className="mentor">
-            <div className="mentor-section">
+                <Link to={`/user-profile/${mentorInfo.owner}/`}>
+                <div className="mentor-section">
                 <div className="mentor-photo">
                     <div>
                     <img src={photoURL} alt="a girl with a cup of tea"/>
@@ -22,6 +25,7 @@ export default function MentorCard( {mentorInfo} ) {
                     <p> {mentorInfo.owner} </p>
                 </div>
             </div>
+            </Link>
         </div>
     )
 }

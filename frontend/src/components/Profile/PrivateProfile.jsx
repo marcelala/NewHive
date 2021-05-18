@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import ProfileApi from "../../api/ProfileApi";
 import PostApi from "../../api/PostApi";
 
@@ -7,14 +7,18 @@ import InformationCard from "./InformationCard";
 import PostCard from "../Post/PostCard";
 
 //import ProfileForm from "./ProfileForm";
+let RandomNum = () => useMemo(() => Math.floor(Math.random() * 10) + 1, []);
 
 export default function PrivateProfile() {
   const [toggleEdit, setToggleEdit] = useState(false);
   const [profile, setProfile] = useState({});
-  // const [currentUser, setCurrentUser] = useState({});
   const [profileExisted, setProfileExisted] = useState(false);
   const [allPosts, setAllPosts] = useState([]);
 
+  const random = RandomNum();
+  if (!profileExisted) {
+    localStorage.setItem("avatarNum", random);
+  }
   useEffect(() => {
     ProfileApi.viewProfile()
       .then(({ data }) => {
@@ -23,6 +27,7 @@ export default function PrivateProfile() {
           setProfileExisted(true);
           return data;
         }
+
       })
       .then((profileData) => {
         PostApi.getPostsByEmail(profileData.owner).then(({ data }) => {
@@ -46,7 +51,7 @@ export default function PrivateProfile() {
 
   const ownersPosts = allPosts.map((post) => (
     <PostCard
-      key={post.author}
+      key={post.id}
       post={post}
       onPostUpdate={(postData) => updatePost(post.id, postData)}
       onDeleteClick={() => deletePost(post)}
@@ -55,6 +60,7 @@ export default function PrivateProfile() {
 
   async function createProfile(profile) {
     try {
+
       console.log("createProfile", profile);
       const response = await ProfileApi.createProfile(profile);
       setProfile({ ...response.data });
@@ -106,33 +112,31 @@ export default function PrivateProfile() {
 
   return (
     <div>
-    <div className="full-profile">
-      <h1>My Profile</h1>
-      {profileExisted && (
-        <>
-          <InformationCard key={profile.id} profileInfo={profile} />
-          <button
-            className={`btn ${toggleEdit ? "hidden" : ""}`}
-            type="button"
-            onClick={() =>
-              toggleEdit ? setToggleEdit(false) : setToggleEdit(true)
-            }
-          >
-            Edit info
-          </button>
-        </>
-      )}
-      {(toggleEdit || !profileExisted) && (
-        <EditProfile
-          profileInfo={profile}
-          onSubmit={(profileData) => updateProfile(profileData)}
-        />
-      )}
-      <h1>My Posts</h1>
+      <div className="full-profile">
+        <h1>My Profile</h1>
+        {profileExisted && (
+          <>
+            <InformationCard key={profile.id} profileInfo={profile} />
+            <button
+              className={`btn ${toggleEdit ? "hidden" : ""}`}
+              type="button"
+              onClick={() =>
+                toggleEdit ? setToggleEdit(false) : setToggleEdit(true)
+              }
+            >
+              Edit info
+            </button>
+          </>
+        )}
+        {(toggleEdit || !profileExisted) && (
+          <EditProfile
+            profileInfo={profile}
+            onSubmit={(profileData) => updateProfile(profileData)}
+          />
+        )}
+        <h1>My Posts</h1>
       </div>
-      <div className="posts">
-        {ownersPosts}
-      </div>
+      <div className="posts">{ownersPosts}</div>
     </div>
   );
 }

@@ -115,7 +115,7 @@ export const Feed = () => {
   ));
 
   return (
-    <div className="feed">
+    <section className="feed-page">
       <Banner />
 
       <div
@@ -156,6 +156,6 @@ export const Feed = () => {
       <div className="post-array">
       {PostsArray}
       </div>
-    </div>
+    </section>
   );
 };

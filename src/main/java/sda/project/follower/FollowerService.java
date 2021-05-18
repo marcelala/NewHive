@@ -8,6 +8,11 @@ import sda.project.auth.AuthService;
 import sda.project.user.User;
 import sda.project.user.UserService;
 
+
+/**
+ * A service class which contains necessary service methods to operate Follower Entity.
+ * @since : 2021-05-14
+ */
 @Service
 public class FollowerService {
 
@@ -15,6 +20,9 @@ public class FollowerService {
     UserService userService;
     AuthService authService;
 
+    /**
+     * Creating the object of different class.
+     */
     @Autowired
     public FollowerService(FollowerRepository followerRepository, UserService userService, AuthService authService)
     {
@@ -23,6 +31,10 @@ public class FollowerService {
         this.authService = authService;
     }
 
+    /**
+     * A method to add follower in the User connection
+     * @return adds followers in to the authorized User's connection
+     */
     public ResponseEntity<Followers> addFollower(User following)
     {
         User follower = userService.findUserByEmail(authService.getLoggedInUserEmail());
@@ -33,6 +45,10 @@ public class FollowerService {
         return ResponseEntity.status(HttpStatus.CREATED).body(followers);
     }
 
+    /**
+     * A method to remove follower from User connection
+     * @return removes connection from the authorized User's connection
+     */
     public void removeFollower(User following)
     {
         User follower = userService.findUserByEmail(authService.getLoggedInUserEmail());
