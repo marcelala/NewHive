@@ -1,12 +1,11 @@
 import { useState } from "react";
-import Lady from "../assets/images/profile/profile-photo.png";
 
 export default function UserCard({ profileInfo }) {
   const { name, surname, countryFrom, liveIn, bio, mentorArea } = profileInfo;
   const [toggleInfo, setToggleInfo] = useState(false);
-    const item = localStorage.getItem("avatarNum");
-   const photoObject = require(`../assets/images/avatars/avatar${item}.jpg`);
-   const photoURL = photoObject.default;
+  const item = localStorage.getItem("avatarNum");
+  const photoObject = require(`../assets/images/avatars/avatar${item}.jpg`);
+  const photoURL = photoObject.default;
 
   return (
     <section
@@ -24,12 +23,13 @@ export default function UserCard({ profileInfo }) {
         {toggleInfo && (
           <div className="userCard__info">
             {/* <p className="userCard__email">{profileInfo.email}</p> */}
-            <p className="userCard__mentorship">
-              I can mentor others in {mentorArea}
-            </p>
             <br />
             <p className="userCard__bio"> Bio: </p>
             <p>{bio}</p>
+            <br />
+            <p className="userCard__mentorship">
+              I can mentor others in {mentorArea}
+            </p>
           </div>
         )}
       </div>

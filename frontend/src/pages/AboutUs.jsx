@@ -8,9 +8,15 @@ export default function AboutUs() {
     const about2PictureURL = about2PictureObject.default;
     const storyPictureURL = storyPictureObject.default;
     const matchPictureURL = matchPictureObject.default;
+    const photoObject = require ("../assets/images/NewHive-brown.png")
+    const photoURL = photoObject.default;
+
 
     return (
         <div class="about">
+        <div className="about__logo">
+        <img src={photoURL} className="logo-newHive" alt="honeycomb" />
+        </div>
             <h1>Welcome to NewHive!</h1>
             <h2>A space for immigrant women and non-binary with the feminist vision to find each other and come together</h2>
             <div className="about-grid">

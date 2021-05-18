@@ -16,12 +16,19 @@
     background-repeat: no-repeat;
     position: absolute; 
 }
+.logo-banner img{
+    margin-top: 4rem;
+    align-self:center;
+    position: absolute;
+    padding: 1rem;
+    width: 10rem;
+    height: auto;
+}
 
 .feed--banner-text{
     display: inline-block;
     text-align: left;
     margin-top: 20rem;
-  /* margin-right: 15rem; */
     align-self: baseline;
     position: relative;
     padding: 0.3rem;

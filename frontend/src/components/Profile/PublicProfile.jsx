@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo  } from "react";
 import { useParams } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -21,6 +21,9 @@ export const PublicProfile = () => {
 
   // Constants
   const profileOwner = useParams();
+
+  let RandomNum = () => useMemo(() => Math.floor(Math.random() * 10) + 1, []);
+
 
   const ownersPosts = allPosts.map((post) => (
     <PostCard
