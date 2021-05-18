@@ -62,7 +62,6 @@ public class ProfileService {
         }
     }
 
-
     public Profile fetchProfileById(Long id) {
         return profileRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
     }

@@ -238,15 +238,25 @@ public class Post {
         this.comments = comments;
     }
 
+    /**
+     * A method to get Authorname of post
+     * @return a String which contains Authorname
+     */
     public String getAuthorname() {
         return authorname;
     }
 
+    /**
+     * A method to set the AuthorName of Post
+     */
     public void setAuthorname(String authorname) {
         this.authorname = authorname;
     }
 
-    //To be used in comparing the post author with the user in session
+    /**
+     * A method to To be used in comparing the post author with the user in session
+     * @return a String which contains the author isa same as postAuthor
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
