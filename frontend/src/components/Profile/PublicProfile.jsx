@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 //Api
 import ProfileApi from "../../api/ProfileApi";
 import PostApi from "../../api/PostApi";
@@ -47,13 +49,13 @@ export const PublicProfile = () => {
           return data;
         }
       })
-      // .then((profileData) => {
-      //   FollowerApi.isFollowing(profileData.id).then(({ data }) => {
-      //     if (data) {
-      //       setIsFollowing(data);
-      //     }
-      //   });
-      // })
+      .then((profileData) => {
+        FollowerApi.isFollowing(profileData.id).then(({ data }) => {
+          if (data) {
+            setIsFollowing(data);
+          }
+        });
+      })
       .catch((err) => console.error(err));
   }, []);
 
@@ -112,9 +114,31 @@ export const PublicProfile = () => {
       <div className="public-profile">
         <div className="profile__userCard">
           {profile.owner && <UserCard key={profile.id} profileInfo={profile} />}
-          {/* <button className="btn connect" type="button" onClick={handleSubmit}>
-            Connect with me
-          </button> */}
+          {isFollowing ? (
+            <button
+              className="btn connect"
+              type="button"
+              onClick={handleSubmit}
+            >
+              <FontAwesomeIcon
+                className="add-user"
+                icon={["fa", "user-check"]}
+              />{" "}
+              We are connected
+            </button>
+          ) : (
+            <button
+              className="btn connected"
+              type="button"
+              onClick={handleSubmit}
+            >
+              <FontAwesomeIcon
+                className="add-user"
+                icon={["fa", "user-plus"]}
+              />
+              Connect with me
+            </button>
+          )}
         </div>
         <div className="profile-welcome">
           <h2>{profile.name}'s Profile</h2>
