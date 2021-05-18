@@ -101,6 +101,7 @@ export default function PrivateProfile() {
   }
 
   return (
+    <div>
     <div className="full-profile">
       <h1>My Profile</h1>
       {profileExisted && (
@@ -123,8 +124,9 @@ export default function PrivateProfile() {
           onSubmit={(profileData) => updateProfile(profileData)}
         />
       )}
+      <h1>My Posts</h1>
+      </div>
       <div className="posts">
-        <h2>My Posts</h2>
         {ownersPosts}
       </div>
     </div>
