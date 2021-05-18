@@ -9,10 +9,16 @@ import sda.project.user.User;
 
 import javax.persistence.*;
 
+/** This is a model class which represent
+ * Post Entity and it contains necessary
+ * fields to create Post Entity.
+ * @since : 2021-05-08
+ */
 @Validated
 @Entity
 @Table(name="profile")
 public class Profile {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

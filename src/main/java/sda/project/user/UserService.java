@@ -22,23 +22,37 @@ public class UserService {
 
     /**
      * Creating object of UserRepository
-     * @param userRepository
      */
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
+    /**
+     * A method to get user by EmailId
+     * @param email a String which contains User's EmailId
+     * @return the details of User of provided EmailId
+     */
     public User findUserByEmail(String email) {
         return userRepository.findByEmail(email);
     }
 
+    /**
+     * A Method to register User in the userRepository
+     * @param user
+     */
     public void register(User user) {
         String encryptedPass = passwordEncoder.encode(user.getPassword());
         user.setPassword(encryptedPass);
         userRepository.save(user);
 
     }
-  public List<User> searchUserByName(String name){
+
+    /**
+     * A Method to search User by name of user
+     * @param name a String which contains name of User
+     * @return User details of which the name is provided
+     */
+    public List<User> searchUserByName(String name){
        return userRepository.findByUsername(name);
     }
 //   public User getUserById(Long id){

@@ -24,14 +24,22 @@ import org.hibernate.annotations.OnDeleteAction;
  */
 @Entity
 public class Post {
+    /**
+     * Represents the id of Post.
+     * It is the primary key of Post Entity
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Represents the Date when the Post is created
+    /**
+     * Represents the Date when the Post is created
+     */
     private Date dateCreated;
 
-    // Represents the Date when the Post is edited
+    /**
+     *  Represents the Date when the Post is edited
+     */
     private Date lastEdited;
 
     /**
@@ -83,6 +91,9 @@ public class Post {
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     private List<Comment> comments;
 
+    /**
+     * Hibernate needs a default constructor to function
+     */
     public Post() {
 
     }

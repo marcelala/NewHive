@@ -139,6 +139,10 @@ public class PostController {
         return ResponseEntity.ok(posts);
     }
 
+    /**
+     *  A method to get the posts of User's connections in to the feed
+     * @return the posts of the User's connections in to the feed
+     */
     @GetMapping("/postOfConnections")
     public ResponseEntity<List<Post>> getPostOfConnections(){
         User userInSession = userService.findUserByEmail(authService.getLoggedInUserEmail());

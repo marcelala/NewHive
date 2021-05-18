@@ -72,9 +72,8 @@ public class PostService {
 
     /**
      * A method to update post in postRepository by authorized User.
-     * @thows UnAuthorized Exception
+     * @thows UnAuthorized Exception if the author is unAuthorized
      */
-    //Update a post.
     public Post update(Post postUpdate, Post existingPost){
         if(isAuthorized(existingPost)){
             existingPost.setBody(postUpdate.getBody());
@@ -87,7 +86,11 @@ public class PostService {
         }
     }
 
-    //Generates a post instance from body.
+    /**
+     * A method to generate a post instance from body.
+     * @param postParam is an object of in which value of all required fields are set fo generating post.
+     * @return generated post.
+     */
     public Post generatePost(Post postParam){
         Date currentDate = new Date();
         User author = userService.findUserByEmail(authService.getLoggedInUserEmail());
@@ -98,28 +101,49 @@ public class PostService {
         return postParam;
     }
 
-    //to check if the author is authenticated before delete/update requests
+    /**
+     * A method to check if the author of the post is authenticated before delete/update requests
+     * @param existingPost contains author of the post
+     * @return
+     */
     public boolean isAuthorized(Post existingPost){
         User postAuthor = existingPost.getAuthor();
         User userInSession = userService.findUserByEmail(authService.getLoggedInUserEmail());
         return postAuthor.equals(userInSession);
     }
 
-    //fetch all lost by topics
+
+    /**
+     * A method to get post sorted by Topics
+     * @param topic is a String which contains topic of post and it is the query parameter
+     * @return with fetching post of provided topic in the query
+     */
     public List<Post> fetchPostByTopic(String topic){
         return postRepository.findByTopic(topic);
     }
 
-    //fetch all post by latest
+    /**
+     * A method to get all posts.
+     * @return all posts wil be sorted by date descending order.
+     */
     public List<Post> findAllPostByDateDec(){
         return postRepository.findAllPostByDateDec();
     }
 
-
+    /**
+     * A Method to fetch post by authorname
+     * @param authorname is a string which contains authorname and is the query parameter
+     * @return with fetching post of provided authorname in the query
+     */
     public List<Post> fetchPostByAuthorname(String authorname) {
         return postRepository.findByAuthorname(authorname);
     }
-//fetch posts by email
+
+    /**
+     * A method to fetch all posts by EmailId of Registered User
+     * @param author is a String which contains emailId of Registered User and it is the query parameter
+     * @return with fetching all posts of User of provided EmailId in the query
+     */
     public List<Post> fetchPostByAuthor(User author) {
         return postRepository.findByAuthor(author);
     }
