@@ -1,3 +1,5 @@
+![LOGO](frontend/src/assets/images/NewHive-brown.png)
+
 # NewHive
 
 NewHive is a social media platform in Sweden where immigrant women and non-binary people with a feminist perspective can meet and connect.We are a feel-good social network that brings diverse women together for meaningful and supportive conversations. It's a social network platform that you may use on your phones, tablets, laptops, and computers.
