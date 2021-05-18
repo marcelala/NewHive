@@ -1,5 +1,19 @@
 .about{
-    color: var(--color-dark-brown);
+    color: var(--color-dark-brown);  
+    margin-top: 4rem; 
+}
+
+.about__logo{
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.about__logo img{
+    width: 15rem;
+    height: auto;
+    margin: 0 auto;
+
 }
 
 .about-grid{
