@@ -10,7 +10,7 @@ NewHive community was founded in Stockholm in 2021 with an ambitious mission to 
 
 ## Purpose
 
-- Provides a private environment where women can freely voice their ideas and doubts.
+- Provides a private environment where women and non-binary people can freely voice their ideas and doubts.
 - We care about the connections for those who are new, not likes or popularity.
 - Provides a **Mentoring** relationship for persons seeking guidance and assistance in their personal and professional growth.
 - Provides information about organizations that may be useful if someone requires assistance with a specific topic.
@@ -52,7 +52,6 @@ Then start the frontend application by running
 ```
 npm start
 ```
-
 
 ## REST API
 
@@ -108,5 +107,19 @@ We have implemented API in Spring boot with postgreSQL database. Below mentioned
 | `DELETE` |`/unfollower/remove/{profileId}` | delete the connection between the user who is loggedin and profile mentioned by profileId. |
 | `GET` |`/isFollower/{profileId}` | checks if loggedin user is follower of the profile mentioned by profileId. |
 
+# User Manual
 
+
+
+
+# Author
+
+Created between Apr 22 - May 19 2021 as a final group project for Software Development Academy, iteration 9, by:
+
+- Ahmed N.A.Ismail
+- Himani Paronigar
+- Marcela Felix Fortis
+- Natalia Fedorova
+- Nirali V Thakar
+- Olha Pinchuk
 
