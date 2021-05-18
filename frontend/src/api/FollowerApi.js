@@ -7,7 +7,9 @@ class FollowerApi {
     removeFollower(id) {
         return Api.get("/unfollow/remove/" + id);
     }
-
+    isFollowing(id) {
+        return Api.get("follower?id=" + id);
+    }
 }
 
 export default new FollowerApi();
