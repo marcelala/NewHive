@@ -54,9 +54,8 @@
 /*PrivateProfile*/
 
 .full-profile h1{
-    display: flex;
     text-align: center;
-    margin: 1rem;
+    margin: 2rem;
     font-size: 30px;
     font-weight: bolder;
 }
@@ -74,7 +73,9 @@
 }
 
 .full-profile button{
-    margin-left: 2rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
 }
 
 

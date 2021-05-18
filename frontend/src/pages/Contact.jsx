@@ -19,6 +19,10 @@ export const Contact = () => {
     }
   }
   return (
+    <div className="contact-us-page">
+      <div className="contact-us-header">
+      </div>
+      <div className="contact-us-form">
     <section className="contact__container">
       <h2 className="contact__heading">Contact</h2>
       <h4 className="contact__sub-heading">
@@ -72,5 +76,7 @@ export const Contact = () => {
         </div>
       </div>
     </section>
+    </div>
+    </div>
   );
 };
