@@ -1,5 +1,7 @@
 .contact-us-page{
   justify-content: center;
+  margin: auto;
+
 }
 
 .contact-us-header {
@@ -16,10 +18,11 @@
 }
 
 .contact__container{
-    max-width: 75%;
-    margin: 4rem;
+    max-width: 90%;
+    margin: auto;
+    margin-top: 2rem;
     align-content: center;
-    padding: 2rem 4rem;
+    padding: 2rem 2rem;
     background-color: var(--color-light-beige);
 }
 
@@ -51,9 +54,8 @@
   
 
   .input-group{
-      margin-bottom: 1rem;
+      margin: auto;
       background: transparent;
-      margin-top: 1rem;
   }
   .contact-content{
     justify-content: space-between;
@@ -74,16 +76,17 @@
   
   .input-group-wrap{
     display: flex;
+    width: 100%;
   }
   .input-group-wrap .input-group{
-    width: 50%;
     margin-right: 2rem;
   }
 .contact__selector-container{
   min-width: 20%;
   max-width: 15rem;
-  width: 40%;
-  margin-top: 1.5rem;
+  width: 90%;
+  margin: auto;
+  margin-top: 2rem;
 }
 
 .contact-selector{
