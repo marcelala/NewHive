@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.*;
 import sda.project.user.User;
 import sda.project.user.UserService;
 
-
+/**
+ * This is a Controller class of Auth Entity
+ * which contains methods of User Authentication
+ */
 @RestController
 public class AuthController {
     @Autowired
@@ -18,6 +21,10 @@ public class AuthController {
     @Autowired
     private UserService userService;
 
+    /**
+     * A method for registration of User
+     * @return User will be registered successfully and token will be generated
+     */
     @PostMapping("/register")
     public ResponseEntity<?> register(@Validated @RequestBody User user) {
         userService.register(user);
@@ -27,6 +34,7 @@ public class AuthController {
 
         return new ResponseEntity<>(authResponse, HttpStatus.CREATED);
     }
+
 
     @PostMapping("/authenticate")
     public ResponseEntity<?> authenticate(@RequestBody AuthRequest authRequest) {
@@ -39,6 +47,8 @@ public class AuthController {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
     }
+
+
     @GetMapping("/user")
     public String getUser(){
         User userInSession = userService.findUserByEmail(authService.getLoggedInUserEmail());

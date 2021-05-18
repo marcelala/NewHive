@@ -55,7 +55,7 @@ public class PostController {
 
     /**
      * A method to get all posts.
-     * @return all posts wil be sorted by date descending order.
+     * @return all posts will be sorted by date descending order.
      */
     @GetMapping("/posts")
     public ResponseEntity<List<Post>> getAllPosts(){
