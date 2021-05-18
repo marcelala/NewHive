@@ -8,6 +8,9 @@ import org.springframework.stereotype.Repository;
 import sda.project.user.User;
 
 import java.util.List;
+import sda.project.user.User;
+
+
 
 import java.util.List;
 
@@ -46,6 +49,9 @@ public interface PostRepository extends JpaRepository<Post, Long> {
      * @return with fetching all posts of User of provided EmailId in the query
      */
     List<Post> findByAuthor(User author);
+
+
+
 
 
 }

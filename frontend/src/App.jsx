@@ -1,6 +1,7 @@
 // NPM Packages
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+
 // import fontawesome components
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
@@ -14,7 +15,8 @@ import { NavBar } from "./components/NavBar";
 import { Feed } from "../src/pages/Feed";
 import { AuthPage } from "./pages/auth/AuthPage";
 import PrivateProfile from "./components/Profile/PrivateProfile";
-import  AboutUs from "./pages/AboutUs";
+import { PublicProfile } from "./components/Profile/PublicProfile";
+import AboutUs from "./pages/AboutUs";
 import { OrganizationsPage } from "./pages/Organizations/OrganizationsPage";
 import { Contact } from "../src/pages/Contact";
 import { CommunityGuidelines } from "../src/pages/CommunityGuidelines";
@@ -39,24 +41,27 @@ function App() {
   // Constants
   const loggedInRouter = (
     <div className="App">
-      <BrowserRouter>
-        <NavBar onLogout={() => Auth.logout()}/>
-        <Switch>
-          <Route component={Feed} path="/" exact />
-          <Route component={OrganizationsPage} path="/organizations" />
-          <Route component={PrivateProfile} path="/profile"/>
-          <Route component={Contact} path="/contact" />
-          <Route component={CommunityGuidelines} path="/guidelines" />
-          <Route component={AboutUs} path="/about"/>
-          <Route component={FAQ} path="/faq" />
-          <Route component={MentorsPage} path="/mentors" />
-        </Switch>
-        <Footer/>
-      </BrowserRouter>
+        <BrowserRouter>
+          <NavBar onLogout={() => Auth.logout()} />
+          <Switch>
+            <React.Suspense fallback={<div>Loading...</div>}>
+              <Route component={Feed} path="/" exact />
+              <Route component={OrganizationsPage} path="/organizations" />
+              <Route component={PublicProfile} path="/user-profile/:email" />
+              <Route component={PrivateProfile} path="/profile" />
+              <Route component={Contact} path="/contact" />
+              <Route component={CommunityGuidelines} path="/guidelines" />
+              <Route component={AboutUs} path="/about" />
+              <Route component={FAQ} path="/faq" />
+              <Route component={MentorsPage} path="/mentors" />
+            </React.Suspense>
+          </Switch>
+          <Footer />
+        </BrowserRouter>
     </div>
   );
 
-   return loggedIn ? loggedInRouter : <AuthPage />;
+  return loggedIn ? loggedInRouter : <AuthPage />;
 }
 
 export default App;

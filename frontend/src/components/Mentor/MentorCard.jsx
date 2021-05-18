@@ -12,9 +12,14 @@ export default function MentorCard( {mentorInfo} ) {
                 </div>
                 <div className="mentor-info">
                     <p className="mentor-name">{mentorInfo.name} {mentorInfo.surname}</p>
-                    <p className="bold-p">Mentoring area: {mentorInfo.mentorArea}</p>
+                    <p>Can mentor you in:</p>
+                    <p className="bold-p">{mentorInfo.mentorArea}</p>
                     <p>From {mentorInfo.countryFrom}, lives in {mentorInfo.liveIn}</p>
-                    <p>About: {mentorInfo.bio}</p>
+                    <p className="bold-p">About:</p>
+                    <p>{mentorInfo.bio}</p>
+                    <p>{mentorInfo.email}</p>
+                    <p className= "bold-p">  Contact:</p>
+                    <p> {mentorInfo.owner} </p>
                 </div>
             </div>
         </div>

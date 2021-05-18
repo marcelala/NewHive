@@ -4,12 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import sda.project.auth.AuthService;
+import sda.project.follower.FollowerRepository;
+import sda.project.follower.Followers;
 import sda.project.profile.Profile;
 import sda.project.profile.ProfileRepository;
 import sda.project.user.User;
 import sda.project.user.UserService;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -22,16 +26,21 @@ public class PostController {
     private UserService userService;
     private ProfileRepository profileRepository;
     private PostRepository postRepository;
+    private FollowerRepository followerRepository;
+    private AuthService authService;
+
 
     /**
      * Creating the object of different class.
      */
     @Autowired
-    public PostController(PostService postService, UserService userService, ProfileRepository profileRepository, PostRepository postRepository) {
+    public PostController(PostService postService, UserService userService, ProfileRepository profileRepository, PostRepository postRepository,FollowerRepository followerRepository,AuthService authService) {
         this.postService = postService;
         this.userService = userService;
         this.profileRepository = profileRepository;
         this.postRepository = postRepository;
+        this.followerRepository = followerRepository;
+        this.authService = authService;
     }
 
     /**
@@ -115,7 +124,6 @@ public class PostController {
         User user = userService.findUserByEmail(owner);
         Profile profile = profileRepository.findByOwner(user);
         return ResponseEntity.ok(profile);
-
     }
 
     /**
@@ -123,10 +131,26 @@ public class PostController {
      * @param author is a String which contains emailId of Registered User and it is the query parameter
      * @return with fetching all posts of User of provided EmailId in the query
      */
+
     @GetMapping (value = "/posts", params = "author")
     public ResponseEntity<List<Post>> getPostByAuthor(@RequestParam String author) {
         User user = userService.findUserByEmail(author);
         List<Post> posts = postRepository.findByAuthor(user);
+        return ResponseEntity.ok(posts);
+    }
+
+    @GetMapping("/postOfConnections")
+    public ResponseEntity<List<Post>> getPostOfConnections(){
+        User userInSession = userService.findUserByEmail(authService.getLoggedInUserEmail());
+        List<Followers> following_entity = userInSession.getFollowing();
+        List<User> following = new ArrayList<>();
+        for (Followers followers:following_entity) {
+            following.add(followers.getTo());
+        }
+        List<Post> posts = new ArrayList<>();
+        for(User user:following){ posts = postRepository.findByAuthor(user);
+        }
+
         return ResponseEntity.ok(posts);
     }
 

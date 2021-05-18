@@ -1,7 +1,9 @@
 package sda.project.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.Length;
 import sda.project.comments.Comment;
+import sda.project.follower.Followers;
 import sda.project.profile.Profile;
 import sda.project.posts.Post;
 import javax.persistence.*;
@@ -58,6 +60,14 @@ public class User {
     // Represents User Profile
     @OneToOne(mappedBy = "owner",cascade = CascadeType.ALL)
     private Profile profile;
+
+    @OneToMany(mappedBy="to")
+    @JsonIgnore
+    private List<Followers> followers;
+
+    @OneToMany(mappedBy="from")
+    @JsonIgnore
+    private List<Followers> following;
 
     // Hibernate needs a default constructor to function
     public User() {}
@@ -152,6 +162,22 @@ public class User {
      */
     public void setProfile(Profile profile) {
         this.profile = profile;
+    }
+
+    public List<Followers> getFollowers() {
+        return followers;
+    }
+
+    public void setFollowers(List<Followers> followers) {
+        this.followers = followers;
+    }
+
+    public List<Followers> getFollowing() {
+        return following;
+    }
+
+    public void setFollowing(List<Followers> following) {
+        this.following = following;
     }
 
     @Override
