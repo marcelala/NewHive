@@ -4,12 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import sda.project.auth.AuthService;
+import sda.project.follower.FollowerRepository;
+import sda.project.follower.Followers;
 import sda.project.profile.Profile;
 import sda.project.profile.ProfileRepository;
 import sda.project.user.User;
 import sda.project.user.UserService;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -18,13 +22,21 @@ public class PostController {
     private final PostService postService;
     private UserService userService;
     private ProfileRepository profileRepository;
+    private PostRepository postRepository;
+    private FollowerRepository followerRepository;
+    private AuthService authService;
+
 
     @Autowired
-    public PostController(PostService postService, UserService userService, ProfileRepository profileRepository) {
+    public PostController(PostService postService, UserService userService, ProfileRepository profileRepository, PostRepository postRepository,FollowerRepository followerRepository,AuthService authService) {
         this.postService = postService;
         this.userService = userService;
         this.profileRepository = profileRepository;
+        this.postRepository = postRepository;
+        this.followerRepository = followerRepository;
+        this.authService = authService;
     }
+
 
     @PostMapping("/posts")
     public ResponseEntity<Post> createPost(@RequestBody Post postParam){
@@ -60,16 +72,38 @@ public class PostController {
         return ResponseEntity.ok(postService.fetchPostByTopic(topic));
     }
 
-    @GetMapping (value ="/posts" , params = "authorname")
-    public ResponseEntity<List<Post>> getPostByAuthorname(@RequestParam String authorname) {
-        return ResponseEntity.ok(postService.fetchPostByAuthorname(authorname));
-    }
+    // @GetMapping (value ="/posts" , params = "author")
+    // public ResponseEntity<List<Post>> getPostByAuthor(@RequestParam User author ) {
+    //     return ResponseEntity.ok(postService.fetchPostByAuthor(author));
+    // }
 
     @GetMapping (value = "/profile" , params = "owner")
     public ResponseEntity<Profile> getProfileByAuthor(@RequestParam String owner){
         User user = userService.findUserByEmail(owner);
         Profile profile = profileRepository.findByOwner(user);
         return ResponseEntity.ok(profile);
+    }
+
+    @GetMapping (value = "/posts", params = "author")
+    public ResponseEntity<List<Post>> getPostByAuthor(@RequestParam String author) {
+        User user = userService.findUserByEmail(author);
+        List<Post> posts = postRepository.findByAuthor(user);
+        return ResponseEntity.ok(posts);
+    }
+
+    @GetMapping("/postOfConnections")
+    public ResponseEntity<List<Post>> getPostOfConnections(){
+        User userInSession = userService.findUserByEmail(authService.getLoggedInUserEmail());
+        List<Followers> following_entity = userInSession.getFollowing();
+        List<User> following = new ArrayList<>();
+        for (Followers followers:following_entity) {
+            following.add(followers.getTo());
+        }
+        List<Post> posts = new ArrayList<>();
+        for(User user:following){ posts = postRepository.findByAuthor(user);
+        }
+
+        return ResponseEntity.ok(posts);
     }
 
 

@@ -1,0 +1,44 @@
+
+.public-profile-section{
+    display: flex;
+    justify-content: center;
+    color: var(--color-brown);
+    width: 90%;
+    margin: 1rem auto;
+}
+.profile-welcome h2{
+    width: 100%;
+    font-weight: 500;
+
+}
+.public-profile{
+    display: grid;
+    grid-template-rows: auto;
+    align-content: center;
+}
+
+@media (min-width: 600px) {
+    .public-profile{
+        grid-template-columns: 1fr 2fr;
+    }
+}
+.profile__userCard{
+    width:90%;
+    margin: 3rem auto;
+}
+.profile__userPosts{
+    min-width: 60%;
+}
+
+.btn.connect, .btn.connected{
+    width: 70%;
+    background-color: var(--color-warm-brown);
+    border-radius: 1rem;
+    font-weight: 500;
+    padding: 0.9rem 0.3rem;
+    margin-top: 2rem;
+}
+
+.add-user{
+    margin-right: 0.3rem;
+}

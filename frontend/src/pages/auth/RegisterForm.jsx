@@ -11,7 +11,7 @@ export const RegisterForm = ({ onSubmit }) => {
       <h2>Sign Up</h2>
       <div className="form">
         <div className="form-group">
-          <label htmlFor="name">Name:</label>
+          <label htmlFor="name">Username:</label>
           <input
             id="name"
             type="text"

@@ -53,7 +53,18 @@ public class ProfileController {
     @GetMapping("/view-profile/{id}")
     public ResponseEntity<Profile> viewProfileById(@PathVariable Long id) {
         return ResponseEntity.ok(profileService.fetchProfileById(id));
+    }
 
+    //     @GetMapping("/view-profile/{author}")
+    // public ResponseEntity<Profile> viewProfileByUserName(@PathVariable User author) {
+    //     return ResponseEntity.ok(profileService.fetchProfileByUserName(author));
+
+    // }
+
+    @GetMapping("/view-profile-by-email/{email}")
+    public ResponseEntity<Profile> viewProfileByEmail(@PathVariable String email) {
+        User user = userService.findUserByEmail(email);
+        return ResponseEntity.ok(profileService.fetchProfileByOwner(user));
     }
 
     @GetMapping(value = "/mentors", params = "mentorArea")
