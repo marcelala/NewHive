@@ -151,11 +151,12 @@ public class PostController {
         for (Followers followers:following_entity) {
             following.add(followers.getTo());
         }
-        List<Post> posts = new ArrayList<>();
-        for(User user:following){ posts = postRepository.findByAuthor(user);
+        List<Post> post_list = new ArrayList<>();
+        for(User user:following){
+            List<Post> posts = postRepository.findByAuthor(user);
+            post_list.addAll(posts);
         }
-
-        return ResponseEntity.ok(posts);
+        return ResponseEntity.ok(post_list);
     }
 
 
