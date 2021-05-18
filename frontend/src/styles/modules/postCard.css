@@ -114,11 +114,12 @@
   text-align: start;
   font-weight: 500;
   width: 70%;
+  font-size: 1.9rem;
+  margin-bottom: 1rem;
 }
 .postCard__content-heading p{
   padding: auto;
   margin: auto;
-  font-size: 1.5rem;
   text-align: start;
   text-justify: inter-word;
 }
@@ -182,7 +183,7 @@ p.postCard__content-read-more {
   text-align: start;
   margin:auto;
   padding: 1rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
   text-align: start;
   text-justify: inter-word;
   width: 60%;
