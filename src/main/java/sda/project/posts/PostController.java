@@ -159,7 +159,4 @@ public class PostController {
 
         return ResponseEntity.ok(post_list);
     }
-
-
-
 }
