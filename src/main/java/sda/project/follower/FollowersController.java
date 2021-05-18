@@ -12,6 +12,9 @@ import sda.project.user.User;
 import sda.project.user.UserRepository;
 import sda.project.user.UserService;
 
+/** This is a Controller class of Followers Entity which contains methods of Followers Entity.
+ * @since : 2021-05-14
+ */
 @RestController
 public class FollowersController {
 
@@ -23,7 +26,9 @@ public class FollowersController {
     FollowerService followerService;
     AuthService authService;
 
-
+    /**
+     * Creating the object of different class.
+     */
     public FollowersController(UserRepository userRepository, FollowerService followerService, FollowerRepository followerRepository,ProfileRepository profileRepository,AuthService authService) {
         this.userRepository = userRepository;
         this.followerService = followerService;
@@ -32,6 +37,11 @@ public class FollowersController {
         this.authService = authService;
     }
 
+    /**
+     * A method to add follower in the User connection
+     * @param id is the primary key
+     * @return adds connection in to the authorized User
+     */
     @PutMapping("/follower/add/{id}")
     public ResponseEntity<Followers> addFollower(@PathVariable Long id)
     {
@@ -40,6 +50,11 @@ public class FollowersController {
         return followerService.addFollower(following);
     }
 
+    /**
+     * A method to remove follower from User connection
+     * @param id is the primary key
+     * @return removes connection from the authorized User
+     */
     @DeleteMapping("/unfollow/remove/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void removeFollower(@PathVariable Long id)
@@ -49,6 +64,10 @@ public class FollowersController {
         followerService.removeFollower(following);
     }
 
+    /**
+     * A method to check User is following another User's Profile
+     * @param id is the primary key
+     */
     @GetMapping("/isFollower/{id}")
     public boolean isFollower(@PathVariable Long id)
     {
