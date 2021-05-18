@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom";
 import ProfileApi from "../../api/ProfileApi";
 import PostApi from "../../api/PostApi";
 import UserApi from "../../api/UserApi";
+import FollowerApi from "../../api/FollowerApi";
+
 
 //Components
 import UserCard from "../UserCard";
@@ -15,6 +17,10 @@ export const PublicProfile = () => {
   const [allPosts, setAllPosts] = useState([]);
   const [profile, setProfile] = useState({});
   const [posts, setPosts] = useState([]);
+  const [isFollower, setIsFollower] = useState([]);
+  const [startFollowing, setStartFollowing] = useState(false);
+
+  
 
   // Constants
   const profileOwner = useParams();
@@ -44,6 +50,17 @@ export const PublicProfile = () => {
       .catch((err) => console.error(err));
   }, []);
 
+  useEffect(() => {
+    FollowerApi.addFollower(profileOwner.id)
+      .then(({ data }) => {
+        if (data) {
+          setIsFollower(true);
+          setStartFollowing(data);
+        }
+      })
+      .catch((err) => console.error(err));
+  }, [setIsFollower, setStartFollowing]);
+
   // Methods
 
   async function updatePost(id, updatedPost) {
@@ -68,12 +85,36 @@ export const PublicProfile = () => {
       console.error(e);
     }
   }
+
+  async function addFollower(id) {
+    try {
+      console.log("Follow", isFollower);
+      const response = await FollowerApi.addFollower(id);
+      setStartFollowing({ ...response.data });
+      setIsFollower(true);
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  async function removeFollower(id) {
+    try {
+      console.log("Follow", isFollower);
+      const response = await FollowerApi.removeFollower(id);
+      setStartFollowing({ ...response.data });
+      setIsFollower(false);
+    } catch (e) {
+      console.error(e);
+    }
+  }
+  
   return (
     <section className="public-profile-section">
 
     <div className="public-profile">
       <div className="profile__userCard">
         {profile.owner && <UserCard key={profile.id} profileInfo={profile} />}
+        <button className="btn connect" type="button">Connect with me</button>
       </div>
       <div className="profile-welcome">
       <h2>{profile.name}'s Profile</h2>

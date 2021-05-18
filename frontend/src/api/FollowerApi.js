@@ -9,3 +9,5 @@ class FollowerApi {
     }
 
 }
+
+export default new FollowerApi();
