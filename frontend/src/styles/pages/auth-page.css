@@ -32,6 +32,13 @@
   box-shadow: 0 6px 6px rgb(0 0 0 / 25%);
 }
 
+@media screen and (max-width: 660px) {
+  .form-layout {
+    grid: none;
+    background: url('../../assets/images/bridge-girl.jpg');
+  }
+}
+
 .form-background {
   height: 100%;
   background-image: url("../../assets/images/auth/formBg.jpg");
@@ -46,7 +53,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: url('../../assets/images/NewHive-brown.png') no-repeat;
+  background: url("../../assets/images/NewHive-brown.png") no-repeat;
   background-size: 30% auto;
   background-position: top right;
 }
@@ -114,5 +121,5 @@
   text-decoration: underline;
   color: var(--color-dark-brown);
   font-family: "Montserrat", sans-serif;
-  background-color: var(--color-light-beige);
+  background-color: transparent;
 }
