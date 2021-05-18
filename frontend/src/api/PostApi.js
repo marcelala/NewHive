@@ -5,6 +5,9 @@ class PostApi {
     return Api.get("/posts");
   }
 
+  getPostsOfConnections() {
+    return Api.get("/postOfConnections");
+  }
   getPostById(id) {
     return Api.get("/posts/" + id);
   }
