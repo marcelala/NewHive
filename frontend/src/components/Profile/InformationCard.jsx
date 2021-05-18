@@ -1,12 +1,10 @@
-// import { useEffect, useState } from "react";
-// import UserApi from "../../api/UserApi";
-// import ProfileApi from "../../api/ProfileApi";
 
 export default function InformationCard({ profileInfo }) {
   const { name, surname, countryFrom, liveIn, bio, mentorArea } = profileInfo;
-  const photoObject = require ("../../assets/images/profile/profile-photo.png")
+  const item = localStorage.getItem("avatarNum");
+  const photoObject = require(`../../assets/images/avatars/avatar${item}.jpg`);
   const photoURL = photoObject.default;
-
+  
   function getFullName() {
     return `${name} ${surname}`
   }
@@ -27,7 +25,6 @@ export default function InformationCard({ profileInfo }) {
           <p>{liveIn}</p>
           <p className="bold-p">Bio: </p>
           <p>{bio}</p>
-          {/*<p>Open for mentoring others: {profileInfo.mentor}</p>*/}
           <p className="bold-p"> Can mentor in: </p> <p>{mentorArea}</p>
         </div>
       </div>

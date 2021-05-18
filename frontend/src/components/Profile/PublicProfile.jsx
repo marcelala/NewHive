@@ -123,7 +123,7 @@ export const PublicProfile = () => {
               <FontAwesomeIcon
                 className="add-user"
                 icon={["fa", "user-check"]}
-              />{" "}
+              />
               We are connected
             </button>
           ) : (
