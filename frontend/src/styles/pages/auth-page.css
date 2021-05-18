@@ -46,6 +46,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: url('../../assets/images/NewHive-brown.png') no-repeat;
+  background-size: 30% auto;
+  background-position: top right;
+}
+
+.logo-auth {
+  width: 3rem;
+  background: url("../../assets/images/NewHive.png") no-repeat;
 }
 
 .auth-form {
@@ -106,5 +114,5 @@
   text-decoration: underline;
   color: var(--color-dark-brown);
   font-family: "Montserrat", sans-serif;
-
+  background-color: var(--color-light-beige);
 }
