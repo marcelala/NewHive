@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 
 export default function MentorCard( {mentorInfo} ) {
-    const photoObject = require ("../../assets/images/profile/mentor-photo.jpg");
+    const item = localStorage.getItem("avatarNum");
+    const photoObject = require (`../../assets/images/avatars/avatar${item}.jpg`);
     const photoURL = photoObject.default;
 
     return (

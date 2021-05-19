@@ -202,6 +202,7 @@ export default function PostCard({ post, onDeleteClick, onPostUpdate }) {
               toggleBody ? setToggleBody(false) : setToggleBody(true)
             }
           >
+            <br/>   <br/>    <br/>
             <button className="postCard__content-read-more btn">read more...</button>
           </div>
           <div className="postCard__comments">
