@@ -156,9 +156,7 @@ public class PostController {
             List<Post> posts = postRepository.findByAuthor(user);
             post_list.addAll(posts);
         }
+
         return ResponseEntity.ok(post_list);
     }
-
-
-
 }
