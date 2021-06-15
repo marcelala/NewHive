@@ -1,5 +1,5 @@
 <p align="center">
-![LOGO](frontend/src/assets/images/NewHive-brown.png)
+<img src="frontend/src/assets/images/NewHive-brown.png"/>
 </p>
 
 # NewHive
