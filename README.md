@@ -1,4 +1,6 @@
+<p align="center">
 ![LOGO](frontend/src/assets/images/NewHive-brown.png)
+</p>
 
 # NewHive
 
@@ -16,6 +18,11 @@ NewHive community was founded in Stockholm in 2021 with an ambitious mission to 
 - Provides information about organizations that may be useful if someone requires assistance with a specific topic.
 - For those who are new to Sweden, there is a section where you may find some fascinating content about the country.
 
+## Preview
+
+Follow this link to see the project: https://secret-waters-48687.herokuapp.com/
+
+You will need to create an account to have access to the services of the website.
 
 
 ## Setup
